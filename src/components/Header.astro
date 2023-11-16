@@ -1,12 +1,43 @@
 ---
 import Hamburger from './Hamburger.astro';
 import Navigation from './Navigation.astro';
-import ThemeIcon from './ThemeIcon.astro';
 ---
 <header>
   <nav>
 		<Hamburger />
-    <ThemeIcon />
+    <div class="home-link">
+        <a href="/">
+        <img src="/images/brain.jpg" height="40" width="40" alt="brain on treadmill" />
+      </a>
+      </div>
     <Navigation />
   </nav>
 </header>
+
+<style>
+
+  nav {
+    display: flex;
+  }
+  .home-link a {
+    text-decoration: none;
+    display: flex;
+  }
+
+  .home-link a:hover {
+    text-decoration: underline;
+  }
+
+  .home-link img {
+    border-radius: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .home-link p {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 8px;
+    line-height: 1.5;
+  }
+</style>

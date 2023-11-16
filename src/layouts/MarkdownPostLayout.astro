@@ -1,24 +1,27 @@
 ---
 import Tags from "../components/Tags.astro";
 import BaseLayout from "./BaseLayout.astro";
+import { format, formatDistance } from "date-fns";
 const { frontmatter } = Astro.props;
+
+const date = new Date(frontmatter.date);
+const formattedDate = format(date, "MMMM dd, yyyy");
+const ago = formatDistance(date, new Date(), { addSuffix: true });
 ---
+
 <BaseLayout pageTitle={frontmatter.title}>
-	<p>First published: {frontmatter.date}</p>
-	<slot />
-	<div class="tags">
-		{frontmatter.tags.map((tag: string) => (
-			<p class="tag">
-			<a href={`/tags/${tag}`}>{tag}</a>
-			</p>
-		))}
-	</div>
-  <!-- <Tags tags={frontmatter.tags} /> -->
+  <p class="date">Published on {formattedDate} ({ago})</p>
+  <slot />
+  <Tags tags={frontmatter.tags} />
+
+  <script>
+    import "../scripts/codeCopyButton";
+  </script>
 </BaseLayout>
 
 <style>
   a {
-    color: #00539F;
+    color: #00539f;
   }
 
   .tags {
@@ -29,9 +32,26 @@ const { frontmatter } = Astro.props;
   .tag {
     margin: 0.25em;
     border: dotted 1px #a1a1a1;
-    border-radius: .5em;
-    padding: .5em 1em;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
     font-size: 1.15em;
-    background-color: #F8FCFD;
+    background-color: #f8fcfd;
+  }
+
+  /* Adds background colour and full width */
+  .date {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom-width: 1px;
+    text-align: center;
+    color: #374151;
+    background-color: lightgray;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 100vw;
+    position: relative;
+    right: 50%;
+    width: 100vw;
   }
 </style>

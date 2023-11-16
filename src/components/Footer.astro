@@ -1,5 +1,4 @@
 ---
-import Social from './Social.astro';
 ---
 
 
@@ -7,14 +6,57 @@ import Social from './Social.astro';
   footer {
     display: flex;
     gap: 1rem;
-    margin-top: 2rem;
+justify-content: space-between; 
+list-style-type: none; 
+background: rgb(254,132,47);
+left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 100vw;
+    position: relative;
+    right: 50%;
+    width: 100vw;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    font-size: 1rem;
+    position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  }
+
+  #page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+  footer a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
   }
 </style>
 
 
-
 <footer>
-  <Social platform="twitter" username="dolearning" />
-  <Social platform="github" username="doingandlearning" />
-  <Social platform="youtube" username="@doingandlearning" />
+  <p>
+
+    <a href="/feed.xml" class="text-white list-none my-auto" target="_blank" rel="noreferrer">
+      RSS
+    </a>
+  </p>
+  <div>
+    <p>&copy; {new Date().getFullYear()} Kevin Cunningham</p>
+  </div>
+  <p>
+
+    <a href="/sitemap-index.xml" class="text-white list-none my-auto" target="_blank" rel="noreferrer">
+      Sitemap
+    </a>
+  </p>
 </footer>

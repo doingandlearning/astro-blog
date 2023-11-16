@@ -23,7 +23,7 @@ We are probably never going to be free of bundlers, we are going to use dynamic 
 
 To do this with React the syntax is:
 
-```
+```js
 const SmileyFace = React.lazy(() => import('./smiley-face'))
 ```
 
@@ -43,7 +43,7 @@ When you have a calculation that is being run in the render cycle, this doesn't 
 
 We have useMemo, to make sure we don't recalculate when we don't need to. We pass in dependencies, a lot like the useEffect hook.
 
-```
+```js
 function Distance({ x, y }) {
   const distance = React.useMemo(() => calculateDistance(x, y), [x, y])
   return (
@@ -111,7 +111,7 @@ https://reactjs.org/docs/profiler.html
 
 Here's a basic usage example:
 
-```
+```jsx
 <App>
   <Profiler id="Navigation" onRender={onRenderCallback}>
     <Navigation {...props} />
@@ -122,7 +122,7 @@ Here's a basic usage example:
 
 The callback is called with the following arguments
 
-```
+```js
 function onRenderCallback(
   id, // the "id" prop of the Profiler tree that has just committed
   phase, // either "mount" (if the tree just mounted) or "update" (if it re-rendered)

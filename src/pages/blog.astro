@@ -7,8 +7,11 @@ const allPosts = await getCollection("posts").then((res) => res.sort((a, b) => N
 
 <BaseLayout pageTitle="Blog">
   <a href="/tags">View post by tag</a>
-  <p>This is where I will post about my journey learning Astro.</p>
-  <ul>
+  <p>
+    I blog about a lot of tech and learning topics. These posts are a combination of tutorials and thinking. I
+    often revisit these posts and update them both as technologies change and my thinking changes.
+  </p>
+  <div class="blog-cards">
     {
       allPosts.map((post) => (
         <BlogPostCard
@@ -20,3 +23,13 @@ const allPosts = await getCollection("posts").then((res) => res.sort((a, b) => N
     }
   </ul>
 </BaseLayout>
+
+
+<style>
+  .blog-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    column-gap: 50px;
+  }
+</style>

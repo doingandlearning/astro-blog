@@ -1,9 +1,11 @@
 ---
-const {title, url, ogimage} = Astro.props;
+import { getMetaImage } from "../scripts/utils";
+const {title, url} = Astro.props;
+const ogimage = getMetaImage(title)
 ---
 
-<li>
+<div>
 	<a href={url} title={title}>
-		<img src={ogimage} alt={title} />
+		<img src={ogimage} alt={title}  width="350" />
 	</a>
-</li>
+</div>

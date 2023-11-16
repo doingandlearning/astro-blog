@@ -12,16 +12,49 @@ const { pageTitle } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{pageTitle}</title>
     <ViewTransitions />
   </head>
   <body>
-    <Header />
-    <h1 transition:animate="slide">{pageTitle}</h1>
-		<slot />
-    <Footer />
+    <div id="page-container">
+
+      <Header />
+      <h1 transition:animate="slide" class="title">{pageTitle}</h1>
+        <div id="content-wrap">
+          
+      <slot />
+      </div>
+      <div id="footer">
+
+        <Footer />
+      </div>
+    </div>
     <script>
       import "../scripts/menu.js";
     </script>
   </body>
 </html>
+
+<style>
+  .title {
+    font-weight: 700; 
+    text-align: center; 
+  }
+
+  #page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+}
+</style>

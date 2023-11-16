@@ -1,5 +1,5 @@
 html {
-  background-color: #f1f5f9;
+  /* background-color: #f1f5f9; */
   font-family: sans-serif;
 }
 
@@ -40,6 +40,100 @@ html.dark {
 
 .dark .nav-links a {
   color: #fff;
+}
+
+.copy-code {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgb(254,132,47);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.copy-code:hover {
+  background-color: white;
+  color: rgb(254,132,47);
+}
+
+
+code {
+  font-family: MyFancyCustomFont, monospace;
+  font-size: inherit;
+}
+
+blockquote {
+  display: block;
+  background: #fff;
+  padding: 15px 20px 15px 45px;
+  margin: 20px 0;
+  position: relative;
+
+  /*Font*/
+  font-size: 19px;
+  line-height: 1.2;
+  color: #666;
+  text-align: justify;
+
+  /*Borders - (Optional)*/
+  border-left: 15px solid #fe842f;
+  border-right: 2px solid #fe842f;
+
+  /*Box Shadow - (Optional)*/
+  -moz-box-shadow: 2px 2px 15px #ccc;
+  -webkit-box-shadow: 2px 2px 15px #ccc;
+  box-shadow: 2px 2px 15px #ccc;
+}
+
+blockquote::before {
+  content: "\201C"; /*Unicode for Left Double Quote*/
+
+  font-size: 60px;
+  font-weight: bold;
+  color: #999;
+
+  /*Positioning*/
+  position: absolute;
+  left: 10px;
+  top: 5px;
+}
+
+blockquote::after {
+  /*Reset to make sure*/
+  content: "";
+}
+
+blockquote em {
+  font-style: italic;
+}
+
+/* Code in text */
+p > code,
+li > code,
+dd > code,
+td > code {
+  background: #ffeff0;
+  word-wrap: break-word;
+  box-decoration-break: clone;
+  padding: .1rem .3rem .2rem;
+  border-radius: .2rem;
+}
+pre code {
+  background-color: black;
+  border: 1px solid #999;
+  display: block;
+  background: none;
+  white-space: pre;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  max-width: 100%;
+  min-width: 100px;
+  padding: 20px;
+  font-family: monospace;
+  font-size: 1rem;
+  min-height: 50px;
 }
 
 /* * nav styles */ */

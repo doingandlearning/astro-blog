@@ -3,6 +3,14 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPostCard from "../../components/BlogPostCard.astro";
 import { getCollection } from "astro:content";
 
+export interface Post {
+  slug: string;
+  data: {
+    title: string;
+    tags: string[];
+  };
+}
+
 export async function getStaticPaths(): Promise<{ params: { tag: string }, props: {posts: Post[]} }[]> {
   const allPosts = await getCollection("posts");
   const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
@@ -24,7 +32,8 @@ const { posts } = Astro.props;
 
 <BaseLayout pageTitle={tag}>
   <p>Posts tagged with {tag}</p>
-  <ul>
+  <p><a href="/tags">Back to tags</a></p>
+  <div class="blog-cards">
     {
       posts.map((post) => (
         <BlogPostCard
@@ -34,5 +43,14 @@ const { posts } = Astro.props;
         />
       ))
     }
-  </ul>
+  </div>
 </BaseLayout>
+
+<style>
+  .blog-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    column-gap: 50px;
+  }
+</style>
