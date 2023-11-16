@@ -21,9 +21,9 @@ This 'bot' didn't require any interaction. It needed to post a message at regula
 
 You need to be a mod on a Discord server to create a webhook. You go to your integrations and follow four simple steps. Here's how I did it on Space Jelly ( [come join us](https://discord.gg/AdXZ4HP)!).
 
-![Screenshot 2020-10-04 at 16.13.22.png](images/YGOi20iGK.png)
+![Screenshot 2020-10-04 at 16.13.22.png](/images/YGOi20iGK.png)
 
-![Screenshot 2020-10-04 at 16.15.21.png](images/8iOjtz5-3.png)
+![Screenshot 2020-10-04 at 16.15.21.png](/images/8iOjtz5-3.png)
 
 Click that `Copy Webhook URL` button and keep it handy, along with the bot name.
 
@@ -39,7 +39,7 @@ It's time to pop open your favourite API client to see if your webhook is workin
 }
 ```
 
-![Screenshot 2020-10-04 at 16.29.14.png](images/a2lPiowUJ.png)
+![Screenshot 2020-10-04 at 16.29.14.png](/images/a2lPiowUJ.png)
 
 Your message should appear in the channel you selected for your webhook. Go check! :)
 
@@ -59,7 +59,7 @@ If you want to fork this and add your own things then feel free.
 
 There is a nice button there to launch this in Netlify. You can add the variables you noted earlier on. The last bit of setup needed on Netlify is in the build and deploy settings. This tripped me up a bit but this is what they should look like. I've updated the `netlify.toml` file so this mightn't be a problem for you :)
 
-![Screenshot 2020-10-04 at 16.48.20.png](images/WPWVYo1ky.png)
+![Screenshot 2020-10-04 at 16.48.20.png](/images/WPWVYo1ky.png)
 
 ## Triggering the bot
 
@@ -67,7 +67,7 @@ Once you have deployed to Netlify, you will have an app URL. To trigger the mess
 
 These functions are serverless. That means that they only run on demand and so can't trigger themselves at set intervals. To be able to trigger them, we need to use another service. I used a service called EasyCron (other vendors are available). I set up some rules about when I wanted the URL triggered.
 
-![Screenshot 2020-10-04 at 16.52.03.png](images/a8rAYlBpx.png)
+![Screenshot 2020-10-04 at 16.52.03.png](/images/a8rAYlBpx.png)
 
 Different timezones are represented in Space Jelly, so I have it trigger a few times a day during the month of October.
 

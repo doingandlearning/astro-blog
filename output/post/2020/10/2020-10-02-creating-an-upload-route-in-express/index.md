@@ -102,13 +102,13 @@ I use [Insomnia](https://insomnia.rest/) on the Mac as my API client of choice. 
 
 First, let's make sure that we get an error if we don't send a file.
 
-![Screenshot 2020-10-02 at 16.25.19.png](images/9bjG-TQzv.png)
+![Screenshot 2020-10-02 at 16.25.19.png](/images/9bjG-TQzv.png)
 
 Now, we'll set the body type to multi-part form,  
-![Screenshot 2020-10-02 at 16.25.29.png](images/Tnjdr0WXq.png)
+![Screenshot 2020-10-02 at 16.25.29.png](/images/Tnjdr0WXq.png)
 
 attach our file and send.  
-![Screenshot 2020-10-02 at 16.26.15.png](images/nG9Ah3uGq.png)
+![Screenshot 2020-10-02 at 16.26.15.png](/images/nG9Ah3uGq.png)
 
 Awesome! It all worked!
 

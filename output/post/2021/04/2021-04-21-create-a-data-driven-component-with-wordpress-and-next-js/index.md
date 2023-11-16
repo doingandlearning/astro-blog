@@ -14,7 +14,7 @@ When we build front-ends, we tend to talk about component driven architecture. T
 
 I'm going to build one of the FrontPanel components from my website. It looks like this:
 
-![](images/Group-6-1024x370.png)
+![](/images/Group-6-1024x370.png)
 
 Labelled version of the FrontPanel component
 
@@ -33,29 +33,29 @@ If you are using the free plugin, you gain a lot of excellent functionality. The
 
 Once you have installed and activated the ACF plugin, you'll have a new sidebar item in your WordPress admin panel.
 
-![](images/Screenshot-2021-04-21-at-11.03.32.png)
+![](/images/Screenshot-2021-04-21-at-11.03.32.png)
 
 Clicking on "Add New" will let you start filling out the fields for the component. There are a lot of possible options here but for the first two fields, we're only going to fill in the label, name and type.
 
-![](images/Screenshot-2021-04-21-at-11.49.59-973x1024.png)
+![](/images/Screenshot-2021-04-21-at-11.49.59-973x1024.png)
 
 The third section of data we wanted was a link to relevant posts. With ACF Pro, I would set this up as a repeater field which would allow me to vary the number of posts. For now, I'll use a group field type and have four fields to capture the relevant posts. Each of the fields in the group will be of type Post Object. It should look a bit like this:
 
-![](images/Screenshot-2021-04-21-at-11.55.48-1024x992.png)
+![](/images/Screenshot-2021-04-21-at-11.55.48-1024x992.png)
 
 The final fields we need to capture are those for the two buttons. Let's create a group for each button which will have a label and a destination.
 
-![](images/Screenshot-2021-04-21-at-12.01.07-1024x691.png)
+![](/images/Screenshot-2021-04-21-at-12.01.07-1024x691.png)
 
 All done! Our final set of fields should look like this:
 
-![](images/Screenshot-2021-04-21-at-12.01.30-1024x308.png)
+![](/images/Screenshot-2021-04-21-at-12.01.30-1024x308.png)
 
 ## Making the fields available
 
 We have control over where and how these fields are displayed in our admin area. I want these panels to be available on any page. So, below the field definitions I will set that location rules.
 
-![](images/Screenshot-2021-04-21-at-12.03.55-1024x159.png)
+![](/images/Screenshot-2021-04-21-at-12.03.55-1024x159.png)
 
 You can be even more granular and have these fields available on a particular page or post. Building up an interface with ACF runs the risk of overcomplicating your editors' experience. Make sure you only make the fields available where they absolutely have to be.
 
@@ -72,11 +72,11 @@ It is possible to have our ACF fields encapsulated by a Gutenberg block but ther
 
 For now, I'll add the some content and fill in the fields for our component.
 
-![](images/Screenshot-2021-04-22-at-07.54.38-1024x971.png)
+![](/images/Screenshot-2021-04-22-at-07.54.38-1024x971.png)
 
 When we select a post, get a drop down of all the posts on our WordPress instance to select from. I'll select the posts I want (which in this sample instance are all about Headless WordPress) and finally fill in the details for my buttons.
 
-![](images/Screenshot-2021-04-22-at-07.56.12-1024x575.png)
+![](/images/Screenshot-2021-04-22-at-07.56.12-1024x575.png)
 
 ## Preparing the GraphQL Query
 
@@ -86,13 +86,13 @@ In order to make ACF fields available to GraphQL there is a second plugin we nee
 
 Once installed, we need to nip back to our Custom Fields to do a final piece of configuration.
 
-![](images/Screenshot-2021-04-22-at-08.06.17-1024x333.png)
+![](/images/Screenshot-2021-04-22-at-08.06.17-1024x333.png)
 
 At the bottom of our field block, we now have the option to show these fields in GraphQL and to give them a name. This is how we'll refer to them in our GraphQL query.
 
 Let's head to the GraphiQL interface to build out our query before we head over to Next.js to implement this feature.
 
-![](images/Screenshot-2021-04-22-at-08.08.11-1024x577.png)
+![](/images/Screenshot-2021-04-22-at-08.08.11-1024x577.png)
 
 The awesome thing about GraphQL is that we request the exact data we need. Here I am requesting all the page nodes and specifically the FrontPanel fields. I'll include the code block as well in case you want to copy and paste.
 

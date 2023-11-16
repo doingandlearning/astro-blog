@@ -11,7 +11,7 @@ As part of being an Auth0 ambassador, I get to partake in internal hackathons. I
 
 Actions are secure serverless functions that are triggered at various points of the authentication flow. At the moment, there are two triggers but there will be more soon.
 
-![Auth0 Action triggers](images/Screenshot_2020-11-15_at_17.56.26_ddokpp.png)
+![Auth0 Action triggers](/images/Screenshot_2020-11-15_at_17.56.26_ddokpp.png)
 
 The action is written in JavaScript and the editor has great type hints to make development easier. You can test on the editor, add environment variables (called `secrets`) and install 3rd party modules from npm.
 
@@ -27,13 +27,13 @@ All the cool kids love playing with machine learning - so that's what we decided
 
 We decided we'd redirect and add an extra authentication steps. Maybe someone could use a finger to trace a maze? Maybe the user could move their head in the old cheat code pattern?
 
-![Cheat code](images/Screenshot_2020-11-15_at_18.31.02_ld5lrd.png)
+![Cheat code](/images/Screenshot_2020-11-15_at_18.31.02_ld5lrd.png)
 
 Exploring the space, we found lots of ideas and then we found [face-api.js](https://justadudewhohacks.github.io/face-api.js/docs/index.html). This had a face expression recognition and we were inspired.
 
 We decided we'd show our users funny videos and if they laughed we'd invalidate their login. Genius!
 
-![Don't smile picture](images/Screenshot_2020-11-15_at_18.34.47_ssoeme.png)
+![Don't smile picture](/images/Screenshot_2020-11-15_at_18.34.47_ssoeme.png)
 
 We based this largely on one of the examples from the repo. We added in a video, a timer and our logic. [The repo is here](https://github.com/doingandlearning/stop-smiling) if you're interested and it's deployed [here](https://stop-smiling.herokuapp.com/). We couldn't get the iframed video to autoplay so we abandoned our curated list of funny videos and had to stick with one for this prototype.
 

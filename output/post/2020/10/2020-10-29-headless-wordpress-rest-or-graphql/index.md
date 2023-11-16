@@ -21,7 +21,7 @@ This is pretty cool. Like all RESTful clients that are designed for more than on
 
 Look at a typical blogpost built with WP.
 
-![Typical blog post](images/Screenshot_2020-11-14_at_19.41.11_gqosih.png)
+![Typical blog post](/images/Screenshot_2020-11-14_at_19.41.11_gqosih.png)
 
 In a typical WordPress install, all of the data for this page is retrieved from the database, combined, rendered and then sent to the user. In a Headless world, if you want to construct this same page, you'll need to make 3 separate calls.
 

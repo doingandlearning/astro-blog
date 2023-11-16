@@ -16,7 +16,7 @@ This post will look at one strategy to achieve this goal - JSON Web Tokens. I'll
 
 JSON Web Token (JWT) is an open standard (RFC 7519). It is a method for securely signing requests between two parties.
 
-![1_l-FS80RhxUgjZOKGgOXnTQ.jpeg](images/NEUiX1VlD.jpeg)
+![1_l-FS80RhxUgjZOKGgOXnTQ.jpeg](/images/NEUiX1VlD.jpeg)
 
 Once our user has authenticated, the server provides them with a JWT (pronounced JOT). Going forward, the client signs every request with this token. If the token is valid, the request succeeds, otherwise it fails.
 

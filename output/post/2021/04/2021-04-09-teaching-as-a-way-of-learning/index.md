@@ -9,7 +9,7 @@ It's easy to remember my first week of teacher training. I'd just moved country,
 
 Well, we were here to train to be teachers, so that's not surprising! I can't remember if we all had to teach the same thing but I remember I had to teach adding fractions to my group of 5 or so. My fellow students had to role-play a bit and ask questions as well-behaved 12 or 13 year olds.
 
-![A blackboard with one quarter filled in.](images/images.jpeg)
+![A blackboard with one quarter filled in.](/images/images.jpeg)
 
 I was fresh out of a Maths degree and had been playing with fractions for about 15 years by then (there was another 13 years of teaching them to come). The struggle to explain concepts that were so obvious to me was real. I stumbled over concepts that I knew, my examples confused rather than helped and I had to dig deep to come up with alternative explanations. I also realised that my technical language wasn't always accurate. I remember I talked about common denominators and called the numerator the nominator (which kind of makes sense but is wrong). I know that after that session, I understood fractions better than I ever had before and was hooked on being a teacher.
 

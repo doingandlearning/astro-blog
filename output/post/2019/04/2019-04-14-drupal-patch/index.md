@@ -15,13 +15,13 @@ The module I was contributing to was the `date_recur` module but this workflow w
 
 The first thing to do was to checkout the issue queue - has this been something others have fixed or tried to fix? Is it a problem that others have had? You can find this on the right-hand side of the project page.
 
-![](images/issue-queue.png)
+![](/images/issue-queue.png)
 
 Once you've searched through the issues and made sure that it hasn't already been fixed it's time to prepare your patch.
 
 You'll first need to get a fresh git clone of the module you want to patch. Go back to project page and on the right-hand side find `Browse code repository` in the `Development` section.
 
-![](images/browse-repo.png)
+![](/images/browse-repo.png)
 
 If you scroll right to the bottom of that page, you'll see a `Clone` section with a link. For me, that is `https://git.drupal.org/project/date_recur.git`. Use this link to clone the module to a fresh directory, preferable not in any source controlled project.
 
@@ -45,6 +45,6 @@ Below the text field, there is a widget to upload a file and to select which ver
 
 The last thing to do now, is to alert the maintainers and anyone else who is contributing that this issue needs review. At the bottom of the issue there is an `Issue metadata` section. Expand this and change the status to `Needs review`.
 
-![](images/issue-status-1024x327.png)
+![](/images/issue-status-1024x327.png)
 
 That's it! I haven't heard back about my submission yet but I have been able to use it in my own `composer.json` file and work with the patched version for the site I'm working on.

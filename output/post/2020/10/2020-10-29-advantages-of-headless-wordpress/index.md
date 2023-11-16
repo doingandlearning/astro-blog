@@ -25,7 +25,7 @@ If you can imagine it for your backend (or you've seen it on the Premium package
 
 If you have ever bought a domain with GoDaddy or Bluehost or any of the mainstream providers, you've probably come across cPanel or something similar.
 
-![image.png](images/9FV8-wHZc.png)
+![image.png](/images/9FV8-wHZc.png)
 
 These shared hosting providers give one-click setups for WordPress and, for the most part, work seamlessly (my experience is that they aren't always the fastest of sites which is one of the reasons I love headless).
 
@@ -55,9 +55,9 @@ I mentioned plugins in the last section and it's worth noting that WP developmen
 
 I'm always curious on price points around headless CMSes. Here are some selections from pricing pages:
 
-![Screenshot 2020-10-29 at 05.55.24.png](images/70O_jN66r.png)
+![Screenshot 2020-10-29 at 05.55.24.png](/images/70O_jN66r.png)
 
-![Screenshot 2020-10-29 at 05.56.31.png](images/a74LMgbW1.png)
+![Screenshot 2020-10-29 at 05.56.31.png](/images/a74LMgbW1.png)
 
 I've mentioned some free or super low-cost deployment options for headless WordPress. With each WP you can have unlimited users, unlimited roles and can implement any of the features that these solutions offer with a bit of work.
 

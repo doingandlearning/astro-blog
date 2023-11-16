@@ -15,7 +15,7 @@ There are lots of examples, with WordPress being one of the most well-known.
 
 ## Breaking the monolith
 
-![image.png](images/O2P9K6YIk.png)  
+![image.png](/images/O2P9K6YIk.png)  
 Maybe you've heard of the JAMstack? That stands for JavaScript, APIs and Markup. It's one way of separating those two components - the `front` and `back` end. This is one way of breaking the monolith.
 
 For the front-end, there are myriad frameworks and approaches you can use. React, Vue and Angular are all popular. Whichever you choose, how you manage your content is pretty much up to you. As long as it can be accessed by your frontend, either during a build step or when someone accesses your site, you can do what you want.
@@ -28,7 +28,7 @@ In this approach, WordPress is where your content team creates posts, stores ima
 
 ## Headless means …
 
-![image.png](images/4L6YEmPpp.png)
+![image.png](/images/4L6YEmPpp.png)
 
 - Being responsible for content creation and storage, not display
 - Having a clear, documented way to allow access to the content

@@ -18,7 +18,7 @@ This seemed like a good use of coding super-powers so I dove in.
 
 Since we were already in Google, I thought I'd leverage their APIs rather than trying to do something more bespoke or complicated.
 
-![Selecting script editor in Google](images/oabVol0qz.png)
+![Selecting script editor in Google](/images/oabVol0qz.png)
 
 The documentation for Google Scripts is [here](https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app). The two services we are most interested in this case are `SpreadsheetApp` and `CalendarApp`.
 
@@ -87,7 +87,7 @@ Now, we have almost everything we need to create a new calendar event. The last 
 
 You can get this in the Google calendar settings.
 
-![Screenshot 2020-10-28 at 08.08.36.png](images/bZoUHHUFH.png)
+![Screenshot 2020-10-28 at 08.08.36.png](/images/bZoUHHUFH.png)
 
 Let's create the event
 
@@ -109,7 +109,7 @@ and then mark this row as booked.
 
 Back in the form, we can create drawing and assign our script to the button.
 
-![Screenshot 2020-10-28 at 08.22.21.png](images/2J37pAkVA.png)
+![Screenshot 2020-10-28 at 08.22.21.png](/images/2J37pAkVA.png)
 
 The first time this runs, Google will request permissions for the Calendar and Sheet, and then will process the sheet and add the events.
 

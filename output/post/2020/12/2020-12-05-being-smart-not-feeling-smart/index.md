@@ -11,7 +11,7 @@ I'm not even sure I agree with the word `smart` but I'm curious about the questi
 
 Our brains are weird. We get a dopamine hit when we successfully recall a piece of information. If, when asked, you remember the actor who starred in that movie that time - you get a jolt of feel-good chemicals dumped into your brain. Amazing! You've retrieved that information!
 
-![man celebrating knowing something](images/giphy.gif)
+![man celebrating knowing something](/images/giphy.gif)
 
 But, if you look it up or read it in an article, you also get that hit. Here's the thing though, your brain convinces itself that you knew the information all along.
 
@@ -19,7 +19,7 @@ This is tied in to the cognitive bias referred to as the `mere exposure` effect.
 
 A common study strategy is re-reading and, boy, is that a bad strategy! In re-reading, we convince ourselves that we know the material (we feel `smart`) even as we aren't really learning it (we aren't getting `smarter`). Seeing the information again convinces our brains that we've retrieved the information and we get the dopamine hit. More often, though we've remembered seeing it on the page before and feel like an expert. It's like fast food - convenient and available - but it isn't nutrious and it doesn't help us learn.
 
-![girl staring longingly at a hamburger](images/girl-with-hamburger-1_tegcep.jpg)
+![girl staring longingly at a hamburger](/images/girl-with-hamburger-1_tegcep.jpg)
 
 The other side of this is that when we are actually learning, it is hard work. It doesn't necessarily feel good not to know or do the work to change that. In that period of time, you often don't feel smart even as you're actively becoming smarter.
 
@@ -41,7 +41,7 @@ Like most things, I think this has to come primarily from the learner rather tha
 
 With egghead, I produce short 2-4 minute videos that clearly answer a single question - "How do I …?". Someone comes to that video often with a question in mind and I'm trying to provide the quickest route to the answer.
 
-![graphic of how do i and lots of questions marks](images/how_20do_20i_20question_20marks_xssjsz.png)
+![graphic of how do i and lots of questions marks](/images/how_20do_20i_20question_20marks_xssjsz.png)
 
 When working on a course, each video has this same feel. Someone might come to that video in isolation looking for an answer while another person might watch the whole course from beginning to end.
 

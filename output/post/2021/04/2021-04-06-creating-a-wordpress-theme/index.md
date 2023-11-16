@@ -84,11 +84,11 @@ Adding a similar comment to the style.css file as before, such as:
 
 will result in this:
 
-![](images/Screenshot-2021-04-06-at-10.58.57-1-1024x446.png)
+![](/images/Screenshot-2021-04-06-at-10.58.57-1-1024x446.png)
 
 And finally, adding our screenshot gets us to a more enticing and useful installation screen:
 
-![](images/Screenshot-2021-04-06-at-10.59.46-1024x440.png)
+![](/images/Screenshot-2021-04-06-at-10.59.46-1024x440.png)
 
 ## Conclusion
 

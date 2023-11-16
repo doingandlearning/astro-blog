@@ -3,7 +3,7 @@ title: "About Kevin Cunningham"
 date: "2021-04-25"
 ---
 
-![](images/face-1.jpg)
+![](/images/face-1.jpg)
 
 I'm a web development consultant and educator working with people around the world from the shed in my office in rural Northern Ireland.
 
