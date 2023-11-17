@@ -1,7 +1,9 @@
 ---
 title: "Considering blogging in an AI saturated world"
 date: "2023-11-15"
-tags: []
+updateDate: "2023-11-17"
+tags: ["ai", "blogging", "writing"]
+description: "Is there any point in writing when AI can generate text so quickly?"
 ---
 
 I've been playing around with ChatGPT since we first got access to the GPT models. I use it to critique my thinking, help me clarify my thoughts and solve problems in the code editor and beyond.

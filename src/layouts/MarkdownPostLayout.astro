@@ -6,13 +6,28 @@ const { frontmatter } = Astro.props;
 
 const date = new Date(frontmatter.date);
 const formattedDate = format(date, "MMMM dd, yyyy");
-const ago = formatDistance(date, new Date(), { addSuffix: true });
+const planted = formatDistance(date, new Date(), { addSuffix: true });
+
+let tended;
+if (frontmatter.updateDate) {
+  const date = new Date(frontmatter.updateDate);
+  tended = formatDistance(date, new Date(), { addSuffix: true });
+  console.log(tended);
+}
 ---
 
-<BaseLayout pageTitle={frontmatter.title}>
-  <p class="date">Published on {formattedDate} ({ago})</p>
+<BaseLayout>
+  <h1>{frontmatter.title}</h1>
+  <h2>{frontmatter.description}</h2>
+  <hr />
+  <div class="heading-info">
+    <Tags tags={frontmatter.tags} />
+    <div class="dates">
+      <p>Planted {planted}</p>
+      {tended && <p>Last tended {tended}</p>}
+    </div>
+  </div>
   <slot />
-  <Tags tags={frontmatter.tags} />
 
   <script>
     import "../scripts/codeCopyButton";
@@ -20,6 +35,29 @@ const ago = formatDistance(date, new Date(), { addSuffix: true });
 </BaseLayout>
 
 <style>
+  h1,
+  h2 {
+    font-family: "Canela Deck", serif;
+  }
+
+  h2 {
+    color: #73706d;
+    font-weight: 500;
+  }
+  .heading-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dates {
+    line-height: 0.3;
+    text-align: right;
+  }
+
+  .dates p {
+    line-height: 0.3;
+  }
   a {
     color: #00539f;
   }
@@ -54,5 +92,4 @@ const ago = formatDistance(date, new Date(), { addSuffix: true });
     right: 50%;
     width: 100vw;
   }
-
 </style>

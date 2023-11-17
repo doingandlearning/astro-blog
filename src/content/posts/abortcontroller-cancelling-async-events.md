@@ -1,7 +1,8 @@
 ---
 title: "AbortController - Cancelling Async Events"
 date: "2023-01-26"
-tags: []
+updateDate: "2023-11-17"
+tags: ["javascript", "async"]
 ---
 
 The AbortController global object has been available and stable in Node since v15.4.0. However, I still find myself working with teams that don't use it or haven't even heard of it.
@@ -32,7 +33,7 @@ While AbortController with AbortSignal can be used for callback-based APIs, it's
 
 To use a very simple example, here's a traditional JavaScript timeout:
 
-```
+```js
 const timeout = setTimeout(() => {  
   console.log('will not be logged')  
 }, 1000)
@@ -44,7 +45,7 @@ This code will output nothing. The timeout is cleared before its callback can be
 
 How can we achieve the same thing with a promise-based timeout? Let's consider the following code. We're using ESM here to take advantage of Top-Level Await:
 
-```
+```js
 import { setTimeout } from 'timers/promises'
 
 const timeout = setTimeout(1000, 'will be logged')
@@ -68,7 +69,7 @@ This is where accepting an **AbortSignal** can provide a conventional escape-hat
 
 We can ensure the promisified timeout is canceled like so:
 
-```
+```js
 import { setTimeout } from 'timers/promises'
 
 const ac = new AbortController()  
@@ -101,4 +102,4 @@ Many parts of the Node core API accept a **signal** option, including **fs**, **
 
 ## How about you?
 
-Are you using the AbortController throughout your Node code?
+Are you using the AbortController throughout your Node code? I'd love to see some examples!

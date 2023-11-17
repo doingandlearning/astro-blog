@@ -1,8 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
 ---
 
 <BaseLayout pageTitle="Digital Garden">
-	<h1>Digital Garden</h1>
+  <div class="h-screen">
+    <iframe
+      src="https://garden.kevincunningham.co.uk"
+      height="100%"
+      width="100%"></iframe>
+  </div>
 </BaseLayout>
+
+<style>
+  .h-screen {
+    height: 100vh;
+  }
+</style>

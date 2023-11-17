@@ -1,18 +1,28 @@
 ---
 title: "Protect Fastify routes with Authorization"
 date: "2023-06-12"
-tags: []
+tags: ["fastify", "Node", "JavaScript"]
+dateUpdated: "2023-11-17"
 ---
+
+import YouTubeEmbed from "../../components/YouTubeEmbed.astro"
 
 Every web application needs to have control over who or what can access its resources. This is where authorization comes in. In this tutorial, we will learn how to implement an API key-based authorization strategy in Fastify. We'll focus on how to create middleware to handle this, and how to apply this middleware at both a global level and on individual routes. Buckle up and let's dive right in.
 
 We often talk about public and private data. Public data is accessible to anyone, while private data is only accessible by certain requests - typically those that provide certain credentials. How can we ensure that only authorized requests can access these private routes? This is where we apply authorization, which we'll implement through a simple API key check.
 
+
+<YouTubeEmbed 
+    title="Protecting API Routes"
+    videoId="JwCu0oTK-OI"
+/>
+
+
 ## Creating the authorization middleware
 
 We'll start by creating an authorization middleware function that we'll call `auth`. This function will be responsible for checking incoming requests to see if they have the right credentials. For our simple example, we're going to look for an `x-api-key` header and test that against a known value.
 
-```
+```javascript
 async function auth(request, reply) {
     const apiKey = request.headers['x-api-key'];
     const knownKey = 'known-api-key'; // Typically, this would be stored securely
@@ -33,7 +43,7 @@ So why `preHandler` instead of other hooks? The short answer is that it allows u
 
 Let's add our `auth` middleware function at the global level, applying it to all routes:
 
-```
+```javascript
 fastify.addHook('preHandler', auth);
 ```
 
@@ -45,7 +55,7 @@ To verify this is working as expected, you can start your server and make reques
 
 If you want to apply this authentication to a specific route only and not all routes, you can easily do so. Remove the `fastify.addHook('preHandler', auth);` line and add the `preHandler` hook specifically to the routes you want to protect:
 
-```
+```javascript
 fastify.post("/", { preHandler: auth }, projectController.createProject);
 fastify.put("/:id", { preHandler: auth }, projectController.updateProject);
 fastify.delete("/:id", { preHandler: auth }, projectController.deleteProject);
@@ -57,7 +67,7 @@ This way, only requests to these routes will be checked for the correct API key.
 
 In some cases, you might want to allow "safe" HTTP methods like `GET` and `HEAD` to bypass the authorization check. We can tweak our `auth` function to return early if the request's method is one of the safe ones:
 
-```
+```javascript
 async function auth(request, reply) {
     if (['GET', 'HEAD'].includes(request.method)) {
         return;
@@ -80,4 +90,4 @@ Congratulations! You've now implemented a simple form of authorization on your F
 
 Remember, the goal of authorization is to ensure the right people or systems are accessing your application's resources. Fastify's lifecycle hooks, such as `preHandler`, make it easy to implement authorization at any level of your app. Happy coding!
 
-https://www.youtube.com/embed/JwCu0oTK-OI
+

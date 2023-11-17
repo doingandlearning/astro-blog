@@ -1,17 +1,36 @@
 ---
----
-<div class="nav-links">
-	<a href="/blog">Blog</a>
-	<a href="/courses">Courses</a>
-	<a href="/garden/">Digital Garden</a>
-	<a href="/about/">About</a>
-</div>
+import Hamburger from "./Hamburger.astro";
+interface NavItem {
+  label: string;
+  href: string;
+  external?: boolean;
+}
 
-<style>
-	.nav-links {
-		display: flex;
-		justify-content: space-between;
-		margin-bottom: auto;
-		margin-top: auto
-	}
-</style>
+interface Props {
+  isMobile?: boolean;
+}
+
+const navmenu: NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "Blog", href: "/blog" },
+  { label: "Courses", href: "/courses" },
+  { label: "Digital Garden", href: "/garden" },
+  { label: "About", href: "/about" },
+];
+
+const { isMobile } = Astro.props;
+---
+
+<div class={isMobile ? "mobile-nav-links hidden" : "nav-links hidden"}>
+  {
+    navmenu.map((item) => (
+      <a
+        href={item.href}
+        target={item.external ? "_blank" : ""}
+        rel={item.external ? "noopener" : ""}
+      >
+        {item.label}
+      </a>
+    ))
+  }
+</div>

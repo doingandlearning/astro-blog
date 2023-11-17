@@ -1,27 +1,42 @@
 ---
-import Hamburger from './Hamburger.astro';
-import Navigation from './Navigation.astro';
+import Hamburger from "./Hamburger.astro";
+import Navigation from "./Navigation.astro";
 ---
+
 <header>
   <nav>
-		<Hamburger />
     <div class="home-link">
-        <a href="/">
-        <img src="/images/brain.jpg" height="40" width="40" alt="brain on treadmill" />
+      <a href="/">
+        <img
+          src="/images/brain.jpg"
+          height="40"
+          width="40"
+          alt="brain on treadmill"
+        />
       </a>
-      </div>
+    </div>
+    <Hamburger />
     <Navigation />
   </nav>
+  <div>
+    <Navigation isMobile={true} />
+  </div>
 </header>
 
 <style>
-
   nav {
     display: flex;
+    justify-content: space-between; /* Align hamburger to the right */
+    align-items: center;
+  }
+
+  .home-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .home-link a {
-    text-decoration: none;
-    display: flex;
+    margin: auto;
   }
 
   .home-link a:hover {
@@ -30,8 +45,6 @@ import Navigation from './Navigation.astro';
 
   .home-link img {
     border-radius: 50%;
-    margin-top: auto;
-    margin-bottom: auto;
   }
 
   .home-link p {
