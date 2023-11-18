@@ -7,5 +7,6 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://kevincunningham.co.uk",
-  integrations: [preact(), mdx(), sitemap()]
+  integrations: [preact(), mdx(), sitemap()],
+  output: "hybrid",
 });

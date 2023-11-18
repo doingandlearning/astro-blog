@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Otherpage";
 import { getCollection } from "astro:content";
 import { getMetaImage } from "../scripts/utils";
+import Newsletter from "../components/Newsletter.astro";
 
 // get me the latest 3 posts from the posts collection in astro using the getCollections method
 const latestPosts = await getCollection("posts").then((postMessages) =>
@@ -49,6 +50,7 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
   <div>
     <h2>Courses</h2>
   </div>
+  <Newsletter />
 </BaseLayout>
 
 <style>
