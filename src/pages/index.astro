@@ -1,68 +1,82 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Otherpage";
-import { getCollection } from 'astro:content';
-import { getMetaImage } from '../scripts/utils';
+import { getCollection } from "astro:content";
+import { getMetaImage } from "../scripts/utils";
 
 // get me the latest 3 posts from the posts collection in astro using the getCollections method
-const latestPosts = await getCollection('posts').then(postMessages => postMessages.sort((a,b) => Number(new Date(b.data.date)) - Number(new Date(a.data.date))).slice(0, 3));	
+const latestPosts = await getCollection("posts").then((postMessages) =>
+  postMessages
+    .sort(
+      (a, b) => Number(new Date(b.data.date)) - Number(new Date(a.data.date))
+    )
+    .slice(0, 3)
+);
 ---
+
 <BaseLayout pageTitle={pageTitle}>
-	<div transition:animate="slide" class="heading">
-		<h1>👋 Hey! Welcome!</h1>
-	</div>
-	<div class="top">
-		<p>I'm Kevin and this is my little corner of the internet.</p>
-		<p>I'm a developer educator and love learning new stuff.</p>
-		<p>Hopefully, you can learn something around here (and teach me something too!).</p>
-	</div>
-	<div>
-		<h2>Latest posts</h2>
-		{latestPosts.map(post => {
-			const { title, date, description } = post.data;
-			return (<div class="blog-card">
-				<img src={getMetaImage(title)} width="250" />
-				<div class="blog-card-content">
-					<p>{description}</p>
-				</div>	
-			</div>
-		)})}
-	</div>
-	<div>
-		<h2>Courses</h2>
-	</div>
-
-
+  <div transition:animate="slide" class="heading">
+    <h1>👋 Hey! Welcome!</h1>
+  </div>
+  <div class="top">
+    <p>I'm Kevin and this is my little corner of the internet.</p>
+    <p>
+      I'm a developer educator, speaker and writer. I love learning new stuff.
+    </p>
+    <p>
+      Hopefully, you can learn something around here (and teach me something
+      too!).
+    </p>
+  </div>
+  <div>
+    <h2>Latest posts</h2>
+    {
+      latestPosts.map((post) => {
+        const { title, date, description } = post.data;
+        return (
+          <div class="blog-card">
+            <a href={`/posts/${post.slug}`}>
+              <img src={getMetaImage(title)} width="250" />
+            </a>
+            <div class="blog-card-content">
+              <p>{description}</p>
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+  <div>
+    <h2>Courses</h2>
+  </div>
 </BaseLayout>
 
 <style>
-	/* Create a centered heading */
-	.heading {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-	.top p {
-		margin: 4px;
-	}
-	.blog-card {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-		margin: 8px;
-		
-	}
+  /* Create a centered heading */
+  .heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .top p {
+    margin: 4px;
+  }
+  .blog-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 8px;
+  }
 
-	.blog-card-content p {
-		margin: 16px;
-		line-height: 1.4;
-		
-	}
+  .blog-card-content p {
+    margin: 16px;
+    line-height: 1.4;
+  }
 
-	/* on odd rows, flip the image to the right */
-	.blog-card  {
-		order: 2;
-	}
+  /* on odd rows, flip the image to the right */
+  .blog-card {
+    order: 2;
+  }
 </style>

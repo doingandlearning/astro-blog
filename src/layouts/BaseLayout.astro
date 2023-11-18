@@ -3,7 +3,14 @@ import { ViewTransitions } from "astro:transitions";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
-const { pageTitle } = Astro.props;
+import { getMetaImage } from "../scripts/utils";
+
+interface Props {
+  pageTitle: string;
+  pageDescription?: string;
+}
+
+const { pageTitle, pageDescription } = Astro.props;
 ---
 
 <html lang="en">
@@ -13,6 +20,13 @@ const { pageTitle } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:title" content={pageTitle} />
+    <meta
+      property="og:description"
+      content={pageDescription || "Kevin Cunningham"}
+    />
+    <meta property="og:image" content={getMetaImage(pageTitle)} />
+    <meta property="og:url" content={Astro.url} />
     <title>{pageTitle}</title>
     <ViewTransitions />
   </head>
@@ -29,26 +43,27 @@ const { pageTitle } = Astro.props;
     <script>
       import "../scripts/menu.js";
     </script>
-  </body><style>
-    .title {
-      font-weight: 700;
-      text-align: center;
-    }
+    <style>
+      .title {
+        font-weight: 700;
+        text-align: center;
+      }
 
-    #page-container {
-      position: relative;
-      min-height: 100vh;
-    }
+      #page-container {
+        position: relative;
+        min-height: 100vh;
+      }
 
-    #content-wrap {
-      padding-bottom: 2.5rem; /* Footer height */
-    }
+      #content-wrap {
+        padding-bottom: 2.5rem; /* Footer height */
+      }
 
-    #footer {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 2.5rem; /* Footer height */
-    }
-  </style>
+      #footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2.5rem; /* Footer height */
+      }
+    </style>
+  </body>
 </html>
