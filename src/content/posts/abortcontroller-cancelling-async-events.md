@@ -3,6 +3,7 @@ title: "AbortController - Cancelling Async Events"
 date: "2023-01-26"
 updateDate: "2023-11-17"
 tags: ["javascript", "async"]
+description: "How to cancel async events using the AbortController"
 ---
 
 The AbortController global object has been available and stable in Node since v15.4.0. However, I still find myself working with teams that don't use it or haven't even heard of it.

@@ -1,10 +1,151 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+const precordedCourses = await getCollection("prerecorded").then((data) =>
+  data.sort((a, b) => a.data.order - b.data.order)
+);
+const liveCourses = await getCollection("livecourses").then((data) =>
+	data.sort((a, b) => a.data.order - b.data.order)
+);
+
 ---
 
-
-
-
 <BaseLayout pageTitle="Courses">
-	<h1>Courses</h1>
+	<div class="centered">
+		<h1 transition:animate="slide">Live Courses</h1>
+	</div>
+	<div class="description-text">
+		<p>I deliver instructor led courses, both in-person and over Zoom or Teams.</p>
+		<p>
+			I work with teams and individuals around the world and help them level up. Most of these are 3 or 4 day courses but can be expanded and optimised for your use case.
+		</p>
+		<p>
+			These courses are delivered live and are tailored to needs of your team. I can work with you to create a bespoke course or you can choose from one of the courses below.
+		</p>
+	</div>
+	<ul>
+		{liveCourses.map(course => {
+			return	<li>
+			<a href={`/courses/${course.slug}`}>
+						{course.data.title} ({course.data.duration})
+						</a>
+						</li>
+		})}
+	</ul>
+	<div class="centered">
+		<h1 transition:animate="slide">Prerecorded Courses</h1>
+	</div>
+	<div class="description-text">
+		<p>I have a growing library of pre-recorded courses inspired by my in-person teaching.</p>
+		<p>Right now, these are hosted on egghead and you'll need to sign up for a subscription there to access them in full.</p>
+		<p>If you have a membership, then watching my courses helps me out.</p>
+		<p>If you don't have a membership, then signing up and watching my courses also helps me out.</p>
+	</div>
+  <div class="centered">
+    <div class="grid-container">
+      {
+        precordedCourses.map((course) => {
+          const { image, title, link, cta } = course.data;
+          return (
+            <div class="course-card">
+              <a href={link} target="_blank" rel="noreferrer" >
+                <img
+                  src={image.sourceUrl}
+                  class="course-image"
+                  alt={image.altText}
+                />
+                <div class="course-content">
+                  <div class="course-title">{title}</div>
+                  {cta}
+                </div>
+              </a>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
 </BaseLayout>
+
+<style>
+  /* CourseGrid.css */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  /*  */
+  .course-card {
+    background-color: white;
+    border-radius: 0.5rem; /* Approximation for rounded-lg */
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+  }
+
+	.description-text p {
+		line-height: 1.4;
+		margin: 12px;
+		width: 80vw;
+		margin-left:auto;
+		margin-right: auto;	
+	}
+  .course-content {
+    padding: 16px; /* Approximation for p-4 */
+    text-align: center;
+  }
+
+  .course-title {
+    font-weight: bold; /* Approximation for font-bold */
+  }
+
+  .grid-container a {
+    text-decoration: none;
+    color: inherit;
+    color: var(--site-orange);
+  }
+
+  .grid-container a:hover {
+    color: black;
+  }
+
+  .course-card img {
+    width: 150px;
+    height: 150px;
+    border-top-left-radius: 0.5rem; /* Approximation for rounded-t-lg */
+    border-top-right-radius: 0.5rem;
+    object-fit: cover;
+  }
+
+	.centered {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+  @media screen and (min-width: 768px) {
+    .grid-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .course-card img {
+      width: 250px;
+      height: 250px;
+    }
+    .course-card {
+      width: 250px;
+    }
+  }
+  @media screen and (min-width: 636px) {
+    .course-card img {
+      width: 200px;
+      height: 200px;
+    }
+    .course-card {
+      width: 200px;
+    }
+  }
+</style>

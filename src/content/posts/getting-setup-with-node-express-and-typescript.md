@@ -1,14 +1,16 @@
 ---
 title: "Getting setup with Express and TypeScript"
 date: "2023-10-21"
-tags: []
+tags: ["node", "express"]
+description: "A quick walk through of getting setup up with Node, Express and TypeScript"
+updateDate: "2023-11-17"
 ---
 
 Setting up a Node.js and Express backend with TypeScript can seem intimidating, but it's quite straightforward once you break it down. Here's a step-by-step guide to get you started:
 
 1. **Initialize a New Node Project**:
 
-```
+```bash
    mkdir node-ts-backend
    cd node-ts-backend
    npm init -y
@@ -16,7 +18,7 @@ Setting up a Node.js and Express backend with TypeScript can seem intimidating, 
 
 2. **Install Required Packages**:
 
-```
+```bash
    npm install express
    npm install --save-dev typescript @types/node @types/express ts-node nodemon
 ```
@@ -31,13 +33,13 @@ Setting up a Node.js and Express backend with TypeScript can seem intimidating, 
 
 3\. **Initialize TypeScript Configuration**:
 
-```
+```bash
    tsc --init
 ```
 
 This will create a `tsconfig.json` file. Adjust the following settings in this file:
 
-```
+```json
    {
      "target": "es6",
      "module": "commonjs",
@@ -61,7 +63,7 @@ These settings specify that:
 4\. **Setup Nodemon for Development**:  
 In your `package.json`, add the following scripts:
 
-```
+```json
    "scripts": {
      "start": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node src/index.ts"
    }
@@ -69,7 +71,7 @@ In your `package.json`, add the following scripts:
 
 5. **Write Your TypeScript Express App**: Create a `src` directory and inside it, create `index.ts`:
 
-```
+```typescript
    import express, { Request, Response } from 'express';
 
    const app = express();
@@ -86,7 +88,7 @@ In your `package.json`, add the following scripts:
 
 6. **Run Your App**:
 
-```
+```bash
    npm start
 ```
 
@@ -95,7 +97,7 @@ Now, if you visit `http://localhost:3000/`, you should see the message "Hello fr
 7. **Production Build**:  
     If you want to compile your TypeScript code for production, you can add a build script to your `package.json`:
 
-```
+```json
    "scripts": {
      "build": "tsc",
      "start": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node src/index.ts"

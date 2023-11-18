@@ -1,0 +1,79 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+
+---
+
+<BaseLayout>
+  <h1>{frontmatter.title}</h1>
+  <h2 class="bold">{frontmatter.description}</h2>
+	<h2>Duration: {frontmatter.duration}</h2>
+  <hr />
+
+  <slot />
+
+</BaseLayout>
+
+<style>
+  h1,
+  h2 {
+    font-family: "Canela Deck", serif;
+  }
+
+  h2 {
+    color: #73706d;
+    font-weight: 500;
+  }
+
+	.bold {
+		font-weight: 600;
+	}
+  .heading-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dates {
+    line-height: 0.3;
+    text-align: right;
+  }
+
+  .dates p {
+    line-height: 0.3;
+  }
+  a {
+    color: #00539f;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    font-size: 1.15em;
+    background-color: #f8fcfd;
+  }
+
+  /* Adds background colour and full width */
+  .date {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom-width: 1px;
+    text-align: center;
+    color: #374151;
+    background-color: lightgray;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 100vw;
+    position: relative;
+    right: 50%;
+    width: 100vw;
+  }
+</style>

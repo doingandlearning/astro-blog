@@ -1,7 +1,8 @@
 ---
 title: "Passing Flags to Package Scripts with vitest"
 date: "2023-10-06"
-tags: []
+tags: ["node", "cli"]
+description: "How to pass extra flags to a npm script using vitest as an example."
 ---
 
 In the realm of JavaScript development, the subtleties in running package scripts can make a significant difference in workflows. One nuance, often overlooked but crucial, is passing flags to package scripts using `npm run`. Here, we'll focus on this, bringing light to the ins and outs of flag management, using `vitest` as our guide.
@@ -10,13 +11,13 @@ In the realm of JavaScript development, the subtleties in running package script
 
 Executing a package script typically follows this familiar structure:
 
-```
+```bash
 npm run test
 ```
 
 This runs the corresponding script in our `package.json`.
 
-```
+```json
   "scripts": {
     "test": "vitest"
   },
@@ -28,7 +29,7 @@ For our `vitest` example, this would initiate the test in watch mode, ensuring d
 
 Passing flags might seem intuitive at first, but there's a snag. If you're aiming to utilize the user interface (ui) of `vitest`, your first instinct might be:
 
-```
+```bash
 npm run test --ui
 ```
 
@@ -42,7 +43,7 @@ The rule of thumb: To direct flags to the intended package script, always prepen
 
 Therefore, to launch `vitest` with its ui, the correct command is:
 
-```
+```bash
 npm run test -- --ui
 ```
 

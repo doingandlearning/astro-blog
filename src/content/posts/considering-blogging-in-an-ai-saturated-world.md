@@ -2,7 +2,7 @@
 title: "Considering blogging in an AI saturated world"
 date: "2023-11-15"
 updateDate: "2023-11-17"
-tags: ["ai", "blogging", "writing"]
+tags: ["ai", "writing"]
 description: "Is there any point in writing when AI can generate text so quickly?"
 ---
 

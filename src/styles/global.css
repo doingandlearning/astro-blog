@@ -29,9 +29,20 @@ h1 {
 
 p {
   font-size: var(--font-size-base);
-  line-height: 200%
-  font-family: Montserrat, -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+  line-height: 200%;
+  font-family: "Montserrat", -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
+
+a {
+  color: var(--site-orange);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: black;
+}
+
 
 .hamburger {
   padding-right: 20px;
@@ -156,13 +167,13 @@ pre code {
   left: 48px;
   background-color: var(--site-orange);
   display: none;
-  margin: 0;
+  
 }
 
 .hidden {
   display: none;
 }
-.nav-links a {
+.nav-links, .mobile-nav-links a {
   text-align: center;
   padding: 10px 0;
   text-decoration: none;
@@ -171,7 +182,9 @@ pre code {
 }
 
 .nav-links a:hover,
-.nav-links a:focus {
+.nav-links a:focus,
+.mobile-nav-links a:hover,
+.mobile-nav-links a:focus {
   background-color: var(--site-orange);
   color: white
 }
@@ -205,6 +218,7 @@ pre code {
     margin-left: 5em;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: auto;
     margin-top: auto;
     width: auto;
