@@ -1,9 +1,7 @@
 ---
 title: "From MDX to WordPress"
 date: "2021-03-31"
-categories: 
-  - "wordpress"
-tags: ["mdx","migration","wordpress"]
+tags: ["migration","wordpress"]
 ---
 
 My experience with blogging may be back to front to others. When I started blogging back in early 2019, I worked entirely in Markdown. That had some amazing benefits.
