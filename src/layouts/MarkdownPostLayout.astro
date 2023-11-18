@@ -16,7 +16,10 @@ if (frontmatter.updateDate) {
 }
 ---
 
-<BaseLayout>
+<BaseLayout
+  pageTitle={frontmatter.title}
+  pageDescription={frontmatter.description}
+>
   <h1 transition:animate="slide">{frontmatter.title}</h1>
   <h2>{frontmatter.description}</h2>
   <hr />
