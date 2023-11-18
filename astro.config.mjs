@@ -8,5 +8,5 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://kevincunningham.co.uk",
   integrations: [preact(), mdx(), sitemap()],
-  output: "hybrid",
+  // output: "hybrid",
 });
