@@ -6,7 +6,9 @@ tags: ["digital-gardening"]
 
 Inspired by Maggie Appleton's tweet this week, I've been thinking again about digital gardens.
 
-https://twitter.com/Mappletons/status/1250532315459194880
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Nerding hard on digital gardens, personal wikis, and experimental knowledge systems with <a href="https://twitter.com/_jonesian?ref_src=twsrc%5Etfw">@_jonesian</a> today.<br><br>We have an epic collection going, check these out...<br><br>1. <a href="https://twitter.com/tomcritchlow?ref_src=twsrc%5Etfw">@tomcritchlow</a>&#39;s Wikifolders: <a href="https://t.co/QnXw0vzbMG">https://t.co/QnXw0vzbMG</a> <a href="https://t.co/9ri6g9hD93">pic.twitter.com/9ri6g9hD93</a></p>&mdash; Maggie Appleton (@Mappletons) <a href="https://twitter.com/Mappletons/status/1250532315459194880?ref_src=twsrc%5Etfw">April 15, 2020</a></blockquote> 
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 
 I love learning and I love learning in public (I've written about that elsewhere on this blog). I've read and thought a lot about that over the past 15 years, as an educator and a learner, and I've been thinking about how to make more concrete artifacts.
 
