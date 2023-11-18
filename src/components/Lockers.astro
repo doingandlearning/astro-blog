@@ -1,0 +1,73 @@
+---
+interface Props {
+  noOfCols: number;
+  rowHighlight?: string;
+  highlightPrime?: boolean;
+}
+const { noOfCols, rowHighlight, highlightPrime } = Astro.props;
+
+import { isPrime } from "../scripts/utils";
+---
+
+<div class="lockers">
+  {
+    [...Array(noOfCols)].map((_, i) => {
+      const values = [3 * i + 1, 3 * i + 2, 3 * i + 3];
+
+      let classNames = ["top", "middle", "bottom"];
+
+      if (rowHighlight) {
+        classNames = classNames.map((className, i) =>
+          className === rowHighlight ? `${className} highlight` : className
+        );
+      }
+
+      if (highlightPrime) {
+        classNames = classNames.map((className, i) => {
+          if (isPrime(values[i])) {
+            return `${className} highlightPrime highlight`;
+          }
+          return className;
+        });
+      }
+      return (
+        <div class="col">
+          <div class={classNames[0]}>{values[0]}</div>
+          <div class={classNames[1]}>{values[1]}</div>
+          <div class={classNames[2]}>{values[2]}</div>
+        </div>
+      );
+    })
+  }
+</div>
+
+<style>
+  .lockers {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .top,
+  .middle,
+  .bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+  }
+  .highlight {
+    background-color: yellow;
+  }
+</style>

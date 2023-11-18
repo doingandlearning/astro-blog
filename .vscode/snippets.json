@@ -1,0 +1,15 @@
+{
+  "Add post frontmatter": {
+    "prefix": "insert-post-frontmatter",
+    "body": [
+      "---",
+      "title: \"$1\"",
+      "date: \"$2\"",
+      "tags: [\"$3\"]",
+      "dateUpdated: \"$4\"",
+      "description: \"$5\"",
+      "---"
+    ],
+    "description": "Snippet for adding post frontmatter"
+  }
+}

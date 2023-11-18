@@ -43,6 +43,11 @@ a:hover {
   color: black;
 }
 
+.border-container {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 1rem;
+}
 
 .hamburger {
   padding-right: 20px;

@@ -5,42 +5,60 @@ const precordedCourses = await getCollection("prerecorded").then((data) =>
   data.sort((a, b) => a.data.order - b.data.order)
 );
 const liveCourses = await getCollection("livecourses").then((data) =>
-	data.sort((a, b) => a.data.order - b.data.order)
+  data.sort((a, b) => a.data.order - b.data.order)
 );
-
 ---
 
 <BaseLayout pageTitle="Courses">
-	<div class="centered">
-		<h1 transition:animate="slide">Live Courses</h1>
-	</div>
-	<div class="description-text">
-		<p>I deliver instructor led courses, both in-person and over Zoom or Teams.</p>
-		<p>
-			I work with teams and individuals around the world and help them level up. Most of these are 3 or 4 day courses but can be expanded and optimised for your use case.
-		</p>
-		<p>
-			These courses are delivered live and are tailored to needs of your team. I can work with you to create a bespoke course or you can choose from one of the courses below.
-		</p>
-	</div>
-	<ul>
-		{liveCourses.map(course => {
-			return	<li>
-			<a href={`/courses/${course.slug}`}>
-						{course.data.title} ({course.data.duration})
-						</a>
-						</li>
-		})}
-	</ul>
-	<div class="centered">
-		<h1 transition:animate="slide">Prerecorded Courses</h1>
-	</div>
-	<div class="description-text">
-		<p>I have a growing library of pre-recorded courses inspired by my in-person teaching.</p>
-		<p>Right now, these are hosted on egghead and you'll need to sign up for a subscription there to access them in full.</p>
-		<p>If you have a membership, then watching my courses helps me out.</p>
-		<p>If you don't have a membership, then signing up and watching my courses also helps me out.</p>
-	</div>
+  <div class="centered">
+    <h1 transition:animate="slide">Live Courses</h1>
+  </div>
+  <div class="description-text">
+    <p>
+      I deliver instructor led courses, both in-person and over Zoom or Teams.
+    </p>
+    <p>
+      I work with teams and individuals around the world and help them level up.
+      Most of these are 3 or 4 day courses but can be expanded and optimised for
+      your use case.
+    </p>
+    <p>
+      These courses are delivered live and are tailored to needs of your team. I
+      can work with you to create a bespoke course or you can choose from one of
+      the courses below.
+    </p>
+  </div>
+  <ul>
+    {
+      liveCourses.map((course) => {
+        return (
+          <li>
+            <a href={`/courses/${course.slug}`}>
+              {course.data.title} ({course.data.duration})
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+  <div class="centered">
+    <h1 transition:animate="slide">Prerecorded Courses</h1>
+  </div>
+  <div class="description-text">
+    <p>
+      I have a growing library of pre-recorded courses inspired by my in-person
+      teaching.
+    </p>
+    <p>
+      Right now, these are hosted on egghead and you'll need to sign up for a
+      subscription there to access them in full.
+    </p>
+    <p>If you have a membership, then watching my courses helps me out.</p>
+    <p>
+      If you don't have a membership, then signing up and watching my courses
+      also helps me out.
+    </p>
+  </div>
   <div class="centered">
     <div class="grid-container">
       {
@@ -48,7 +66,7 @@ const liveCourses = await getCollection("livecourses").then((data) =>
           const { image, title, link, cta } = course.data;
           return (
             <div class="course-card">
-              <a href={link} target="_blank" rel="noreferrer" >
+              <a href={link} target="_blank" rel="noreferrer">
                 <img
                   src={image.sourceUrl}
                   class="course-image"
@@ -87,13 +105,13 @@ const liveCourses = await getCollection("livecourses").then((data) =>
     width: 150px;
   }
 
-	.description-text p {
-		line-height: 1.4;
-		margin: 12px;
-		width: 80vw;
-		margin-left:auto;
-		margin-right: auto;	
-	}
+  .description-text p {
+    line-height: 1.4;
+    margin: 12px;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .course-content {
     padding: 16px; /* Approximation for p-4 */
     text-align: center;
@@ -121,11 +139,11 @@ const liveCourses = await getCollection("livecourses").then((data) =>
     object-fit: cover;
   }
 
-	.centered {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+  .centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   @media screen and (min-width: 768px) {
     .grid-container {
