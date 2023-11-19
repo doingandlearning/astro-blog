@@ -4,3 +4,5 @@ description: "Get up an running with building multi-platform applications with I
 duration: "3 days"
 order: 5
 ---
+
+👷‍♂️ While I've delivered this course,  I know I need to add this specification. 👷‍♂️
