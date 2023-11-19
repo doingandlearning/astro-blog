@@ -1,7 +1,6 @@
 ---
 export const prerender = false;
 import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle = "Otherpage";
 import { getCollection } from "astro:content";
 import Newsletter from "../components/Newsletter.astro";
 import BlogPostCard from "../components/BlogPostCard.astro";
@@ -14,7 +13,7 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
 );
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle="Kevin Cunningham (@dolearning)">
   <div transition:animate="slide" class="heading">
     <h1>👋 Hey! Welcome!</h1>
   </div>
