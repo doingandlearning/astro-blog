@@ -1,17 +1,66 @@
 ---
 import { getMetaImage } from "../scripts/utils";
+import { formatDistance } from "date-fns";
 
 interface Props {
   title: string;
   url: string;
+  description?: string;
+  withImage?: boolean;
+  date?: string;
 }
 
-const { title, url } = Astro.props;
+const { title, url, withImage, description, date } = Astro.props;
 const ogimage = getMetaImage(title);
 ---
 
-<div>
-  <a href={url} title={title}>
-    <img src={ogimage} alt={title} width="350" loading="lazy" />
+<div class="blog-card">
+  <a href={url}>
+    {title} -{" "}
+    {
+      formatDistance(new Date(date), new Date(), {
+        addSuffix: true,
+      })
+    }
   </a>
+  <p class="desc-string">{description}</p>
+  <div class="blog-card-content"></div>
 </div>
+
+<style>
+  /* Create a centered heading */
+  .date-string::before {
+    content: "(";
+  }
+  .date-string::after {
+    content: ")";
+  }
+
+  .desc-string {
+    margin: 16px;
+  }
+
+  .blog-card {
+    /* display: flex; */
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 8px;
+    padding: 8px;
+  }
+
+  .blog-card-content p {
+    margin: 16px;
+    line-height: 1.4;
+  }
+
+  /* on odd rows, flip the image to the right */
+  .blog-card {
+    order: 2;
+  }
+
+  .blog-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--site-orange);
+  }
+</style>

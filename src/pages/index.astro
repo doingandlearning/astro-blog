@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 import { getMetaImage } from "../scripts/utils";
 import Newsletter from "../components/Newsletter.astro";
 import { formatDistance } from "date-fns";
+import BlogPostCard from "../components/BlogPostCard.astro";
 
 // get me the latest 3 posts from the posts collection in astro using the getCollections method
 const latestPosts = await getCollection("posts").then((postMessages) =>
@@ -36,16 +37,14 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
       latestPosts.map((post) => {
         const { title, date, description } = post.data;
         return (
-          <div class="blog-card">
-            <a href={`/posts/${post.slug}`}>
-              {title} -{" "}
-              {formatDistance(new Date(date), new Date(), {
-                addSuffix: true,
-              })}
-            </a>
-            <p class="desc-string">{description}</p>
-            <div class="blog-card-content" />
-          </div>
+          <>
+            <BlogPostCard
+              url={`/posts/${post.slug}`}
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date}
+            />
+          </>
         );
       })
     }
@@ -57,18 +56,6 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
 </BaseLayout>
 
 <style>
-  /* Create a centered heading */
-  .date-string::before {
-    content: "(";
-  }
-  .date-string::after {
-    content: ")";
-  }
-
-  .desc-string {
-    margin: 16px;
-  }
-
   .heading {
     display: flex;
     flex-direction: column;
@@ -77,22 +64,5 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
   }
   .top p {
     margin: 4px;
-  }
-  .blog-card {
-    /* display: flex; */
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 8px;
-  }
-
-  .blog-card-content p {
-    margin: 16px;
-    line-height: 1.4;
-  }
-
-  /* on odd rows, flip the image to the right */
-  .blog-card {
-    order: 2;
   }
 </style>

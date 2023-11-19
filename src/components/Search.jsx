@@ -1,4 +1,6 @@
 import { useState } from 'preact/hooks';
+import BlogPostCard from './BlogPostCard.astro';
+import SearchBlogPost from './SearchBlogPost';
 
 export default function Search({ posts }) {
 	const [query, setQuery] = useState('');
@@ -32,10 +34,7 @@ export default function Search({ posts }) {
 			<ul>
 				{results &&
 					results.map((post) => (
-						<li>
-							<a href={`/${post.slug}`}>{post.data.title}</a>
-							{post.data.description && ` - ${post.data.description}`}
-						</li>
+						<SearchBlogPost title={post.data.title} url={`/posts/${post.slug}`} description={post.data.description} />
 					))}
 			</ul>
 		</>
