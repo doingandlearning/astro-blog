@@ -30,7 +30,7 @@ h1 {
 p {
   font-size: var(--font-size-base);
   line-height: 200%;
-  font-family: "Montserrat", -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: 'General Sans', sans-serif;
 }
 
 a {

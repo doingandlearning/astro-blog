@@ -1,5 +1,11 @@
 ---
 import { getMetaImage } from "../scripts/utils";
+
+interface Props {
+  title: string;
+  url: string;
+}
+
 const { title, url } = Astro.props;
 const ogimage = getMetaImage(title);
 ---

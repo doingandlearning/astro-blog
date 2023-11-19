@@ -4,6 +4,7 @@ const pageTitle = "Otherpage";
 import { getCollection } from "astro:content";
 import { getMetaImage } from "../scripts/utils";
 import Newsletter from "../components/Newsletter.astro";
+import { formatDistance } from "date-fns";
 
 // get me the latest 3 posts from the posts collection in astro using the getCollections method
 const latestPosts = await getCollection("posts").then((postMessages) =>
@@ -37,11 +38,13 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
         return (
           <div class="blog-card">
             <a href={`/posts/${post.slug}`}>
-              <img src={getMetaImage(title)} width="250" />
+              {title} -{" "}
+              {formatDistance(new Date(date), new Date(), {
+                addSuffix: true,
+              })}
             </a>
-            <div class="blog-card-content">
-              <p>{description}</p>
-            </div>
+            <p class="desc-string">{description}</p>
+            <div class="blog-card-content" />
           </div>
         );
       })
@@ -55,6 +58,17 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
 
 <style>
   /* Create a centered heading */
+  .date-string::before {
+    content: "(";
+  }
+  .date-string::after {
+    content: ")";
+  }
+
+  .desc-string {
+    margin: 16px;
+  }
+
   .heading {
     display: flex;
     flex-direction: column;
@@ -65,7 +79,7 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
     margin: 4px;
   }
   .blog-card {
-    display: flex;
+    /* display: flex; */
     flex-direction: row;
     align-items: center;
     justify-content: center;

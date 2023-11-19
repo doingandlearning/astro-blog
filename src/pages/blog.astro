@@ -2,30 +2,47 @@
 import { getCollection } from "astro:content";
 import BlogPostCard from "../components/BlogPostCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-const allPosts = await getCollection("posts").then((res) => res.sort((a, b) => Number(new Date(b.data.date)) - Number(new Date(a.data.date))));
+import { formatDistance } from "date-fns";
+import Search from "../components/Search";
+const allPosts = await getCollection("posts").then((res) =>
+  res.sort(
+    (a, b) => Number(new Date(b.data.date)) - Number(new Date(a.data.date))
+  )
+);
 ---
 
 <BaseLayout pageTitle="Blog">
   <a href="/tags">View post by tag</a>
   <p>
-    I blog about a lot of tech and learning topics. These posts are a combination of tutorials and thinking. I
-    often revisit these posts and update them both as technologies change and my thinking changes.
+    I blog about a lot of tech and learning topics. These posts are a
+    combination of tutorials and thinking. I often revisit these posts and
+    update them both as technologies change and my thinking changes.
   </p>
-  <div class="blog-cards">
-    {
-      allPosts.map((post) => (
-        <BlogPostCard
-          title={post.data.title}
-          url={`/posts/${post.slug}`}
-          ogimage=""
-        />
-      ))
-    }
-  </ul>
+
+  <Search posts={allPosts} client:load />
+  <div class="blog-cards"></div>
 </BaseLayout>
 
-
 <style>
+  .card:hover {
+    background-color: #eee;
+  }
+  .card {
+    padding: 8px;
+  }
+
+  .blog-card {
+    display: flex;
+  }
+
+  .description {
+    color: black;
+    text-decoration: none;
+  }
+
+  .description:hover {
+  }
+
   .blog-cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
