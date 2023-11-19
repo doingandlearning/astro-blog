@@ -16,15 +16,15 @@ const ogimage = getMetaImage(title);
 
 <div class="blog-card">
   <a href={url}>
-    {title} -{" "}
+    {title}
     {
-      formatDistance(new Date(date), new Date(), {
-        addSuffix: true,
-      })
+      date &&
+        ` - ${formatDistance(new Date(date), new Date(), {
+          addSuffix: true,
+        })}`
     }
   </a>
   <p class="desc-string">{description}</p>
-  <div class="blog-card-content"></div>
 </div>
 
 <style>
