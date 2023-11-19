@@ -21,8 +21,8 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
   <div class="top">
     <div>
       <h2>
-        I'm Kevin (aka @dolearning) and I'm a ...<br />
-        <br />
+        I'm Kevin Cunningham (aka @dolearning) and I'm a ...
+        <br /><br />
         <div class="c1">
           <div class="type">Web Developer</div>
         </div>
@@ -82,12 +82,24 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
     <p>You can find a <a href="/blog">searchable list of posts here</a>.</p>
   </div>
   <div>
-    <h2>Courses</h2>
+    <h3>Teaching</h3>
+    <p>
+      I spend most of my time teaching and coaching teams inside of medium to
+      large organisations. I also run workshops and speak at conferences.
+    </p>
+    <p>
+      I use what I create and discover with live groups to build out
+      pre-recorded courses.
+    </p>
+    <p><a href="/courses">You can find out more about all of these here</a>.</p>
   </div>
-  <Newsletter />
 </BaseLayout>
+<Newsletter />
 
 <style>
+  .initial::after {
+    content: "";
+  }
   .heading {
     display: flex;
     flex-direction: column;
