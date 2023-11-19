@@ -1,0 +1,36 @@
+<!-- Wrap the component elements in our custom element “back-button”. -->
+<back-button>
+  <button aria-label="back button" class="back-button"> {`< Back`}</button>
+</back-button>
+
+<script>
+  // Define the behaviour for our new type of HTML element.
+  class BackButton extends HTMLElement {
+    constructor() {
+      super();
+
+      const backButton = this.querySelector("button");
+
+      // Each time the button is clicked, update the count.
+      backButton.addEventListener("click", () => {
+        history.back();
+      });
+    }
+  }
+
+  // Tell the browser to use our BackButton class for <back-button> elements.
+  customElements.define("back-button", BackButton);
+</script>
+
+<style>
+  .back-button {
+    cursor: pointer;
+    color: #00539f;
+    font-size: 1.25em;
+    border: solid 1px #00539f;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    width: fit-content;
+    margin-bottom: 12px;
+  }
+</style>

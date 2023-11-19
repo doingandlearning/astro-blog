@@ -5,7 +5,6 @@ const pageTitle = "Otherpage";
 import { getCollection } from "astro:content";
 import Newsletter from "../components/Newsletter.astro";
 import BlogPostCard from "../components/BlogPostCard.astro";
-
 const latestPosts = await getCollection("posts").then((postMessages) =>
   postMessages
     .sort(
@@ -21,18 +20,34 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
   </div>
   <div class="top">
     <div>
+      <h2>
+        I'm Kevin (aka @dolearning) and I'm a ...<br />
+        <br />
+        <div class="c1">
+          <div class="type">Web Developer</div>
+        </div>
+
+        <br />
+
+        <div class="c2">
+          <div class="type2">Developer Educator</div>
+        </div>
+
+        <br />
+
+        <div class="c3">
+          <div class="type3">Speaker</div>
+        </div>
+
+        <br />
+
+        <div class="c4">
+          <div class="type4">Writer</div>
+        </div>
+      </h2>
       <p>
-        I'm Kevin (aka @dolearning) and this is my little corner of the
-        internet.
-      </p>
-      <p>
-        I'm a <strong>developer educator</strong>, <strong>speaker</strong> and <strong
-          >writer</strong
-        >. I love learning new stuff.
-      </p>
-      <p>
-        Hopefully, you can learn something around here (and teach me something
-        too!).
+        This is my little corner of the internet. Hopefully, you can learn
+        something around here (and teach me something too!).
       </p>
     </div>
     <div>
@@ -43,7 +58,11 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
     </div>
   </div>
   <div>
-    <h2>Latest posts</h2>
+    <h3>Blog</h3>
+    <p>
+      I try to blog regularly with a mix of tutorials, helpful articles and
+      thoughts about tech and life. Here are my latest posts:
+    </p>
     {
       latestPosts.map((post) => {
         const { title, date, description } = post.data;
@@ -60,6 +79,7 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
         );
       })
     }
+    <p>You can find a <a href="/blog">searchable list of posts here</a>.</p>
   </div>
   <div>
     <h2>Courses</h2>
@@ -103,6 +123,78 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
     }
     .top img {
       width: 400px;
+    }
+  }
+
+  .c1 {
+    display: inline-block;
+  }
+  .c2 {
+    display: inline-block;
+  }
+  .c3 {
+    display: inline-block;
+  }
+  .c4 {
+    display: inline-block;
+  }
+  h2 {
+    font-size: 2rem;
+    margin-top: 1%;
+  }
+  h2 .type {
+    font-size: 1.5rem;
+    overflow: hidden;
+    border-right: 0.15em solid var(--site-orange);
+    white-space: nowrap;
+    width: 0;
+    animation: typing 1s steps(25, end) forwards;
+    margin-left: 16px;
+  }
+  h2 .type2 {
+    font-size: 1.5rem;
+    overflow: hidden;
+    border-right: 0.15em solid var(--site-orange);
+    white-space: nowrap;
+    width: 0;
+    animation: typing 1s steps(25, end) forwards;
+    animation-delay: 1s;
+    margin-left: 16px;
+  }
+  h2 .type3 {
+    font-size: 1.5rem;
+    overflow: hidden;
+    border-right: 0.15em solid var(--site-orange);
+    white-space: nowrap;
+    width: 0;
+    animation: typing 1s steps(25, end) forwards;
+    animation-delay: 2s;
+    margin-left: 16px;
+  }
+  h2 .type4 {
+    font-size: 1.5rem;
+    overflow: hidden;
+    border-right: 0.15em solid var(--site-orange);
+    white-space: nowrap;
+    width: 0;
+    animation: typing 1s steps(25, end) forwards;
+    animation-delay: 3s;
+    margin-left: 16px;
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  @keyframes blink {
+    from {
+      border-color: transparent;
+    }
+    to {
+      border-color: var(--site-orange);
     }
   }
 </style>
