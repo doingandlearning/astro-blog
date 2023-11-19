@@ -5,7 +5,6 @@ const pageTitle = "Otherpage";
 import { getCollection } from "astro:content";
 import Newsletter from "../components/Newsletter.astro";
 import BlogPostCard from "../components/BlogPostCard.astro";
-import NewsLetter from "../components/NewsLetter";
 
 const latestPosts = await getCollection("posts").then((postMessages) =>
   postMessages
