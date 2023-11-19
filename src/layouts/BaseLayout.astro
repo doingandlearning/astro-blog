@@ -28,13 +28,23 @@ const { pageTitle, pageDescription } = Astro.props;
     <meta property="og:image" content={getMetaImage(pageTitle)} />
     <meta property="og:url" content={Astro.url} />
     <title>{pageTitle}</title>
-    <script
-      id="plausible-script"
-      strategy="afterInteractive"
-      data-domain="kevincunningham.co.uk"
-      src="https://plausible.io/js/plausible.outbound-links.js"></script>
-    <ViewTransitions />
-  </head>
+  </head><a
+    rel="webmention"
+    href="https://webmention.io/www.kevincunningham.co.uk/webmention"
+    class="hidden"></a>
+  <a
+    rel="pingback"
+    href="https://webmention.io/www.kevincunningham.co.uk/xmlrpc"
+    class="hidden"></a>
+  <a rel="me" href="https://hachyderm.io/@dolearning" class="hidden"></a>
+  <script
+    id="plausible-script"
+    strategy="afterInteractive"
+    data-domain="kevincunningham.co.uk"
+    src="https://plausible.io/js/plausible.outbound-links.js"></script>
+
+  <ViewTransitions />
+
   <body>
     <div id="page-container">
       <Header />
@@ -71,4 +81,6 @@ const { pageTitle, pageDescription } = Astro.props;
       }
     </style>
   </body>
+
+
 </html>
