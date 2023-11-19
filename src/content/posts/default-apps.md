@@ -1,6 +1,6 @@
 ---
 title: "My Default Apps end of 2023"
-date: "2023-11-19"
+date: "2023-11-19T19:20:46.033Z"
 dateUpdated: ""
 tags: ["apps"]
 description: "Following a blogging trend thinking about default apps"
