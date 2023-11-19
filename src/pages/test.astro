@@ -1,0 +1,38 @@
+---
+export const prerender = false;
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const first_name = data.get("username");
+    const email_address = data.get("email");
+    const response = await fetch(
+      `https://app.convertkit.com/forms/1697448/subscriptions`,
+      {
+        method: "post",
+        body: JSON.stringify({ email_address, first_name }, null, 2),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    // Do something with the data
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+---
+
+<form method="POST">
+  <label>
+    Name:
+    <input type="text" name="name" required />
+  </label>
+  <label>
+    Email:
+    <input type="email" name="email" required />
+  </label>
+  <button>Submit</button>
+</form>
