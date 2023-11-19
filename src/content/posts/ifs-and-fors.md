@@ -3,7 +3,7 @@ title: "Ifs and Fors - some rules of thumb"
 date: "2023-11-19T21:07"
 tags: ["heuristics"]
 dateUpdated: ""
-description: "A helpful post on some heuristics around a few common coding structures"
+description: "Sharing a helpful post on some heuristics around a few common coding structures"
 ---
 
 I came across the post [Push Ifs Up and Fors Down](https://matklad.github.io/2023/11/15/push-ifs-up-and-fors-down.html) from Alex Kladov (aka matklad) about ifs and fors.
