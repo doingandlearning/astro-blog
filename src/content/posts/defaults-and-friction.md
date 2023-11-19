@@ -1,6 +1,6 @@
 ---
 title: "Defaults and Reducing Friction"
-date: "2023-11-19"
+date: "2023-11-19T10:01"
 tags: ["writing"]
 dateUpdated: ""
 description: "Where I think about the things that allow writing to be more automatic"
