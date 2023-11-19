@@ -11,5 +11,5 @@ export default defineConfig({
   site: "https://kevincunningham.co.uk",
   integrations: [preact(), mdx(), sitemap()],
   output: "hybrid",
-  adapter: vercel()
+  adapter: vercel(),
 });

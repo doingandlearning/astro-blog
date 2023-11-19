@@ -7,8 +7,6 @@ const precordedCourses = await getCollection("prerecorded").then((data) =>
 const liveCourses = await getCollection("livecourses").then((data) =>
   data.sort((a, b) => a.data.order - b.data.order)
 );
-
-console.log(precordedCourses);
 ---
 
 <BaseLayout pageTitle="Courses">

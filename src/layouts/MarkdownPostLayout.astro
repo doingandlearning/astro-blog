@@ -12,7 +12,6 @@ let tended;
 if (frontmatter.updateDate) {
   const date = new Date(frontmatter.updateDate);
   tended = formatDistance(date, new Date(), { addSuffix: true });
-  console.log(tended);
 }
 ---
 
