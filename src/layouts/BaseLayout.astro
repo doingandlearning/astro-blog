@@ -28,6 +28,11 @@ const { pageTitle, pageDescription } = Astro.props;
     <meta property="og:image" content={getMetaImage(pageTitle)} />
     <meta property="og:url" content={Astro.url} />
     <title>{pageTitle}</title>
+    <script
+      id="plausible-script"
+      strategy="afterInteractive"
+      data-domain="kevincunningham.co.uk"
+      src="https://plausible.io/js/plausible.outbound-links.js"></script>
     <ViewTransitions />
   </head>
   <body>
