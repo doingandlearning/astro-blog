@@ -16,6 +16,7 @@
     "@astrojs/preact": "^3.0.1",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.3",
+    "@astrojs/vercel": "^5.2.0",
     "astro": "^3.5.5",
     "astro-navbar": "^2.3.0",
     "date-fns": "^2.30.0",

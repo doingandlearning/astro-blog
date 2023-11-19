@@ -4,10 +4,12 @@ import mdx from "@astrojs/mdx";
 import netlify from "@astrojs/netlify/functions";
 import sitemap from "@astrojs/sitemap";
 
+import vercel from "@astrojs/vercel/serverless";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://kevincunningham.co.uk",
   integrations: [preact(), mdx(), sitemap()],
   output: "hybrid",
-  adapter: netlify(),
+  adapter: vercel()
 });
