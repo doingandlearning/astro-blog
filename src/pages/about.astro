@@ -1,136 +1,128 @@
 ---
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Newsletter from "../components/Newsletter.astro";
 ---
 
 <BaseLayout pageTitle="About">
-   
-      <div
-        class="top-section"
+  <div class="top-section">
+    <div class="top-text">
+      <p class="text-2xl px-4 md:mt-0 mt-8 has-large-font-size">
+        I'm a web development consultant and educator working with people around
+        the world from Northern Ireland.
+      </p>
+    </div>
+    <div>
+      <img
+        width="200"
+        height="200"
+        decoding="async"
+        loading="lazy"
+        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgwIiBoZWlnaHQ9IjEyODAiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9ImZpbGwiIHZhbHVlcz0icmdiYSgxNTMsMTUzLDE1MywwLjUpO3JnYmEoMTUzLDE1MywxNTMsMC4xKTtyZ2JhKDE1MywxNTMsMTUzLDAuNSkiIGR1cj0iMnMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPjwvcmVjdD48L3N2Zz4="
+        alt=""
+        class="wp-post-366 wp-image-388 size-full"
+        data-public-id="face-1.jpg"
+        data-format="jpg"
+        data-transformations="f_auto,q_auto"
+        data-version="1620142072"
+        data-size="1280 1280"
+        data-srcset="https://res.cloudinary.com/kc-cloud/images/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 1280w, https://res.cloudinary.com/kc-cloud/images/w_300,h_300,c_fill/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 300w, https://res.cloudinary.com/kc-cloud/images/w_1024,h_1024,c_fill/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 1024w, https://res.cloudinary.com/kc-cloud/images/w_150,h_150,c_fill/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 150w, https://res.cloudinary.com/kc-cloud/images/w_768,h_768,c_fill/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 768w"
+        data-sizes="(max-width: 1280px) 100vw, 1280px"
+        srcset="https://res.cloudinary.com/kc-cloud/images/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 1280w, https://res.cloudinary.com/kc-cloud/images/w_300,h_300,c_fill/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 300w, https://res.cloudinary.com/kc-cloud/images/w_1024,h_1024,c_fill/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 1024w, https://res.cloudinary.com/kc-cloud/images/w_150,h_150,c_fill/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 150w, https://res.cloudinary.com/kc-cloud/images/w_768,h_768,c_fill/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 768w"
+      />
+    </div>
+  </div>
+
+  <p>
+    I started coding at 8 on my Spectrum 128k and have been attached to a
+    computer ever since.
+  </p>
+
+  <p>
+    As a secondary school Maths teacher, I spent a decade making complex topics
+    accessible. I used code to help my students in their learning and to speed
+    up my own administration tasks.
+  </p>
+
+  <p>
+    I migrated to being a web developer and worked with clients from Sega to the
+    British Library to small, emerging start-ups.
+  </p>
+
+  <p>
+    Now, I primarily teach development in a variety of live and pre-recorded
+    ways.
+  </p>
+
+  <p>
+    I write and produce written and video content to help developers continually
+    level up and not get stuck in “tutorial hell”.
+  </p>
+
+  <p>
+    <a href="/courses">I run workshops and training</a> to allow teams and
+    individuals to rapidly upskill in new frameworks and approaches. I offer
+    <a href="/mentoring" data-type="URL" data-id="/mentoring"
+      >1:1 mentoring and coaching</a
+    > for developers looking for help taking their journey to the next level.
+  </p>
+
+  <p>
+    I also tweet, so <a
+      href="https://twitter.com/dolearning"
+      data-type="URL"
+      data-id="https://twitter.com/dolearning">come follow me on Twitter</a
+    >.
+  </p>
+
+  <h2>Podcasts and Interview with me</h2>
+
+  <ul>
+    <li>
+      <a href="https://makelifeworkpodcast.com/kevin-cunningham/"
+        >Make Life Work with Kevin Cunningham</a
       >
+    </li><li>
+      <a
+        href="https://landingintech.com/episodes/ep5-kevin-cunningham-from-maths-to-fullstack/"
+        >From teaching math to becoming a fullstack developer</a
+      >
+    </li><li>
+      <a href="https://learnetto.com/blog/kevin-cunningham-headless-wordpress"
+        >Interview with Kevin Cunningham on software development, teaching and
+        headless WordPress</a
+      >
+    </li><li>
+      <a
+        href="https://egghead-io-course-notes.simplecast.com/episodes/wordpress-as-a-headless-content-management-system-cms-and-graphql-api-with-kevin-cunningham?share=true"
+        >WordPress as a Headless Content Management System (CMS) and GraphQL API
+        with Kevin Cunningham</a
+      >
+    </li>
+  </ul>
 
-      
-        <div class="top-text">
-
-          <p class="text-2xl px-4 md:mt-0 mt-8 has-large-font-size">
-            I'm a web development consultant and educator working with people
-            around the world from Northern
-            Ireland.
-          </p>
-        </div>
-        <div>
-          <img
-            width="200"
-            height="200"
-            decoding="async"
-            loading="lazy"
-            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgwIiBoZWlnaHQ9IjEyODAiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9ImZpbGwiIHZhbHVlcz0icmdiYSgxNTMsMTUzLDE1MywwLjUpO3JnYmEoMTUzLDE1MywxNTMsMC4xKTtyZ2JhKDE1MywxNTMsMTUzLDAuNSkiIGR1cj0iMnMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPjwvcmVjdD48L3N2Zz4="
-            alt=""
-            class="wp-post-366 wp-image-388 size-full"
-            data-public-id="face-1.jpg"
-            data-format="jpg"
-            data-transformations="f_auto,q_auto"
-            data-version="1620142072"
-            data-size="1280 1280"
-            data-srcset="https://res.cloudinary.com/kc-cloud/images/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 1280w, https://res.cloudinary.com/kc-cloud/images/w_300,h_300,c_fill/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 300w, https://res.cloudinary.com/kc-cloud/images/w_1024,h_1024,c_fill/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 1024w, https://res.cloudinary.com/kc-cloud/images/w_150,h_150,c_fill/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 150w, https://res.cloudinary.com/kc-cloud/images/w_768,h_768,c_fill/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 768w"
-            data-sizes="(max-width: 1280px) 100vw, 1280px"
-            data-delivery="upload"
-            onload=";window.CLDBind?CLDBind(this):document.body.appendChild(document.createElement('script')).src='https://admin.kevincunningham.co.uk/?cloudinary_lazy_load_loader=1';this.onload=null;"
-            data-cloudinary="lazy"
-            srcset="https://res.cloudinary.com/kc-cloud/images/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 1280w, https://res.cloudinary.com/kc-cloud/images/w_300,h_300,c_fill/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 300w, https://res.cloudinary.com/kc-cloud/images/w_1024,h_1024,c_fill/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 1024w, https://res.cloudinary.com/kc-cloud/images/w_150,h_150,c_fill/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 150w, https://res.cloudinary.com/kc-cloud/images/w_768,h_768,c_fill/f_auto,q_auto/v1620142072/face-1/face-1.jpg?_i=AA 768w"
-          />
-        </div>
-      </div>
-
-      <p>
-        I started coding at 8 on my Spectrum 128k and have been attached to a
-        computer ever since.
-      </p>
-
-      <p>
-        As a secondary school Maths teacher, I spent a decade making complex
-        topics accessible. I used code to help my students in their learning and
-        to speed up my own administration tasks.
-      </p>
-
-      <p>
-        I migrated to being a web developer and worked with clients from Sega to
-        the British Library to small, emerging start-ups.
-      </p>
-
-      <p>
-        Now, I primarily teach development in a variety of live and pre-recorded
-        ways.
-      </p>
-
-      <p>
-        I write and produce written and video content to help developers
-        continually level up and not get stuck in “tutorial hell”.
-      </p>
-
-      <p>
-        <a href="/courses">I run workshops and training</a> to allow teams and
-        individuals to rapidly upskill in new frameworks and approaches. I offer
-        <a href="/mentoring" data-type="URL" data-id="/mentoring"
-          >1:1 mentoring and coaching</a
-        > for developers looking for help taking their journey to the next
-        level.
-      </p>
-
-      <p>
-        I also tweet, so <a
-          href="https://twitter.com/dolearning"
-          data-type="URL"
-          data-id="https://twitter.com/dolearning">come follow me on Twitter</a
-        >.
-      </p>
-
-      <h2>Podcasts and Interview with me</h2>
-
-      <ul>
-        <li>
-          <a href="https://makelifeworkpodcast.com/kevin-cunningham/"
-            >Make Life Work with Kevin Cunningham</a>
-        </li><li>
-          <a
-            href="https://landingintech.com/episodes/ep5-kevin-cunningham-from-maths-to-fullstack/"
-            >From teaching math to becoming a fullstack developer</a>
-        </li><li>
-          <a
-            href="https://learnetto.com/blog/kevin-cunningham-headless-wordpress"
-            >Interview with Kevin Cunningham on software development, teaching
-            and headless WordPress</a>
-        </li><li>
-          <a
-            href="https://egghead-io-course-notes.simplecast.com/episodes/wordpress-as-a-headless-content-management-system-cms-and-graphql-api-with-kevin-cunningham?share=true"
-            >WordPress as a Headless Content Management System (CMS) and GraphQL
-            API with Kevin Cunningham</a>
-        </li>
-      </ul>
-
-      <p><em>I'm happy to appear on all relevant podcasts!</em></p>
+  <p><em>Reach out if you think I might be a good fit for your podcast.</em></p>
+  <Newsletter />
 </BaseLayout>
 
 <style>
-.top-section {
-  display: flex;
-  align-items: center;
-  flex-direction: column-reverse;
-}
-.top-text {
-  font-size: 1.5rem;
-  margin: 8px;
-  line-height: 0;
-}
-
-a:hover {
-  color: #f56565;
-  
-}
-@media screen and (min-width: 768px) {
   .top-section {
-    flex-direction: row;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
   }
-  
-}
+  .top-text {
+    font-size: 1.5rem;
+    margin: 8px;
+    line-height: 0;
+  }
+
+  a:hover {
+    color: #f56565;
+  }
+  @media screen and (min-width: 768px) {
+    .top-section {
+      flex-direction: row;
+    }
+  }
 </style>

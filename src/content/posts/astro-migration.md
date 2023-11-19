@@ -66,7 +66,8 @@ I'm not finished with this migration but don't plan on writing more content on m
 
 - [x] Newsletter sign up (this involves some SSR which I haven't had a chance to look into fully yet)
 - [ ] Main landing pages
-- [ ] Course specs
+- [x] Course pages
+- [ ] Course page content
 
 I'll add other things to this list and check it off as I go. But I'm excited to write in Markdown again and see the changes happening so quickly. 
 
