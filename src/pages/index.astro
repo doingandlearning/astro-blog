@@ -93,120 +93,133 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
     </p>
     <p><a href="/courses">You can find out more about all of these here</a>.</p>
   </div>
-</BaseLayout>
-<Newsletter />
+  <div>
+    <h3>Connect with me</h3>
+    <p>
+      I'm most active on <a href="https://twitter.com/dolearning">Twitter</a>{
+        " "
+      }
+       and <a href="https://hachyderm.io/@dolearning/"> Mastadon</a>
+       . I also have a <a
+        href="https://www.youtube.com/channel/UCtzNXx0YjJFvAuAPL9ZjQOw"
+        >YouTube channel</a
+      > where I post videos tech tutorials.
+    </p>
+  </div>
+  <Newsletter />
 
-<style>
-  .initial::after {
-    content: "";
-  }
-  .heading {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .top p {
-    margin: 4px;
-  }
-
-  .top img {
-    margin: 4px;
-    width: 300px;
-  }
-
-  .top {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .heading-image {
-    border-radius: 25%;
-  }
-
-  @media screen and (min-width: 768px) {
-    .top {
-      flex-direction: row;
+  <style>
+    .initial::after {
+      content: "";
     }
-    .top div {
-      flex: 1;
+    .heading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
+    .top p {
+      margin: 4px;
+    }
+
     .top img {
-      width: 400px;
+      margin: 4px;
+      width: 300px;
     }
-  }
 
-  .c1 {
-    display: inline-block;
-  }
-  .c2 {
-    display: inline-block;
-  }
-  .c3 {
-    display: inline-block;
-  }
-  .c4 {
-    display: inline-block;
-  }
-  h2 {
-    font-size: 2rem;
-    margin-top: 1%;
-  }
-  h2 .type {
-    font-size: 1.5rem;
-    overflow: hidden;
-    border-right: 0.15em solid var(--site-orange);
-    white-space: nowrap;
-    width: 0;
-    animation: typing 1s steps(25, end) forwards;
-    margin-left: 16px;
-  }
-  h2 .type2 {
-    font-size: 1.5rem;
-    overflow: hidden;
-    border-right: 0.15em solid var(--site-orange);
-    white-space: nowrap;
-    width: 0;
-    animation: typing 1s steps(25, end) forwards;
-    animation-delay: 1s;
-    margin-left: 16px;
-  }
-  h2 .type3 {
-    font-size: 1.5rem;
-    overflow: hidden;
-    border-right: 0.15em solid var(--site-orange);
-    white-space: nowrap;
-    width: 0;
-    animation: typing 1s steps(25, end) forwards;
-    animation-delay: 2s;
-    margin-left: 16px;
-  }
-  h2 .type4 {
-    font-size: 1.5rem;
-    overflow: hidden;
-    border-right: 0.15em solid var(--site-orange);
-    white-space: nowrap;
-    width: 0;
-    animation: typing 1s steps(25, end) forwards;
-    animation-delay: 3s;
-    margin-left: 16px;
-  }
-  @keyframes typing {
-    from {
+    .top {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .heading-image {
+      border-radius: 25%;
+    }
+
+    @media screen and (min-width: 768px) {
+      .top {
+        flex-direction: row;
+      }
+      .top div {
+        flex: 1;
+      }
+      .top img {
+        width: 400px;
+      }
+    }
+
+    .c1 {
+      display: inline-block;
+    }
+    .c2 {
+      display: inline-block;
+    }
+    .c3 {
+      display: inline-block;
+    }
+    .c4 {
+      display: inline-block;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-top: 1%;
+    }
+    h2 .type {
+      font-size: 1.5rem;
+      overflow: hidden;
+      border-right: 0.15em solid var(--site-orange);
+      white-space: nowrap;
       width: 0;
+      animation: typing 1s steps(25, end) forwards;
+      margin-left: 16px;
     }
-    to {
-      width: 100%;
+    h2 .type2 {
+      font-size: 1.5rem;
+      overflow: hidden;
+      border-right: 0.15em solid var(--site-orange);
+      white-space: nowrap;
+      width: 0;
+      animation: typing 1s steps(25, end) forwards;
+      animation-delay: 1s;
+      margin-left: 16px;
     }
-  }
-  @keyframes blink {
-    from {
-      border-color: transparent;
+    h2 .type3 {
+      font-size: 1.5rem;
+      overflow: hidden;
+      border-right: 0.15em solid var(--site-orange);
+      white-space: nowrap;
+      width: 0;
+      animation: typing 1s steps(25, end) forwards;
+      animation-delay: 2s;
+      margin-left: 16px;
     }
-    to {
-      border-color: var(--site-orange);
+    h2 .type4 {
+      font-size: 1.5rem;
+      overflow: hidden;
+      border-right: 0.15em solid var(--site-orange);
+      white-space: nowrap;
+      width: 0;
+      animation: typing 1s steps(25, end) forwards;
+      animation-delay: 3s;
+      margin-left: 16px;
     }
-  }
-</style>
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+    @keyframes blink {
+      from {
+        border-color: transparent;
+      }
+      to {
+        border-color: var(--site-orange);
+      }
+    }
+  </style>
+</BaseLayout>
