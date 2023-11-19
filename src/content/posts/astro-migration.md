@@ -2,7 +2,7 @@
 title: "Moving my website ... again"
 date: "2023-11-18"
 tags: ["astro"]
-dateUpdated: ""
+dateUpdated: "2023-11-19T14:20:46.033Z"
 description: "Landing on Astro ... first thoughts"
 ---
 
@@ -64,8 +64,10 @@ The feels so powerful.
 
 I'm not finished with this migration but don't plan on writing more content on my existing blog. Things that need to be handled before I move permanently:
 
-- [ ] Newsletter sign up (this involves some SSR which I haven't had a chance to look into fully yet)
+- [x] Newsletter sign up (this involves some SSR which I haven't had a chance to look into fully yet)
 - [ ] Main landing pages
 - [ ] Course specs
 
 I'll add other things to this list and check it off as I go. But I'm excited to write in Markdown again and see the changes happening so quickly. 
+
+Update: I think that some of this might become an endless blocker. Considering just launching and iterating from there.
