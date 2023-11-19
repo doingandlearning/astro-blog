@@ -19,6 +19,11 @@ const allPosts = await getCollection("posts").then((res) =>
     update them both as technologies change and my thinking changes.
   </p>
 
+  <p>
+    I'm still working on adding meta-data to some of my older posts and
+    reformatting. If you spot anything that needs to be fixed, let me know!
+  </p>
+
   <Search posts={allPosts} client:load />
   <div class="blog-cards"></div>
 </BaseLayout>

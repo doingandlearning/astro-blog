@@ -2,12 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Otherpage";
 import { getCollection } from "astro:content";
-import { getMetaImage } from "../scripts/utils";
 import Newsletter from "../components/Newsletter.astro";
-import { formatDistance } from "date-fns";
 import BlogPostCard from "../components/BlogPostCard.astro";
 
-// get me the latest 3 posts from the posts collection in astro using the getCollections method
 const latestPosts = await getCollection("posts").then((postMessages) =>
   postMessages
     .sort(
@@ -22,14 +19,24 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
     <h1>👋 Hey! Welcome!</h1>
   </div>
   <div class="top">
-    <p>I'm Kevin and this is my little corner of the internet.</p>
-    <p>
-      I'm a developer educator, speaker and writer. I love learning new stuff.
-    </p>
-    <p>
-      Hopefully, you can learn something around here (and teach me something
-      too!).
-    </p>
+    <div>
+      <p>
+        I'm Kevin (aka @dolearning) and this is my little corner of the
+        internet.
+      </p>
+      <p>
+        I'm a <strong>developer educator</strong>, <strong>speaker</strong> and <strong
+          >writer</strong
+        >. I love learning new stuff.
+      </p>
+      <p>
+        Hopefully, you can learn something around here (and teach me something
+        too!).
+      </p>
+    </div>
+    <div>
+      <img src="/images/speaking.png" class="heading-image" />
+    </div>
   </div>
   <div>
     <h2>Latest posts</h2>
@@ -43,6 +50,7 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
               title={post.data.title}
               description={post.data.description}
               date={post.data.date}
+              tags={post.data.tags}
             />
           </>
         );
@@ -64,5 +72,33 @@ const latestPosts = await getCollection("posts").then((postMessages) =>
   }
   .top p {
     margin: 4px;
+  }
+
+  .top img {
+    margin: 4px;
+    width: 300px;
+  }
+
+  .top {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .heading-image {
+    border-radius: 25%;
+  }
+
+  @media screen and (min-width: 768px) {
+    .top {
+      flex-direction: row;
+    }
+    .top div {
+      flex: 1;
+    }
+    .top img {
+      width: 400px;
+    }
   }
 </style>

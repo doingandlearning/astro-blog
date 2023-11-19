@@ -8,59 +8,38 @@ interface Props {
   description?: string;
   withImage?: boolean;
   date?: string;
+  tags?: string[];
 }
 
-const { title, url, withImage, description, date } = Astro.props;
+const { title, url, withImage, description, date, tags = [] } = Astro.props;
 const ogimage = getMetaImage(title);
 ---
 
-<div class="blog-card">
+<div class="blog-card-container">
   <a href={url}>
-    {title}
-    {
-      date &&
-        ` - ${formatDistance(new Date(date), new Date(), {
-          addSuffix: true,
-        })}`
-    }
+    <div class="blog-card">
+      {title}
+      {
+        date &&
+          ` - ${formatDistance(new Date(date), new Date(), {
+            addSuffix: true,
+          })}`
+      }
+      <p class="desc-string" id="desc-string">{description}</p>
+    </div>
   </a>
-  <p class="desc-string">{description}</p>
+  {
+    tags && (
+      <div class="tags">
+        {tags.map((tag: string) => (
+          <p class="small-tag">
+            <a href={`/tags/${tag}`}>
+              #{tag[0].toUpperCase() + tag.substring(1)}
+            </a>
+          </p>
+        ))}
+      </div>
+    )
+  }
 </div>
-
-<style>
-  /* Create a centered heading */
-  .date-string::before {
-    content: "(";
-  }
-  .date-string::after {
-    content: ")";
-  }
-
-  .desc-string {
-    margin: 16px;
-  }
-
-  .blog-card {
-    /* display: flex; */
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 8px;
-    padding: 8px;
-  }
-
-  .blog-card-content p {
-    margin: 16px;
-    line-height: 1.4;
-  }
-
-  /* on odd rows, flip the image to the right */
-  .blog-card {
-    order: 2;
-  }
-
-  .blog-card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    border: 1px solid var(--site-orange);
-  }
-</style>
+<style></style>

@@ -22,21 +22,19 @@ export default function Search({ posts }) {
 
 	return (
 		<>
-			<label>Search</label>
+			<label for="search" class="sr-only">Search</label>
 			<div>
-				<input type="text" value={query} onKeyUp={handleOnSearch} placeholder="Search posts" />
+				<input class="search-bar" type="text" value={query} onKeyUp={handleOnSearch} placeholder="Search posts" id="search" />
 			</div>
 			{query.length > 1 && (
 				<p>
 					Found {results.length} {results.length === 1 ? 'result' : 'results'} for '{query}'
 				</p>
 			)}
-			<ul>
-				{results &&
-					results.map((post) => (
-						<SearchBlogPost title={post.data.title} url={`/posts/${post.slug}`} description={post.data.description} />
-					))}
-			</ul>
+			{results &&
+				results.map((post) => (
+					<SearchBlogPost title={post.data.title} url={`/posts/${post.slug}`} description={post.data.description} date={post.data.date} tags={post.data.tags} />
+				))}
 		</>
 	);
 }
