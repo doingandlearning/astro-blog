@@ -1,7 +1,7 @@
 ---
 title: "Making XKCD Plots in Python"
 date: "2023-11-20"
-tags: ["python"]
+tags: ["python", "xkcd"]
 dateUpdated: "2023-11-20T08:59"
 description: ""
 ---
