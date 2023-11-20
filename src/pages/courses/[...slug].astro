@@ -1,11 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
-import MarkdownCourseLayout from '../../layouts/MarkdownCourseLayout.astro';
+import { getCollection } from "astro:content";
+import MarkdownCourseLayout from "../../layouts/MarkdownCourseLayout.astro";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('livecourses');
-  return blogEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
+  const blogEntries = await getCollection("livecourses");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
   }));
 }
 

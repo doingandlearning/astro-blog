@@ -15,7 +15,7 @@ const postsCollection = defineCollection({
       })
       .optional(),
     tags: z.array(z.string()),
-    draft: z.boolean().optional()
+    draft: z.boolean().optional(),
   }),
 });
 
@@ -40,6 +40,7 @@ const liveCourses = defineCollection({
     order: z.number(),
     duration: z.string(),
     description: z.string(),
+    draft: z.boolean().optional(),
   }),
 });
 // Export a single `collections` object to register your collection(s)

@@ -4,9 +4,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const precordedCourses = await getCollection("prerecorded").then((data) =>
   data.sort((a, b) => a.data.order - b.data.order)
 );
-const liveCourses = await getCollection("livecourses").then((data) =>
-  data.sort((a, b) => a.data.order - b.data.order)
-);
+const liveCourses = await getCollection("livecourses", ({ data }) => {
+  return data.draft !== true;
+}).then((data) => data.sort((a, b) => a.data.order - b.data.order));
 ---
 
 <BaseLayout pageTitle="Courses">
@@ -28,8 +28,8 @@ const liveCourses = await getCollection("livecourses").then((data) =>
       the courses below.
     </p>
     <p>
-      This is not a complete list but reflects what I've been asked to deliver
-      in the past 6 months. If you don't see what you're looking for, <a
+      I'm still working on writing up the coures I've delivered over the past
+      few years. If you don't see what you're looking for, <a
         href="mailto:website@kevincunningham.co.uk">please get in touch</a
       >.
     </p>
