@@ -2,7 +2,9 @@ import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 
 export async function GET(context) {
-  const posts = await getCollection("posts");
+  const posts = await getCollection("posts", ({ data }) => {
+    return data.draft !== true;
+  });
   return rss({
     title: "Kevin Cunningham - @dolearning ",
     description: "Wrtiting about learning, technology and the web",

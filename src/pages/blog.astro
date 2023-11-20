@@ -4,7 +4,9 @@ import BlogPostCard from "../components/BlogPostCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { formatDistance } from "date-fns";
 import Search from "../components/Search";
-const allPosts = await getCollection("posts").then((res) =>
+const allPosts = await getCollection("posts", ({ data }) => {
+  return data.draft !== true;
+}).then((res) =>
   res.sort(
     (a, b) => Number(new Date(b.data.date)) - Number(new Date(a.data.date))
   )

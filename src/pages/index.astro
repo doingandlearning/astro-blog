@@ -4,7 +4,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import Newsletter from "../components/Newsletter.astro";
 import BlogPostCard from "../components/BlogPostCard.astro";
-const latestPosts = await getCollection("posts").then((postMessages) =>
+const latestPosts = await getCollection("posts", ({ data }) => {
+  return data.draft !== true;
+}).then((postMessages) =>
   postMessages
     .sort(
       (a, b) => Number(new Date(b.data.date)) - Number(new Date(a.data.date))

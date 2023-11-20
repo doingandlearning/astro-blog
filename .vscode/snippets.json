@@ -8,8 +8,9 @@
       "tags: [\"$3\"]",
       "updateDate: \"$4\"",
       "description: \"$5\"",
+      "draft: true",
       "---"
     ],
-    "description": "Snippet for adding post frontmatter"
+    "description": "Snippet for adding post frontmatter",
   }
 }
