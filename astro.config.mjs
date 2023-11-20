@@ -12,4 +12,7 @@ export default defineConfig({
   integrations: [preact(), mdx(), sitemap()],
   output: "hybrid",
   adapter: vercel(),
+  redirects: {
+    '/feed.xml': { status: 302, destination: '/rss.xml' }
+  }
 });
