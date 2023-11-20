@@ -1,7 +1,9 @@
 ---
 title: "Webmentions and Campfires"
 date: "2020-05-06"
-tags: []
+tags: ["blogging", "conversations"]
+updateDate: "2023-11-20T14:51"
+description: "Thinking about how Webmentions allow us to have conversations through our blogs rather than through social media"
 ---
 
 I grew up in a family with a number of blind relatives. My Mum's siblings all had sight problems and so did some of my cousins. As a child, I took it for granted that each of those aunts, uncles and cousins knew when I was talking to them. After all, I was looking at them, that's how people know, right?
@@ -17,8 +19,6 @@ It used to be this was solved by having a comments section on a blog. If you wer
 A W3C standard was released in 2017 for webmentions. This is a protocol that can send callbacks when one configured URL mentions another. A way to let the text know that other people are talking about it, engaging with it, continuing the conversation.
 
 I recently enabled webmentions on this blog. You can see the outcome below - counting the likes and reposts but, more importantly, recognising that this writing is part of a wider conversation. That's the desire, right? That we create points of connection to gather round - campfires to warm ourselves and share experience.
-
-Over in the garden, I've started a [section on webmentions](/wiki/Webmentions) - including how Lauro ([@laurosilvacom](https://twitter.com/laurosilvacom)) and I got them up and running on our Gatsby blogs. We streamed that and I'll link to the video when it's available. Equally, I've linked to some excellent examples and posts over there.
 
 I want these posts to be part of a conversation rather than a one-sided proclamation from the roof-tops. Using webmentions to poll for replies on Twitter and other blogs seems like a good start.
 

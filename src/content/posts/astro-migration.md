@@ -2,7 +2,7 @@
 title: "Moving my website ... again"
 date: "2023-11-18"
 tags: ["astro"]
-dateUpdated: "2023-11-19T14:20:46.033Z"
+updateDate: "2023-11-19T14:20:46.033Z"
 description: "Landing on Astro ... first thoughts"
 ---
 

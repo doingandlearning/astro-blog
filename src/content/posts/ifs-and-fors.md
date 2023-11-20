@@ -2,7 +2,7 @@
 title: "Ifs and Fors - some rules of thumb"
 date: "2023-11-19T21:07"
 tags: ["heuristics"]
-dateUpdated: ""
+updateDate: ""
 description: "Sharing a helpful post on some heuristics around a few common coding structures"
 ---
 

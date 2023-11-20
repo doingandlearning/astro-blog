@@ -2,7 +2,7 @@
 title: "Making XKCD Plots in Python"
 date: "2023-11-20"
 tags: ["python", "xkcd"]
-dateUpdated: "2023-11-20T08:59"
+updateDate: "2023-11-20T08:59"
 description: "Found a bit of the MatPlotLib docs that shows how easy it is to create XKCD-styled graphs"
 ---
 
