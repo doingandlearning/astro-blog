@@ -66,7 +66,6 @@ const latestPosts = await getCollection("posts", ({ data }) => {
     </p>
     {
       latestPosts.map((post) => {
-        const { title, date, description } = post.data;
         return (
           <>
             <BlogPostCard

@@ -9,7 +9,7 @@ const { frontmatter, webmentions, slug } = Astro.props;
 
 const date = new Date(frontmatter.date);
 const formattedDate = format(date, "MMMM dd, yyyy");
-const planted = formatDistance(date, new Date(), { addSuffix: true });
+// const planted = formatDistance(date, new Date(), { addSuffix: true });
 
 let tended;
 let formattedTended;

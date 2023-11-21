@@ -1,5 +1,4 @@
 ---
-import { getMetaImage } from "../scripts/utils";
 import { formatDistance } from "date-fns";
 
 interface Props {
@@ -11,8 +10,7 @@ interface Props {
   tags?: string[];
 }
 
-const { title, url, withImage, description, date, tags = [] } = Astro.props;
-const ogimage = getMetaImage(title);
+const { title, url, description, date, tags = [] } = Astro.props;
 ---
 
 <div class="blog-card-container">

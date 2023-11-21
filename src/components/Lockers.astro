@@ -17,7 +17,7 @@ import { isPrime } from "../scripts/utils";
       let classNames = ["top", "middle", "bottom"];
 
       if (rowHighlight) {
-        classNames = classNames.map((className, i) =>
+        classNames = classNames.map((className) =>
           className === rowHighlight ? `${className} highlight` : className
         );
       }

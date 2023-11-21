@@ -1,4 +1,5 @@
 ---
+import MarkdownPostLayout from "../layouts/MarkdownPostLayout.astro";
 interface Props extends astroHTML.JSX.HTMLAttributes {
   embedParams?: EmbedParams;
   thumbnailRes?: ThumbnailRes;
@@ -69,11 +70,6 @@ let {
   videoId,
   ...attrs
 } = Astro.props as Props;
-
-let params: EmbedParams = {
-  ...{ autoplay: 1, modestbranding: 1 },
-  ...embedParams,
-};
 
 let thumbnailUrl = `https://img.youtube.com/vi/${videoId}/${QUALITY_PREFIXES[thumbnailRes]}default.jpg`;
 

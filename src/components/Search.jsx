@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'preact/hooks'
-import BlogPostCard from './BlogPostCard.astro'
 import SearchBlogPost from './SearchBlogPost'
 import { useStore } from '@nanostores/preact'
 

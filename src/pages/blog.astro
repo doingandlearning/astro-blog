@@ -1,8 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BlogPostCard from "../components/BlogPostCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { formatDistance } from "date-fns";
 import Search from "../components/Search";
 const allPosts = await getCollection("posts", ({ data }) => {
   return data.draft !== true;

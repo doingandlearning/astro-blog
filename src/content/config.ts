@@ -68,4 +68,5 @@ export const collections = {
   posts: postsCollection,
   prerecorded: prerecordedCollection,
   livecourses: liveCourses,
+  webmention: webmention,
 };

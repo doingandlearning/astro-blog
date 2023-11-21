@@ -1,5 +1,5 @@
 import { formatDistance } from 'date-fns'
-export default function SearchBlogPost({ title, description, url, withImage = false, date, tags = [] }) {
+export default function SearchBlogPost({ title, description, url, date, tags = [] }) {
 	return <div class="blog-card-container">
 		<a href={url}>
 			<div class="blog-card">
