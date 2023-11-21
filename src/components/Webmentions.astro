@@ -14,11 +14,32 @@ interface Mention {
   "wm-source": string;
   "wm-property": string;
 }
+
+let likes = webmentions.filter((item) => item["wm-property"] === "like-of");
+
+let likeImages = likes.map(
+  (like: Mention) => like.author.photo || "anonymous-avatar.jpg"
+);
 ---
 
 {webmentions.length > 1 && <h3>Honorable mentions</h3>}
 
-<ul>
+{
+  likes.length > 0 && (
+    <div class="likes">
+      <ul class="avatars">
+        {likeImages.map((image: string, index: number) => (
+          <li class="avatar" key={index}>
+            <img src={image} data-src={image} width="48" />
+          </li>
+        ))}
+      </ul>
+      <p class="like-count">({likes.length} likes)</p>
+    </div>
+  )
+}
+
+<ul class="comments">
   {
     webmentions
       .sort(
@@ -26,6 +47,9 @@ interface Mention {
           new Date(a.published).valueOf() - new Date(b.published).valueOf()
       )
       .map((mention: Mention) => {
+        if (mention["wm-property"] === "like-of") {
+          return null;
+        }
         return (
           <li class="p-comment h-cite comment">
             <div class="p-author h-card author">
@@ -57,7 +81,7 @@ interface Mention {
 </ul>
 
 <style>
-  li {
+  li .comments {
     padding: 0;
     margin: 0;
     margin-left: 54px;
@@ -70,12 +94,12 @@ interface Mention {
     font-size: 90%;
   }
 
-  img {
+  .comments img {
     margin-left: -54px;
     float: left;
     border-radius: 4px;
   }
-  ul {
+  ul .comments {
     list-style: none;
   }
 
@@ -86,5 +110,26 @@ interface Mention {
     position: relative;
     z-index: 1;
     padding-top: 2px;
+  }
+
+  .avatar {
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 50px;
+  }
+
+  .avatar:not(:first-child) {
+    margin-left: -7px;
+  }
+
+  .avatar img {
+    width: 100%;
+    display: block;
+  }
+
+  .likes {
+    display: flex;
+    align-items: flex-end;
   }
 </style>
