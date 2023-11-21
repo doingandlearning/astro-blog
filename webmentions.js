@@ -2,7 +2,6 @@ const WEBMENTION_API_KEY = "mMoMJ0H9rDm_zGUcm9iM1g";
 
 import fs from "fs";
 import https from "https";
-import path from "node:path";
 
 const DOMAIN = "www.kevincunningham.co.uk";
 

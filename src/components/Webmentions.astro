@@ -15,7 +15,9 @@ interface Mention {
   "wm-property": string;
 }
 
-let likes = webmentions.filter((item) => item["wm-property"] === "like-of");
+let likes = webmentions.filter(
+  (item: Mention) => item["wm-property"] === "like-of"
+);
 
 let likeImages = likes.map(
   (like: Mention) => like.author.photo || "anonymous-avatar.jpg"
