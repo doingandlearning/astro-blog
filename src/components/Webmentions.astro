@@ -28,8 +28,8 @@ let likeImages = likes.map(
   likes.length > 0 && (
     <div class="likes">
       <ul class="avatars">
-        {likeImages.map((image: string, index: number) => (
-          <li class="avatar" key={index}>
+        {likeImages.map((image: string) => (
+          <li class="avatar">
             <img src={image} data-src={image} width="48" />
           </li>
         ))}
