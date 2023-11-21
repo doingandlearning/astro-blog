@@ -3,6 +3,47 @@
     "type": "entry",
     "author": {
       "type": "card",
+      "name": "Vladimir Novick",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/395f229e5983c0b0b7d865456c518aeba9f3859f402ad5130b97ae84a8d40da1.jpg",
+      "url": "https://twitter.com/VladimirNovick"
+    },
+    "url": "https://twitter.com/VladimirNovick/status/1255957093779111945",
+    "published": "2020-04-30T20:28:00+00:00",
+    "wm-received": "2020-05-02T13:25:35Z",
+    "wm-id": 790678,
+    "wm-source": "https://brid-gy.appspot.com/repost/twitter/dolearning/1255955866068582406/1255957093779111945",
+    "wm-target": "https://www.kevincunningham.co.uk/wiki/GraphQL/migrate_from_rest_to_graphql",
+    "wm-protocol": "webmention",
+    "content": {
+      "text": "@edmooney @VladimirNovick Vladimir is creating an egghead course on the content - it's going to be excellent! In the meantime, you're welcom"
+    },
+    "repost-of": "https://www.kevincunningham.co.uk/wiki/GraphQL/migrate_from_rest_to_graphql",
+    "wm-property": "repost-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Vladimir Novick",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/395f229e5983c0b0b7d865456c518aeba9f3859f402ad5130b97ae84a8d40da1.jpg",
+      "url": "https://twitter.com/VladimirNovick"
+    },
+    "url": "https://twitter.com/dolearning/status/1255955866068582406#favorited-by-2272235102",
+    "published": null,
+    "wm-received": "2020-05-02T13:25:37Z",
+    "wm-id": 790679,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1255955866068582406/2272235102",
+    "wm-target": "https://www.kevincunningham.co.uk/wiki/GraphQL/migrate_from_rest_to_graphql",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/wiki/GraphQL/migrate_from_rest_to_graphql",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
       "name": "Ed Mooney ♘",
       "photo": "https://webmention.io/avatar/pbs.twimg.com/86360e83ae6c99849784e5728694c73400722826af5513eace70b05e19cccb36.jpg",
       "url": "https://twitter.com/edmooney"

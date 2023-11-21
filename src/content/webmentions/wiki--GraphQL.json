@@ -1,0 +1,21 @@
+[
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Vladimir Novick",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/395f229e5983c0b0b7d865456c518aeba9f3859f402ad5130b97ae84a8d40da1.jpg",
+      "url": "https://twitter.com/VladimirNovick"
+    },
+    "url": "https://twitter.com/dolearning/status/1255956319024095233#favorited-by-2272235102",
+    "published": null,
+    "wm-received": "2020-05-02T13:25:42Z",
+    "wm-id": 790680,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1255956319024095233/2272235102",
+    "wm-target": "https://www.kevincunningham.co.uk/wiki/GraphQL",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/wiki/GraphQL",
+    "wm-property": "like-of",
+    "wm-private": false
+  }
+]

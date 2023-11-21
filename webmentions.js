@@ -2,6 +2,7 @@ const WEBMENTION_API_KEY = "mMoMJ0H9rDm_zGUcm9iM1g";
 
 import fs from "fs";
 import https from "https";
+import path from "node:path";
 
 const DOMAIN = "www.kevincunningham.co.uk";
 
@@ -37,18 +38,18 @@ function fetchWebmentions() {
 
 function writeWebMention(webmention) {
   // Each post will have its own webmentions json file, named after the slug
-  console.log(webmention)
   const slug = webmention["wm-target"]
     .replace(`https://${DOMAIN}/`, "")
     .replace(/\/$/, "")
     .replaceAll("/", "--");
-  const filename = fs.realpathSync(`./src/content/webmentions/${slug || "home"}.json`);
-  // Create the file if it doesn't exist
+  const filename = `./src/content/webmentions/${slug || "home"}.json`;
+
+  // Check if file with filename exists
   if (!fs.existsSync(filename)) {
+    console.log(`Creating new webmentions file: ${filename}`);
     fs.writeFileSync(filename, JSON.stringify([webmention], null, 2));
     return;
   } else {
-
     // If the file already exists, append the new webmention while also deduping
     const entries = JSON.parse(fs.readFileSync(filename))
       .filter((wm) => wm["wm-id"] !== webmention["wm-id"])
