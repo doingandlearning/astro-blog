@@ -1,0 +1,191 @@
+---
+title: "Spoiler Element"
+date: "2023-11-21T13:30"
+tags: []
+updateDate: ""
+description: "Creating an Astro component for spoilers"
+---
+import Spoiler from "../../components/Spoiler.astro"
+
+I came across a proposal for a <a href="https://seirdy.one/posts/2023/11/12/spoiler-element/">spoiler element in HTML</a> on Seirdy's blog. It made me want to immediately try to implement a version in Astro or maybe as a HTML Web Component.
+
+For this post, I'll stick with Astro component - I'll try HTML Web Component next.
+
+I'm not sure how often I'll use it but I like the idea a lot. I could probably use it for question/answer things as well.
+
+Spoiler elements have been around for decades, from forums to Discord to Mastodon.
+
+I'll want to use it like:
+
+```html
+<spoiler-tag placeholder="Click for answer">
+	<p>42</p>
+</spoiler-tag>
+```
+
+I'll try it first as an Astro component and then see if I can make it a WebComponent.
+
+Here's my first attempt with Astro not using the place holder yet:
+
+```astro
+---
+const { placeholder } = Astro.props
+---
+<div class="spoiler">
+  <div>
+    <slot />
+  <div>
+</div>
+
+<style>
+  .spoiler > div {
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  .spoiler:hover > div {
+    opacity: 1;
+  }
+</style>
+```
+To use I'd do:
+
+```html
+<Spoiler placeholder="Don't ruin it for me!">Go on then!</Spoiler>
+```
+<Spoiler placeholder="Don't ruin it for me!">Go on then!</Spoiler>
+
+That works which you can see just about this text but it has a few problems:
+- I'd like to persist the reveal as touch devices struggle to maintain hover
+- I haven't done anything with the placeholder text
+- It's not obvious that the spoiler is there
+
+I think the easiest way to handle this is to listen for a click event and remove the hover class if it happens.
+
+```astro
+<script>
+  const spoiler = document.querySelector(".spoiler");
+  spoiler?.addEventListener("click", () => {
+    spoiler.classList.toggle("spoiler");
+  });
+</script>
+```
+
+What about the placeholder text then?
+
+I played around with this for ages and really struggled. As my component is set up at the moment, the placeholder needs to be outside the internal div:
+
+```astro
+<div class="spoiler">
+  <span id="placeholder">{placeholder}</span>
+  <div>
+    <slot />
+  </div>
+</div>
+```
+
+That was the main reason I had that nested div. The problem is that I want the placeholder to take up the position of the spoiler until it is revealed.
+
+If I make the spoiler position relative and the span position absolute, I'm getting there:
+
+```css
+.spoiler {
+  position: relative;
+}
+#placeholder {
+  position: absolute;
+  top: 0;
+}
+```
+
+And if I give the placeholder a hover event, I'm there for certain values of there:
+
+```css
+#placeholder:hover {
+  opacity: 0;
+}
+```
+
+At this point there is a bit of a lag between one event and the other:
+
+
+This is because of the nested transitions. The browser is waiting for one spoiler transition to finish before it starts the next. The easiest way to fix this is to remove the transition. We lose prettiness but we get functionality.
+
+Last thing I want to do before this gets to MVP is to make it clear it is a spoiler.
+
+I'll wrap the spoiler in a container div and give it some styling.
+
+This is my finished component:
+
+```astro
+---
+const { placeholder } = Astro.props;
+---
+
+<div class="spoiler-container">
+  <div class="spoiler">
+    <span id="placeholder">{placeholder}</span>
+    <div>
+      <slot />
+    </div>
+  </div>
+</div>
+
+<style>
+  .spoiler > div {
+    opacity: 0;
+  }
+  .spoiler:hover > div {
+    opacity: 1;
+  }
+
+  .spoiler {
+    position: relative;
+  }
+  #placeholder {
+    position: absolute;
+    top: 0;
+    opacity: 1;
+  }
+
+  #placeholder:hover {
+    opacity: 0;
+  }
+
+  .spoiler-container {
+    margin: 4px;
+    border: 1px red dotted;
+    background-color: rgb(242, 233, 233);
+    padding: 6px;
+    min-width: 150px;
+    width: fit-content;
+  }
+</style>
+<script>
+  const spoiler = document.querySelector(".spoiler");
+  spoiler?.addEventListener("click", () => {
+    spoiler.classList.toggle("spoiler");
+  });
+</script>
+```
+
+I think it's a probably a pretty naive first attempt but it definitely feels like it's useful even in a minimal way!
+
+So, what is the answer to life, the universe and everything? 
+
+<Spoiler>42</Spoiler>
+
+Whoops! Just found a bug. When there are multiple spoilers on the same page, only the first one gets targetted with our click script. We'll need to use `querySelectorAll` and loop over to fix.
+
+So, our updated script tag becomes:
+
+```html
+<script>
+  const spoilers = document.querySelectorAll(".spoiler");
+
+  [...spoilers].map((spoiler) =>
+    spoiler?.addEventListener("click", () => {
+      spoiler.classList.toggle("spoiler");
+    })
+  );
+</script>
+```

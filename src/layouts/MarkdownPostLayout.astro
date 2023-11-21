@@ -5,7 +5,7 @@ import Tags from "../components/Tags.astro";
 import Webmentions from "../components/Webmentions.astro";
 import BaseLayout from "./BaseLayout.astro";
 import { format, formatDistance } from "date-fns";
-const { frontmatter, webmentions } = Astro.props;
+const { frontmatter, webmentions, slug } = Astro.props;
 
 const date = new Date(frontmatter.date);
 const formattedDate = format(date, "MMMM dd, yyyy");
@@ -24,23 +24,35 @@ if (frontmatter.updateDate) {
   pageTitle={frontmatter.title}
   pageDescription={frontmatter.description}
 >
-  <div>
-    <a class="back-link" href="/blog">{`🔙 All posts`}</a>
-  </div>
-  <h1 transition:animate="slide">{frontmatter.title}</h1>
-  <h2>{frontmatter.description}</h2>
-  <hr />
-  <div class="heading-info">
-    <Tags tags={frontmatter.tags} />
-    <div class="dates">
-      <p>Planted {formattedDate}</p>
-      {tended && <p>Last tended {formattedTended}</p>}
+  <article class="h-entry">
+    <div>
+      <a class="back-link" href="/blog">{`🔙 All posts`}</a>
     </div>
-  </div>
-  <slot />
-  <BackButton />
-  <Newsletter />
-  <Webmentions webmentions={webmentions} />
+    <h1 transition:animate="slide">{frontmatter.title}</h1>
+    <h2>{frontmatter.description}</h2>
+    <hr />
+    <div class="heading-info">
+      <Tags tags={frontmatter.tags} />
+      <div class="dates">
+        <p>Planted {formattedDate}</p>
+        {tended && <p>Last tended {formattedTended}</p>}
+      </div>
+    </div>
+    <div class="e-content p-name">
+      <slot />
+    </div>
+    <BackButton />
+    <Newsletter />
+    <Webmentions webmentions={webmentions} />
+    <a
+      rel="author"
+      class="p-author h-card"
+      href="https://kevincunningham.co.uk"
+      hidden>Kevin Cunningham</a
+    >
+    <span hidden class="dt-published" hidden>{date.toISOString()}</span>
+    <a class="u-url" href={`https://kevincunningham.co.uk/posts/${slug}`}>…</a>
+  </article>
   <script>
     import "../scripts/codeCopyButton";
   </script>

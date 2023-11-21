@@ -1,0 +1,52 @@
+---
+const { placeholder } = Astro.props;
+---
+
+<div class="spoiler-container">
+  <div class="spoiler">
+    <span id="placeholder">{placeholder}</span>
+    <div>
+      <slot />
+    </div>
+  </div>
+</div>
+
+<style>
+  .spoiler > div {
+    opacity: 0;
+  }
+  .spoiler:hover > div {
+    opacity: 1;
+  }
+
+  .spoiler {
+    position: relative;
+  }
+  #placeholder {
+    position: absolute;
+    top: 0;
+    opacity: 1;
+  }
+
+  #placeholder:hover {
+    opacity: 0;
+  }
+
+  .spoiler-container {
+    margin: 4px;
+    border: 1px red dotted;
+    background-color: rgb(242, 233, 233);
+    padding: 6px;
+    min-width: 150px;
+    width: fit-content;
+  }
+</style>
+<script>
+  const spoilers = document.querySelectorAll(".spoiler");
+
+  [...spoilers].map((spoiler) =>
+    spoiler?.addEventListener("click", () => {
+      spoiler.classList.toggle("spoiler");
+    })
+  );
+</script>
