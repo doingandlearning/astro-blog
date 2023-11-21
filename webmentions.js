@@ -37,21 +37,23 @@ function fetchWebmentions() {
 
 function writeWebMention(webmention) {
   // Each post will have its own webmentions json file, named after the slug
+  console.log(webmention)
   const slug = webmention["wm-target"]
     .replace(`https://${DOMAIN}/`, "")
     .replace(/\/$/, "")
-    .replace("/", "--");
+    .replaceAll("/", "--");
   const filename = fs.realpathSync(`./src/content/webmentions/${slug || "home"}.json`);
   // Create the file if it doesn't exist
   if (!fs.existsSync(filename)) {
     fs.writeFileSync(filename, JSON.stringify([webmention], null, 2));
     return;
-  }
+  } else {
 
-  // If the file already exists, append the new webmention while also deduping
-  const entries = JSON.parse(fs.readFileSync(filename))
-    .filter((wm) => wm["wm-id"] !== webmention["wm-id"])
-    .concat([webmention]);
-  entries.sort((a, b) => a["wm-id"] - b["wm-id"]);
-  fs.writeFileSync(filename, JSON.stringify(entries, null, 2));
+    // If the file already exists, append the new webmention while also deduping
+    const entries = JSON.parse(fs.readFileSync(filename))
+      .filter((wm) => wm["wm-id"] !== webmention["wm-id"])
+      .concat([webmention]);
+    entries.sort((a, b) => a["wm-id"] - b["wm-id"]);
+    fs.writeFileSync(filename, JSON.stringify(entries, null, 2));
+  }
 }

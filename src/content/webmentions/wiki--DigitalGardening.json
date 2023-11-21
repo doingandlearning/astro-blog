@@ -1,0 +1,21 @@
+[
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "neil hawkins",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/0993d6055c088c0ca3d324cbf5a21ea1a813324d491ca46da229771102b2d816.jpg",
+      "url": "https://twitter.com/n__eil"
+    },
+    "url": "https://twitter.com/dolearning/status/1255967110087524360#favorited-by-15342974",
+    "published": null,
+    "wm-received": "2020-05-02T13:25:43Z",
+    "wm-id": 790681,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1255967110087524360/15342974",
+    "wm-target": "https://www.kevincunningham.co.uk/wiki/DigitalGardening",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/wiki/DigitalGardening",
+    "wm-property": "like-of",
+    "wm-private": false
+  }
+]

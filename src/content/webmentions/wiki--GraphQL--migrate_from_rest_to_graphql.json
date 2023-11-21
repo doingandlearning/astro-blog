@@ -1,0 +1,67 @@
+[
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Ed Mooney ♘",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/86360e83ae6c99849784e5728694c73400722826af5513eace70b05e19cccb36.jpg",
+      "url": "https://twitter.com/edmooney"
+    },
+    "url": "https://twitter.com/edmooney/status/1255980891471577096",
+    "published": "2020-04-30T22:02:34+00:00",
+    "wm-received": "2020-05-02T13:26:37Z",
+    "wm-id": 790684,
+    "wm-source": "https://brid-gy.appspot.com/comment/twitter/dolearning/1255955866068582406/1255980891471577096",
+    "wm-target": "https://www.kevincunningham.co.uk/wiki/GraphQL/migrate_from_rest_to_graphql",
+    "wm-protocol": "webmention",
+    "content": {
+      "html": "Excellent! Thanks so much for sharing. I did a presentation around GraphQL several months ago - if it helps you at all - resources section in the back: <a href=\"https://docs.google.com/presentation/d/11yV-awFyxiMbuVOZxZezPSAg9QvpBHiZPfEB2LH3n8g/edit#slide=id.p\">docs.google.com/presentation/d…</a>\n<a class=\"u-mention\" href=\"https://twitter.com/VladimirNovick\"></a>\n<a class=\"u-mention\" href=\"https://twitter.com/dolearning\"></a>\n<a class=\"u-mention\" href=\"https://www.kevincunningham.co.uk/\"></a>",
+      "text": "Excellent! Thanks so much for sharing. I did a presentation around GraphQL several months ago - if it helps you at all - resources section in the back: docs.google.com/presentation/d…"
+    },
+    "in-reply-to": "https://www.kevincunningham.co.uk/wiki/GraphQL/migrate_from_rest_to_graphql",
+    "wm-property": "in-reply-to",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Ed Mooney ♘",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/86360e83ae6c99849784e5728694c73400722826af5513eace70b05e19cccb36.jpg",
+      "url": "https://twitter.com/edmooney"
+    },
+    "url": "https://twitter.com/dolearning/status/1255955866068582406#favorited-by-2658021",
+    "published": null,
+    "wm-received": "2020-05-02T13:26:47Z",
+    "wm-id": 790685,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1255955866068582406/2658021",
+    "wm-target": "https://www.kevincunningham.co.uk/wiki/GraphQL/migrate_from_rest_to_graphql",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/wiki/GraphQL/migrate_from_rest_to_graphql",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Kevin Cunningham",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/0286481f0ad3f027d9d432368d52143f6fe96396aeb213fe39ebb899abfaadf4.jpg",
+      "url": "https://twitter.com/dolearning"
+    },
+    "url": "https://twitter.com/dolearning/status/1255956319024095233",
+    "published": "2020-04-30T20:24:55+00:00",
+    "wm-received": "2020-05-02T13:27:21Z",
+    "wm-id": 790691,
+    "wm-source": "https://brid-gy.appspot.com/comment/twitter/dolearning/1255955866068582406/1255956319024095233",
+    "wm-target": "https://www.kevincunningham.co.uk/wiki/GraphQL/migrate_from_rest_to_graphql",
+    "wm-protocol": "webmention",
+    "content": {
+      "html": "Actually this might be a better link. <a href=\"https://www.kevincunningham.co.uk/wiki/GraphQL\">kevincunningham.co.uk/wiki/GraphQL</a>\n<a class=\"u-mention\" href=\"https://twitter.com/VladimirNovick\"></a>\n<a class=\"u-mention\" href=\"https://twitter.com/edmooney\"></a>",
+      "text": "Actually this might be a better link. kevincunningham.co.uk/wiki/GraphQL"
+    },
+    "in-reply-to": "https://www.kevincunningham.co.uk/wiki/GraphQL/migrate_from_rest_to_graphql",
+    "wm-property": "in-reply-to",
+    "wm-private": false
+  }
+]
