@@ -43,6 +43,26 @@ const liveCourses = defineCollection({
     draft: z.boolean().optional(),
   }),
 });
+
+const webmention = defineCollection({
+  type: "content",
+  schema: z.array({
+    author: z.object({
+      name: z.string(),
+      photo: z.string(),
+      url: z.string(),
+    }),
+    "wm-property": z.string(),
+    url: z.string(),
+    content: z
+      .object({
+        html: z.string(),
+        text: z.string(),
+      })
+      .optional(),
+    "wm-received": z.string(),
+  }),
+});
 // Export a single `collections` object to register your collection(s)
 export const collections = {
   posts: postsCollection,

@@ -1,0 +1,81 @@
+[
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Ceora 🐍☁️",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/7735f8415bb840ca231527a813c87e7db288de22449fac60b3f3735655d4990b.jpg",
+      "url": "https://twitter.com/ceeoreo_"
+    },
+    "url": "https://twitter.com/dolearning/status/1290687440420769792#favorited-by-1042530264532971520",
+    "published": null,
+    "wm-received": "2020-08-04T17:19:38Z",
+    "wm-id": 835895,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1290687440420769792/1042530264532971520",
+    "wm-target": "https://www.kevincunningham.co.uk/brain/clojure-3-videos-and-reading",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/brain/clojure-3-videos-and-reading",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "robut",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/10f62474b32a32cd789223ac791b748b3c97dda4efa7d64461e01c1d9af9c9ed.jpg",
+      "url": "https://twitter.com/wikirobut"
+    },
+    "url": "https://twitter.com/dolearning/status/1290687440420769792#favorited-by-596679436",
+    "published": null,
+    "wm-received": "2020-08-05T02:33:14Z",
+    "wm-id": 836055,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1290687440420769792/596679436",
+    "wm-target": "https://www.kevincunningham.co.uk/brain/clojure-3-videos-and-reading",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/brain/clojure-3-videos-and-reading",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "100 Days of Projects",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/3cafa7df8a75d7c714e258b24ca2da31805d8add54650f2f815c9c90028c5da3.jpg",
+      "url": "https://twitter.com/100ProjectDays"
+    },
+    "url": "https://twitter.com/dolearning/status/1290687440420769792#favorited-by-1285982388984655874",
+    "published": null,
+    "wm-received": "2020-08-05T02:33:14Z",
+    "wm-id": 836056,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1290687440420769792/1285982388984655874",
+    "wm-target": "https://www.kevincunningham.co.uk/brain/clojure-3-videos-and-reading",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/brain/clojure-3-videos-and-reading",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "100 Days of Projects",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/3cafa7df8a75d7c714e258b24ca2da31805d8add54650f2f815c9c90028c5da3.jpg",
+      "url": "https://twitter.com/100ProjectDays"
+    },
+    "url": "https://twitter.com/100ProjectDays/status/1290827376604086277",
+    "published": "2020-08-05T01:50:03+00:00",
+    "wm-received": "2020-08-05T02:33:16Z",
+    "wm-id": 836057,
+    "wm-source": "https://brid-gy.appspot.com/repost/twitter/dolearning/1290687440420769792/1290827376604086277",
+    "wm-target": "https://www.kevincunningham.co.uk/brain/clojure-3-videos-and-reading",
+    "wm-protocol": "webmention",
+    "content": {
+      "text": "13/#100DaysOfProjects (3/35 ClojureFam)\n\nI'm camping in a field (in a van with electricity so I'm still online). \n\nWatched some videos, sol"
+    },
+    "repost-of": "https://www.kevincunningham.co.uk/brain/clojure-3-videos-and-reading",
+    "wm-property": "repost-of",
+    "wm-private": false
+  }
+]

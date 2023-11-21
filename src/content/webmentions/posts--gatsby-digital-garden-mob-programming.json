@@ -1,0 +1,21 @@
+[
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "",
+      "photo": "",
+      "url": ""
+    },
+    "url": "https://sijobling.com/weeknotes/18/",
+    "published": null,
+    "wm-received": "2020-05-05T20:15:17Z",
+    "wm-id": 792858,
+    "wm-source": "https://sijobling.com/weeknotes/18/",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/gatsby-digital-garden-mob-programming/",
+    "wm-protocol": "pingback",
+    "mention-of": "https://www.kevincunningham.co.uk/posts/gatsby-digital-garden-mob-programming/",
+    "wm-property": "mention-of",
+    "wm-private": false
+  }
+]

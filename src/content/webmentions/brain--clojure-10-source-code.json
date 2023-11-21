@@ -1,0 +1,67 @@
+[
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Colby Fayock",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/9d0f781d734c446a53a1ab7133dd1ec7cabe2cd50f4a42cfbbeefe3af9aa44db.jpg",
+      "url": "https://twitter.com/colbyfayock"
+    },
+    "url": "https://twitter.com/colbyfayock/status/1293270003442221061",
+    "published": "2020-08-11T19:36:11+00:00",
+    "wm-received": "2020-08-11T20:02:36Z",
+    "wm-id": 838710,
+    "wm-source": "https://brid-gy.appspot.com/comment/twitter/dolearning/1293267949462134784/1293270003442221061",
+    "wm-target": "https://www.kevincunningham.co.uk/brain/clojure-10-source-code",
+    "wm-protocol": "webmention",
+    "content": {
+      "html": "💪\n<a class=\"u-mention\" href=\"https://twitter.com/dolearning\"></a>\n<a class=\"u-mention\" href=\"https://www.kevincunningham.co.uk/\"></a>",
+      "text": "💪"
+    },
+    "in-reply-to": "https://www.kevincunningham.co.uk/brain/clojure-10-source-code",
+    "wm-property": "in-reply-to",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Colby Fayock",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/9d0f781d734c446a53a1ab7133dd1ec7cabe2cd50f4a42cfbbeefe3af9aa44db.jpg",
+      "url": "https://twitter.com/colbyfayock"
+    },
+    "url": "https://twitter.com/dolearning/status/1293267949462134784#favorited-by-28006594",
+    "published": null,
+    "wm-received": "2020-08-11T20:02:39Z",
+    "wm-id": 838711,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1293267949462134784/28006594",
+    "wm-target": "https://www.kevincunningham.co.uk/brain/clojure-10-source-code",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/brain/clojure-10-source-code",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Kevin Cunningham",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/0286481f0ad3f027d9d432368d52143f6fe96396aeb213fe39ebb899abfaadf4.jpg",
+      "url": "https://twitter.com/dolearning"
+    },
+    "url": "https://twitter.com/dolearning/status/1293651190249598978",
+    "published": "2020-08-12T20:50:53+00:00",
+    "wm-received": "2020-08-12T21:02:44Z",
+    "wm-id": 839015,
+    "wm-source": "https://brid-gy.appspot.com/comment/twitter/dolearning/1293267949462134784/1293651190249598978",
+    "wm-target": "https://www.kevincunningham.co.uk/brain/clojure-10-source-code",
+    "wm-protocol": "webmention",
+    "content": {
+      "html": "21/<a href=\"https://twitter.com/search?q=%23100DaysOfProjects\">#100DaysOfProjects</a> (11/35 ClojureFam)\n\n- Live streamed with <a href=\"https://twitter.com/colbyfayock\">@colbyfayock</a> (check out <a href=\"https://50reactprojects.com\">50reactprojects.com</a>)\n- In prep for that did lots of OBS config\n- Read some more of Brave and True",
+      "text": "21/#100DaysOfProjects (11/35 ClojureFam)\n\n- Live streamed with @colbyfayock (check out 50reactprojects.com)\n- In prep for that did lots of OBS config\n- Read some more of Brave and True"
+    },
+    "in-reply-to": "https://www.kevincunningham.co.uk/brain/clojure-10-source-code",
+    "wm-property": "in-reply-to",
+    "wm-private": false
+  }
+]

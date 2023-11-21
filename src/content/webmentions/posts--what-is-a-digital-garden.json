@@ -1,0 +1,120 @@
+[
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Kath Cunningham",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/3e7c7c4926ea9fa1f74d057c35e566a258f69162f37670158313d1f14d62f5e7.jpg",
+      "url": "https://twitter.com/faithinavan"
+    },
+    "url": "https://twitter.com/dolearning/status/1256598490773434368#favorited-by-863839651139866624",
+    "published": null,
+    "wm-received": "2020-05-02T15:50:36Z",
+    "wm-id": 790722,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1256598490773434368/863839651139866624",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/what-is-a-digital-garden/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/what-is-a-digital-garden/",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Filipe Oliveira ⚛️",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/823b8ee926eb33bc90d3b87279120c0497b4eb27710780969df7d661585b4ea9.jpg",
+      "url": "https://twitter.com/tfmoliveira"
+    },
+    "url": "https://twitter.com/dolearning/status/1257004709015179265#favorited-by-142489586",
+    "published": null,
+    "wm-received": "2020-05-03T19:10:10Z",
+    "wm-id": 791279,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1257004709015179265/142489586",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/what-is-a-digital-garden/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/what-is-a-digital-garden/",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Colby Fayock @home",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/8d9caf39f6a25c7799819e1a0380596b2e8cd142bed035e8d207cec1cb222510.jpg",
+      "url": "https://twitter.com/colbyfayock"
+    },
+    "url": "https://twitter.com/colbyfayock/status/1257004899826614273",
+    "published": "2020-05-03T17:51:36+00:00",
+    "wm-received": "2020-05-03T19:10:10Z",
+    "wm-id": 791280,
+    "wm-source": "https://brid-gy.appspot.com/comment/twitter/dolearning/1257004709015179265/1257004899826614273",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/what-is-a-digital-garden/",
+    "wm-protocol": "webmention",
+    "content": {
+      "html": "haha awesome, thanks\n<a class=\"u-mention\" href=\"https://twitter.com/dolearning\"></a>\n<a class=\"u-mention\" href=\"https://twitter.com/laurosilvacom\"></a>\n<a class=\"u-mention\" href=\"https://www.kevincunningham.co.uk/\"></a>",
+      "text": "haha awesome, thanks"
+    },
+    "in-reply-to": "https://www.kevincunningham.co.uk/posts/what-is-a-digital-garden/",
+    "wm-property": "in-reply-to",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Colby Fayock @home",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/8d9caf39f6a25c7799819e1a0380596b2e8cd142bed035e8d207cec1cb222510.jpg",
+      "url": "https://twitter.com/colbyfayock"
+    },
+    "url": "https://twitter.com/dolearning/status/1257004709015179265#favorited-by-28006594",
+    "published": null,
+    "wm-received": "2020-05-03T19:10:24Z",
+    "wm-id": 791281,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1257004709015179265/28006594",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/what-is-a-digital-garden/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/what-is-a-digital-garden/",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Bruno Winck",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/3d3b21acb254dc30b8e72006629dd9396d3e3d1839cacabbd0c6166fbe3abce9.jpg",
+      "url": "https://twitter.com/brunowinck"
+    },
+    "url": "https://twitter.com/dolearning/status/1257004709015179265#favorited-by-14506257",
+    "published": null,
+    "wm-received": "2020-05-03T21:14:42Z",
+    "wm-id": 791361,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1257004709015179265/14506257",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/what-is-a-digital-garden/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/what-is-a-digital-garden/",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "knut 🏠 working from cyberspace",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/a92840da457eec63c06b2ec55994e21fb5f97e38f0d1eb4c3e1f6bb4214d7c34.jpg",
+      "url": "https://twitter.com/kmelve"
+    },
+    "url": "https://twitter.com/dolearning/status/1258099203101859840#favorited-by-798123",
+    "published": null,
+    "wm-received": "2020-05-06T19:30:12Z",
+    "wm-id": 793145,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1258099203101859840/798123",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/what-is-a-digital-garden/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/what-is-a-digital-garden/",
+    "wm-property": "like-of",
+    "wm-private": false
+  }
+]

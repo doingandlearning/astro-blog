@@ -1,7 +1,6 @@
 ---
 export const prerender = false;
 if (Astro.request.method === "POST") {
-  console.log("POST");
   try {
     const data = await Astro.request.formData();
     const first_name = data.get("username");

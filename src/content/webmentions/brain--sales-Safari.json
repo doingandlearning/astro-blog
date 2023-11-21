@@ -1,0 +1,21 @@
+[
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Colby Fayock",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/9d0f781d734c446a53a1ab7133dd1ec7cabe2cd50f4a42cfbbeefe3af9aa44db.jpg",
+      "url": "https://twitter.com/colbyfayock"
+    },
+    "url": "https://twitter.com/dolearning/status/1292179487770148866#favorited-by-28006594",
+    "published": null,
+    "wm-received": "2020-08-10T10:47:33Z",
+    "wm-id": 838298,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1292179487770148866/28006594",
+    "wm-target": "https://www.kevincunningham.co.uk/brain/sales-Safari",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/brain/sales-Safari",
+    "wm-property": "like-of",
+    "wm-private": false
+  }
+]

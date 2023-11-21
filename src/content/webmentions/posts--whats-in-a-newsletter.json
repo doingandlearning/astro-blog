@@ -1,0 +1,230 @@
+[
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Si Jobling",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/c012a8961ca6d3c5da3748022892f4f7a750eeec7a659cd3d8f5fa3cec5fa8c7.jpg",
+      "url": "https://twitter.com/Si"
+    },
+    "url": "https://twitter.com/Si/status/1283355689197473792",
+    "published": "2020-07-15T11:00:14+00:00",
+    "wm-received": "2020-07-15T17:13:47Z",
+    "wm-id": 827463,
+    "wm-source": "https://brid-gy.appspot.com/comment/twitter/dolearning/1283345279803174912/1283355689197473792",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-protocol": "webmention",
+    "content": {
+      "html": "I wouldn't say \"genius\", just an observation.\n<a class=\"u-mention\" href=\"https://twitter.com/dolearning\"></a>\n<a class=\"u-mention\" href=\"https://www.kevincunningham.co.uk/\"></a>",
+      "text": "I wouldn't say \"genius\", just an observation."
+    },
+    "in-reply-to": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-property": "in-reply-to",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Si Jobling",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/c012a8961ca6d3c5da3748022892f4f7a750eeec7a659cd3d8f5fa3cec5fa8c7.jpg",
+      "url": "https://twitter.com/Si"
+    },
+    "url": "https://twitter.com/Si/status/1283355474172219392",
+    "published": "2020-07-15T10:59:23+00:00",
+    "wm-received": "2020-07-15T17:13:47Z",
+    "wm-id": 827464,
+    "wm-source": "https://brid-gy.appspot.com/comment/twitter/dolearning/1283345279803174912/1283355474172219392",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-protocol": "webmention",
+    "content": {
+      "html": "Nice compilation! Could you link to the mailing lists from your collection so others can join?\n<a class=\"u-mention\" href=\"https://twitter.com/dolearning\"></a>\n<a class=\"u-mention\" href=\"https://www.kevincunningham.co.uk/\"></a>",
+      "text": "Nice compilation! Could you link to the mailing lists from your collection so others can join?"
+    },
+    "in-reply-to": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-property": "in-reply-to",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Ruby on Wills",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/666b74b365ccf28b6d49d66f229df37c9ac101e26ec792e9510093d191bf0fb8.jpg",
+      "url": "https://twitter.com/willjohnsonio"
+    },
+    "url": "https://twitter.com/dolearning/status/1283345279803174912#favorited-by-917069583097397248",
+    "published": null,
+    "wm-received": "2020-07-15T17:13:49Z",
+    "wm-id": 827465,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1283345279803174912/917069583097397248",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Kevin Cunningham",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/0286481f0ad3f027d9d432368d52143f6fe96396aeb213fe39ebb899abfaadf4.jpg",
+      "url": "https://twitter.com/dolearning"
+    },
+    "url": "https://twitter.com/dolearning/status/1283360720630026241",
+    "published": "2020-07-15T11:20:14+00:00",
+    "wm-received": "2020-07-15T17:13:50Z",
+    "wm-id": 827466,
+    "wm-source": "https://brid-gy.appspot.com/comment/twitter/dolearning/1283345279803174912/1283360720630026241",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-protocol": "webmention",
+    "content": {
+      "html": "Your wish is my command <a href=\"https://kevincunningham.co.uk/posts/whats-in-a-newsletter/\">kevincunningham.co.uk/posts/whats-in…</a>\n<a class=\"u-mention\" href=\"https://twitter.com/Si\"></a>",
+      "text": "Your wish is my command kevincunningham.co.uk/posts/whats-in…"
+    },
+    "in-reply-to": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-property": "in-reply-to",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Kevin Cunningham",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/0286481f0ad3f027d9d432368d52143f6fe96396aeb213fe39ebb899abfaadf4.jpg",
+      "url": "https://twitter.com/dolearning"
+    },
+    "url": "https://twitter.com/dolearning/status/1283355569647243264",
+    "published": "2020-07-15T10:59:46+00:00",
+    "wm-received": "2020-07-15T17:13:51Z",
+    "wm-id": 827467,
+    "wm-source": "https://brid-gy.appspot.com/comment/twitter/dolearning/1283345279803174912/1283355569647243264",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-protocol": "webmention",
+    "content": {
+      "html": "Genius idea!\n<a class=\"u-mention\" href=\"https://twitter.com/Si\"></a>",
+      "text": "Genius idea!"
+    },
+    "in-reply-to": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-property": "in-reply-to",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Ceora ☁️🐍",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/7735f8415bb840ca231527a813c87e7db288de22449fac60b3f3735655d4990b.jpg",
+      "url": "https://twitter.com/ceeoreo_"
+    },
+    "url": "https://twitter.com/dolearning/status/1283345279803174912#favorited-by-1042530264532971520",
+    "published": null,
+    "wm-received": "2020-07-15T17:13:52Z",
+    "wm-id": 827468,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1283345279803174912/1042530264532971520",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Kath Cunningham",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/3e7c7c4926ea9fa1f74d057c35e566a258f69162f37670158313d1f14d62f5e7.jpg",
+      "url": "https://twitter.com/faithinavan"
+    },
+    "url": "https://twitter.com/dolearning/status/1283345279803174912#favorited-by-863839651139866624",
+    "published": null,
+    "wm-received": "2020-07-15T17:13:52Z",
+    "wm-id": 827469,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1283345279803174912/863839651139866624",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Zac Jones",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/0ec5dbe59438fa62d1026b7b8c778df70366136877a3e490efd6969a69845cd6.jpg",
+      "url": "https://twitter.com/zacjones93"
+    },
+    "url": "https://twitter.com/dolearning/status/1283467267276189697#favorited-by-367291013",
+    "published": null,
+    "wm-received": "2020-07-15T21:56:29Z",
+    "wm-id": 827718,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1283467267276189697/367291013",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Stephanie Eckles",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/44ea20397ffdfe2596c75b7cb2c5a14125169794c07afafb51492ed95ba10d71.jpg",
+      "url": "https://twitter.com/5t3ph"
+    },
+    "url": "https://twitter.com/dolearning/status/1283345279803174912#favorited-by-18636799",
+    "published": null,
+    "wm-received": "2020-07-15T21:56:29Z",
+    "wm-id": 827719,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1283345279803174912/18636799",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Philo van Kemenade",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/ab3d336b910d26345114cdd4a72e22f72d5e3e5d0fca341311a400a39bf74010.jpg",
+      "url": "https://twitter.com/phivk"
+    },
+    "url": "https://twitter.com/dolearning/status/1283345279803174912#favorited-by-274944090",
+    "published": null,
+    "wm-received": "2020-07-16T13:06:17Z",
+    "wm-id": 827908,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1283345279803174912/274944090",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Philo van Kemenade",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/ab3d336b910d26345114cdd4a72e22f72d5e3e5d0fca341311a400a39bf74010.jpg",
+      "url": "https://twitter.com/phivk"
+    },
+    "url": "https://twitter.com/phivk/status/1283736959249154048",
+    "published": "2020-07-16T12:15:16+00:00",
+    "wm-received": "2020-07-16T19:31:27Z",
+    "wm-id": 828060,
+    "wm-source": "https://brid-gy.appspot.com/repost/twitter/dolearning/1283345279803174912/1283736959249154048",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-protocol": "webmention",
+    "content": {
+      "text": "A lot of advice online suggests starting a newsletter. I subscribe to a lot of email lists and have started gathering some information abou"
+    },
+    "repost-of": "https://www.kevincunningham.co.uk/posts/whats-in-a-newsletter/",
+    "wm-property": "repost-of",
+    "wm-private": false
+  }
+]

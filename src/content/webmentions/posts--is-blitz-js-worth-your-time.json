@@ -1,0 +1,171 @@
+[
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Brandon 🚀 Blitz.js⚡️",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/f4955f5188ecd60ed3b9684832249df4786a7d541960340b2a7582dc542cbd24.jpg",
+      "url": "https://twitter.com/flybayer"
+    },
+    "url": "https://twitter.com/flybayer/status/1309853702711373824",
+    "published": "2020-09-26T13:53:53+00:00",
+    "wm-received": "2020-09-26T14:32:45Z",
+    "wm-id": 858068,
+    "wm-source": "https://brid-gy.appspot.com/repost/twitter/dolearning/1309853379972206593/1309853702711373824",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/is-blitz-js-worth-your-time/",
+    "wm-protocol": "webmention",
+    "content": {
+      "text": "New post alert :) On Friday, I streamed working through the canonical tutorial for @flybayer's BlitzJS. You can find the stream here (https:"
+    },
+    "repost-of": "https://www.kevincunningham.co.uk/posts/is-blitz-js-worth-your-time/",
+    "wm-property": "repost-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Brandon 🚀 Blitz.js⚡️",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/f4955f5188ecd60ed3b9684832249df4786a7d541960340b2a7582dc542cbd24.jpg",
+      "url": "https://twitter.com/flybayer"
+    },
+    "url": "https://twitter.com/dolearning/status/1309853379972206593#favorited-by-2826554209",
+    "published": null,
+    "wm-received": "2020-09-26T14:32:46Z",
+    "wm-id": 858069,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1309853379972206593/2826554209",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/is-blitz-js-worth-your-time/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/is-blitz-js-worth-your-time/",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "nita-san | Blitz.js lover ⚡️",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/9c5869f1fa8585d286f19fbbee4a01533c3464953d85cf12fe781f7c13973b81.jpg",
+      "url": "https://twitter.com/nitaking_"
+    },
+    "url": "https://twitter.com/nitaking_/status/1309882287475978240",
+    "published": "2020-09-26T15:47:28+00:00",
+    "wm-received": "2020-09-26T16:15:12Z",
+    "wm-id": 858098,
+    "wm-source": "https://brid-gy.appspot.com/repost/twitter/dolearning/1309853379972206593/1309882287475978240",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/is-blitz-js-worth-your-time/",
+    "wm-protocol": "webmention",
+    "content": {
+      "text": "New post alert :) On Friday, I streamed working through the canonical tutorial for @flybayer's BlitzJS. You can find the stream here (https:"
+    },
+    "repost-of": "https://www.kevincunningham.co.uk/posts/is-blitz-js-worth-your-time/",
+    "wm-property": "repost-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Tony Dehnke",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/9ae72f5769317ca428730b3b5043c80f831e6ee54be7a7286faae4fc1e323476.jpg",
+      "url": "https://twitter.com/tonydehnke"
+    },
+    "url": "https://twitter.com/dolearning/status/1309853379972206593#favorited-by-18573191",
+    "published": null,
+    "wm-received": "2020-09-26T16:15:46Z",
+    "wm-id": 858099,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1309853379972206593/18573191",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/is-blitz-js-worth-your-time/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/is-blitz-js-worth-your-time/",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Rakesh Paul",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/5441c9ee3ab5474f46b0d33bcd9c2555ed78f9dee5b738fe6ad66a78576ff31b.jpg",
+      "url": "https://twitter.com/rakesh_paul"
+    },
+    "url": "https://twitter.com/rakesh_paul/status/1309941387584966656",
+    "published": "2020-09-26T19:42:18+00:00",
+    "wm-received": "2020-09-26T20:15:58Z",
+    "wm-id": 858143,
+    "wm-source": "https://brid-gy.appspot.com/comment/twitter/dolearning/1309853379972206593/1309941387584966656",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/is-blitz-js-worth-your-time/",
+    "wm-protocol": "webmention",
+    "content": {
+      "html": "I did deploy a fully static site using blitz last day.  It the mock of the project we are planning to build with blitz. So deployment without db is fine.  Api routes are also available like in next.js. If you could check the auth module you can see how it's done.\n<a class=\"u-mention\" href=\"https://twitter.com/dolearning\"></a>\n<a class=\"u-mention\" href=\"https://twitter.com/flybayer\"></a>\n<a class=\"u-mention\" href=\"https://www.kevincunningham.co.uk/\"></a>",
+      "text": "I did deploy a fully static site using blitz last day.  It the mock of the project we are planning to build with blitz. So deployment without db is fine.  Api routes are also available like in next.js. If you could check the auth module you can see how it's done."
+    },
+    "in-reply-to": "https://www.kevincunningham.co.uk/posts/is-blitz-js-worth-your-time/",
+    "wm-property": "in-reply-to",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Kevin Cunningham",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/0286481f0ad3f027d9d432368d52143f6fe96396aeb213fe39ebb899abfaadf4.jpg",
+      "url": "https://twitter.com/dolearning"
+    },
+    "url": "https://twitter.com/dolearning/status/1309951612010594304",
+    "published": "2020-09-26T20:22:56+00:00",
+    "wm-received": "2020-09-26T20:52:22Z",
+    "wm-id": 858149,
+    "wm-source": "https://brid-gy.appspot.com/comment/twitter/dolearning/1309853379972206593/1309951612010594304",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/is-blitz-js-worth-your-time/",
+    "wm-protocol": "webmention",
+    "content": {
+      "html": "Awesome. I'm looking forward to digging into that side :)\n<a class=\"u-mention\" href=\"https://twitter.com/flybayer\"></a>\n<a class=\"u-mention\" href=\"https://twitter.com/rakesh_paul\"></a>",
+      "text": "Awesome. I'm looking forward to digging into that side :)"
+    },
+    "in-reply-to": "https://www.kevincunningham.co.uk/posts/is-blitz-js-worth-your-time/",
+    "wm-property": "in-reply-to",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "ModulR",
+      "photo": "https://webmention.io/avatar/abs.twimg.com/0e6b2cd70aa5b35dec24ca4e1e63f8963f0118736d9ec3bba77e3a8c99a27bc2.png",
+      "url": "https://twitter.com/ModulR2"
+    },
+    "url": "https://twitter.com/dolearning/status/1309853379972206593#favorited-by-1309530084756332544",
+    "published": null,
+    "wm-received": "2020-09-27T02:33:28Z",
+    "wm-id": 858225,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1309853379972206593/1309530084756332544",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/is-blitz-js-worth-your-time/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/is-blitz-js-worth-your-time/",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "個人未開発さん",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/ae7643cb6339f14af19095f8180dc9b43165e8545cd70e8e8d38d0410b6f3b4e.jpg",
+      "url": "https://twitter.com/kimihito_"
+    },
+    "url": "https://twitter.com/kimihito_/status/1310159188019081218",
+    "published": "2020-09-27T10:07:46+00:00",
+    "wm-received": "2020-09-27T10:16:29Z",
+    "wm-id": 858300,
+    "wm-source": "https://brid-gy.appspot.com/repost/twitter/dolearning/1309853379972206593/1310159188019081218",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/is-blitz-js-worth-your-time/",
+    "wm-protocol": "webmention",
+    "content": {
+      "text": "New post alert :) On Friday, I streamed working through the canonical tutorial for @flybayer's BlitzJS. You can find the stream here (https:"
+    },
+    "repost-of": "https://www.kevincunningham.co.uk/posts/is-blitz-js-worth-your-time/",
+    "wm-property": "repost-of",
+    "wm-private": false
+  }
+]

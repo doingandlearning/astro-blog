@@ -1,0 +1,90 @@
+---
+const { webmentions } = Astro.props;
+
+interface Mention {
+  published: string;
+  author: {
+    url: string;
+    name: string;
+    photo: string;
+  };
+  content: {
+    text: string;
+  };
+  "wm-source": string;
+  "wm-property": string;
+}
+---
+
+{webmentions.length > 1 && <h3>Honorable mentions</h3>}
+
+<ul>
+  {
+    webmentions
+      .sort(
+        (a: Mention, b: Mention) =>
+          new Date(a.published).valueOf() - new Date(b.published).valueOf()
+      )
+      .map((mention: Mention) => {
+        return (
+          <li class="p-comment h-cite comment">
+            <div class="p-author h-card author">
+              <img
+                class="u-photo"
+                src={mention?.author?.photo}
+                data-src={mention?.author?.photo}
+                width="48"
+              />
+              {mention["wm-property"] === "like-of" && <span>Liked by: </span>}
+              <a class="p-name u-url" href={mention?.author?.url}>
+                {mention?.author?.name}
+              </a>
+            </div>
+            <div class="e-content comment-content">
+              {mention?.content?.text}
+            </div>
+            <div class="metaline">
+              <a href={mention["wm-source"]} class="u-url">
+                <time class="dt-published" datetime={mention.published}>
+                  {mention.published}
+                </time>
+              </a>
+            </div>
+          </li>
+        );
+      })
+  }
+</ul>
+
+<style>
+  li {
+    padding: 0;
+    margin: 0;
+    margin-left: 54px;
+    margin-bottom: 16px;
+    line-height: 1.1em;
+    word-wrap: break-word;
+  }
+  .author {
+    margin-bottom: 6px;
+    font-size: 90%;
+  }
+
+  img {
+    margin-left: -54px;
+    float: left;
+    border-radius: 4px;
+  }
+  ul {
+    list-style: none;
+  }
+
+  .metaline {
+    color: #777;
+    font-size: 90%;
+    margin-top: 4px;
+    position: relative;
+    z-index: 1;
+    padding-top: 2px;
+  }
+</style>

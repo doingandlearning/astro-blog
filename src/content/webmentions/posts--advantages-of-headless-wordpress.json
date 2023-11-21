@@ -1,0 +1,62 @@
+[
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Craig Dennis",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/e290c15cf293e6c9dd2af66e3381cee83fb265fa96f04549e0f633a1a1685487.jpg",
+      "url": "https://twitter.com/Craig_Dennis3"
+    },
+    "url": "https://twitter.com/Craig_Dennis3/status/1321714386709422080",
+    "published": "2020-10-29T07:24:00+00:00",
+    "wm-received": "2020-10-29T07:42:15Z",
+    "wm-id": 891397,
+    "wm-source": "https://brid-gy.appspot.com/repost/twitter/dolearning/1321698549575409664/1321714386709422080",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/advantages-of-headless-wordpress/",
+    "wm-protocol": "webmention",
+    "content": {
+      "text": "This started off as `5 Advantages of Headless WordPress` by the end of writing I was up to 8 and I'm still thinking of more.\n\nhttps://t.co/7"
+    },
+    "repost-of": "https://www.kevincunningham.co.uk/posts/advantages-of-headless-wordpress/",
+    "wm-property": "repost-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Craig Dennis",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/e290c15cf293e6c9dd2af66e3381cee83fb265fa96f04549e0f633a1a1685487.jpg",
+      "url": "https://twitter.com/Craig_Dennis3"
+    },
+    "url": "https://twitter.com/dolearning/status/1321698549575409664#favorited-by-1071886048056233986",
+    "published": null,
+    "wm-received": "2020-10-29T07:42:18Z",
+    "wm-id": 891398,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1321698549575409664/1071886048056233986",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/advantages-of-headless-wordpress/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/advantages-of-headless-wordpress/",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "nirmites",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/951b50ddb82d9ca2b8ae91d015885adc50715aa14c09659619c9de5008f39b6d.jpg",
+      "url": "https://twitter.com/agentNirmites"
+    },
+    "url": "https://twitter.com/dolearning/status/1321698549575409664#favorited-by-774645390666764288",
+    "published": null,
+    "wm-received": "2020-10-29T13:10:03Z",
+    "wm-id": 891649,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1321698549575409664/774645390666764288",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/advantages-of-headless-wordpress/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/advantages-of-headless-wordpress/",
+    "wm-property": "like-of",
+    "wm-private": false
+  }
+]

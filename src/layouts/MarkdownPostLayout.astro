@@ -2,9 +2,10 @@
 import BackButton from "../components/BackButton.astro";
 import Newsletter from "../components/Newsletter.astro";
 import Tags from "../components/Tags.astro";
+import Webmentions from "../components/Webmentions.astro";
 import BaseLayout from "./BaseLayout.astro";
 import { format, formatDistance } from "date-fns";
-const { frontmatter } = Astro.props;
+const { frontmatter, webmentions } = Astro.props;
 
 const date = new Date(frontmatter.date);
 const formattedDate = format(date, "MMMM dd, yyyy");
@@ -39,6 +40,7 @@ if (frontmatter.updateDate) {
   <slot />
   <BackButton />
   <Newsletter />
+  <Webmentions webmentions={webmentions} />
   <script>
     import "../scripts/codeCopyButton";
   </script>

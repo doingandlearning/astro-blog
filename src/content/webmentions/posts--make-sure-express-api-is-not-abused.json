@@ -1,0 +1,21 @@
+[
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Auth0",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/cfdd67a440cf6148757e5c705bc015a53b1d1f3fe99c5f40748bb5a05f379915.png",
+      "url": "https://twitter.com/auth0"
+    },
+    "url": "https://twitter.com/dolearning/status/1308834820781486084#favorited-by-902438742",
+    "published": null,
+    "wm-received": "2020-09-24T21:02:58Z",
+    "wm-id": 857106,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1308834820781486084/902438742",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/make-sure-express-api-is-not-abused/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/make-sure-express-api-is-not-abused/",
+    "wm-property": "like-of",
+    "wm-private": false
+  }
+]

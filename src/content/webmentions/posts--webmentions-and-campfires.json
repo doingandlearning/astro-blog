@@ -1,0 +1,158 @@
+[
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Kath Cunningham",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/3e7c7c4926ea9fa1f74d057c35e566a258f69162f37670158313d1f14d62f5e7.jpg",
+      "url": "https://twitter.com/faithinavan"
+    },
+    "url": "https://twitter.com/faithinavan/status/1257918106757926913",
+    "published": "2020-05-06T06:20:22+00:00",
+    "wm-received": "2020-05-06T07:50:31Z",
+    "wm-id": 793031,
+    "wm-source": "https://brid-gy.appspot.com/post/twitter/dolearning/1257918106757926913",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/webmentions-and-campfires/",
+    "wm-protocol": "webmention",
+    "content": {
+      "html": "Husbandface thinks he can win me over to his digital coding world by talking about gardens and campfires. At least I understand some of what he’s talking about now...\n<a class=\"u-mention\" href=\"https://www.kevincunningham.co.uk/posts/webmentions-and-campfires/\"></a>",
+      "text": "Husbandface thinks he can win me over to his digital coding world by talking about gardens and campfires. At least I understand some of what he’s talking about now..."
+    },
+    "mention-of": "https://www.kevincunningham.co.uk/posts/webmentions-and-campfires/",
+    "wm-property": "mention-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Andy Malcolm",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/248317de0d41844393fbd5260404cbee2c7bc4919b60bf46b163d792df889513.jpg",
+      "url": "https://twitter.com/amalcolm14"
+    },
+    "url": "https://twitter.com/dolearning/status/1257913280041046016#favorited-by-893257946",
+    "published": null,
+    "wm-received": "2020-05-06T10:11:57Z",
+    "wm-id": 793047,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1257913280041046016/893257946",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/webmentions-and-campfires/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/webmentions-and-campfires/",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Zac Jones",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/0ec5dbe59438fa62d1026b7b8c778df70366136877a3e490efd6969a69845cd6.jpg",
+      "url": "https://twitter.com/zacjones93"
+    },
+    "url": "https://twitter.com/dolearning/status/1258074896523018245#favorited-by-367291013",
+    "published": null,
+    "wm-received": "2020-05-07T03:08:22Z",
+    "wm-id": 793550,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1258074896523018245/367291013",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/webmentions-and-campfires/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/webmentions-and-campfires/",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Neil Mather",
+      "photo": "https://webmention.io/avatar/doubleloop.net/321fd77e712d6af3483dacfdcc70afb99995fd457017280e627c9e72f3a47aa7.png",
+      "url": ""
+    },
+    "url": "https://doubleloop.net/2020/05/16/i-like-the-idea-of-blogchains/",
+    "published": "2020-05-16T19:34:03+00:00",
+    "wm-received": "2020-05-16T19:34:44Z",
+    "wm-id": 797139,
+    "wm-source": "https://doubleloop.net/2020/05/16/i-like-the-idea-of-blogchains/",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/webmentions-and-campfires/",
+    "wm-protocol": "webmention",
+    "content": {
+      "html": "I like the idea of blogchains and hyperconversations, too, as another form of networked communication / digital campfires. I wrote about them a bit before: <a href=\"https://doubleloop.net/2020/04/05/blogchains-and-hyperconversations/\">doubleloop.net/2020/04/05/blogchains-and-hyperconversations/</a>\n<p>Although have yet to actually participate in one 😀</p>",
+      "text": "I like the idea of blogchains and hyperconversations, too, as another form of networked communication / digital campfires. I wrote about them a bit before: doubleloop.net/2020/04/05/blogchains-and-hyperconversations/\nAlthough have yet to actually participate in one 😀"
+    },
+    "in-reply-to": "https://www.kevincunningham.co.uk/posts/webmentions-and-campfires/",
+    "wm-property": "in-reply-to",
+    "wm-private": false,
+    "rels": {
+      "canonical": "https://doubleloop.net/2020/05/16/i-like-the-idea-of-blogchains/"
+    }
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Tomáš Jakl",
+      "photo": "https://webmention.io/avatar/nest.jakl.one/97b994b41ea14d3870e55e1afea0591022af9e9024f8098dd655e428200a732b.jpg",
+      "url": "https://nest.jakl.one/"
+    },
+    "url": "https://nest.jakl.one/likes/2020-05-17-otq6r/",
+    "published": "2020-05-17T06:37:44+00:00",
+    "wm-received": "2020-05-17T06:38:23Z",
+    "wm-id": 797290,
+    "wm-source": "https://nest.jakl.one/likes/2020-05-17-otq6r/",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/webmentions-and-campfires/",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/webmentions-and-campfires/",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Chris Aldrich",
+      "photo": "https://webmention.io/avatar/secure.gravatar.com/a644b9564c37e2d7969bfc44f3cff5c33a66fe817da1492edfe0473828119547.jpg",
+      "url": "https://boffosocko.com/"
+    },
+    "url": "https://boffosocko.com/2020/05/24/reply-to-webmentions-and-campfires-by-kevin-cunningham/",
+    "published": "2020-05-24T16:44:22-07:00",
+    "wm-received": "2020-05-25T01:10:31Z",
+    "wm-id": 801122,
+    "wm-source": "https://boffosocko.com/2020/05/24/reply-to-webmentions-and-campfires-by-kevin-cunningham/",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/webmentions-and-campfires/",
+    "wm-protocol": "webmention",
+    "content": {
+      "html": "Kevin, I like your ideas here and there are many of us who have been discussing it in various nooks of the internet over the past couple of years. It’s a movement and a discussion that has been slowly brewing, but seems to be coming to a boil.\n<p>While some of these ideas sound romantic at present with minimal penetration and implementation, we’ll definitely need to be cognizant of how they grow and building tools to mitigate abuses in the future as they become more common. No one wants Webmention to become a vector for spam and harassment the way it’s poorly designed and implemented predecessors like Pingback or Trackbacks were.</p>\n<p>While the <a href=\"http://indieweb.org/\">IndieWeb</a> seems to be the largest hub of this conversation so far, especially for the technical portions, it’s also been distributed across multiple platforms and personal websites and wikis. If you haven’t come across the IndieWeb you may appreciate their wiki and <a href=\"https://indieweb.org/discuss\">bridged chat channels</a>.</p>\n<p>Lately I’ve noticed a big spillover into the wiki space primarily by way of <a href=\"https://tomcritchlow.com/\">Tom Critchlow</a>, <a href=\"https://www.kickscondor.com/\">Kicks Condor</a>, some from TiddlyWiki and the Roam Research spaces, and many of your colleagues at egghead.io. I’m personally looking forward to the convergence of the website, blog, personal wiki, commonplace book, etc. in a single platform. </p>\n<p>As I notice that you’re in Brighton, if you haven’t been before, you might consider joining in one of the local Homebrew Website clubs either there, in other parts of the UK, or across the world. I <a href=\"https://events.indieweb.org/\">see events</a> for Nottingham and London coming up on the schedule, but I’m sure <a href=\"https://adactio.com/\">Jeremy Keith</a> or other organizers will do another in Brighton soon.</p>\n<p>In any case, you’re on the web, and we can “see” and “hear” you. Thanks for drawing up a campfire to create a discussion.</p>",
+      "text": "Kevin, I like your ideas here and there are many of us who have been discussing it in various nooks of the internet over the past couple of years. It’s a movement and a discussion that has been slowly brewing, but seems to be coming to a boil.\nWhile some of these ideas sound romantic at present with minimal penetration and implementation, we’ll definitely need to be cognizant of how they grow and building tools to mitigate abuses in the future as they become more common. No one wants Webmention to become a vector for spam and harassment the way it’s poorly designed and implemented predecessors like Pingback or Trackbacks were.\nWhile the IndieWeb seems to be the largest hub of this conversation so far, especially for the technical portions, it’s also been distributed across multiple platforms and personal websites and wikis. If you haven’t come across the IndieWeb you may appreciate their wiki and bridged chat channels.\nLately I’ve noticed a big spillover into the wiki space primarily by way of Tom Critchlow, Kicks Condor, some from TiddlyWiki and the Roam Research spaces, and many of your colleagues at egghead.io. I’m personally looking forward to the convergence of the website, blog, personal wiki, commonplace book, etc. in a single platform. \nAs I notice that you’re in Brighton, if you haven’t been before, you might consider joining in one of the local Homebrew Website clubs either there, in other parts of the UK, or across the world. I see events for Nottingham and London coming up on the schedule, but I’m sure Jeremy Keith or other organizers will do another in Brighton soon.\nIn any case, you’re on the web, and we can “see” and “hear” you. Thanks for drawing up a campfire to create a discussion."
+    },
+    "in-reply-to": "https://www.kevincunningham.co.uk/posts/webmentions-and-campfires/",
+    "wm-property": "in-reply-to",
+    "wm-private": false,
+    "rels": {
+      "canonical": "https://boffosocko.com/2020/05/24/reply-to-webmentions-and-campfires-by-kevin-cunningham/"
+    }
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "",
+      "photo": "",
+      "url": ""
+    },
+    "url": "http://webseitz.fluxent.com/wiki/2020-05-19-CunninghamWebmentionsAndCampfires",
+    "published": "2020-05-29T00:00:00",
+    "wm-received": "2020-06-04T03:55:16Z",
+    "wm-id": 805533,
+    "wm-source": "http://webseitz.fluxent.com/wiki/2020-05-19-CunninghamWebmentionsAndCampfires",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/webmentions-and-campfires/",
+    "wm-protocol": "webmention",
+    "name": "(2020-05-19) Cunningham Webmentions And Campfires",
+    "content": {
+      "html": "<p><a href=\"http://webseitz.fluxent.com/wiki/KevinCunningham\">Kevin Cunningham</a> <a href=\"https://www.kevincunningham.co.uk/posts/webmentions-and-campfires/\">on</a> <a href=\"http://webseitz.fluxent.com/wiki/Webmention\">Webmention</a>s and Campfires. <em>Seeing that as I’m engaging with the thinking of others, I’m metaphorically looking towards them. The problem is, how do they know I’m talking about and to them? Or, how do I know if someone is talking to me?</em></p>\n<p><em>In my world, this primarily happens on <a href=\"http://webseitz.fluxent.com/wiki/Twitter\">Twitter</a>.</em></p>\n<p><em>But Twitter is a stream and this continuing conversation is ephemeral - while it might add lots to the thinking of the post, it flows away.</em></p>\n<p><em>It used to be this was solved by having a comments section on a blog.</em> (<a href=\"http://webseitz.fluxent.com/wiki/BlogComment\">BlogComment</a>)</p>\n<p><em>This is a form of <a href=\"http://webseitz.fluxent.com/wiki/BiDirectionalLink\">bi-directional link</a>ing. Managing comment sections, however, could be frustrating, though there are some solutions available (<a href=\"http://webseitz.fluxent.com/wiki/Disqus\">Disqus</a> is still around). In my experience, comments sections were not great and were primarily where trolls and spammers went to hang out.</em></p>\n<p><em>A W3C standard was released in 2017 for <a href=\"http://webseitz.fluxent.com/wiki/Webmention\">webmention</a>s.</em></p>\n<p><em>I recently enabled webmentions on this blog</em></p>\n<p><em>Over in the garden, I’ve started a section on webmentions</em></p>\n<p><em>What other ways can we stop ourselves standing in dark rooms and shouting into the void? How can we light campfires and create spaces for conversation that are welcoming and mutually beneficial?</em></p>",
+      "text": "Kevin Cunningham on Webmentions and Campfires. Seeing that as I’m engaging with the thinking of others, I’m metaphorically looking towards them. The problem is, how do they know I’m talking about and to them? Or, how do I know if someone is talking to me?\nIn my world, this primarily happens on Twitter.\nBut Twitter is a stream and this continuing conversation is ephemeral - while it might add lots to the thinking of the post, it flows away.\nIt used to be this was solved by having a comments section on a blog. (BlogComment)\nThis is a form of bi-directional linking. Managing comment sections, however, could be frustrating, though there are some solutions available (Disqus is still around). In my experience, comments sections were not great and were primarily where trolls and spammers went to hang out.\nA W3C standard was released in 2017 for webmentions.\nI recently enabled webmentions on this blog\nOver in the garden, I’ve started a section on webmentions\nWhat other ways can we stop ourselves standing in dark rooms and shouting into the void? How can we light campfires and create spaces for conversation that are welcoming and mutually beneficial?"
+    },
+    "mention-of": "https://www.kevincunningham.co.uk/posts/webmentions-and-campfires/",
+    "wm-property": "mention-of",
+    "wm-private": false
+  }
+]

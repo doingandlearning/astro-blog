@@ -1,0 +1,82 @@
+[
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Joel ⛈",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/6a3e329710f5f5dbdc917cd4241514a7c4a370fcea8d40b4b5dc7ff207f13638.jpg",
+      "url": "https://twitter.com/jhooks"
+    },
+    "url": "https://twitter.com/dolearning/status/1266434874216452111#favorited-by-12087242",
+    "published": null,
+    "wm-received": "2020-05-29T19:14:09Z",
+    "wm-id": 803534,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1266434874216452111/12087242",
+    "wm-target": "https://www.kevincunningham.co.uk/brain/knowledge-hydrants",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/brain/knowledge-hydrants",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Luke Butler",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/f1ce3d742afbd5ad6931ddca790d8b97f34c6353dc4a0525e7e18136a54d8eec.jpg",
+      "url": "https://twitter.com/lukebutler"
+    },
+    "url": "https://twitter.com/dolearning/status/1266434874216452111#favorited-by-20255593",
+    "published": null,
+    "wm-received": "2020-05-29T19:14:10Z",
+    "wm-id": 803535,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1266434874216452111/20255593",
+    "wm-target": "https://www.kevincunningham.co.uk/brain/knowledge-hydrants",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/brain/knowledge-hydrants",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Joel ⛈",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/6a3e329710f5f5dbdc917cd4241514a7c4a370fcea8d40b4b5dc7ff207f13638.jpg",
+      "url": "https://twitter.com/jhooks"
+    },
+    "url": "https://twitter.com/jhooks/status/1266436596200386560",
+    "published": "2020-05-29T18:29:48+00:00",
+    "wm-received": "2020-05-29T19:14:14Z",
+    "wm-id": 803536,
+    "wm-source": "https://brid-gy.appspot.com/repost/twitter/dolearning/1266434874216452111/1266436596200386560",
+    "wm-target": "https://www.kevincunningham.co.uk/brain/knowledge-hydrants",
+    "wm-protocol": "webmention",
+    "content": {
+      "html": "My notes are here  kevincunningham.co.uk/brain/knowledg… and love @jhooks comparison to a D&amp;D group twitter.com/jhooks/status/… twitter.com/jhooks/status/…",
+      "text": "My notes are here  kevincunningham.co.uk/brain/knowledg… and love @jhooks comparison to a D&D group twitter.com/jhooks/status/… twitter.com/jhooks/status/…"
+    },
+    "repost-of": "https://www.kevincunningham.co.uk/brain/knowledge-hydrants",
+    "wm-property": "repost-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Zac Jones",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/0ec5dbe59438fa62d1026b7b8c778df70366136877a3e490efd6969a69845cd6.jpg",
+      "url": "https://twitter.com/zacjones93"
+    },
+    "url": "https://twitter.com/dolearning/status/1266434874216452111#favorited-by-367291013",
+    "published": null,
+    "wm-received": "2020-05-30T14:41:05Z",
+    "wm-id": 804014,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1266434874216452111/367291013",
+    "wm-target": "https://www.kevincunningham.co.uk/brain/knowledge-hydrants",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/brain/knowledge-hydrants",
+    "wm-property": "like-of",
+    "wm-private": false
+  }
+]

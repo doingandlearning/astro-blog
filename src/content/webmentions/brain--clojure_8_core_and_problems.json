@@ -1,0 +1,40 @@
+[
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Ceora 🐍☁️",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/7735f8415bb840ca231527a813c87e7db288de22449fac60b3f3735655d4990b.jpg",
+      "url": "https://twitter.com/ceeoreo_"
+    },
+    "url": "https://twitter.com/dolearning/status/1292926067716620291#favorited-by-1042530264532971520",
+    "published": null,
+    "wm-received": "2020-08-10T20:54:10Z",
+    "wm-id": 838461,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1292926067716620291/1042530264532971520",
+    "wm-target": "https://www.kevincunningham.co.uk/brain/clojure_8_core_and_problems",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/brain/clojure_8_core_and_problems",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "100 Days of Projects",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/3cafa7df8a75d7c714e258b24ca2da31805d8add54650f2f815c9c90028c5da3.jpg",
+      "url": "https://twitter.com/100ProjectDays"
+    },
+    "url": "https://twitter.com/dolearning/status/1292926067716620291#favorited-by-1285982388984655874",
+    "published": null,
+    "wm-received": "2020-08-11T08:15:18Z",
+    "wm-id": 838577,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1292926067716620291/1285982388984655874",
+    "wm-target": "https://www.kevincunningham.co.uk/brain/clojure_8_core_and_problems",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/brain/clojure_8_core_and_problems",
+    "wm-property": "like-of",
+    "wm-private": false
+  }
+]

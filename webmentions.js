@@ -3,7 +3,7 @@ const WEBMENTION_API_KEY = "mMoMJ0H9rDm_zGUcm9iM1g";
 import fs from "fs";
 import https from "https";
 
-const DOMAIN = "kevincunningham.co.uk";
+const DOMAIN = "www.kevincunningham.co.uk";
 
 const webmentions = await fetchWebmentions();
 webmentions.forEach(writeWebMention);
@@ -23,7 +23,6 @@ function fetchWebmentions() {
       res.on("end", () => {
         try {
           const response = JSON.parse(body);
-          console.log(response);
           if (res.statusCode !== 200) reject(body);
           resolve(response.children);
         } catch (error) {
@@ -42,8 +41,7 @@ function writeWebMention(webmention) {
     .replace(`https://${DOMAIN}/`, "")
     .replace(/\/$/, "")
     .replace("/", "--");
-  const filename = `./data/webmentions/${slug || "home"}.json`;
-
+  const filename = fs.realpathSync(`./src/content/webmentions/${slug || "home"}.json`);
   // Create the file if it doesn't exist
   if (!fs.existsSync(filename)) {
     fs.writeFileSync(filename, JSON.stringify([webmention], null, 2));

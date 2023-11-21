@@ -1,0 +1,21 @@
+[
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Colby Fayock #50reactprojects",
+      "photo": "https://webmention.io/avatar/pbs.twimg.com/9d0f781d734c446a53a1ab7133dd1ec7cabe2cd50f4a42cfbbeefe3af9aa44db.jpg",
+      "url": "https://twitter.com/colbyfayock"
+    },
+    "url": "https://twitter.com/dolearning/status/1297267785958133760#favorited-by-28006594",
+    "published": null,
+    "wm-received": "2020-08-22T22:47:20Z",
+    "wm-id": 842870,
+    "wm-source": "https://brid-gy.appspot.com/like/twitter/dolearning/1297267785958133760/28006594",
+    "wm-target": "https://www.kevincunningham.co.uk/brain/clojure-20-building-a-web-app",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/brain/clojure-20-building-a-web-app",
+    "wm-property": "like-of",
+    "wm-private": false
+  }
+]
