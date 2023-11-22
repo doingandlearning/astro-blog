@@ -173,5 +173,95 @@
       "lists"
     ],
     "date": "2023-11-22T10:29:03.197Z"
+  },
+  {
+    "url": "https://www.theguardian.com/news/2020/mar/05/invisible-city-how-homeless-man-built-life-underground-bunker-hampstead-heath",
+    "description": "I read this story before when it was first published - it was sad then and feels even more poignant now. Justlife are doing amazing stuff in Brighton - I wonder what an equivalent charity in Belfast is? Wonder if I'd have the capacity to help out?",
+    "title": "The invisible city: how a homeless man built a life underground | Homelessness | The Guardian",
+    "tags": [
+      "homelessness",
+      "invisible",
+      "bunker"
+    ],
+    "date": "2023-11-22T11:09:35.685Z"
+  },
+  {
+    "description": "There's a whole series here I'd like to work through and get good at - I think being able to help people through email is a good thing, I'm just not very good at it.",
+    "title": "\n        How to Succeed with ConvertKit (Part I)  - Stacking the Bricks",
+    "url": "https://stackingthebricks.com/how-to-succeed-convertkit/",
+    "tags": [
+      "email",
+      "convertkit"
+    ],
+    "date": "2023-11-22T11:10:30.930Z"
+  },
+  {
+    "url": "https://julian.digital/2021/12/20/the-power-of-defaults/",
+    "title": "The power of defaults «  julian.digital",
+    "description": "Love the website heading here but more really enjoyed this article and style of writing",
+    "tags": [
+      "indie",
+      "defaults",
+      "moats",
+      "network",
+      "effects"
+    ],
+    "date": "2023-11-22T11:12:22.044Z"
+  },
+  {
+    "title": "30 pandas Commands for Manipulating DataFrames",
+    "description": "Could be a useful list when working on a Pandas course.",
+    "url": "https://www.makeuseof.com/pandas-manipulate-dataframes/",
+    "tags": [
+      "pandas",
+      "python",
+      "dataframes"
+    ],
+    "date": "2023-11-22T11:13:20.291Z"
+  },
+  {
+    "description": "This seems like an interesting technique - I'd wonder about it making things read less clearly but there may be performance benefits? Although, the creation of all those intermediary arrays might also be costly?",
+    "url": "https://www.stefanjudis.com/snippets/filter-and-map-array-values-with-a-flatmap-one-liner/",
+    "title": "Filter and map Array values with a flatMap one-liner | Stefan Judis Web Development",
+    "tags": [
+      "javascript",
+      "js",
+      "flatmap",
+      "arrays"
+    ],
+    "date": "2023-11-22T11:15:15.794Z"
+  },
+  {
+    "description": "This is interesting - engineers want three things:\n- Cool stuff to work on.\n- Smart people to work with.\n- Some degree of repeatability in work environment.\n\nThat's an interesting list - how does that map for the independent? ",
+    "title": " I Think I Know Why You Can't Hire Engineers Right NowI Think I Know Why You Can’t Hire Engineers Right Now | Wherein The Chicken",
+    "url": "https://cushychicken.github.io/why-you-cant-hire-engineers/",
+    "tags": [
+      "jobs",
+      "engineers",
+      "work",
+      "needs",
+      "work",
+      "wants"
+    ],
+    "date": "2023-11-22T11:18:53.319Z"
+  },
+  {
+    "url": "https://www.unixsheikh.com/index.html",
+    "title": "unixsheikh.com",
+    "description": "I like the filter between articles and tutorials - worth doing for my blog?",
+    "tags": [
+      "inspiration"
+    ],
+    "date": "2023-11-22T11:21:29.139Z"
+  },
+  {
+    "url": "https://www.sanderheilbron.nl/",
+    "title": "Hi, my name is Sander Heilbron",
+    "description": "I quite like his socials in the footer",
+    "tags": [
+      "inspiration",
+      "website"
+    ],
+    "date": "2023-11-22T11:57:21.538Z"
   }
 ]

@@ -1,0 +1,55 @@
+---
+title: "Enhancing tutorials with interactive components"
+date: "2023-11-22T17:10"
+tags: ["tutorials", "components"]
+updateDate: ""
+description: "Using some of Astro's tutorial components as inspiration for my own"
+---
+
+import Precheck from "../../components/Precheck.astro"
+import Box from "../../components/Box.astro"
+import MultipleChoice from "../../components/MultipleChoice.astro"
+import Option from "../../components/Option.astro"
+
+In his latest email, Kamran Ayub pointed out that long tutorials can be unhelpful for neuro-diverse readers. He mentioned having ways to keep track and gamify the process can be helpful.
+
+I recently moved this site to Astro and was super impressed with their tutorial system. I'm going to try to implement some of those elements here.
+
+## Precheck
+
+This is a component that Astro uses to show required knowledge. I think this is super helpful and can be used to link to other relevant tutorials.
+
+<Precheck>
+	- Know some CSS
+	- Know some HTML
+</Precheck>
+
+## Multiple Choice
+
+Having quizzes throughout the article or at the end can be a good way to check for understanding. 
+
+<Box icon="question-mark">
+1. Who are these section useful for?
+
+    <MultipleChoice>
+      <Option>
+        Neurotypical people
+      </Option>
+      <Option>
+        Neurodiverse people
+      </Option>
+      <Option isCorrect>
+        Everyone
+      </Option>
+    </MultipleChoice>
+</Box>
+
+## Tracking progress
+
+The Astro docs use localStorage for this which I think is a good idea. I'll have a look at that one in a later article.
+
+---
+
+I want to call out that I'm using and adapting the work of the Astro team within the terms of their license. I plan on making these components even more my own over time but I wanted to give credit where credit is due. 
+
+The multiple choice component above is an example of a HTML Web Component and I want to explain and explore that in more detail soon.
