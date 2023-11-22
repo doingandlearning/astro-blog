@@ -1,3 +1,177 @@
 [
-
+  {
+    "title": "15-150: Principles of Functional Programming",
+    "description": "This looks like an interesting course to have a look at. I quickly watched the first lecture. Might be worth looking at some of the others",
+    "url": "https://brandonspark.github.io/150/",
+    "tags": [
+      "functional",
+      "programming",
+      "lectures",
+      "teaching"
+    ],
+    "date": "2023-11-22T10:02:57.904Z"
+  },
+  {
+    "title": "Nice bike | Seth's Blog",
+    "url": "https://seths.blog/2023/11/nice-bike/",
+    "description": "Seth hits it on the head as always - the need to be happy with the vehicle you have for the journey you're travelling. What is the journey you want to travel? Is the vehicle that you're using the right one? Is the journey the right one?",
+    "tags": [
+      "thinking",
+      "godin",
+      "business"
+    ],
+    "date": "2023-11-22T10:04:38.016Z"
+  },
+  {
+    "title": "\nAncient Tree Inventory - Woodland Trust    ",
+    "url": "https://ati.woodlandtrust.org.uk/",
+    "description": "This feels like a cool project. It has maps! Mapping the oldest and most important trees in the UK. Interesting in the light of the one that got cut down in the gap.",
+    "tags": [
+      "trees",
+      "maps",
+      "uk"
+    ],
+    "date": "2023-11-22T10:05:31.934Z"
+  },
+  {
+    "title": "GitHub - cxli233/FriendsDontLetFriends: Friends don't let friends make certain types of data visualization - What are they and why are they bad.",
+    "url": "https://github.com/cxli233/FriendsDontLetFriends",
+    "description": "This feels like a good resource when looking at data visualisations with students - when certain data viz are the wrong choice and why",
+    "tags": [
+      "data",
+      "viz",
+      "r",
+      "teaching"
+    ],
+    "date": "2023-11-22T10:06:48.361Z"
+  },
+  {
+    "url": "https://vintagetek.org/tour-crt-catacombs/",
+    "title": "A Tour of the Tektronix Ceramic CRT “Catacombs”",
+    "description": "Always cool to think about and see the history of tech. Before printed circuit boards there were other approaches to keep your components in line - this shows how one company did it with ceramics.",
+    "tags": [
+      "tech",
+      "histroy",
+      "ceramics",
+      "circuits"
+    ],
+    "date": "2023-11-22T10:09:06.307Z"
+  },
+  {
+    "title": "How to shuffle songs? - Spotify Engineering : Spotify Engineering",
+    "description": "I used to talk about randomness with my students when I taught maths and we specifically talked about how the iPod shuffle had to be de-randomised in order to make it feel more random.\n\nInteresting that Spotify seem to be coming to the party late here - one of those situations where we don't have a lot of history, so we have to reinvent the wheel? ",
+    "url": "https://engineering.atspotify.com/2014/02/how-to-shuffle-songs/",
+    "tags": [
+      "randomness",
+      "music",
+      "shuffle",
+      "playlists"
+    ],
+    "date": "2023-11-22T10:10:35.445Z"
+  },
+  {
+    "description": "Interesting that this is seen as such a problem - there is so much overhead to get Node and TS to play together and good to have an attempt to codify. I think I'd like to redo this with TSX",
+    "title": "A Node + TypeScript + ts-node + ESM experience that works. · GitHub",
+    "url": "https://gist.github.com/khalidx/1c670478427cc0691bda00a80208c8cc",
+    "tags": [
+      "ts",
+      "typescript",
+      "node",
+      "esm"
+    ],
+    "date": "2023-11-22T10:13:30.919Z"
+  },
+  {
+    "url": "https://blog.gregbrockman.com/how-i-became-a-machine-learning-practitioner",
+    "description": "I know this probably got thrown up in my feed because of the whole OpenAI saga going on but it's interesting to see others learning journies. I think I'd be interested in an ML exploration but I'm not convinced that it's a high enough proirity to what I'm doing right now.",
+    "title": "How I became a machine learning practitioner",
+    "tags": [
+      "learning",
+      "ml",
+      "machine",
+      "learning",
+      "self",
+      "learning",
+      "learning",
+      "paths"
+    ],
+    "date": "2023-11-22T10:15:31.584Z"
+  },
+  {
+    "description": "This is great - and love the name of the blog!\n\nI'm currently commuting to my own office but as long as I have a choice, I don't want to share an office with anyone else. Commuting in my case is hopeful to change but necessary with family life right now.",
+    "url": "https://shavingtheyak.com/2023/10/25/wfh-part1/",
+    "title": "Return To Office Mandates Can Take A Hike",
+    "tags": [
+      "wfh",
+      "commuting",
+      "office"
+    ],
+    "date": "2023-11-22T10:20:56.868Z"
+  },
+  {
+    "title": "Pretty Diff - Guide, The DOM Explained, Quick and Simple",
+    "url": "https://prettydiff.com/2/guide/unrelated_dom.xhtml",
+    "description": "This was labelled \"How to Write a Parser\" - that's something I'd like to dive into more. I've only scanned this quickly but it seems interesting. Filing it for future reference.",
+    "tags": [
+      "parsers",
+      "dom",
+      "html"
+    ],
+    "date": "2023-11-22T10:22:04.498Z"
+  },
+  {
+    "description": "Speaking of ML and self-directed learning this could be an interesting course to dive into if that did tickle my fancy. Based in PyTorch.",
+    "title": "UNIGE 14x050 – Deep Learning",
+    "url": "https://fleuret.org/dlc/",
+    "tags": [
+      "ml",
+      "machine",
+      "learning",
+      "lectures",
+      "course",
+      "self-directed",
+      "learning"
+    ],
+    "date": "2023-11-22T10:23:04.868Z"
+  },
+  {
+    "description": "Ah! I talked to Simon about this last night and I think I'd like to write a blog post about this - how hard (impossible?) it is for us to land in a new project and get a theory of how it all works just from the code and the docs. Super hard when you're a consultant and both you and the client want you to be able to deliver value as quickly as possible",
+    "url": "https://johnwhiles.com/posts/programming-as-theory",
+    "title": "Suddenly, I Understand Software",
+    "tags": [
+      "theory",
+      "of",
+      "software",
+      "value",
+      "consultants",
+      "new",
+      "projects",
+      "legacy",
+      "projects"
+    ],
+    "date": "2023-11-22T10:25:26.817Z"
+  },
+  {
+    "description": "This is a fun list of things that I've seen come and go - some are still here!! How dare they say jQuery is old school.",
+    "url": "https://www.webdesignerdepot.com/old-school-web-techniques-best-forgotten/",
+    "title": "Old School Web Techniques Best Forgotten | WDD",
+    "tags": [
+      "web",
+      "old",
+      "legacy",
+      "past"
+    ],
+    "date": "2023-11-22T10:26:47.146Z"
+  },
+  {
+    "title": "30 Bits of Advice for 30 Years",
+    "description": "Always fun to see people try to condense their life lessons - helpful exercise for them and helpful for the reader to either agree/disagree with the points made.",
+    "url": "https://arne.me/articles/30-bits-of-advice-for-30-years",
+    "tags": [
+      "advice",
+      "life",
+      "lists"
+    ],
+    "date": "2023-11-22T10:29:03.197Z"
+  }
 ]
