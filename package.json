@@ -21,7 +21,6 @@
     "astro": "^3.5.5",
     "astro-navbar": "^2.3.0",
     "date-fns": "^2.30.0",
-    "fuse": "^0.4.0",
     "nanostores": "^0.9.5",
     "preact": "^10.19.2",
     "typescript": "^5.2.2",

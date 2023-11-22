@@ -63,6 +63,21 @@ const webmention = defineCollection({
     "wm-received": z.string(),
   }),
 });
+
+// define bookmarks collection
+const bookmarksCollection = defineCollection({
+  type: "content",
+  schema: z.array(
+    z.object({
+      title: z.string(),
+      url: z.string(),
+      description: z.string(),
+      tags: z.array(z.string()),
+      date: z.string(),
+    })
+  ),
+});
+
 // Export a single `collections` object to register your collection(s)
 export const collections = {
   posts: postsCollection,
