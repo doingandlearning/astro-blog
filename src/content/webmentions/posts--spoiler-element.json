@@ -1,0 +1,40 @@
+[
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Seirdy",
+      "photo": "https://webmention.io/avatar/media.hachyderm.io/b718df02292094cf7a0b9dd73dc25acdfe948e15bce9764cfe3e50a76a37d6f7.png",
+      "url": "https://pleroma.envs.net/users/Seirdy"
+    },
+    "url": "https://hachyderm.io/@dolearning/111448844524624994#favorited-by-108218996284895884",
+    "published": null,
+    "wm-received": "2023-11-21T21:50:10Z",
+    "wm-id": 1742671,
+    "wm-source": "https://brid.gy/like/mastodon/@dolearning@hachyderm.io/111448844524624994/108218996284895884",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/spoiler-element",
+    "wm-protocol": "webmention",
+    "like-of": "https://www.kevincunningham.co.uk/posts/spoiler-element",
+    "wm-property": "like-of",
+    "wm-private": false
+  },
+  {
+    "type": "entry",
+    "author": {
+      "type": "card",
+      "name": "Seirdy",
+      "photo": "https://webmention.io/avatar/media.hachyderm.io/b718df02292094cf7a0b9dd73dc25acdfe948e15bce9764cfe3e50a76a37d6f7.png",
+      "url": "https://pleroma.envs.net/users/Seirdy"
+    },
+    "url": "https://hachyderm.io/@dolearning/111448844524624994#reblogged-by-108218996284895884",
+    "published": null,
+    "wm-received": "2023-11-21T21:50:10Z",
+    "wm-id": 1742672,
+    "wm-source": "https://brid.gy/repost/mastodon/@dolearning@hachyderm.io/111448844524624994/108218996284895884",
+    "wm-target": "https://www.kevincunningham.co.uk/posts/spoiler-element",
+    "wm-protocol": "webmention",
+    "repost-of": "https://www.kevincunningham.co.uk/posts/spoiler-element",
+    "wm-property": "repost-of",
+    "wm-private": false
+  }
+]
