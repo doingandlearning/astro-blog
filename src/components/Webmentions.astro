@@ -19,27 +19,64 @@ let likes = webmentions.filter(
   (item: Mention) => item["wm-property"] === "like-of"
 );
 
-let likeImages = likes.map(
-  (like: Mention) => like.author.photo || "anonymous-avatar.jpg"
+let likeImages = likes.map((like: Mention) => ({
+  image: like.author.photo || "anonymous-avatar.jpg",
+  url: like.author.url,
+}));
+
+let reposts = webmentions.filter(
+  (item: Mention) => item["wm-property"] === "repost-of"
 );
+
+let repostImages = reposts.map((repost: Mention) => ({
+  image: repost.author.photo || "anonymous-avatar.jpg",
+  url: repost.author.url,
+}));
 ---
 
 {webmentions.length > 1 && <h3>Honorable mentions</h3>}
 
-{
-  likes.length > 0 && (
-    <div class="likes">
-      <ul class="avatars">
-        {likeImages.map((image: string) => (
-          <li class="avatar">
-            <img src={image} data-src={image} width="48" />
-          </li>
-        ))}
-      </ul>
-      <p class="like-count">({likes.length} likes)</p>
-    </div>
-  )
-}
+<div class="likes-reposts">
+  {
+    likes.length > 0 && (
+      <div class="likes">
+        <ul class="avatars">
+          {likeImages.map(({ image, url }: { image: string; url: string }) => (
+            <li class="avatar">
+              <a href={url}>
+                <img src={image} data-src={image} width="48" />
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p class="like-count">
+          ({likes.length} {likes.length > 1 ? "likes" : "like"})
+        </p>
+      </div>
+    )
+  }
+
+  {
+    likes.length > 0 && (
+      <div class="likes">
+        <ul class="avatars">
+          {repostImages.map(
+            ({ image, url }: { image: string; url: string }) => (
+              <li class="avatar">
+                <a href={url}>
+                  <img src={image} data-src={image} width="48" />
+                </a>
+              </li>
+            )
+          )}
+        </ul>
+        <p class="like-count">
+          ({likes.length} {likes.length > 1 ? "reposts" : "repost"})
+        </p>
+      </div>
+    )
+  }
+</div>
 
 <ul class="comments">
   {
@@ -49,7 +86,10 @@ let likeImages = likes.map(
           new Date(a.published).valueOf() - new Date(b.published).valueOf()
       )
       .map((mention: Mention) => {
-        if (mention["wm-property"] === "like-of") {
+        if (
+          mention["wm-property"] === "like-of" ||
+          mention["wm-property"] === "repost-of"
+        ) {
           return null;
         }
         return (
@@ -133,5 +173,10 @@ let likeImages = likes.map(
   .likes {
     display: flex;
     align-items: flex-end;
+  }
+
+  .likes-reposts {
+    display: flex;
+    justify-content: space-between;
   }
 </style>

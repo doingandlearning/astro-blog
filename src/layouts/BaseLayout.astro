@@ -28,20 +28,18 @@ const { pageTitle, pageDescription } = Astro.props;
       rel="pingback"
       href="https://webmention.io/www.kevincunningham.co.uk/xmlrpc"
     />
-
-    <meta property="og:title" content={pageTitle} />
-    <meta
+    <link rel="me" href="https://hachyderm.io/@dolearning" /><link
+      href="https://kevincunningham.co.uk/"
+      rel="me"
+    /><meta property="og:title" content={pageTitle} /><meta
       property="og:description"
       content={pageDescription || "Kevin Cunningham"}
-    />
-    <meta property="og:image" content={getMetaImage(pageTitle)} />
-    <meta property="og:url" content={Astro.url} />
-    <title>{pageTitle}</title>
-  </head>
-  <a rel="me" href="https://hachyderm.io/@dolearning" class="hidden"></a>
-  <a href="https://kevincunningham.co.uk/" class="h-card hidden" rel="me"
-    >Kevin Cunningham</a
+    /><meta property="og:image" content={getMetaImage(pageTitle)} /><meta
+      property="og:url"
+      content={Astro.url}
+    /><title>{pageTitle}</title></head
   >
+
   <script
     id="plausible-script"
     strategy="afterInteractive"
@@ -86,6 +84,4 @@ const { pageTitle, pageDescription } = Astro.props;
       }
     </style>
   </body>
-
-
 </html>
