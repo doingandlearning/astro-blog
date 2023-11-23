@@ -263,5 +263,116 @@
       "website"
     ],
     "date": "2023-11-22T11:57:21.538Z"
+  },
+  {
+    "title": "Living On 24 Hours A Day | Justin Fuller",
+    "url": "https://www.justindfuller.com/review/living-on-24-hours-a-day",
+    "description": "This is a really good review of a book from 1908. How we can live meaningfully with the hours we have - not more productively but deeper. Taking some of that down time that we doom scroll or commute and using it to learn or explore, draw or create.",
+    "tags": [
+      "good",
+      "life",
+      "deeper",
+      "advice",
+      "book",
+      "review"
+    ],
+    "date": "2023-11-22T21:31:22.444Z"
+  },
+  {
+    "description": "This looks like a really interesting project - I wonder if there's a JS Node equivalent - I know there is Chalk and a few others but this seems richer",
+    "url": "https://github.com/Textualize/rich",
+    "title": "GitHub - Textualize/rich: Rich is a Python library for rich text and beautiful formatting in the terminal.",
+    "tags": [
+      "python",
+      "cli",
+      "formatting",
+      "terminal"
+    ],
+    "date": "2023-11-22T21:32:35.138Z"
+  },
+  {
+    "description": "This is an awesome article on Cognitive Load Theory - really well illustrated and some excellent applications to students",
+    "title": "Cognitive Load Theory and its Applications for Learning - Scott H Young",
+    "url": "https://www.scotthyoung.com/blog/2022/01/04/cognitive-load-theory/",
+    "tags": [
+      "learning",
+      "cognitive",
+      "load",
+      "effectiveness",
+      "motivation"
+    ],
+    "date": "2023-11-22T21:44:48.274Z"
+  },
+  {
+    "url": "https://neil.computer/notes/teaching-how-to-code-is-broken/",
+    "title": "Teaching how to code is broken",
+    "description": "Advocates taking a large problem or game and using that as the vehicle to explore teachin",
+    "tags": [
+      "teaching",
+      "code",
+      "narrative",
+      "structure"
+    ],
+    "date": "2023-11-22T21:48:39.252Z"
+  },
+  {
+    "title": "woob - Web Outside of Browsers",
+    "url": "https://woob.tech/",
+    "description": "Interesting to think about the web outisde of a browser - we have access to all this information and the browser does lots to help us see and visualise it - but we could also interact with it in different ways. can see the need for accessibility - but also wonder what other uses we could put this structured data to?",
+    "tags": [
+      "web",
+      "data",
+      "structure",
+      "browser"
+    ],
+    "date": "2023-11-22T21:52:02.086Z"
+  },
+  {
+    "url": "https://www.smashingmagazine.com/2022/01/building-web-code-editor/",
+    "description": "I needed this article a while ago - and now I'm in Astro land I think I can use and implement this. A code editor component is probably in my very near future",
+    "title": "Building A Web Code Editor — Smashing Magazine",
+    "tags": [
+      "component",
+      "code",
+      "editor",
+      "tutorial",
+      "teaching"
+    ],
+    "date": "2023-11-22T21:55:16.128Z"
+  },
+  {
+    "description": "I love these lists - awesome lists are awesome - interesting to look through and see if there's anything that catches my interest",
+    "url": "https://github.com/xgrommx/awesome-functional-programming",
+    "title": "GitHub - xgrommx/awesome-functional-programming: Yet another resource for collecting articles, videos etc. regarding functional programming",
+    "tags": [
+      "awesome",
+      "functional",
+      "programming",
+      "fp"
+    ],
+    "date": "2023-11-22T21:56:15.048Z"
+  },
+  {
+    "description": "This is very cool - compositie maps of maps",
+    "url": "https://www.davidrumsey.com/blog/articles/more-than-digital-copies-maps-that-interpret-maps",
+    "title": "\nDavid Rumsey Historical Map Collection\n| \n    More Than Digital Copies: Maps That Interpret Maps\n\n",
+    "tags": [
+      "maps",
+      "composite",
+      "maps",
+      "interpretation"
+    ],
+    "date": "2023-11-22T21:57:32.650Z"
+  },
+  {
+    "url": "https://staging.begin.com/blog/posts/2022-01-27-the-boring-technology-checklist",
+    "description": "This is a good list",
+    "title": "The Boring Technology Checklist",
+    "tags": [
+      "technology",
+      "list",
+      "boring"
+    ],
+    "date": "2023-11-22T21:58:54.842Z"
   }
 ]

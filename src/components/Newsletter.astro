@@ -1,33 +1,5 @@
----
-export const prerender = false;
-if (Astro.request.method === "POST") {
-  try {
-    const data = await Astro.request.formData();
-    const first_name = data.get("username");
-    const email_address = data.get("email");
-    await fetch(`https://app.convertkit.com/forms/1697448/subscriptions`, {
-      method: "post",
-      body: JSON.stringify({ email_address, first_name }, null, 2),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        console.log(response);
-      });
-
-    // Do something with the data
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    }
-  }
-}
----
-
-<form method="POST">
+<h4 id="error" class="error-message hidden"></h4>
+<form>
   <h3>Like what you see?</h3>
   <p>
     I send out a (semi) regular newsletter which shares the latest from here and
@@ -36,19 +8,57 @@ if (Astro.request.method === "POST") {
   <div>
     <label>
       Name:
-      <input type="text" name="name" required />
+      <input type="text" name="name" id="name" required />
     </label>
   </div>
   <div id="email-container">
     <label>
       Email:
-      <input type="email" name="email" required />
+      <input type="email" name="email" id="email" required />
     </label>
   </div>
   <div>
     <button>Submit</button>
   </div>
 </form>
+
+<script>
+  const form = document.querySelector("form");
+  const email = document.querySelector("#email") as HTMLInputElement;
+  const name = document.querySelector("#name") as HTMLInputElement;
+  const error = document.querySelector("#error");
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    try {
+      form.classList.add("loading");
+      error!.classList.add("hidden");
+      const email_address = email!.value;
+      const first_name = name!.value;
+      await fetch(`https://app.convertkit.com/forms/1697448/subscriptions`, {
+        method: "post",
+        body: JSON.stringify({ email_address, first_name }, null, 2),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((response) => {
+          form.classList.remove("loading");
+          if (response.status === "success") {
+            form.innerHTML = `<h3>Thanks for signing up!</h3>`;
+          } else {
+            error!.classList.remove("hidden");
+            error!.innerHTML = response.error.message;
+          }
+        });
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error(error.message);
+      }
+    }
+  });
+</script>
 
 <style>
   form {
