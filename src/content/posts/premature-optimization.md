@@ -1,7 +1,7 @@
 ---
 title: "Premature Optimization"
 date: "2020-04-19"
-tags: []
+tags: ["heuristics"]
 ---
 
 I've spent a large chunk of the weekend building a wiki prototype (first attempts are [here](/wiki)).

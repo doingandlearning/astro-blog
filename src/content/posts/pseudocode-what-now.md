@@ -1,7 +1,7 @@
 ---
 title: "Pseudocode. What now?"
 date: "2021-06-29"
-tags: []
+tags: ["learning", "teaching"]
 ---
 
 > This is a work in progress. Hassle me on Twitter if you want to see it finished quicker :)
