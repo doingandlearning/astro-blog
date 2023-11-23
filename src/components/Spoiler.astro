@@ -47,6 +47,7 @@ const { placeholder } = Astro.props;
   [...spoilers].map((spoiler) =>
     spoiler?.addEventListener("click", () => {
       spoiler.classList.toggle("spoiler");
+      (spoiler.querySelector("#placeholder") as HTMLElement).hidden = true;
     })
   );
 </script>
