@@ -374,5 +374,62 @@
       "boring"
     ],
     "date": "2023-11-22T21:58:54.842Z"
+  },
+  {
+    "description": "I quite like Tiago Forte's COPE process - and I think this list of bookmarks is part of my collect stage. I wonder if there is a need to mark some as private? I know tags help to hold them together and I can see a future where I create note pages that can pull these together. These bookmarks feel like a building block for future work and this article talks about something similar - that this collecting and sorting is a form of R&D",
+    "url": "https://subconscious.substack.com/p/unconscious-r-and-d",
+    "title": "Unconscious R&D - by Gordon Brander - Subconscious",
+    "tags": [
+      "pkm",
+      "notes",
+      "second",
+      "brain"
+    ],
+    "date": "2023-11-23T17:11:32.793Z"
+  },
+  {
+    "description": "How long are websites designed to last for - I'm hoping this site will last a while and am keen for it to grow organically as the need arises.",
+    "url": "https://utcc.utoronto.ca/~cks/space/blog/web/WebsiteShortDesignLifetime?showcomments",
+    "title": " Chris's Wiki :: blog/web/WebsiteShortDesignLifetime ",
+    "tags": [
+      "sustainability",
+      "web",
+      "life",
+      "span"
+    ],
+    "date": "2023-11-23T17:13:31.145Z"
+  },
+  {
+    "url": "https://consilienceproject.org/how-to-mislead-the-facts/",
+    "title": "\n\t\tThe Consilience Project | \n\t\tHow to Mislead the Facts - The Consilience Project\tHow to Mislead the Facts - The Consilience Project",
+    "description": "Interesting list:\n- Decontextualizing and recontextualizing\n- Cheery-picking and limiting focus\n- Reinterpreting and pre-framing meaning",
+    "tags": [
+      "facts",
+      "misleading",
+      "truth"
+    ],
+    "date": "2023-11-23T17:18:41.733Z"
+  },
+  {
+    "url": "https://pivotal.substack.com/p/economics-of-data-biz",
+    "description": "Data business economics",
+    "title": "The Economics of Data Businesses - by Abraham Thomas",
+    "tags": [
+      "data",
+      "business",
+      "economics"
+    ],
+    "date": "2023-11-23T17:21:11.476Z"
+  },
+  {
+    "title": "Red Light Green Light | James Sevedge",
+    "url": "https://jamessevedge.com/articles/red-light-green-light/",
+    "description": "Where you sit determines what you see",
+    "tags": [
+      "perspective",
+      "empathy",
+      "awareness"
+    ],
+    "date": "2023-11-23T17:23:20.725Z"
   }
 ]
