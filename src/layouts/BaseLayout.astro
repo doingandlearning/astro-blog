@@ -32,10 +32,17 @@ const { pageTitle, pageDescription } = Astro.props;
       href="https://kevincunningham.co.uk/"
       rel="me"
     />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="https://kevincunningham.co.uk" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@dolearning" />
+    <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:creator" content="Kevin Cunningham (@dolearning)" />
+    <meta
+      name="twitter:description"
+      content={pageDescription || "Kevin Cunningham"}
+    />
+    <meta name="twitter:image" content={getMetaImage(pageTitle)} />
 
+    <meta name="og:image:alt" content={pageDescription || "Kevin Cunningham"} />
     <meta property="og:title" content={pageTitle} /><meta
       property="og:description"
       content={pageDescription || "Kevin Cunningham"}
