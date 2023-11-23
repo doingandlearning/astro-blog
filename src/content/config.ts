@@ -44,25 +44,27 @@ const liveCourses = defineCollection({
   }),
 });
 
-const webmention = defineCollection({
-  type: "content",
-  schema: z.array({
-    author: z.object({
-      name: z.string(),
-      photo: z.string(),
-      url: z.string(),
-    }),
-    "wm-property": z.string(),
-    url: z.string(),
-    content: z
-      .object({
-        html: z.string(),
-        text: z.string(),
-      })
-      .optional(),
-    "wm-received": z.string(),
-  }),
-});
+// const webmentions = defineCollection({
+//   type: "data",
+//   schema: z.array(
+//     z.object({
+//       author: z.object({
+//         name: z.string(),
+//         photo: z.string(),
+//         url: z.string(),
+//       }),
+//       ["wm-property"]: z.string(),
+//       url: z.string(),
+//       content: z
+//         .object({
+//           html: z.string(),
+//           text: z.string(),
+//         })
+//         .optional(),
+//       "wm-received": z.string(),
+//     })
+//   ),
+// });
 
 // define bookmarks collection
 const bookmarksCollection = defineCollection({
@@ -83,5 +85,4 @@ export const collections = {
   posts: postsCollection,
   prerecorded: prerecordedCollection,
   livecourses: liveCourses,
-  webmention: webmention,
 };
