@@ -1,6 +1,7 @@
 ---
 import BackButton from "../components/BackButton.astro";
 import Newsletter from "../components/Newsletter.astro";
+import NextPosts from "../components/NextPosts.astro";
 import Tags from "../components/Tags.astro";
 import Webmentions from "../components/Webmentions.astro";
 import BaseLayout from "./BaseLayout.astro";
@@ -41,9 +42,9 @@ if (frontmatter.updateDate) {
     <div class="e-content p-name">
       <slot />
     </div>
-    <BackButton />
     <Newsletter />
     <Webmentions webmentions={webmentions} />
+    <NextPosts tags={frontmatter.tags} thisPost={frontmatter.title} />
     <a
       rel="author"
       class="p-author h-card"

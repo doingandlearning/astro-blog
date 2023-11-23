@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import { getMetaImage } from "../scripts/utils";
+const { tags, thisPost } = Astro.props;
+
+const posts = await getCollection("posts");
+
+// tags is an array of posts
+// posts have a tags array on them
+// filter posts by tags
+const filteredPosts = posts.filter((post) => {
+  return post.data.tags.some(
+    (tag) => tags.includes(tag) && post.data.title !== thisPost
+  );
+});
+
+// if the filteredPosts are less than 3, then we need to add more posts
+const postsToAdd = 4 - filteredPosts.length;
+
+// get the posts that we need to add by selecting random posts from the posts array
+const randomPosts = posts
+  .filter(
+    (post) => !filteredPosts.includes(post) && post.data.title !== thisPost
+  )
+  .sort(() => Math.random() - Math.random())
+  .slice(0, postsToAdd);
+
+// add the random posts to the filteredPosts array
+const postsToDisplay = [...filteredPosts, ...randomPosts];
+---
+
+<h3>Your next read?</h3>
+<ul>
+  {
+    postsToDisplay.map((post) => (
+      <a href={`/posts/${post.slug}`}>
+        <img src={getMetaImage(post.data.title)} width="300" />
+      </a>
+    ))
+  }
+</ul>
+
+<style>
+  h3 {
+    text-align: center;
+  }
+</style>
