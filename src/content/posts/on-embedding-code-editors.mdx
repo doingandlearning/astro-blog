@@ -6,6 +6,7 @@ updateDate: ""
 description: "Where I build a worse version of JS Fiddle"
 ---
 import CodeEditor from "../../components/CodeEditor";
+import Checkbox from "../../components/Checkbox.astro";
 
 A while ago, I posted on Twitter (still calling it that) wondering if there was prior art I could look to for embedding code editors in posts. I was thinking of something like JS Fiddle, but for Markdown. 
 
@@ -79,10 +80,12 @@ There are a lot of things I want to improve. I'm going to list them here and the
 
 I want to be able to:
 
-- <input type="checkbox">Use a code editor that supports syntax highlighting</input>
-- <input type="checkbox">Maybe hold off evaluating until a button is pressed</input>
-- <input type="checkbox">I'll want to be able to share state between multiple instances on the same page (a la Jupyter Notebooks)</input>
-- <input type="checkbox">Maybe render things like React/Vue/Svelte components</input>
+
+<Checkbox>Use a code editor that supports syntax highlighting</Checkbox>
+<Checkbox>Maybe hold off evaluating until a button is pressed</Checkbox>
+<Checkbox>I'll want to be able to share state between multiple instances on the same page (a la Jupyter Notebooks)</Checkbox>
+
+<Checkbox>Maybe render things like React/Vue/Svelte components</Checkbox>
 
 For some of this, it might work better to embed a Codesandbox instance - I don't know. I'll keep experimenting and see what I can come up with.
 
