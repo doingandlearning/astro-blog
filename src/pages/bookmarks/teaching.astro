@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BookmarkLink from "../../components/BookmarkLink.astro";
+import type { Bookmark } from "../../types";
+
+const bookmarkFiles = await getCollection("bookmarks");
+
+const bookmarks: Bookmark[] = [];
+
+bookmarkFiles.forEach((file) => {
+  bookmarks.push(
+    ...file.data.filter((bookmark: Bookmark) =>
+      bookmark.tags.includes("teaching")
+    )
+  );
+});
+---
+
+<BaseLayout pageTitle="All about teaching">
+  <h1>All about teaching</h1>
+  <div class="container">
+    <div class="left">This is where I want to write about teaching.</div>
+    <div class="right">
+      {bookmarks.map((bookmark) => <BookmarkLink bookmark={bookmark} />)}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .left {
+    flex: 2;
+  }
+
+  .right {
+    flex: 1;
+  }
+</style>

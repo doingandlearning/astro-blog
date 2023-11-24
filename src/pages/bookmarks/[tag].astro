@@ -1,0 +1,58 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import type { Bookmark } from "../../types";
+import BookmarkLink from "../../components/BookmarkLink.astro";
+
+export async function getStaticPaths() {
+  const bookmarkFiles = await getCollection("bookmarks");
+  const bookmarks: Bookmark[] = [];
+  bookmarkFiles.forEach((file) => {
+    bookmarks.push(...file.data);
+  });
+
+  const uniqueTags = [...new Set(bookmarks.map((post) => post.tags).flat())];
+
+  return uniqueTags.map((tag) => {
+    const filteredBookmarks = bookmarks.filter((post) =>
+      post.tags.includes(tag)
+    );
+    return {
+      params: { tag },
+      props: { bookmarks: filteredBookmarks },
+    };
+  });
+}
+const { tag } = Astro.params;
+const { bookmarks } = Astro.props;
+---
+
+<BaseLayout pageTitle="All about teaching">
+  <h1>All about "{tag}"</h1>
+  <div class="container">
+    <div class="left">
+      <p>
+        This topic doesn't have a dedicated page yet. For now, here are the
+        links I've gathered with this tag.
+      </p>
+    </div>
+    <div class="right">
+      {bookmarks.map((bookmark) => <BookmarkLink bookmark={bookmark} />)}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .left {
+    flex: 2;
+  }
+
+  .right {
+    flex: 1;
+  }
+</style>

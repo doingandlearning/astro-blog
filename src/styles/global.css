@@ -305,3 +305,48 @@ pre code {
   background-color: #f8fcfd;
   font-size: 12px;
 }
+
+.bookmarks-container {
+  margin: 0;
+  padding: 0;
+}
+
+.bookmark {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.bookmark-title {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.bookmark-link {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.bookmark-link:hover {
+  text-decoration: underline;
+}
+
+.bookmark-description {
+  margin: 0 0 10px 0;
+}
+
+.bookmark-tags {
+  list-style: none;
+  padding: 0;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #f0f0f0;
+  border-radius: 3px;
+  padding: 5px;
+  margin-right: 5px;
+  font-size: 14px;
+}

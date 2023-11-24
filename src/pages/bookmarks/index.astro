@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BookmarkLink from "../../components/BookmarkLink.astro";
+
+interface Bookmark {
+  title: string;
+  url: string;
+  tags: string[];
+  date: string;
+  description: string;
+}
+
+const bookmarkFiles = await getCollection("bookmarks");
+
+const bookmarks: Bookmark[] = [];
+
+bookmarkFiles.forEach((file) => {
+  bookmarks.push(...file.data);
+});
+---
+
+<BaseLayout pageTitle="Bookmarks">
+  <h1>Bookmark collection</h1>
+  <div>
+    <p>
+      This is aimed to be a selection of bookmarks that I've collected using a
+      custom Raycast extension.
+    </p>
+    <p>They are mostly for my memory but may be of use to others.</p>
+  </div>
+  <div class="bookmarks-container">
+    {
+      bookmarks
+        .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
+        .map((bookmark) => <BookmarkLink bookmark={bookmark} />)
+    }
+  </div>
+</BaseLayout>

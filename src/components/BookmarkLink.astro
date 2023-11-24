@@ -1,0 +1,36 @@
+---
+import type { Bookmark } from "../types";
+
+interface Props {
+  bookmark: Bookmark;
+}
+const { bookmark } = Astro.props;
+---
+
+<div class="bookmark">
+  <p class="bookmark-title">
+    <a href={bookmark.url} class="bookmark-link">
+      {bookmark.title}
+    </a>
+  </p>
+  <p class="bookmark-description">{bookmark.description}</p>
+  <ul class="bookmark-tags">
+    {
+      bookmark.tags.map((tag) => (
+        <li class="tag">
+          <a href={`/bookmarks/${tag}`}>{tag}</a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  .bookmark-tags {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+</style>
