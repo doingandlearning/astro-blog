@@ -350,3 +350,16 @@ pre code {
   margin-right: 5px;
   font-size: 14px;
 }
+
+hr {
+  display: block;
+  text-align: center;
+  margin: 25px auto;
+  width: 100%;
+  border: none;
+}
+
+hr::after {
+  content: "\2042";
+  font-size: 1em;
+}
