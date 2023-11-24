@@ -1,0 +1,91 @@
+---
+title: "On Embedding Code Editors in Posts"
+date: "2023-11-24T12:15"
+tags: []
+updateDate: ""
+description: "Where I build a worse version of JS Fiddle"
+---
+import CodeEditor from "../../components/CodeEditor";
+
+A while ago, I posted on Twitter (still calling it that) wondering if there was prior art I could look to for embedding code editors in posts. I was thinking of something like JS Fiddle, but for Markdown. 
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">This feels like a ChatGPT prompt but I&#39;m looking to see if there is prior art that I can learn from.<br/><br/>I want to write blogposts about JS that had a few embedded code editors in. <br/><br/>Left handside editor, right handside the console, user can edit the code and run it.</p>&mdash; Kevin Cunningham (@dolearning) <a href="https://twitter.com/dolearning/status/1723796396694790575?ref_src=twsrc%5Etfw">November 12, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+I got one reply to look at Josh Comeau's [blog](https://www.joshwcomeau.com/). I love Josh's blog and the interactive elements in his posts are an inspiration. That's one of the reasons I wanted to move my blog to MDX, so I could do the same.
+
+I'm not (yet? growth mindset!) as visually creative as Josh and I wanted to see if I could build something that would work for me. I also wanted to see if I could build something that would work for other people.
+
+## The Idea
+
+I wanted to be able to write a post like this:
+
+```mdx
+<CodeEditor
+  initialCode={`const add = (a, b) => a + b;
+    add(5, 2);
+  `}
+>
+```
+
+And have it render like this:
+
+<img src="https://res.cloudinary.com/kc-cloud/image/upload/f_auto,q_auto/v1/raycast-uploads/czidkukw1kbhttaxwliz" width="100%" />
+
+And I kind of have that:
+
+<CodeEditor initialCode={`const add = (a, b) => a + b;
+
+add(5, 2);
+  `} client:only />
+
+So, it works. But it's not great and this post is pointing out some of the things I've tried and the things I want to improve.
+
+## What I've Tried
+
+### CodeMirror
+
+I started with [CodeMirror](https://codemirror.net/). It's a great editor and I've used it before. It's also the editor that powers [JS Fiddle](https://jsfiddle.net/). I thought it would be a good place to start.
+
+The problem I had was I'm using Preact to build the interactive components on this site at the moment. Using Astro, I could use Vue, Svelte or React and maybe I'll try those in the future. But for now, I'm using Preact.
+
+I could get CodeMirror to render but I couldn't quite work out how to share the state between the editor and the parent component. I'm sure it's possible and if I can get that to work it'll probably replace the component I'm using now.
+
+### Monaco
+
+This is the editor that powers VS Code. I had a look at this and it looks like it might be a good option but it was a bit more complicated than I wanted to get into at the moment. I'll probably come back to this in the future.
+
+### From Scratch
+
+This is largely where I've landed. I'm capturing the user input on the left-hand side and evaluating it to get the right hand side. This is the code I'm using:
+
+```tsx
+useEffect(() => {
+  try {
+    const result = eval(code);
+    setDisplay(result);
+  } catch (e) {
+    if (e instanceof Error) {
+      setDisplay(e.message);
+    }
+  }
+  }, [code])
+```
+
+## What I Want to Improve
+
+There are a lot of things I want to improve. I'm going to list them here and then I'll come back and update this post as I make progress.
+
+I want to be able to:
+
+- <input type="checkbox">Use a code editor that supports syntax highlighting</input>
+- <input type="checkbox">Maybe hold off evaluating until a button is pressed</input>
+- <input type="checkbox">I'll want to be able to share state between multiple instances on the same page (a la Jupyter Notebooks)</input>
+- <input type="checkbox">Maybe render things like React/Vue/Svelte components</input>
+
+For some of this, it might work better to embed a Codesandbox instance - I don't know. I'll keep experimenting and see what I can come up with.
+
+## Conclusion
+
+This is a work in progress. I'm trying to build up a toolkit of education interactive components. I'd love to get these to place where they were useable by other educators but I'm not there yet.
+
+What other components do you think would be useful? Let me know on [Twitter](https://twitter.com/dolearning) or in any of the socials below.

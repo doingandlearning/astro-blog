@@ -431,5 +431,74 @@
       "awareness"
     ],
     "date": "2023-11-23T17:23:20.725Z"
+  },
+  {
+    "url": "https://hackernoon.com/the-addie-training-model-of-instructional-design-an-in-depth-analysis?source=rss",
+    "title": "The ADDIE Training Model of Instructional Design: An In-Depth Analysis | HackerNoon",
+    "description": "I've seen this before as a model but could be interesting to refer back to. \n\nAnalysis. Design. Development. Implementation. Evaluation.",
+    "tags": [
+      "teaching",
+      "training",
+      "instruction",
+      "design",
+      "id"
+    ],
+    "date": "2023-11-24T10:47:15.710Z"
+  },
+  {
+    "description": "This is an interesting article but I'm more interested in the highlight and tweet mechanism on the site. Might be nice to try to implement.",
+    "url": "https://www.cabinetmagazine.org/issues/29/galloway.php",
+    "title": "CABINET / The Game of War: An Overview",
+    "tags": [
+      "inspiration",
+      " chess",
+      " war"
+    ],
+    "date": "2023-11-24T10:54:03.796Z"
+  },
+  {
+    "url": "https://www.shubhro.com/2022/01/03/show-the-case-against/",
+    "description": "Explore the counter-factual - write a \"why shouldn't we do this?\" instead of just the positive. Create a steel man argument - not a straw one!",
+    "title": "Show the case against | Shubhro Saha",
+    "tags": [
+      "planning",
+      " thinking"
+    ],
+    "date": "2023-11-24T10:56:39.487Z"
+  },
+  {
+    "title": "In Defence of the Boring Web",
+    "url": "https://bastian.rieck.me/blog/posts/2022/boring/",
+    "description": "This fits in with the building sites that last for a very long time point I came across recently. ",
+    "tags": [
+      "web",
+      " sustainable",
+      " ux"
+    ],
+    "date": "2023-11-24T11:01:35.852Z"
+  },
+  {
+    "description": "This is awesome - a really clear tutorial in a single js file using comments really effectively.\n\nClear that teaching doesn't need bells and whistles if it's clear. Could this be enhanced with more interactivity? Maybe but you'd also reduce the ability for others to use it",
+    "url": "https://github.com/jamiebuilds/the-super-tiny-compiler/blob/master/the-super-tiny-compiler.js",
+    "title": "the-super-tiny-compiler/the-super-tiny-compiler.js at master · jamiebuilds/the-super-tiny-compiler · GitHub",
+    "tags": [
+      "teaching",
+      " clarity",
+      " parser",
+      " ast",
+      " compiler"
+    ],
+    "date": "2023-11-24T11:11:20.170Z"
+  },
+  {
+    "title": "DON'T YOU LECTURE ME WITH YOUR THIRTY DOLLAR WEBSITE",
+    "url": "https://thirtydollar.website/",
+    "description": "This is fun and funny - late to the game here but nice to see some whimsy :) ",
+    "tags": [
+      "web",
+      " whimsy",
+      " fun"
+    ],
+    "date": "2023-11-24T11:12:53.885Z"
   }
 ]
