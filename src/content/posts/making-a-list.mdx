@@ -1,0 +1,77 @@
+---
+title: "Towards DevEx Design System - DXDS"
+date: "2023-11-26T09:15"
+tags: ["teaching", "components"]
+updateDate: ""
+description: "Trying to gather ideas for a DevEx Design System"
+---
+
+I am not a designer but I am an educator. And, as I've been writing and thinking over the past few weeks, I've been gathering ideas for common components that I could use in tutorials. But, more than that, how these components could be shared with others. 
+
+The aim would be for these components to be as reusable as possible across a range of frameworks and libraries. They should be the key building blocks of good tutorials.
+
+Kamran Ayub has talk about this as "Developer Experience Design System" or DXDS for short. I like that name and I'm going to use that here.
+
+I'm not arrogant enough to think that I'm the first person to think of this and would love to hear from others who have done similar work. I'm also not arrogant enough to think that I can do this alone. I'm going to need help. I'm going to need designers and developers to help me build this. I'm going to need educators to help me test it. I'm going to need people to help me write the docs. 
+
+## The Components
+
+I'm going to keep a list here that I'll add as I go along. Reach out to me on socials if you have more ideas. And, if you want to help, let me know.
+
+
+<details>
+<summary>Prereqs</summary>
+
+I've created a [blog post including this one already](/posts/enhancing-tutorials) leaning on the work from the Astro docs. Before someone engages in a tutorial, they need to have the right tools installed. They also need the right prior knowledge. This component should be able to handle both of those.
+
+It should also link to the relevant docs for the tools and the prior knowledge if necessary.
+
+This needs more design work but I think it's a good start.
+</details>
+
+<details>
+<summary>Embedded Code Editor</summary>
+
+My first attempt at this was [a blog post](/posts/on-embedded-code-editors) where I tried to build a code editor that could be embedded in a blog post. It was a start but it was a bit clunky. I think it can do done better.
+</details>
+<details>
+
+<summary>Exemplars</summary>
+
+This would be a component that would clearly show examples of the code that the user is going to write. It would be a way to show the user what they are going to build. It would also be a way to show the user what the code should look like at the end of the tutorial.
+
+I'm not quite sure what this looks like yet.
+</details>
+
+<details>
+<summary>Callouts</summary>
+
+This would be to call out important information. It could be a warning, a tip, a note, or something else. It could call out common errors or common misconceptions. It could also be used to highlight links to other concepts and areas.
+</details>
+
+<details>
+<summary>Spoiler</summary>
+I've begun this already with the [spoiler component](/posts/spoiler-component). This would be a way to hide information that the user can reveal when they want to. It could be used to hide the answer to a quiz or the solution to a problem.
+</details>
+<details>
+<summary>Quiz</summary>
+This is a component for a simple knowledge check. It could be a multiple choice question or a true/false question. It could also be a fill in the blank question. It could also be a question that requires the user to write code. 
+
+I've begun this already with the [quiz component](/posts/enhancing-tutorials) here. As before, I borrowed from the Astro docs which are ace but my colours are a bit off.
+</details>
+<details>
+<summary>Progress</summary>
+This would be a way to show the user how far they are through the tutorial. It could be a progress bar or a percentage. It could also be a list of steps that the user has to complete. It could also be a list of steps that the user has completed.
+
+There is lots of prior art for these.
+
+- [Astro Docs (again!)](https://docs.astro.build/getting-started/introduction)
+- [Dopt](https://docs.dopt.com/components/react/checklist/) - they call themselves a design system for onboarding and education
+- [Medusa.js](https://docs.medusajs.com/recipes) - this was pointed out by Kumran again. It's a great example of showing progress. 
+</details>
+
+## The Tools
+
+I think that this is best solved with HTML Components - either built independently or using a library like [Lit](https://lit.dev/docs/). The benefit of this is that they can be used in any framework or library. They can also be used in plain HTML.
+
+For now, here's a [Git repo where I'm going to collect this work](https://github.com/doingandlearning/dxds). Feel free to add issues there or PRs if you want to help.

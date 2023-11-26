@@ -500,5 +500,32 @@
       " fun"
     ],
     "date": "2023-11-24T11:12:53.885Z"
+  },
+  {
+    "title": "Five Geek Social Fallacies – Plausibly Deniable",
+    "description": "An oldie but a goodie - when I looked the author up, he cites this article as one of the things he is best known for. I've definitely seen a lot of the points in groups I've been a part of and probably have some of those myself.",
+    "url": "https://plausiblydeniable.com/five-geek-social-fallacies/",
+    "tags": [
+      "social",
+      "fallacy",
+      "lies",
+      "interactions",
+      "geek"
+    ],
+    "date": "2023-11-25T09:18:12.075Z"
+  },
+  {
+    "url": "https://lit.dev/playground/",
+    "description": "As well as exploring this framework for building the component library - this playground is ace - I wonder if it's build using Lit! Code editor in the brower with tabs between the two - this is ace",
+    "title": "Playground – Lit",
+    "tags": [
+      "web",
+      "components",
+      "lit",
+      "tutorial",
+      "DevEd",
+      "DEDX"
+    ],
+    "date": "2023-11-26T08:50:22.418Z"
   }
 ]
