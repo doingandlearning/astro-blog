@@ -538,5 +538,39 @@
       " ideas"
     ],
     "date": "2023-11-30T13:56:13.043Z"
+  },
+  {
+    "title": "Write Rock Solid Tests in Any Programming Language | by Bruno Lombardi | Bits and Pieces",
+    "description": "Could be helpful to few in testing ... maybe for the Node course this week?",
+    "url": "https://blog.bitsrc.io/writing-rock-solid-tests-in-any-programming-language-2fbb47efcec3",
+    "tags": [
+      "testing",
+      "javascript",
+      "node"
+    ],
+    "date": "2023-11-27T16:37:05.100Z"
+  },
+  {
+    "url": "https://history-of-mathematics.org/",
+    "title": "History of Mathematics Project | Home",
+    "description": "Online exhibition to explore the history of maths - very cool",
+    "tags": [
+      "maths",
+      "history",
+      "online",
+      "exhibition"
+    ],
+    "date": "2023-11-27T16:38:27.009Z"
+  },
+  {
+    "title": "Robot Dad - Untrod",
+    "description": "I want to build this!",
+    "url": "https://blog.untrod.com/2023/11/robot-dad.html",
+    "tags": [
+      "project",
+      "inspiration",
+      "ai"
+    ],
+    "date": "2023-11-28T19:59:07.236Z"
   }
 ]
