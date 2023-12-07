@@ -22,7 +22,9 @@ const { intro, outro } = Astro.props;
     </span>
     {intro || "Before we start, do you:"}
   </p>
-  <slot />
+  <div class="slot-container">
+    <slot />
+  </div>
   <p>{outro || "Awesome! Let's go!"}</p>
 </div>
 
@@ -86,5 +88,7 @@ const { intro, outro } = Astro.props;
     font-size: 0.9em;
     letter-spacing: 0.05em;
     color: var(--theme-text);
+  .slot-container {
+    background: red;
   }
 </style>
