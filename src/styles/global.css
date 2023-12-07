@@ -45,9 +45,9 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+/* a:hover {
   font-size: 1.1rem;
-}
+} */
 
 /* utils */
 .border-container {
@@ -186,6 +186,7 @@ pre code {
 .hidden {
   display: none;
 }
+
 .nav-links, .mobile-nav-links a {
   text-align: center;
   padding: 10px 0;

@@ -1,3 +1,7 @@
+---
+const { intro, outro } = Astro.props;
+---
+
 <div class="goals">
   <p class="title">
     <span class="icon" aria-hidden="true">
@@ -16,10 +20,10 @@
         ></path>
       </svg>
     </span>
-     Before we start, do you:
+    {intro || "Before we start, do you:"}
   </p>
   <slot />
-  <p>Awesome! Let's go!</p>
+  <p>{outro || "Awesome! Let's go!"}</p>
 </div>
 
 <style>
@@ -71,5 +75,16 @@
 
   .goals > :global(ul > * + *) {
     margin-top: 0.5em;
+  }
+
+  .goals > :global(ul > li) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem;
+    align-items: center;
+    line-height: 1;
+    font-size: 0.9em;
+    letter-spacing: 0.05em;
+    color: var(--theme-text);
   }
 </style>

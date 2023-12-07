@@ -10,6 +10,7 @@ import Precheck from "../../components/Precheck.astro"
 import Box from "../../components/Box.astro"
 import MultipleChoice from "../../components/MultipleChoice.astro"
 import Option from "../../components/Option.astro"
+import CheckBox from "../../components/CheckBox.astro"
 
 In his latest email, Kamran Ayub pointed out that long tutorials can be unhelpful for neuro-diverse readers. He mentioned having ways to keep track and gamify the process can be helpful.
 
@@ -20,12 +21,8 @@ I recently moved this site to Astro and was super impressed with their tutorial 
 This is a component that Astro uses to show required knowledge. I think this is super helpful and can be used to link to other relevant tutorials.
 
 <Precheck>
-<p>
-<input type="checkbox"> Know some CSS</input>
-</p>
-<p>
-<input type="checkbox"> Know some HTML</input>
-</p>
+  <CheckBox>Know some CSS</CheckBox>
+  <CheckBox>Know some HTML</CheckBox>
 </Precheck>
 
 ## Multiple Choice
