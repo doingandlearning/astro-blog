@@ -1,12 +1,13 @@
 ---
 title: "Activating Prior Knowledge"
-date: "2023-11-21"
+date: "2023-12-08T10:00"
 tags: ["learning", "knowledge"]
 updateDate: ""
 description: "Those we teach are not empty buckets."
-draft: true
 ---
-import Precheck from "../../components/Precheck.astro"
+
+import Precheck from "../../components/Precheck.astro";
+import CheckBox from "../../components/CheckBox.astro";
 
 When we create educational materials, it is impossible to write for everyone. As with all types of writing, we must consider our audience. However, in the case of educational materials, we must also consider the prior knowledge of our audience. This is because prior knowledge plays a significant role in learning. It influences how we process new information and how we make sense of it. 
 
@@ -55,20 +56,34 @@ For each of these components, I'd like to provide some kind of pedagogical (teac
 
 These are works in progress and the desire is to make them as portable as possible. My aim is to build them as standalone web components that can be imported to any website.
 
+Here's one in action:
+
 <Precheck
    intro="Before we start, do you know:"
    outro="Awesome! Let's dive in!"
 >
-<ul>
-<li> <input type="checkbox" /> Some basics around technical writing. [This is a great start](https://developers.google.com/tech-writing) if you don't.</li>
-<li>  <input type="checkbox" /> Some knowledge you want to share</li>
-</ul>
+<CheckBox>Some basics around technical writing. [This is a great start](https://developers.google.com/tech-writing) if you don't.</CheckBox>
+<CheckBox>Some knowledge you want to share</CheckBox>
 </Precheck>
 
-8. **Conclusion:**
-   - Summarize the key points made in the article.
-   - Emphasize the potential positive impact on learning outcomes when prior knowledge is considered.
-   - Encourage educators, instructional designers, and content creators to adopt this new approach.
+and here's the code that is driving it:
 
-Remember to include citations of relevant research and theories to strengthen your arguments. Also, keeping the tone informative yet engaging will help in conveying your message effectively to your audience.
+```mdx
+<Precheck
+   intro="Before we start, do you know:"
+   outro="Awesome! Let's dive in!"
+>
+   <CheckBox>Some basics around technical writing. [This is a great start](https://developers.google.com/tech-writing) if you don't.</CheckBox>
+   <CheckBox>Some knowledge you want to share</CheckBox>
+</Precheck>
+```
 
+I find it helpful to have tools like this when I'm creating educational materials. They help remind me about the importance of prior knowledge and help me to activate it.
+
+## What's next?
+
+This is the first of the components that are in my [DXDS library found here](https://github.com/doingandlearning/dxds). I'm going to be building out more of these and sharing them as I go.
+
+The initial implementation is as an Astro component but I'm going to be building out a web component version too.
+
+The aim is to have a growing list of components with a pedagogical rationale for each one. I'm also going to be building out a set of guidelines for how to use them.
