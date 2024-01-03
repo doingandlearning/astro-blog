@@ -572,5 +572,135 @@
       "ai"
     ],
     "date": "2023-11-28T19:59:07.236Z"
+  },
+  {
+    "description": "I wonder if I could do an advent calendar of something next year - RN? TS? Node?",
+    "title": "SVG Tutorial - Learn how to code images in HTML with SVG",
+    "url": "https://svg-tutorial.com/",
+    "tags": [],
+    "date": "2023-12-17T13:15:04.043Z"
+  },
+  {
+    "description": "This could be fun to implement",
+    "url": "https://tomhazledine.com/llm-related-posts/",
+    "title": "TomBot2000: automatically finding related posts using LLMs",
+    "tags": [
+      "LLM",
+      "blog"
+    ],
+    "date": "2023-12-17T13:28:47.942Z"
+  },
+  {
+    "url": "https://shutdowngame.apc.org/",
+    "description": "This seems cool - it's a group thing, maybe could be fun for a meetup at some point?",
+    "title": "The (internet) Shutdown Game",
+    "tags": [],
+    "date": "2023-12-17T13:35:23.767Z"
+  },
+  {
+    "title": "Make a Linux App",
+    "url": "https://makealinux.app/#/",
+    "description": "Nice website ... sounds like a good idea .. maybe something I should consider? It should definitely go on the list",
+    "tags": [],
+    "date": "2023-12-17T14:35:02.166Z"
+  },
+  {
+    "description": "Sounds cool - a good exercise and workshop?",
+    "title": "Creating a Wordle with TDD in Javascript | HackerNoon",
+    "url": "https://hackernoon.com/creating-a-wordle-with-tdd-in-javascript?source=rss",
+    "tags": [
+      "TDD",
+      "JS"
+    ],
+    "date": "2023-12-18T20:44:08.164Z"
+  },
+  {
+    "url": "https://hackernoon.com/the-ultimate-debugging-road-map?source=rss",
+    "title": "The Art of Debugging | HackerNoon",
+    "description": "Interesting article - lots to reference and dig into",
+    "tags": [
+      "debugging",
+      "js"
+    ],
+    "date": "2023-12-18T20:44:35.703Z"
+  },
+  {
+    "url": "https://teropa.info/musicmouse/",
+    "description": "Fun musical project - nice inbrowser experience",
+    "title": "Music Mouse - An Intelligent Instrument - An Emulation",
+    "tags": [
+      "music",
+      "browser",
+      "fun"
+    ],
+    "date": "2023-12-18T20:45:03.457Z"
+  },
+  {
+    "title": "Patterns for Personal Web Sites",
+    "url": "http://www.rdrop.com/~half/Creations/Writings/Web.patterns/index.html",
+    "description": "This is an awesome insight - love this categorisation and recognition of patterns in personal websites. Makes me think of recent work about what the purpose of a personal site is.",
+    "tags": [
+      "personal",
+      "sites",
+      "patterns",
+      "content"
+    ],
+    "date": "2023-12-18T20:46:29.692Z"
+  },
+  {
+    "description": "Really nice reference and use of rules for REST APIs. Nice to review before an API input",
+    "title": "How to (and how not to) design REST APIs · stickfigure/blog Wiki · GitHub",
+    "url": "https://github.com/stickfigure/blog/wiki/How-to-%28and-how-not-to%29-design-REST-APIs",
+    "tags": [
+      "API",
+      "REST",
+      "best",
+      "practices"
+    ],
+    "date": "2023-12-18T20:47:22.601Z"
+  },
+  {
+    "description": "Interesting how open stacks were a new technology at one point ... it was futuristic - what is futuristic now that will seem mundane in a 50 years?",
+    "title": "The open-stack library: a futuristic technology from the 18th century ",
+    "url": "https://resobscura.substack.com/p/the-open-stack-library-a-futuristic",
+    "tags": [
+      "library",
+      "open",
+      "stack",
+      "technology"
+    ],
+    "date": "2023-12-18T20:48:27.276Z"
+  },
+  {
+    "description": "Lightweight project to help with CLIs ",
+    "url": "https://github.com/terkelg/prompts",
+    "title": "GitHub - terkelg/prompts: ❯ Lightweight, beautiful and user-friendly interactive prompts",
+    "tags": [
+      "cli",
+      "prompt",
+      "pretty",
+      "terminal"
+    ],
+    "date": "2023-12-18T20:53:04.096Z"
+  },
+  {
+    "title": "Spain lives in flats: why we have built our cities vertically",
+    "description": "Interesting that more Spanish families live in flats but the data rich \"scrolly-telling\", with maps, graphs and 3D views is compelling even if you don't care about the takeaway.",
+    "url": "https://especiales.eldiario.es/spain-lives-in-flats/",
+    "tags": [
+      "maps",
+      "scrollytelling"
+    ],
+    "date": "2023-12-19T15:19:24.876Z"
+  },
+  {
+    "url": "https://memgraph.com/blog/riding-the-berlin-subway-graph-database-adventure-with-memgraph-lab",
+    "title": "Riding the Berlin subway: a Graph Database Adventure with Memgraph Lab",
+    "description": "This was a really interesting tutorial - it asks real questions and explores the syntax really well.",
+    "tags": [
+      "maps",
+      "memgraph"
+    ],
+    "date": "2023-12-19T15:55:57.446Z"
   }
 ]

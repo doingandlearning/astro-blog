@@ -4,7 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import { getMetaImage } from "../scripts/utils";
-
+import snowfall from "@zachleat/snow-fall";
 interface Props {
   pageTitle: string;
   pageDescription?: string;
@@ -62,13 +62,15 @@ const { pageTitle, pageDescription } = Astro.props;
 
   <body>
     <div id="page-container">
-      <Header />
-      <div id="content-wrap">
-        <slot />
-      </div>
-      <div id="footer">
-        <Footer />
-      </div>
+      <snowfall client:load>
+        <Header />
+        <div id="content-wrap">
+          <slot />
+        </div>
+        <div id="footer">
+          <Footer />
+        </div>
+      </snowfall>
     </div>
     <script>
       import "../scripts/menu.js";
