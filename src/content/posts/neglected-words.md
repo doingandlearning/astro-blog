@@ -82,4 +82,8 @@ For the rest of the stream, we built a fastify API to serve the data which was a
 
 I think I might stream tomorrow and make a game using the data. I've got a React course coming up in a few weeks, so I'll probably build in React.
 
-If you're around at 2pm GMT, I'll see how much I can get done in an hour.
+<strong>If you're around at 2pm GMT, I'll see how much I can get done in an hour.</strong>
+
+Here's the [Git repo](https://github.com/doingandlearning/neglected-words) of what we've been working on.
+
+I can't decide whether it's worth putting the video of the stream up on YouTube or not. 
