@@ -702,5 +702,19 @@
       "memgraph"
     ],
     "date": "2023-12-19T15:55:57.446Z"
+  },
+  {
+    "url": "https://wiredjs.com/showcase",
+    "title": "Wired Elements Showcase",
+    "description": "This is a cool component collection - I want to explore this",
+    "tags": [],
+    "date": "2024-02-04T08:48:53.504Z"
+  },
+  {
+    "description": "I'd like to explore how to use these in some posts",
+    "url": "https://www.zachleat.com/web/carouscroll/",
+    "title": "carouscroll Web Component—zachleat.com",
+    "tags": [],
+    "date": "2024-02-04T09:13:25.229Z"
   }
 ]
