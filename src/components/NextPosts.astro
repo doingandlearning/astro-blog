@@ -23,7 +23,10 @@ const postsToAdd = 4 - filteredPosts.length;
 // get the posts that we need to add by selecting random posts from the posts array
 const randomPosts = posts
   .filter(
-    (post) => !filteredPosts.includes(post) && post.data.title !== thisPost
+    (post) =>
+      !filteredPosts.includes(post) &&
+      post.data.title !== thisPost &&
+      !post.data.draft
   )
 
   .slice(0, postsToAdd);
