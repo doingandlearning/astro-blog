@@ -54,20 +54,20 @@ Here are some examples:
 
 Now that we have our cron expressions, we can start to use `node-cron` to schedule some jobs. First, I’ll start a new project and install `node-cron`.
 
-```
+```bash
 npm init -y
 npm i node-cron
 ```
 
 I like to work in ESM, so I’ll change my module type in package.json to by module.:
 
-```
+```json
   "type": "module"
 ```
 
 I’ll create new file, import node-cron and schedule a job:
 
-```
+```js 
 import cron from "node-cron";
 
 cron.schedule("* * * * *", () => { console.log("I will run every minute.") })
@@ -77,11 +77,12 @@ When I start this file with Node now, it will run and when my clock gets to 0 se
 
 `node-cron` also lets us pass a sixth optional expression which will allow us to schedule to the second.
 
-```
+```js
 cron.schedule("* * * * * *", () => { console.log("I have 6 stars and will run every second") })
 ```
 
 I’m passing a lambda function here but you can use this to run maintenance tasks, send emails, schedule reminders or anything else that needs to happen at a particular point in time. I’m also not using any error handling here.
 
 —
+ 
 Scheduling tasks is a crucial part of many applications, from sending reminders to maintaining system health. With `node-cron`, you can manage and schedule tasks directly in your Node.js app without external dependencies. Try implementing it in your project today, and see how it can simplify your task automation.
