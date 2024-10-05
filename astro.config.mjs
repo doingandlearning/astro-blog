@@ -9,7 +9,14 @@ import expressiveCode from "astro-expressive-code";
 // https://astro.build/config
 export default defineConfig({
   site: "https://kevincunningham.co.uk",
-  integrations: [preact(), expressiveCode(), mdx(), sitemap()],
+  integrations: [
+    preact(),
+    expressiveCode({
+      themes: ["catppuccin-frappe"],
+    }),
+    mdx(),
+    sitemap(),
+  ],
   output: "hybrid",
   adapter: vercel(),
   redirects: {
