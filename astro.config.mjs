@@ -3,8 +3,9 @@ import preact from "@astrojs/preact";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel/serverless";
-
 import expressiveCode from "astro-expressive-code";
+
+import customToc from "astro-custom-toc";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,6 +15,7 @@ export default defineConfig({
     expressiveCode({
       themes: ["catppuccin-frappe"],
     }),
+    customToc({ template: (toc) => `<nav class="toc">${toc}</nav>` }),
     mdx(),
     sitemap(),
   ],

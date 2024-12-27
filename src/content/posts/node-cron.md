@@ -4,11 +4,14 @@ date: "2024-09-19T17:07"
 tags: ["node-cron", "node", "scheduling"]
 updateDate: ""
 description: "WIP: Scheduling tasks with Node without other software dependencies."
+showToc: true
 ---
 
 Are there tasks that you want to perform at a given time each day, week or month?
 
 In modern development, there are often recurring tasks that need automation — from sending out reports every Monday to clearing out caches or checking football scores in real-time. If you’re running a Node.js server, you can easily schedule these tasks using `node-cron`, a simple and powerful tool for managing jobs inside your Node.js processes. Let’s explore how it works and how you can integrate it into your workflow.
+
+<!-- toc -->
 
 ## cronjob? node-cron?
 

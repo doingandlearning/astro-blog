@@ -22,6 +22,7 @@
     "@zachleat/snow-fall": "^1.0.2",
     "astro": "^3.5.5",
     "astro-embed": "^0.9.0",
+    "astro-custom-toc": "^2.0.34",
     "astro-expressive-code": "^0.37.0",
     "astro-navbar": "^2.3.0",
     "codemirror": "^6.0.1",
