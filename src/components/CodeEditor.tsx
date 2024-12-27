@@ -5,7 +5,7 @@ export default function CodeEditor({ initialCode = "" }) {
 	const [code, setCode] = useState(initialCode);
 	const [display, setDisplay] = useState("");
 
-	const handleChange = (e) => {
+	const handleChange = (e: any) => {
 		setCode(e.currentTarget.value);
 
 	};
