@@ -7,9 +7,9 @@ description: "What is it? Why do I care?"
 draft: false
 ---
 
-I've become pretty excited about Local First as a way to think about and approach development recently. There's a [pretty central manifesto written by the team at Ink & Switch](https://www.inkandswitch.com/local-first/) which has the sub-title "you own your data, in spite of the cloud" - it's a really interesting and compelling article.
+I've become pretty excited about Local First as a way to think about and approach development recently. There's a [pretty central manifesto written by the team at Ink & Switch](https://www.inkandswitch.com/local-first/) which has the sub-title "you own your data, in spite of the cloud" - it's a really interesting article.
 
-The article gives some pretty compelling ideals that, when put together, create software that works for more people. I work on a fast computers with reliable internet but that doesn't describe everyone. If we want the internet and web-based software to help impact more of the world, then making sure that we're building for unreliable connections is key. There are a ton of parallel benefits - this is one of those times where doing the "right" thing also has business value. 
+The article gives some pretty compelling ideals that, when put together, create software that works for more people. I work on a fast computer with reliable internet but that doesn't describe everyone. If we want the internet and web-based software to help impact more of the world, then making sure that we're building for unreliable connections is key. There are a ton of parallel benefits - this is one of those times where doing the "right" thing also has business value. 
 
 - Not having a server be central to development can make things cheaper
 - It can also make the mental model simplier
@@ -29,7 +29,7 @@ As for farmers so for lawyers, doctors, taxi drivers, chefs and so on.
 
 But building modern web applications is complicated and hard - there are servers and CI/CD and front-end frameworks and UX/UI and on and on. 
 
-Why does a tool I want to build for me and my friends need all the same infrastructure as Facebook or Netflix? Why does building web applications have to be so complicated?
+Why does a tool I (or my farmer friend) want to build for me and my friends need all the same infrastructure as Facebook or Netflix? Why does building web applications have to be so complicated?
 
 My friend [Ben Patton](https://bsky.app/profile/benapatton.com) and I have been thinking about this a lot and started to build the [Local First Academy](https://localfirstacademy.com). 
 
