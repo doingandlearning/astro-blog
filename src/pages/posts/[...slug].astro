@@ -16,7 +16,7 @@ const webmentiondata = await getCollection("webmentions", (mention) => {
   return mention.id.startsWith("posts--") && mention.id.endsWith(entry.slug);
 });
 
-let webmentions = [];
+let webmentions: unknown[] = [];
 
 if (webmentiondata.length > 0) {
   webmentions = webmentiondata[0].data;
