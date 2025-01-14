@@ -19,7 +19,7 @@ export default defineConfig({
     mdx(),
     sitemap(),
   ],
-  output: "hybrid",
+  output: "static",
   adapter: netlify(),
   redirects: {
     "/feed.xml": {
