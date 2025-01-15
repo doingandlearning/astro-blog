@@ -14,6 +14,8 @@ const postsCollection = defineCollection({
         alt: z.string(),
       })
       .optional(),
+    imageUrl: z.string().optional(),
+    imageAlt: z.string().optional(),
     tags: z.array(z.string()),
     draft: z.boolean().optional(),
   }),

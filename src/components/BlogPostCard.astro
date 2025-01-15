@@ -8,36 +8,110 @@ interface Props {
   withImage?: boolean;
   date?: string;
   tags?: string[];
+  imageUrl?: string;
+  imageAlt?: string;
 }
 
-const { title, url, description, date, tags = [] } = Astro.props;
+const {
+  title,
+  url,
+  description,
+  date,
+  imageUrl,
+  imageAlt,
+  tags = [],
+} = Astro.props;
 ---
 
 <div class="blog-card-container">
-  <a href={url}>
-    <div class="blog-card">
-      {title}
-      {
-        date &&
-          ` - ${formatDistance(new Date(date), new Date(), {
-            addSuffix: true,
-          })}`
-      }
-      <p class="desc-string" id="desc-string">{description}</p>
-    </div>
-  </a>
   {
-    tags && (
-      <div class="tags">
-        {tags.map((tag: string) => (
-          <p class="small-tag">
-            <a href={`/tags/${tag}`}>
-              #{tag[0].toUpperCase() + tag.substring(1)}
-            </a>
-          </p>
-        ))}
+    imageUrl ? (
+      <div class="blog-card-image">
+        <img
+          src={imageUrl}
+          alt={imageAlt || title}
+          height="50px"
+          width="50px"
+        />
       </div>
+    ) : (
+      <div />
     )
   }
+  <div>
+    <a href={url}>
+      <div class="blog-card">
+        {title}
+        {
+          date &&
+            ` - ${formatDistance(new Date(date), new Date(), {
+              addSuffix: true,
+            })}`
+        }
+        <p class="desc-string" id="desc-string">{description}</p>
+      </div>
+    </a>
+  </div>
+  <div>
+    {
+      tags && (
+        <div class="tags">
+          {tags.map((tag: string) => (
+            <p class="small-tag">
+              <a href={`/tags/${tag}`}>
+                #{tag[0].toUpperCase() + tag.substring(1)}
+              </a>
+            </p>
+          ))}
+        </div>
+      )
+    }
+  </div>
 </div>
-<style></style>
+
+<style>
+  .blog-card-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .blog-card-container {
+    margin: 1em 0;
+    margin: 16px;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    justify-content: space-between;
+    border: 1px dashed #a1a1a1;
+    padding: 1em;
+    border-radius: 0.5em;
+  }
+
+  .blog-card-container a {
+    display: block;
+  }
+  .blog-card-container .tags a {
+    color: #00539f;
+  }
+
+  .blog-card-container .tags {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: start;
+    justify-content: flex-end;
+  }
+
+  .blog-card-container .tags .small-tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    background-color: #f8fcfd;
+    font-size: 12px;
+  }
+
+  .blog-card-container:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--site-orange);
+  }
+</style>

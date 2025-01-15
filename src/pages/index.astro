@@ -59,7 +59,7 @@ const latestPosts = await getCollection("posts", ({ data }) => {
     </div>
   </div>
   <div>
-    <h3>Blog</h3>
+    <h3>✍️ I write</h3>
     <p>
       I try to blog regularly with a mix of tutorials, helpful articles and
       thoughts about tech and life. Here are my latest posts:
@@ -74,6 +74,8 @@ const latestPosts = await getCollection("posts", ({ data }) => {
               description={post.data.description}
               date={post.data.date}
               tags={post.data.tags}
+              imageUrl={post.data.imageUrl || ""}
+              imageAlt={post.data.imageAlt || ""}
             />
           </>
         );
