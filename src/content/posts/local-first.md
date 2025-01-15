@@ -5,6 +5,8 @@ tags: ["local first"]
 updateDate: ""
 description: "What is it? Why do I care?"
 draft: false
+imageUrl: https://res.cloudinary.com/kc-cloud/image/upload/f_auto,q_auto/v1/raycast-uploads/f5vev7o7xge8xtxioywv?_a=BAMAAAXw0
+imageAlt: Local first logo
 ---
 
 I've become pretty excited about Local First as a way to think about and approach development recently. There's a [pretty central manifesto written by the team at Ink & Switch](https://www.inkandswitch.com/local-first/) which has the sub-title "you own your data, in spite of the cloud" - it's a really interesting article.
