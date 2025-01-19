@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="controls">
+        <h1>Add text to image</h1>
+        <div class="control-group">
+          <label for="file">Choose an image:</label>
+          <input type="file" id="file" />
+        </div>
+        <div class="control-group">
+          <label for="text">Enter text:</label>
+          <input type="text" id="text" placeholder="Your text here" />
+        </div>
+        <div class="control-group">
+          <label for="font-family">Font Family:</label>
+          <select id="font-family">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Georgia">Georgia</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="font-size">Font Size:</label>
+          <input
+            type="range"
+            id="font-size"
+            name="fontSize"
+            min="12"
+            max="200"
+            value="48"
+          />
+        </div>
+        <div class="control-group">
+          <label for="color">Text Color:</label>
+          <input type="color" id="color" name="color" value="#000000" />
+        </div>
+        <div class="control-group">
+          <label for="xPosition">Horizontal:</label>
+          <input type="range" id="x-slider" name="xPosition" value="50" />
+        </div>
+        <div class="control-group">
+          <label for="yPosition">Vertical:</label>
+          <input type="range" id="y-slider" name="yPosition" value="50" />
+        </div>
+        <button id="download">Download</button>
+      </div>
+      <div class="canvas-container">
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .control-group {
+    margin-bottom: 10px;
+  }
+
+  .controls {
+    border-bottom: 1px solid #ccc;
+    padding: 12px;
+    background-color: #ccc;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="file"],
+  input[type="text"],
+  input[type="range"] {
+    width: 100%;
+    padding: 5px;
+    padding-right: 0;
+    margin-bottom: 10px;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .canvas-container {
+    padding: 10px;
+    border: 2px dashed aliceblue;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      flex-direction: row;
+    }
+
+    .controls {
+      flex: 1;
+      max-width: 270px;
+    }
+
+    .canvas-container {
+      flex: 2;
+    }
+
+    .controls {
+      border-bottom: none;
+      border-right: 1px solid #ccc;
+    }
+
+    input[type="file"],
+    input[type="text"],
+    input[type="range"] {
+      margin-right: 10px;
+    }
+  }
+</style>
+
+<script>
+  const fileInput = document.getElementById("file");
+  const textInput = document.getElementById("text");
+  const xSlider = document.getElementById("x-slider");
+  const ySlider = document.getElementById("y-slider");
+  const canvas = document.getElementById("canvas");
+  const downloadButton = document.getElementById("download");
+  const fontFamilySelect = document.getElementById("font-family");
+  const fontSizeSelect = document.getElementById("font-size");
+  const colorSelect = document.getElementById("color");
+
+  let font = "Arial";
+  let size = "48";
+  let color = "black";
+
+  let image;
+  let context;
+
+  fileInput.addEventListener("change", () => {
+    const file = fileInput.files[0];
+    image = new Image();
+    image.src = URL.createObjectURL(file);
+    image.onload = () => {
+      console.log(image);
+      console.log(image.width, image.height);
+      xSlider.max = String(image.width / 4);
+      ySlider.max = String(image.height / 4);
+
+      context = canvas.getContext("2d");
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      canvas.width = image.width / 4;
+      canvas.height = image.height / 4;
+      // draw the image on the canvas
+      context.drawImage(image, 0, 0);
+
+      // add text as an overlay
+      context.font = `${size}px ${font}`;
+      context.fillStyle = color;
+    };
+  });
+
+  fontFamilySelect.addEventListener("change", () => {
+    font = fontFamilySelect.value;
+    updateTextOverlay();
+  });
+
+  fontSizeSelect.addEventListener("input", () => {
+    size = fontSizeSelect.value;
+    updateTextOverlay();
+  });
+
+  downloadButton.addEventListener("click", async () => {
+    // make the image available for download
+    await downloadImage();
+  });
+
+  colorSelect.addEventListener("input", () => {
+    color = colorSelect.value;
+    updateTextOverlay();
+  });
+
+  const updateTextOverlay = () => {
+    console.log("updating text overlay");
+    if (image && context) {
+      console.log("drawing text");
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(image, 0, 0);
+      context.font = `${size}px ${font}`;
+      context.fillStyle = color;
+      console.log(
+        textInput.value,
+        parseInt(xSlider.value),
+        parseInt(ySlider.value)
+      );
+      context.fillText(
+        textInput.value,
+        parseInt(xSlider.value),
+        parseInt(ySlider.value)
+      );
+    }
+  };
+
+  textInput.addEventListener("input", updateTextOverlay);
+  xSlider.addEventListener("input", updateTextOverlay);
+  ySlider.addEventListener("input", updateTextOverlay);
+
+  async function downloadImage() {
+    canvas.toBlob((blob) => {
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "image.png";
+      link.click();
+      URL.revokeObjectURL(url);
+    });
+  }
+</script>

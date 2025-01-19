@@ -1,0 +1,63 @@
+---
+interface Props {
+  propToChange: "text" | "color";
+}
+
+const { propToChange } = Astro.props;
+---
+
+<div>
+  <p style="display: hidden;" id="propToChange">{propToChange}</p>
+  {
+    propToChange === "text" && (
+      <p style="word-wrap: break-word;">
+        https://res.cloudinary.com/kc-cloud/w_1200,f_auto/
+        <span id="currentValue" style="color:blue;" />
+        ,co_rgb:eee,c_fit,w_720,g_north_east,x_70,y_70/v1616954922/ogimages/base_wfdl2u.png
+      </p>
+    )
+  }
+  {
+    propToChange === "color" && (
+      <p style="word-wrap: break-word;">
+        https://res.cloudinary.com/kc-cloud/w_1200,f_auto/l_text:Montserrat_80_bold:Overlaying%20text%20on%20images
+        ,<span id="currentValue" style="color:blue;" />
+        ,c_fit,w_720,g_north_east,x_70,y_70/v1616954922/ogimages/base_wfdl2u.png
+      </p>
+    )
+  }
+
+  <input type="text" style="width:100%;" />
+  <div>
+    <img width="100%" id="cloudinary-image" />
+  </div>
+</div>
+
+<script>
+  const img = document.getElementById("cloudinary-image");
+  const input = document.querySelector("input");
+  const currentValueSpan = document.getElementById("currentValue");
+  // const propToChange = document.getElementById("propToChange").textContent;
+  const propToChange = "text";
+  let currentValue =
+    propToChange === "text"
+      ? "l_text:Montserrat_80_bold:Overlaying%20text%20on%20images"
+      : propToChange === "color"
+        ? "co_rgb:eee"
+        : "";
+
+  input.value = currentValue;
+
+  input!.addEventListener("input", () => {
+    img!.src = getNewUrl(propToChange, input.value);
+    currentValue = input.value;
+    currentValueSpan.textContent = currentValue;
+  });
+
+  function getNewUrl(propToChange, newValue) {
+    if (propToChange === "text") {
+      return `https://res.cloudinary.com/kc-cloud/w_1200,f_auto/${newValue},co_rgb:eee,c_fit,w_720,g_north_east,x_70,y_70/v1616954922/ogimages/base_wfdl2u.png`;
+    }
+    return `https://res.cloudinary.com/kc-cloud/w_1200,f_auto/l_text:Montserrat_80_bold:Overlaying%20text%20on%20images,co_rgb:eee,c_fit,w_720,g_north_east,x_70,y_70/v1616954922/ogimages/base_wfdl2u.png`;
+  }
+</script>
