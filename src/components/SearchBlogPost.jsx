@@ -1,8 +1,8 @@
 import { formatDistance } from 'date-fns'
 export default function SearchBlogPost({ title, description, url, date, tags = [] }) {
-	return <div class="blog-card-container">
+	return <div class="search-card-container">
+			<div class="search-card">
 		<a href={url}>
-			<div class="blog-card">
 				{title}
 				{
 					date &&
@@ -11,8 +11,8 @@ export default function SearchBlogPost({ title, description, url, date, tags = [
 					})}`
 				}
 				<p class="desc-string" id="desc-string">{description}</p>
-			</div>
 		</a>
+			</div>
 		{
 			tags && (
 				<div class="tags">
