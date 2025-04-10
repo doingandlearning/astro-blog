@@ -26,7 +26,7 @@ const {
 <div class="blog-card-container">
   {
     imageUrl ? (
-      <div class="blog-card-image">
+      <div class="blog-card-image" aria-label={title}>
         <img
           src={imageUrl}
           alt={imageAlt || title}
@@ -39,7 +39,7 @@ const {
     )
   }
   <div>
-    <a href={url}>
+    <a href={url} aria-label={title}>
       <div class="blog-card">
         {title}
         {

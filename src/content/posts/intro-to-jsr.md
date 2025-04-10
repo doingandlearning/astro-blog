@@ -12,7 +12,7 @@ imageAlt: Deno logo
 
 There are lots of ways to manage dependencies in Deno, some better and some worse. I've tried to summarise the main point here.
 
-### **1. Installing Dependencies with `deno add`**
+## **1. Installing Dependencies with `deno add`**
 - If you **run `deno add <package>`** without a `deno.json` or `deno.lock`, Deno will:
   - Create **`deno.json`** (to track dependencies).
   - Create **`deno.lock`** (to lock dependency versions).
@@ -34,7 +34,7 @@ deno add jsr:@std/http
 
 ---
 
-### **2. Importing Dependencies Without `deno add`**
+## **2. Importing Dependencies Without `deno add`**
 - If you **import a module in your code** without using `deno add`, the first time you run it:
   - Deno **fetches and caches** dependencies.
   - Generates a **`deno.lock`** file to ensure version consistency.
@@ -53,7 +53,7 @@ serve(() => new Response("Hello Deno!"));
 
 ---
 
-### **3. Using JSR Packages (`jsr:`)**
+## **3. Using JSR Packages (`jsr:`)**
 - JSR (**JavaScript Registry for Deno**) is the official package registry for Deno.
 - Packages are imported using **`jsr:`** prefix.
 
@@ -66,7 +66,7 @@ import { serve } from "jsr:@std/http";
 
 ---
 
-### **4. Using npm Packages (`npm:`)**
+## **4. Using npm Packages (`npm:`)**
 - Deno **supports npm packages** without `node_modules`.
 - Uses **`npm:` prefix** to import npm dependencies.
 
@@ -83,7 +83,7 @@ const app = express();
 
 ---
 
-### **5. Summary of Behaviours**
+## **5. Summary of Behaviours**
 | Action | `deno.json` Generated? | `deno.lock` Generated? | Modules Cached? |
 |--------|----------------|----------------|---------------|
 | `deno add <package>` | ✅ Yes | ✅ Yes | ✅ Yes |
@@ -93,7 +93,7 @@ const app = express();
 ---
 
 
-### **6. Importing from Any URL**
+## **6. Importing from Any URL**
 Deno allows you to import modules directly from URLs.
 
 **Example (Standard Library Import from URL):**
@@ -117,7 +117,7 @@ console.log(nanoid());
 
 ---
 
-### **7. Preferred Approaches for URL Imports**
+## **7. Preferred Approaches for URL Imports**
 While **any** URL works, best practices suggest using:
 
 ✅ **Deno’s Standard Library** (`https://deno.land/std`):
@@ -149,14 +149,14 @@ console.log(lodash.chunk([1, 2, 3, 4], 2));
 
 ---
 
-### **8. URL Import Caveats**
+## **8. URL Import Caveats**
 ❌ **Avoid importing from raw GitHub URLs** unless absolutely necessary.  
 ❌ **Avoid unversioned URLs** (`@version` should always be included for stability).  
 ❌ **URLs can go down** – prefer `deno.land/x` or `jsr:` for long-term reliability.  
 
 ---
 
-### **9. URL vs. Local vs. JSR Imports**
+## **9. URL vs. Local vs. JSR Imports**
 | Import Type | Example | Best Practice? | Notes |
 |-------------|---------|---------------|-------|
 | **Deno Standard Library** | `https://deno.land/std@0.224.0/...` | ✅ Yes | Official, stable, versioned |
@@ -173,7 +173,7 @@ console.log(lodash.chunk([1, 2, 3, 4], 2));
 
 ---
 
-### **10. Best Practices**
+## **10. Best Practices**
 - **For reproducibility**, use `deno add` to explicitly track dependencies in `deno.json`.
 - **For simple scripts**, direct imports work fine (Deno handles caching automatically).
 - **For npm interop**, prefix with `npm:`.

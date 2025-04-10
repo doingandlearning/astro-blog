@@ -1,9 +1,12 @@
 :root {
-  --site-orange: rgb(254,132,47);
+  /* --site-orange: rgb(254,132,47); */
+  /* --site-orange: #00692e */
+  --site-orange: #00692e;
   --dark-blue: rgb(12, 9, 93);
   --font-size-base: calc( ((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) * var(--fluid-bp) );
   --theme-shade-subtle: rgb(255, 0, 128);
-  --theme-bg: rgb(229, 226, 226);
+  /* --theme-bg: rgb(229, 226, 226); */
+  --theme-bg: white;
   --theme-text-light: rgb(90, 86, 86);
   --theme-text: black;
   --theme-bg-offset: var(--site-orange);

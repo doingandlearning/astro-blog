@@ -36,18 +36,37 @@ const postsToDisplay = [...filteredPosts, ...randomPosts];
 ---
 
 <h2>Your next read?</h2>
-<ul>
+<ul class="next-post-li">
   {
     postsToDisplay.map((post) => (
-      <a href={`/posts/${post.slug}`}>
-        <img src={getMetaImage(post.data.title)} width="300" />
-      </a>
+      <li class="next-post-item">
+        <a href={`/posts/${post.slug}`} aria-label={post.data.title}>
+          <img
+            src={getMetaImage(post.data.title)}
+            width="300"
+            alt={post.data.title}
+          />
+        </a>
+      </li>
     ))
   }
 </ul>
 
 <style>
-  h2 {
+  <style > h2 {
     text-align: center;
+  }
+
+  .next-post-li {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px; /* Adjust the gap between items as needed */
+    padding: 0;
+    margin: 0 auto;
+    max-width: 600px; /* Optional: to center and limit the width */
+  }
+
+  .next-post-item {
+    list-style-type: none;
   }
 </style>
