@@ -1,41 +1,109 @@
-#container {
-	display: flex;
-	flex-direction: column;
+.code-editor-wrapper #container {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 1fr;
+	gap: 16px;
 	margin: 0 auto;
-	border: 1px solid orange;
-	height: 400px;
-	padding: 8px;
-	justify-content: space-between;
-	@media screen and (min-width: 768px) {
-		flex-direction: row;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	height: 500px;
+	padding: 16px;
+	background: #f8fafc;
+	position: relative;
+
+	@media screen and (max-width: 767px) {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr;
+		height: 600px;
 	}
 }
 
-#editor {
-	margin: 10px;
+.code-editor-wrapper #editor {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.code-editor-wrapper #run-button {
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+	z-index: 10;
+	background: #3b82f6;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	padding: 6px 12px;
+	font-size: 13px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+	height: 32px;
+	line-height: 1;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.code-editor-wrapper #run-button:hover:not(:disabled) {
+	background: #2563eb;
+}
+
+.code-editor-wrapper #run-button:disabled {
+	background: #9ca3af;
+	cursor: not-allowed;
+}
+
+.code-editor-wrapper #result-container {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.code-editor-wrapper #result-container h2 {
+	margin: 0 0 8px 0;
+	font-size: 1.1rem;
+	color: #374151;
+	font-weight: 600;
+	flex-shrink: 0;
+}
+
+.code-editor-wrapper #result {
 	width: 100%;
-}
-
-textarea {
-	width: calc(100% - 24px);
-	height: calc(100% - 100px);
-	border: 1px solid black;
-	padding: 16px;
-	font-size: 16px;
+	border: 1px solid #d1d5db;
+	border-radius: 4px;
+	padding: 12px;
+	font-size: 14px;
 	font-family: 'Roboto Mono', monospace;
-
+	background: white;
+	overflow-y: auto;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	flex: 1;
+	min-height: 0;
+	max-height: 100%;
 }
 
-#result {
-	width: calc(100% - 24px);
-	height: calc(100% - 100px);
-	border: 1px solid black;
-	padding: 16px;
-	font-size: 16px;
+/* CodeMirror editor styling */
+.code-editor-wrapper .cm-editor {
+	height: 100%;
+	border: 1px solid #d1d5db;
+	border-radius: 4px;
+	overflow: hidden;
+	flex: 1;
+	min-height: 0;
+}
+
+.code-editor-wrapper .cm-editor .cm-scroller {
 	font-family: 'Roboto Mono', monospace;
+	overflow: auto;
 }
 
-#result-container {
-	width: 100%;
-	margin: 10px
+/* Make the editor container fill available space */
+.code-editor-wrapper #editor>div {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+	overflow: hidden;
 }

@@ -41,21 +41,25 @@ export default function Search({ posts }) {
 				/>
 			</div>
 			{query.length > 1 && (
-				<p>
-					Found {results.length} {results.length === 1 ? 'result' : 'results'}{' '}
-					for '{query}'
-				</p>
+				<>
+					<p>
+						Found {results.length} {results.length === 1 ? 'result' : 'results'}{' '}
+						for '{query}'
+					</p>
+					<div class="search-results">
+						{results &&
+							results.map(post => (
+								<SearchBlogPost
+									title={post.data.title}
+									url={`/posts/${post.slug}`}
+									description={post.data.description}
+									date={post.data.date}
+									tags={post.data.tags}
+								/>
+							))}
+					</div>
+				</>
 			)}
-			{results &&
-				results.map(post => (
-					<SearchBlogPost
-						title={post.data.title}
-						url={`/posts/${post.slug}`}
-						description={post.data.description}
-						date={post.data.date}
-						tags={post.data.tags}
-					/>
-				))}
 		</>
 	)
 }

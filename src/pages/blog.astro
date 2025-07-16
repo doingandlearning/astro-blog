@@ -2,12 +2,14 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Search from "../components/Search";
+import BlogPostCard from "../components/BlogPostCard.astro";
+
 const allPosts = await getCollection("posts", ({ data }) => {
   return data.draft !== true;
 }).then((res) =>
   res.sort(
-    (a, b) => Number(new Date(b.data.date)) - Number(new Date(a.data.date))
-  )
+    (a, b) => Number(new Date(b.data.date)) - Number(new Date(a.data.date)),
+  ),
 );
 ---
 
@@ -25,7 +27,22 @@ const allPosts = await getCollection("posts", ({ data }) => {
   </p>
 
   <Search posts={allPosts} client:load />
-  <div class="blog-cards"></div>
+
+  <div class="blog-cards">
+    {
+      allPosts.map((post) => (
+        <BlogPostCard
+          title={post.data.title}
+          url={`/posts/${post.slug}`}
+          description={post.data.description}
+          date={post.data.date}
+          tags={post.data.tags}
+          imageUrl={post.data.imageUrl || ""}
+          imageAlt={post.data.imageAlt || ""}
+        />
+      ))
+    }
+  </div>
 </BaseLayout>
 
 <style>
@@ -49,9 +66,8 @@ const allPosts = await getCollection("posts", ({ data }) => {
   }
 
   .blog-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 1rem;
-    column-gap: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 </style>

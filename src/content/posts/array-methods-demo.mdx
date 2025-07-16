@@ -1,0 +1,210 @@
+---
+title: "JavaScript Array Methods - Interactive Examples"
+description: "Learn JavaScript array methods through interactive code examples"
+date: "2025-07-16"
+tags: ["javascript", "arrays", "interactive"]
+imageUrl: "/images/js.png"
+imageAlt: "JavaScript logo"
+---
+
+import CodeEditorComponent from "../../components/CodeEditor.tsx";
+
+# JavaScript Array Methods - Interactive Examples
+
+> At the moment, this post's main purpose is to try using my code editor component. I'll return to improve the post - ping me if you're keen to see it sooner.
+
+Let's explore some powerful JavaScript array methods through interactive examples. Each section below includes a code editor where you can experiment with the concepts.
+
+## 1. Map - Transform Every Element
+
+The `map()` method creates a new array by transforming every element in the original array.
+
+<CodeEditorComponent client:load initialCode={`const numbers = [1, 2, 3, 4, 5];
+
+// Double each number
+const doubled = numbers.map(num => num * 2);
+console.log('Original:', numbers);
+console.log('Doubled:', doubled);
+
+// Convert to strings
+const strings = numbers.map(num => \`Number \${num}\`);
+console.log('As strings:', strings);`} />
+
+## 2. Filter - Keep Only What You Want
+
+The `filter()` method creates a new array containing only elements that pass a test.
+
+<CodeEditorComponent client:load initialCode={`const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Get even numbers only
+const evens = numbers.filter(num => num % 2 === 0);
+console.log('All numbers:', numbers);
+console.log('Even numbers:', evens);
+
+// Get numbers greater than 5
+const greaterThan5 = numbers.filter(num => num > 5);
+console.log('Numbers > 5:', greaterThan5);`} />
+
+## 3. Reduce - Combine Everything
+
+The `reduce()` method reduces an array to a single value by combining all elements.
+
+<CodeEditorComponent client:load initialCode={`const numbers = [1, 2, 3, 4, 5];
+
+// Sum all numbers
+const sum = numbers.reduce((total, num) => total + num, 0);
+console.log('Numbers:', numbers);
+console.log('Sum:', sum);
+
+// Find the maximum number
+const max = numbers.reduce((max, num) => num > max ? num : max, numbers[0]);
+console.log('Maximum:', max);
+
+// Create a string from array
+const words = ['Hello', 'World', 'JavaScript'];
+const sentence = words.reduce((str, word) => str + ' ' + word, '');
+console.log('Words:', words);
+console.log('Sentence:', sentence.trim());`} />
+
+## 4. Find and FindIndex - Search for Elements
+
+Find the first element that matches a condition.
+
+<CodeEditorComponent client:load initialCode={`const users = [
+  { id: 1, name: 'Alice', age: 25 },
+  { id: 2, name: 'Bob', age: 30 },
+  { id: 3, name: 'Charlie', age: 35 },
+  { id: 4, name: 'Diana', age: 28 }
+];
+
+// Find first user over 30
+const over30 = users.find(user => user.age > 30);
+console.log('First user over 30:', over30);
+
+// Find index of user named 'Bob'
+const bobIndex = users.findIndex(user => user.name === 'Bob');
+console.log('Bob is at index:', bobIndex);
+
+// Find user with specific ID
+const userWithId2 = users.find(user => user.id === 2);
+console.log('User with ID 2:', userWithId2);`} />
+
+## 5. Some and Every - Test Conditions
+
+Check if some or all elements meet a condition.
+
+<CodeEditorComponent client:load initialCode={`const numbers = [2, 4, 6, 8, 10];
+
+// Check if some numbers are even (should be true)
+const someEven = numbers.some(num => num % 2 === 0);
+console.log('Some numbers are even:', someEven);
+
+// Check if ALL numbers are even (should be true)
+const allEven = numbers.every(num => num % 2 === 0);
+console.log('All numbers are even:', allEven);
+
+// Check if some numbers are odd (should be false)
+const someOdd = numbers.some(num => num % 2 !== 0);
+console.log('Some numbers are odd:', someOdd);
+
+// Add an odd number and test again
+numbers.push(7);
+console.log('Updated numbers:', numbers);
+console.log('Some numbers are odd now:', numbers.some(num => num % 2 !== 0));`} />
+
+## 6. Sort - Order Your Arrays
+
+Sort arrays in various ways.
+
+<CodeEditorComponent client:load initialCode={`const fruits = ['banana', 'apple', 'cherry', 'date'];
+
+// Sort alphabetically
+const alphabetical = [...fruits].sort();
+console.log('Original:', fruits);
+console.log('Alphabetical:', alphabetical);
+
+// Sort by length
+const byLength = [...fruits].sort((a, b) => a.length - b.length);
+console.log('By length:', byLength);
+
+// Sort numbers
+const numbers = [3, 1, 4, 1, 5, 9, 2, 6];
+const sortedNumbers = [...numbers].sort((a, b) => a - b);
+console.log('Original numbers:', numbers);
+console.log('Sorted numbers:', sortedNumbers);
+
+// Sort objects
+const people = [
+  { name: 'Alice', age: 25 },
+  { name: 'Bob', age: 30 },
+  { name: 'Charlie', age: 20 }
+];
+
+const byAge = [...people].sort((a, b) => a.age - b.age);
+console.log('People by age:', byAge);`} />
+
+## 7. Chaining Methods - Combine Multiple Operations
+
+Chain multiple array methods together for powerful data transformations.
+
+<CodeEditorComponent client:load initialCode={`const products = [
+  { name: 'Laptop', price: 999, category: 'electronics' },
+  { name: 'Phone', price: 699, category: 'electronics' },
+  { name: 'Book', price: 19, category: 'books' },
+  { name: 'Tablet', price: 399, category: 'electronics' },
+  { name: 'Pen', price: 2, category: 'office' },
+  { name: 'Monitor', price: 299, category: 'electronics' }
+];
+
+// Get expensive electronics and format the output
+const expensiveElectronics = products
+  .filter(product => product.category === 'electronics')
+  .filter(product => product.price > 500)
+  .map(product => \`\${product.name}: $\${product.price}\`)
+  .sort();
+
+console.log('Expensive electronics:', expensiveElectronics);
+
+// Calculate total value of all products
+const totalValue = products
+  .map(product => product.price)
+  .reduce((sum, price) => sum + price, 0);
+
+console.log('Total value of all products: $' + totalValue);
+
+// Get unique categories
+const categories = products
+  .map(product => product.category)
+  .filter((category, index, array) => array.indexOf(category) === index);
+
+console.log('Unique categories:', categories);`} />
+
+## Try Your Own Examples!
+
+Feel free to experiment with these array methods. Here's a blank editor for your own experiments:
+
+<CodeEditorComponent client:load initialCode={`// Your code here!
+const data = [1, 2, 3, 4, 5];
+
+// Try different array methods:
+// .map() - transform elements
+// .filter() - keep only some elements  
+// .reduce() - combine all elements
+// .find() - find first matching element
+// .some() - check if any element matches
+// .every() - check if all elements match
+// .sort() - order elements
+
+console.log('Start experimenting!');`} />
+
+## Key Takeaways
+
+- **Map**: Transform every element
+- **Filter**: Keep only elements that pass a test
+- **Reduce**: Combine all elements into a single value
+- **Find/FindIndex**: Locate specific elements
+- **Some/Every**: Test conditions across the array
+- **Sort**: Order elements
+- **Chaining**: Combine multiple methods for powerful transformations
+
+These methods make working with arrays much more expressive and functional. Practice with the interactive examples above to get comfortable with each one! 
