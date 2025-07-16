@@ -69,19 +69,31 @@ export default function CodeEditor({ initialCode = "" }: CodeEditorProps) {
 		try {
 			// Only evaluate if there's actual code
 			if (code.trim()) {
-				// Capture console.log output
+				// Capture console.log and console.assert output
 				const originalLog = console.log;
+				const originalAssert = console.assert;
 				const logs: any[] = [];
+				const assertions: any[] = [];
+
 				console.log = (...args) => {
 					logs.push(...args);
 					originalLog(...args);
 				};
 
+				console.assert = (condition: boolean, ...args: any[]) => {
+					if (!condition) {
+						const message = args.length > 0 ? args.join(' ') : 'Assertion failed';
+						assertions.push(`❌ Assertion failed: ${message}`);
+						originalAssert(condition, ...args);
+					}
+				};
+
 				// Evaluate the code
 				const result = eval(code);
 
-				// Restore original console.log
+				// Restore original console methods
 				console.log = originalLog;
+				console.assert = originalAssert;
 
 				// Build display output
 				let output = "";
@@ -91,6 +103,12 @@ export default function CodeEditor({ initialCode = "" }: CodeEditorProps) {
 					output += logs.map(log =>
 						typeof log === 'object' ? JSON.stringify(log, null, 2) : String(log)
 					).join('\n') + '\n';
+				}
+
+				// Add assertion failures if any
+				if (assertions.length > 0) {
+					if (output) output += '\n';
+					output += assertions.join('\n') + '\n';
 				}
 
 				// Add the result if it's not undefined
