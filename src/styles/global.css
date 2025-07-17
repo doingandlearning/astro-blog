@@ -372,7 +372,12 @@ pre code {
 }
 
 table {
+  display: block;
   width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  /* or your preferred min width */
+  border-collapse: collapse;
   border-collapse: collapse;
   margin: 2rem 0;
   background: white;

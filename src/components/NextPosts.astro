@@ -11,7 +11,7 @@ const posts = await getCollection("posts");
 const filteredPosts = posts
   .filter((post) => {
     return post.data.tags.some(
-      (tag) => tags.includes(tag) && post.data.title !== thisPost
+      (tag) => tags.includes(tag) && post.data.title !== thisPost,
     );
   })
   .sort(() => Math.random() - Math.random())
@@ -26,7 +26,7 @@ const randomPosts = posts
     (post) =>
       !filteredPosts.includes(post) &&
       post.data.title !== thisPost &&
-      !post.data.draft
+      !post.data.draft,
   )
 
   .slice(0, postsToAdd);
@@ -36,7 +36,7 @@ const postsToDisplay = [...filteredPosts, ...randomPosts];
 ---
 
 <h2>Your next read?</h2>
-<ul class="next-post-li">
+<ul class="next-posts-grid">
   {
     postsToDisplay.map((post) => (
       <li class="next-post-item">
@@ -53,13 +53,12 @@ const postsToDisplay = [...filteredPosts, ...randomPosts];
 </ul>
 
 <style>
-  <style > h2 {
+  h2 {
     text-align: center;
   }
 
   .next-post-li {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 16px; /* Adjust the gap between items as needed */
     padding: 0;
     margin: 0 auto;
@@ -68,5 +67,22 @@ const postsToDisplay = [...filteredPosts, ...randomPosts];
 
   .next-post-item {
     list-style-type: none;
+  }
+
+  .next-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 600px;
+    justify-items: center; /* Center items horizontally */
+  }
+
+  @media (max-width: 640px) {
+    .next-posts-grid {
+      grid-template-columns: 1fr;
+      justify-items: center; /* Still center items on small screens */
+    }
   }
 </style>
