@@ -1,4 +1,11 @@
 ---
+type ImageGridItem = {
+	link: string;
+	image: string;
+	alt: string;
+	caption: string;
+};
+
 const { items = [] } = Astro.props;
 ---
 
@@ -43,7 +50,7 @@ const { items = [] } = Astro.props;
 
 <div class="image-grid">
 	{
-		items.map((item) => (
+		items.map((item: ImageGridItem) => (
 			<div class="image-grid-item">
 				<a
 					href={item.link}
