@@ -1,0 +1,60 @@
+---
+const { items = [] } = Astro.props;
+---
+
+<style>
+	.image-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		gap: 1.5rem;
+		margin: 2rem 0;
+	}
+	.image-grid-item {
+		text-align: center;
+		transition: transform 0.15s;
+	}
+	.image-grid-link {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+	}
+	.image-grid-img {
+		width: 100%;
+		max-width: 220px;
+		aspect-ratio: 1/1;
+		object-fit: cover;
+		border-radius: 12px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+		margin-bottom: 0.5rem;
+		transition:
+			box-shadow 0.2s,
+			transform 0.2s;
+	}
+	.image-grid-link:hover .image-grid-img {
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+		transform: scale(1.04);
+	}
+	.image-grid-caption {
+		font-size: 1rem;
+		margin-top: 0.25rem;
+		color: #333;
+	}
+</style>
+
+<div class="image-grid">
+	{
+		items.map((item) => (
+			<div class="image-grid-item">
+				<a
+					href={item.link}
+					class="image-grid-link"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<img src={item.image} alt={item.alt} class="image-grid-img" />
+					<div class="image-grid-caption">{item.caption}</div>
+				</a>
+			</div>
+		))
+	}
+</div>
