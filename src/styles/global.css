@@ -3,7 +3,7 @@
   /* --site-orange: #00692e */
   --site-orange: #00692e;
   --dark-blue: rgb(12, 9, 93);
-  --font-size-base: calc( ((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) * var(--fluid-bp) );
+  --font-size-base: calc(((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) * var(--fluid-bp));
   --theme-shade-subtle: rgb(255, 0, 128);
   /* --theme-bg: rgb(229, 226, 226); */
   --theme-bg: white;
@@ -128,7 +128,8 @@ blockquote {
 }
 
 blockquote::before {
-  content: "\201C"; /*Unicode for Left Double Quote*/
+  content: "\201C";
+  /*Unicode for Left Double Quote*/
 
   font-size: 60px;
   font-weight: bold;
@@ -150,16 +151,17 @@ blockquote em {
 }
 
 /* Code in text */
-p > code,
-li > code,
-dd > code,
-td > code {
+p>code,
+li>code,
+dd>code,
+td>code {
   background: #ffeff0;
   word-wrap: break-word;
   box-decoration-break: clone;
   padding: .1rem .3rem .2rem;
   border-radius: .2rem;
 }
+
 pre code {
   background-color: black;
   border: 1px solid #999;
@@ -176,21 +178,22 @@ pre code {
   min-height: 50px;
 }
 
-/* * nav styles */ */
-.nav-links {
+/* * nav styles */
+*/ .nav-links {
   width: 100%;
   top: 5rem;
   left: 48px;
   background-color: var(--site-orange);
   display: none;
-  
+
 }
 
 .hidden {
   display: none;
 }
 
-.nav-links, .mobile-nav-links a {
+.nav-links,
+.mobile-nav-links a {
   text-align: center;
   padding: 10px 0;
   text-decoration: none;
@@ -213,11 +216,11 @@ pre code {
 .mobile-nav-links {
   width: 100%;
   top: 5rem;
-  left: 0; 
-  flex-direction: column; 
-  align-items: flex-start; 
+  left: 0;
+  flex-direction: column;
+  align-items: flex-start;
   margin: 0;
-  padding: 8px; 
+  padding: 8px;
   background-color: #eee
 }
 
@@ -240,14 +243,14 @@ pre code {
     margin-top: auto;
     width: auto;
     background: none;
-    }
+  }
 
   .nav-links a {
     display: inline-block;
     padding: 15px 20px;
   }
 
-	.hamburger {
+  .hamburger {
     display: none;
   }
 }
@@ -323,45 +326,102 @@ pre code {
   font-size: 14px;
 }
 
-  .search-card-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .search-card-container {
-    margin: 1em 0;
-    margin: 16px;
-    justify-content: space-between;
-    border: 1px dashed #a1a1a1;
-    padding: 1em;
-    border-radius: 0.5em;
-  }
+.search-card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .search-card-container a {
-    display: block;
-  }
-  .search-card-container .tags a {
-    color: #00539f;
-  }
+.search-card-container {
+  margin: 1em 0;
+  margin: 16px;
+  justify-content: space-between;
+  border: 1px dashed #a1a1a1;
+  padding: 1em;
+  border-radius: 0.5em;
+}
 
-  .search-card-container .tags {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-content: start;
-    justify-content: flex-end;
-  }
+.search-card-container a {
+  display: block;
+}
 
-  .search-card-container .tags .small-tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: 0.5em;
-    padding: 0.5em 1em;
-    background-color: #f8fcfd;
-    font-size: 12px;
-  }
+.search-card-container .tags a {
+  color: #00539f;
+}
 
-  .search-card-container:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    border: 1px solid var(--site-orange);
-  }
+.search-card-container .tags {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: start;
+  justify-content: flex-end;
+}
+
+.search-card-container .tags .small-tag {
+  margin: 0.25em;
+  border: dotted 1px #a1a1a1;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  background-color: #f8fcfd;
+  font-size: 12px;
+}
+
+.search-card-container:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--site-orange);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background: white;
+  font-size: 1rem;
+}
+
+th,
+td {
+  border: 1px solid #d1d5db;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+th {
+  background-color: #f1f5f9;
+  font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+ul,
+ol {
+  margin: 1.5em 0 1.5em 1.5em;
+  padding-left: 1.5em;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  margin-bottom: 0.5em;
+  padding-left: 0.25em;
+}
+
+ul li::marker {
+  color: var(--site-orange);
+  font-size: 1.2em;
+}
+
+ol li::marker {
+  color: var(--site-orange);
+  font-weight: bold;
+}
