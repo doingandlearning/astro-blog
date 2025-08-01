@@ -1,0 +1,119 @@
+---
+title: "Improving Blog UX with YouTube Integration and Enhanced Date Display"
+description: "Three focused upgrades to my Astro blog: a YouTube feed, clearer publish/update dates, and smarter sorting so fresh content surfaces first."
+date: "2025-08-01"
+tags: ["astro", "blog", "youtube", "ux", "frontend", "development"]
+draft: false
+imageUrl: "/images/browse-repo.png"
+imageAlt: "Code repository interface showing blog improvements and YouTube integration"
+---
+
+# Improving Blog UX with YouTube Integration and Enhanced Date Display
+
+**TL;DR**  
+I added a YouTube feed, showed both **Published** and **Updated** dates, and sorted posts by their most recent change. Readers now find fresher content faster, and videos and posts live in one place.
+
+---
+
+## Why change?
+
+- My YouTube videos lived separately from the blog.  
+- Updated articles stayed buried.  
+- Dates were vague (“2 years ago” only).
+
+---
+
+## What changed
+
+### 1) YouTube feed on the blog
+A reusable component pulls the latest videos and (when there’s a matching post) links to the write-up.
+
+```astro
+<YouTubeFeed
+  maxVideos={4}
+  showTitle={true}
+  showDescription={false}
+  gridCols={2}
+  channelId="UCtzNXx0YjJFvAuAPL9ZjQOw"
+/>
+````
+
+**How it works**
+
+* Fetch via YouTube RSS.
+* Map videos to posts by `youtubeId` in post front matter.
+* Show **“Read the blog post”** when there’s a match.
+* Responsive grid with graceful fallbacks.
+
+**Post front matter example**
+
+```yaml
+---
+title: "X"
+date: "2025-07-10"
+updateDate: "2025-07-28"
+youtubeId: "Qwo8ex0x_yE"
+---
+```
+
+---
+
+### 2) Clearer dates (Published • Updated)
+
+Cards now show both timestamps when available:
+
+**Before:** “2 years ago”
+**After:** **Published 2 years ago • Updated 3 days ago**
+
+```astro
+<div class="date-info">
+  {date && `Published ${formatDistance(new Date(date), new Date(), { addSuffix: true })}`}
+  {updateDate && ` • Updated ${formatDistance(new Date(updateDate), new Date(), { addSuffix: true })}`}
+</div>
+```
+
+Benefits: readers see freshness at a glance and trust the content more.
+
+---
+
+### 3) Smarter sorting (freshness first)
+
+Updated posts float to the top automatically.
+
+```ts
+const allPosts = await getCollection("posts", ({ data }) => data.draft !== true)
+  .then((res) =>
+    res.sort((a, b) => {
+      const aDate = new Date(a.data.updateDate ?? a.data.date);
+      const bDate = new Date(b.data.updateDate ?? b.data.date);
+      return bDate.getTime() - aDate.getTime();
+    })
+  );
+```
+
+---
+
+## Visual polish
+
+* Lighter description text for hierarchy.
+* Consistent date formatting everywhere.
+* Tighter spacing on cards for faster scanning.
+
+---
+
+## Result
+
+* **Better discovery:** videos and write-ups sit together.
+* **Freshness surfaced:** recent updates rise to the top.
+* **Clear signals:** dates are explicit and consistent.
+
+---
+
+## What’s next
+
+* Related content (posts ↔︎ videos).
+* Search that includes video metadata.
+* Analytics on which pairs (video + post) perform best.
+
+Have you merged video and blog content on your site? What worked—and what didn’t?
+
