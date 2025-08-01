@@ -44,10 +44,10 @@ export function generateBlogTitle(videoTitle: string): string {
  */
 export async function checkBlogPostExists(slug: string): Promise<boolean> {
   try {
-    // Try to import the post content to check if it exists
-    const posts = await import('../content/posts');
-    // This is a simplified check - in practice you'd check the content collection
-    return false; // For now, assume no posts exist until we create them
+    // Use Astro's content collection API to check if a post exists
+    const { getCollection } = await import('astro:content');
+    const posts = await getCollection('posts');
+    return posts.some(post => post.slug === slug);
   } catch {
     return false;
   }

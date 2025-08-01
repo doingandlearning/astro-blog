@@ -36,7 +36,7 @@ A reusable component pulls the latest videos and (when there’s a matching post
   gridCols={2}
   channelId="UCtzNXx0YjJFvAuAPL9ZjQOw"
 />
-````
+```
 
 **How it works**
 
@@ -80,7 +80,7 @@ Benefits: readers see freshness at a glance and trust the content more.
 
 Updated posts float to the top automatically.
 
-```ts
+```typescript
 const allPosts = await getCollection("posts", ({ data }) => data.draft !== true)
   .then((res) =>
     res.sort((a, b) => {
