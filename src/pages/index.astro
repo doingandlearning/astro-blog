@@ -4,14 +4,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import Newsletter from "../components/Newsletter.astro";
 import BlogPostCard from "../components/BlogPostCard.astro";
+import YouTubeFeed from "../components/YouTubeFeed.astro";
 const latestPosts = await getCollection("posts", ({ data }) => {
   return data.draft !== true;
 }).then((postMessages) =>
   postMessages
-    .sort(
-      (a, b) => Number(new Date(b.data.date)) - Number(new Date(a.data.date))
-    )
-    .slice(0, 3)
+    .sort((a, b) => {
+      // Sort by updateDate first, then by date
+      const aDate = a.data.updateDate
+        ? new Date(a.data.updateDate)
+        : new Date(a.data.date);
+      const bDate = b.data.updateDate
+        ? new Date(b.data.updateDate)
+        : new Date(b.data.date);
+      return bDate.getTime() - aDate.getTime();
+    })
+    .slice(0, 3),
 );
 ---
 
@@ -74,6 +82,7 @@ const latestPosts = await getCollection("posts", ({ data }) => {
               title={post.data.title}
               description={post.data.description}
               date={post.data.date}
+              updateDate={post.data.updateDate}
               tags={post.data.tags}
               imageUrl={post.data.imageUrl || ""}
               imageAlt={post.data.imageAlt || ""}
@@ -95,6 +104,15 @@ const latestPosts = await getCollection("posts", ({ data }) => {
       pre-recorded courses.
     </p>
     <p><a href="/courses">You can find out more about all of these here</a>.</p>
+  </div>
+  <div>
+    <YouTubeFeed
+      maxVideos={4}
+      showTitle={true}
+      showDescription={false}
+      gridCols={3}
+      channelId="UCtzNXx0YjJFvAuAPL9ZjQOw"
+    />
   </div>
   <div>
     <h3>Connect with me</h3>

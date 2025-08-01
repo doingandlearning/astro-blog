@@ -7,6 +7,7 @@ interface Props {
   description?: string;
   withImage?: boolean;
   date?: string;
+  updateDate?: string;
   tags?: string[];
   imageUrl?: string;
   imageAlt?: string;
@@ -17,6 +18,7 @@ const {
   url,
   description,
   date,
+  updateDate,
   imageUrl,
   imageAlt,
   tags = [],
@@ -42,12 +44,20 @@ const {
     <a href={url} aria-label={title}>
       <div class="blog-card">
         {title}
-        {
-          date &&
-            ` - ${formatDistance(new Date(date), new Date(), {
-              addSuffix: true,
-            })}`
-        }
+        <div class="date-info">
+          {
+            date &&
+              `Published ${formatDistance(new Date(date), new Date(), {
+                addSuffix: true,
+              })}`
+          }
+          {
+            updateDate &&
+              ` • Updated ${formatDistance(new Date(updateDate), new Date(), {
+                addSuffix: true,
+              })}`
+          }
+        </div>
         <p class="desc-string" id="desc-string">{description}</p>
       </div>
     </a>
@@ -113,5 +123,16 @@ const {
   .blog-card-container:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     border: 1px solid var(--site-orange);
+  }
+
+  .date-info {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 0.25em;
+    margin-bottom: 0.5em;
+  }
+
+  .desc-string {
+    color: #666;
   }
 </style>

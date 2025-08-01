@@ -1,0 +1,275 @@
+---
+import { YouTube } from "@astro-community/astro-embed-youtube";
+import { getYouTubeVideos } from "../utils/youtube.ts";
+import { createVideoToBlogMappings, generateBlogSlug } from "../utils/youtube-blog-mapping.ts";
+import { getCollection } from "astro:content";
+
+export interface Props {
+  videos?: Array<{
+    id: string;
+    title: string;
+    description?: string;
+  }>;
+  maxVideos?: number;
+  showTitle?: boolean;
+  showVideoTitles?: boolean;
+  showDescription?: boolean;
+  showBlogLinks?: boolean;
+  gridCols?: number;
+  channelId?: string;
+}
+
+const {
+  videos = [],
+  maxVideos = 6,
+  showTitle = true,
+  showVideoTitles = false,
+  showDescription = false,
+  showBlogLinks = true,
+  gridCols = 2,
+  channelId = "UCtzNXx0YjJFvAuAPL9ZjQOw", // Kevin's channel ID
+} = Astro.props;
+
+// Fetch latest videos from YouTube channel during build
+let videosToShow = videos;
+
+if (videos.length === 0) {
+  try {
+    console.log("Fetching latest YouTube videos...");
+    const fetchedVideos = await getYouTubeVideos(channelId, maxVideos);
+    videosToShow = fetchedVideos.map((video) => ({
+      id: video.id,
+      title: video.title,
+      description: video.description,
+    }));
+    console.log(`Successfully fetched ${videosToShow.length} videos`);
+  } catch (error) {
+    console.error("Failed to fetch YouTube videos:", error);
+    // Use fallback videos if fetch fails
+    videosToShow = [
+      {
+        id: "dQw4w9WgXcQ",
+        title: "Getting Started with JavaScript",
+        description: "Learn the fundamentals of JavaScript programming",
+      },
+      {
+        id: "dQw4w9WgXcQ",
+        title: "React Hooks Deep Dive",
+        description: "Understanding React hooks and their use cases",
+      },
+      {
+        id: "dQw4w9WgXcQ",
+        title: "Building APIs with Node.js",
+        description: "Create robust APIs using Node.js and Express",
+      },
+    ];
+  }
+}
+
+const limitedVideos = videosToShow.slice(0, maxVideos);
+
+// Get existing blog posts to check for matches
+const allPosts = await getCollection("posts");
+const publishedPosts = allPosts.filter(post => !post.data.draft);
+
+// Create video to blog mappings
+const videoMappings = await createVideoToBlogMappings(limitedVideos);
+
+// Check which videos have corresponding blog posts
+const videosWithBlogInfo = limitedVideos.map(video => {
+  const mapping = videoMappings.find(m => m.videoId === video.id);
+  const existingPost = publishedPosts.find(post => 
+    post.data.youtubeId === video.id || 
+    post.slug === generateBlogSlug(video.title)
+  );
+  
+  return {
+    ...video,
+    blogSlug: mapping?.blogSlug,
+    blogTitle: mapping?.blogTitle,
+    hasBlogPost: !!existingPost,
+    blogUrl: existingPost ? `/posts/${existingPost.slug}` : null
+  };
+});
+---
+
+<section class="youtube-feed">
+  {
+    showTitle && (
+      <div class="feed-header">
+        <h2>📺 Latest YouTube Videos</h2>
+        <p>Check out my latest tutorials and tech talks</p>
+        <a
+          href="https://www.youtube.com/channel/UCtzNXx0YjJFvAuAPL9ZjQOw"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="channel-link"
+        >
+          View All Videos →
+        </a>
+      </div>
+    )
+  }
+
+  <div class={`video-grid grid-cols-${gridCols}`}>
+    {
+      videosWithBlogInfo.map((video) => (
+        <div class="video-item">
+          {showVideoTitles && <h3 class="video-title">{video.title}</h3>}
+          <YouTube id={video.id} />
+          {showBlogLinks && (
+            <div class="blog-link-section">
+              {video.hasBlogPost && video.blogUrl ? (
+                <a href={video.blogUrl} class="blog-link blog-link-exists">
+                  📖 Read the blog post
+                </a>
+              ) : (
+                <span class="blog-link blog-link-coming-soon">
+                  📝 Blog post coming soon
+                </span>
+              )}
+            </div>
+          )}
+          {/* {showDescription && video.description && (
+          <p class="video-description">{video.description}</p>
+        )} */}
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .youtube-feed {
+    margin: 2rem 0;
+  }
+
+  .feed-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .feed-header h2 {
+    color: var(--heading-color, #333);
+    margin-bottom: 0.5rem;
+  }
+
+  .feed-header p {
+    color: var(--text-color, #666);
+    margin-bottom: 1rem;
+  }
+
+  .channel-link {
+    display: inline-block;
+    color: var(--site-orange, #ff6b35);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+
+  .channel-link:hover {
+    color: var(--text-color, #333);
+  }
+
+  .video-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .grid-cols-1 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-cols-2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .video-item {
+    background: var(--card-bg, #fff);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .video-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .video-title {
+    padding: 1rem 1rem 0.5rem 1rem;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--heading-color, #333);
+    line-height: 1.3;
+  }
+
+  .blog-link-section {
+    padding: 0.75rem 1rem 1rem 1rem;
+    text-align: center;
+  }
+
+  .blog-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .blog-link-exists {
+    background: var(--site-orange, #ff6b35);
+    color: white;
+  }
+
+  .blog-link-exists:hover {
+    background: var(--text-color, #333);
+    transform: translateY(-1px);
+  }
+
+  .blog-link-coming-soon {
+    background: #f0f0f0;
+    color: var(--text-color, #666);
+    cursor: default;
+  }
+
+  .video-description {
+    padding: 0.5rem 1rem 1rem 1rem;
+    color: var(--text-color, #666);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .video-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .feed-header {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .youtube-feed {
+      margin: 1rem 0;
+    }
+
+    .video-grid {
+      gap: 0.75rem;
+    }
+  }
+</style>

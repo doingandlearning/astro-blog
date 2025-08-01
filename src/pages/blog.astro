@@ -7,9 +7,16 @@ import BlogPostCard from "../components/BlogPostCard.astro";
 const allPosts = await getCollection("posts", ({ data }) => {
   return data.draft !== true;
 }).then((res) =>
-  res.sort(
-    (a, b) => Number(new Date(b.data.date)) - Number(new Date(a.data.date)),
-  ),
+  res.sort((a, b) => {
+    // Sort by updateDate first, then by date
+    const aDate = a.data.updateDate
+      ? new Date(a.data.updateDate)
+      : new Date(a.data.date);
+    const bDate = b.data.updateDate
+      ? new Date(b.data.updateDate)
+      : new Date(b.data.date);
+    return bDate.getTime() - aDate.getTime();
+  }),
 );
 ---
 
@@ -36,6 +43,7 @@ const allPosts = await getCollection("posts", ({ data }) => {
           url={`/posts/${post.slug}`}
           description={post.data.description}
           date={post.data.date}
+          updateDate={post.data.updateDate}
           tags={post.data.tags}
           imageUrl={post.data.imageUrl || ""}
           imageAlt={post.data.imageAlt || ""}

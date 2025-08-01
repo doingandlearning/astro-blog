@@ -1,0 +1,167 @@
+---
+title: "4 Architectural Fundamentals Developers Can't Ignore"
+description: "The compact, practical guide to four pillars of software architecture: Characteristics, Decisions, Components, and Styles—what they are, how to use them, and how to trade them off."
+date: "2024-10-29"
+tags: ["architecture", "software-design", "fundamentals", "adr", "microservices", "tutorial"]
+draft: false
+youtubeId: "Qwo8ex0x_yE"
+updateDate: "2025-08-01"
+imageUrl: "/images/browse-repo.png"
+imageAlt: "Code repository browser interface showing architectural patterns and system design"
+---
+
+# 4 Architectural Fundamentals Developers Can't Ignore
+
+import YouTubeEmbed from "../../components/YouTubeEmbed.astro";
+
+<YouTubeEmbed 
+  videoId="Qwo8ex0x_yE"
+  title="4 Architectural Fundamentals Developers Can't Ignore"
+/>
+
+We ship features, but we run systems. Architecture connects the two. Here’s a concise field guide to four fundamentals you’ll use on every project.
+
+---
+
+## The 4 Fundamentals (and how to apply them)
+
+### 1) Architectural Characteristics (the non-functional drivers)
+
+These shape everything else. Pick a few that truly matter for your context and *make them measurable*.
+
+| Characteristic | Typical Metric (example) |
+|---|---|
+| Performance | p95 latency ≤ [PLACEHOLDER] ms |
+| Scalability | Sustains [PLACEHOLDER]x traffic with ≤ [PLACEHOLDER]% error rate |
+| Reliability | SLO: 99.9% success; MTTR < [PLACEHOLDER] mins |
+| Security | Zero critical vulns; least-privilege access reviews quarterly |
+| Maintainability/Evolvability | Lead time < [PLACEHOLDER] days; change failure rate < [PLACEHOLDER]% |
+| Operability/Observability | Alerting on SLO burn; logs + traces for critical paths |
+
+**Use:** Write 3–5 targets, review them before big design choices, and test against them in CI or load tests.
+
+---
+
+### 2) Architectural Decisions (make trade-offs explicit)
+
+Bias to **reversible** choices early; document the rest with lightweight ADRs.
+
+**Minimal ADR template:**
+````md
+# ADR [NUMBER]: [DECISION]
+Date: [YYYY-MM-DD]
+
+## Status
+Proposed | Accepted | Superseded by ADR [N]
+
+## Context
+What problem are we solving? Constraints? (e.g., latency SLO, team size)
+
+## Options
+- Option A: [PLACEHOLDER]
+- Option B: [PLACEHOLDER]
+
+## Decision
+We chose [OPTION].
+
+## Consequences
+Positive: [PLACEHOLDER]
+Negative (risks/debt): [PLACEHOLDER]
+````
+
+**Good practice**
+
+* Record *why not chosen* for major options.
+* Link ADRs to tickets and docs.
+* Revisit when assumptions change (new scale, new team, new SLOs).
+
+---
+
+### 3) Logical Components (boundaries before boxes)
+
+Decompose by **business capability** first; keep components highly cohesive and loosely coupled.
+
+**Checklist**
+
+* Clear purpose in one sentence.
+* API/contract defined (inputs, outputs, errors, SLAs).
+* No bidirectional dependencies.
+* Data ownership is explicit.
+* Observability baked in (logs, metrics, traces).
+
+**Example decomposition (e-commerce)**
+
+* Catalog (owns products)
+* Ordering (owns orders)
+* Payments (owns payments, talks to PSP)
+* Fulfillment (owns shipments)
+
+---
+
+### 4) Architectural Styles (choose by constraint, not fashion)
+
+Start simple; evolve when signals appear.
+
+| Style                            | What it is                                      | Use when                                          | Watch out for                                                 |
+| -------------------------------- | ----------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------- |
+| **Layered Monolith**             | One deployable, clear layers (UI, domain, data) | Small team, fast iteration                        | Hidden coupling, “ball of mud” without module boundaries      |
+| **Modular Monolith**             | One deployable, strong module boundaries        | Need domain boundaries + easy ops                 | Enforce boundaries (linters/CI) or they erode                 |
+| **Microservices**                | Many small, independently deployable services   | Team autonomy + wildly different scaling profiles | Distributed complexity, eventual consistency, higher ops cost |
+| **Event-Driven**                 | Async via events/queues                         | Loose coupling, audit trails, integrations        | Debugging flows; need idempotency and schema governance       |
+| **Hexagonal (Ports & Adapters)** | Domain core decoupled from I/O                  | Testability, multiple adapters (DBs, queues)      | Over-abstracting when scope is tiny                           |
+| **Serverless**                   | Functions + managed services                    | Spiky traffic, minimal ops                        | Cold starts, local dev friction                               |
+
+**Evolution path**
+
+* From *monolith* to *modular monolith* to *microservices* when you see: team bottlenecks, divergent scaling, or change blasts across modules.
+
+---
+
+## Putting it together (quick workflow)
+
+1. **Define 3–5 characteristics** with targets.
+2. **Sketch components** by capability; write contracts.
+3. **Choose style** that best satisfies step 1 with least complexity.
+4. **Capture decisions** with ADRs.
+5. **Prove it**: add load tests/chaos drills against your targets.
+6. **Evolve** when pain signals persist after local fixes.
+
+---
+
+## Common pitfalls (and fixes)
+
+* Accidental complexity > essential complexity → **Start with a modular monolith.**
+* Hand-wavy “ilities” → **Quantify SLOs and test them.**
+* Tribal knowledge → **ADRs + diagrams-as-code in repo.**
+* Tight coupling via database sharing → **Private data per component; communicate via APIs/events.**
+* Over-engineered abstractions → **YAGNI; prefer reversible decisions.**
+
+---
+
+## Key Takeaways
+
+* Let **business characteristics** drive structure and tech.
+* Make **trade-offs explicit** with ADRs.
+* Design **cohesive components** with clear ownership.
+* **Pick the simplest style** that meets your targets; evolve deliberately.
+
+---
+
+## Next Steps
+
+* Identify and measure 3–5 characteristics for your current system.
+* Add an `/adr` folder and write ADR 000: “Record architecture decisions”.
+* Map your system into 4–8 components with owners and contracts.
+* Run a lightweight load test against your SLO targets.
+
+## Resources
+
+* [Watch the video on YouTube](https://www.youtube.com/watch?v=Qwo8ex0x_yE)
+* *Software Architecture Patterns* — Mark Richards
+* *Building Evolutionary Architectures* — Ford, Parsons, Kua
+* *The Twelve-Factor App* and Google SRE concepts (SLOs, error budgets)
+
+---
+
+*Part of my YouTube tutorial series. Subscribe to [my channel](https://www.youtube.com/channel/UCtzNXx0YjJFvAuAPL9ZjQOw).*
+
