@@ -2,10 +2,41 @@
   "title": "Prompt Engineering",
   "author": "James Phoenix",
   "dateFinished": "2024-12-29",
-  "genre": "Fiction",
+  "genre": "Technical Writing",
   "pages": 423,
   "coverUrl": "https://books.google.com/books/content?id=z7oIEQAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
   "readingYear": 2024,
   "readingMonth": 12,
-  "isCurrentlyReading": false
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Technical Communication and Prompt Design",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Artificial Intelligence",
+    "Prompt Design",
+    "Technical Writing",
+    "Communication Strategies"
+  ],
+  "targetAudience": "Technical writers, AI developers, and professionals interested in prompt engineering",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "The Elements of Technical Writing",
+    "AI and Prompt Engineering",
+    "Writing for the Web"
+  ],
+  "keyInsights": [
+    "Understanding the principles of effective prompt design",
+    "Techniques for improving communication with AI",
+    "Best practices in technical writing for AI applications"
+  ],
+  "tags": [
+    "Technical Writing",
+    "AI",
+    "Prompt Engineering",
+    "Communication",
+    "Non-Fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T16:48:00.713Z"
 }

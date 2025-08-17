@@ -1,0 +1,43 @@
+{
+  "title": "Glass House",
+  "author": "Charles Stross",
+  "dateFinished": "2025-07-29",
+  "genre": "Fiction",
+  "pages": 364,
+  "coverUrl": "https://books.google.com/books/content?id=FBs4QSWRofsC&printsec=frontcover&img=1&zoom=2&source=gbs_api",
+  "readingYear": 2025,
+  "readingMonth": 7,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Speculative Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Technology",
+    "Society",
+    "Surveillance",
+    "Identity",
+    "Human Relationships"
+  ],
+  "targetAudience": "Readers interested in speculative and science fiction narratives",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "Accelerando by Charles Stross",
+    "Snow Crash by Neal Stephenson",
+    "The Circle by Dave Eggers"
+  ],
+  "keyInsights": [
+    "Explores the impact of technology on personal identity",
+    "Critiques modern societal structures",
+    "Questions the balance between privacy and security"
+  ],
+  "tags": [
+    "Science Fiction",
+    "Speculative Fiction",
+    "Technology",
+    "Society",
+    "Identity"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T18:05:31.164Z"
+}

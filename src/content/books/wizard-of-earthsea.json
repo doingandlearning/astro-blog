@@ -7,5 +7,40 @@
   "coverUrl": "https://books.google.com/books/content?id=FD72ekYZqIkC&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
   "readingYear": 2024,
   "readingMonth": 12,
-  "isCurrentlyReading": false
+  "isCurrentlyReading": false,
+  "enhancedGenre": "High Fantasy, Coming-of-Age",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Identity",
+    "Power",
+    "Balance",
+    "Self-Discovery",
+    "Magic"
+  ],
+  "targetAudience": "Young adults and adults interested in fantasy literature",
+  "complexity": "Moderate",
+  "readingTime": "5 hours",
+  "relatedBooks": [
+    "A Wizard of Earthsea",
+    "The Left Hand of Darkness",
+    "The Dispossessed",
+    "The Chronicles of Narnia",
+    "The Earthsea Trilogy"
+  ],
+  "keyInsights": [
+    "Exploration of personal growth and identity",
+    "The importance of balance in life",
+    "The consequences of power and ambition",
+    "The role of mentorship and guidance"
+  ],
+  "tags": [
+    "Fantasy",
+    "Classic",
+    "Coming-of-Age",
+    "Ursula Le Guin",
+    "Earthsea"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T16:49:42.766Z"
 }

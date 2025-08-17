@@ -7,5 +7,37 @@
   "coverUrl": "https://books.google.com/books/content?id=YHJCM5gF8vEC&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
   "readingYear": 2025,
   "readingMonth": 3,
-  "isCurrentlyReading": false
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Epic Fantasy",
+  "bookCategory": "Fiction",
+  "readingLevel": "Advanced",
+  "themes": [
+    "War",
+    "Sacrifice",
+    "Betrayal",
+    "Power",
+    "Mortality"
+  ],
+  "targetAudience": "Fans of high fantasy and complex narratives",
+  "complexity": "Complex",
+  "readingTime": "20 hours",
+  "relatedBooks": [
+    "Gardens of the Moon",
+    "The Way of Kings",
+    "A Game of Thrones"
+  ],
+  "keyInsights": [
+    "Exploration of moral ambiguity",
+    "Impact of war on societies",
+    "Interconnectedness of characters' fates"
+  ],
+  "tags": [
+    "Fantasy",
+    "Epic",
+    "Malazan Book of the Fallen",
+    "Adventure",
+    "Character-driven"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T16:48:42.940Z"
 }

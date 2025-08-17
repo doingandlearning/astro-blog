@@ -1,0 +1,45 @@
+{
+  "title": "Robopocalypse",
+  "author": "Daniel H Wilson",
+  "dateFinished": "2025-07-21",
+  "genre": "Fiction",
+  "pages": 388,
+  "coverUrl": "https://books.google.com/books/content?id=edNBPdEwbJUC&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
+  "readingYear": 2025,
+  "readingMonth": 7,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction, Dystopian Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Artificial Intelligence",
+    "Humanity vs. Technology",
+    "Survival",
+    "Societal Collapse",
+    "Ethics of AI"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and technology-related narratives",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "Neuromancer",
+    "I, Robot",
+    "The Matrix Trilogy",
+    "Snow Crash",
+    "The Moon is a Harsh Mistress"
+  ],
+  "keyInsights": [
+    "Explores the consequences of advanced AI",
+    "Questions the morality of technology",
+    "Highlights human resilience in the face of crisis"
+  ],
+  "tags": [
+    "Science Fiction",
+    "Dystopia",
+    "AI",
+    "Technology",
+    "Survival"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T18:05:56.243Z"
+}

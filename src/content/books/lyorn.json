@@ -1,0 +1,43 @@
+{
+  "title": "Lyorn",
+  "author": "Steven Brust",
+  "dateFinished": "2025-08-03",
+  "genre": "Fiction",
+  "pages": 249,
+  "coverUrl": "https://books.google.com/books/content?id=fc25EAAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
+  "readingYear": 2025,
+  "readingMonth": 8,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Fantasy Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "identity",
+    "adventure",
+    "friendship",
+    "morality",
+    "political intrigue"
+  ],
+  "targetAudience": "Readers of fantasy literature, fans of character-driven stories",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Last Unicorn",
+    "The Name of the Wind",
+    "A Wizard of Earthsea"
+  ],
+  "keyInsights": [
+    "Exploration of self-discovery",
+    "The impact of choices on relationships",
+    "The balance of power and ethics in society"
+  ],
+  "tags": [
+    "fantasy",
+    "adventure",
+    "character development",
+    "political themes",
+    "Steven Brust"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T18:05:49.833Z"
+}

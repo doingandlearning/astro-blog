@@ -1,6 +1,6 @@
 import { readFile, writeFile, readdir } from 'fs/promises';
 import { join } from 'path';
-import { getLLMConfig, isLLMEnabled } from '../config/llm';
+import { isLLMEnabled } from '../config/llm';
 import { llmService } from '../services/llmService';
 import type { BookWithEnhancedData, LLMResponse } from '../types/books';
 
@@ -19,43 +19,44 @@ interface ProcessingResult {
  * Check if a book needs LLM processing
  */
 function needsLLMProcessing(book: BookWithEnhancedData): boolean {
-  return !book.llmProcessed || !book.enhancedGenre;
+  return !book.llmProcessed;
 }
+
 
 /**
- * Create a prompt for the LLM to categorize a book
+ * Transform JSON book data to BookWithEnhancedData format
  */
-function createBookCategorizationPrompt(book: BookWithEnhancedData): string {
-  return `Please analyze and categorize the following book. Provide a structured response in JSON format with the following fields:
-
-Book Information:
-- Title: "${book.title}"
-- Author: "${book.author}"
-- Genre: "${book.genre}"
-- Pages: ${book.pages}
-- Date Finished: ${book.dateFinished}
-
-Please provide a JSON response with these exact field names and types:
-
-{
-  "enhancedGenre": "string - More specific or refined genre classification",
-  "bookCategory": "string - One of: Fiction, Non-Fiction, Technical, Academic, Self-Help, Biography, History, Science, Philosophy, Business, Programming, Design, Other",
-  "readingLevel": "string - One of: Beginner, Intermediate, Advanced",
-  "themes": ["array of strings - Key themes, topics, or subjects covered"],
-  "targetAudience": "string - Primary audience (e.g., General, Developers, Students, Professionals, Beginners)",
-  "complexity": "string - One of: Simple, Moderate, Complex",
-  "readingTime": "string - Estimated reading time (e.g., '2-3 hours', '1-2 weeks', '3-4 days')",
-  "relatedBooks": ["array of strings - Similar books or related reading"],
-  "keyInsights": ["array of strings - Main takeaways or insights from the book"],
-  "tags": ["array of strings - Additional tags for categorization and search"]
-}
-
-Guidelines:
-- Keep responses concise but informative
-- Use consistent terminology for categories
-- Ensure all arrays have at least 1-3 items
-- Make tags searchable and relevant
-- Consider the book's content, not just the title`;
+function transformBookData(rawBook: any): BookWithEnhancedData {
+  return {
+    title: rawBook.title,
+    author: rawBook.author,
+    dateFinished: new Date(rawBook.dateFinished),
+    genre: rawBook.genre,
+    pages: rawBook.pages,
+    coverUrl: rawBook.coverUrl || '',
+    readingYear: rawBook.readingYear,
+    readingMonth: rawBook.readingMonth,
+    isCurrentlyReading: rawBook.isCurrentlyReading || false,
+    enhancedGenre: rawBook.enhancedGenre,
+    bookCategory: rawBook.bookCategory,
+    readingLevel: rawBook.readingLevel,
+    themes: rawBook.themes,
+    targetAudience: rawBook.targetAudience,
+    complexity: rawBook.complexity,
+    readingTime: rawBook.readingTime,
+    relatedBooks: rawBook.relatedBooks,
+    keyInsights: rawBook.keyInsights,
+    tags: rawBook.tags,
+    llmProcessed: rawBook.llmProcessed,
+    llmProcessedAt: rawBook.llmProcessedAt,
+    // Add required fields for LLM service
+    isbn: rawBook.isbn || '',
+    description: rawBook.description || '',
+    slug: rawBook.slug || rawBook.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+    rating: rawBook.rating || 5,
+    imageSrc: rawBook.imageSrc || rawBook.coverUrl || '',
+    enhancedData: null
+  };
 }
 
 /**
@@ -130,7 +131,6 @@ async function processBookWithLLM(book: BookWithEnhancedData): Promise<BookWithE
 function generateMockResponse(book: BookWithEnhancedData): LLMResponse {
   const genre = book.genre.toLowerCase();
   const title = book.title.toLowerCase();
-  const author = book.author.toLowerCase();
   
   // Determine book category based on genre
   let bookCategory = 'Non-Fiction';
@@ -297,14 +297,40 @@ export async function enhanceBookCategorization(): Promise<ProcessingResult> {
       try {
         const filePath = join(booksDir, filename);
         const bookData = await readFile(filePath, 'utf-8');
-        const book: BookWithEnhancedData = JSON.parse(bookData);
+        const rawBook = JSON.parse(bookData);
+        const book: BookWithEnhancedData = transformBookData(rawBook);
         
         if (needsLLMProcessing(book)) {
           console.log(`Processing book: ${book.title}`);
           const enhancedBook = await processBookWithLLM(book);
           
+          // Create a clean version for saving (remove temporary fields)
+          const cleanBook = {
+            title: enhancedBook.title,
+            author: enhancedBook.author,
+            dateFinished: rawBook.dateFinished, // Preserve original format
+            genre: enhancedBook.genre,
+            pages: enhancedBook.pages,
+            coverUrl: enhancedBook.coverUrl,
+            readingYear: enhancedBook.readingYear,
+            readingMonth: enhancedBook.readingMonth,
+            isCurrentlyReading: enhancedBook.isCurrentlyReading,
+            enhancedGenre: enhancedBook.enhancedGenre,
+            bookCategory: enhancedBook.bookCategory,
+            readingLevel: enhancedBook.readingLevel,
+            themes: enhancedBook.themes,
+            targetAudience: enhancedBook.targetAudience,
+            complexity: enhancedBook.complexity,
+            readingTime: enhancedBook.readingTime,
+            relatedBooks: enhancedBook.relatedBooks,
+            keyInsights: enhancedBook.keyInsights,
+            tags: enhancedBook.tags,
+            llmProcessed: enhancedBook.llmProcessed,
+            llmProcessedAt: enhancedBook.llmProcessedAt
+          };
+          
           // Write the enhanced book back to the file
-          await writeFile(filePath, JSON.stringify(enhancedBook, null, 2));
+          await writeFile(filePath, JSON.stringify(cleanBook, null, 2));
           result.processedBooks++;
         } else {
           console.log(`Skipping already processed book: ${book.title}`);
@@ -347,14 +373,40 @@ export async function processSpecificBook(filename: string): Promise<ProcessingR
   try {
     const filePath = join(process.cwd(), 'src', 'content', 'books', filename);
     const bookData = await readFile(filePath, 'utf-8');
-    const book: BookWithEnhancedData = JSON.parse(bookData);
+    const rawBook = JSON.parse(bookData);
+    const book: BookWithEnhancedData = transformBookData(rawBook);
     
     if (needsLLMProcessing(book)) {
       console.log(`Processing book: ${book.title}`);
       const enhancedBook = await processBookWithLLM(book);
       
+      // Create a clean version for saving (remove temporary fields)
+      const cleanBook = {
+        title: enhancedBook.title,
+        author: enhancedBook.author,
+        dateFinished: rawBook.dateFinished, // Preserve original format
+        genre: enhancedBook.genre,
+        pages: enhancedBook.pages,
+        coverUrl: enhancedBook.coverUrl,
+        readingYear: enhancedBook.readingYear,
+        readingMonth: enhancedBook.readingMonth,
+        isCurrentlyReading: enhancedBook.isCurrentlyReading,
+        enhancedGenre: enhancedBook.enhancedGenre,
+        bookCategory: enhancedBook.bookCategory,
+        readingLevel: enhancedBook.readingLevel,
+        themes: enhancedBook.themes,
+        targetAudience: enhancedBook.targetAudience,
+        complexity: enhancedBook.complexity,
+        readingTime: enhancedBook.readingTime,
+        relatedBooks: enhancedBook.relatedBooks,
+        keyInsights: enhancedBook.keyInsights,
+        tags: enhancedBook.tags,
+        llmProcessed: enhancedBook.llmProcessed,
+        llmProcessedAt: enhancedBook.llmProcessedAt
+      };
+      
       // Write the enhanced book back to the file
-      await writeFile(filePath, JSON.stringify(enhancedBook, null, 2));
+      await writeFile(filePath, JSON.stringify(cleanBook, null, 2));
       
       return {
         success: true,
@@ -408,7 +460,8 @@ export async function getProcessingStatus(): Promise<{
     try {
       const filePath = join(booksDir, filename);
       const bookData = await readFile(filePath, 'utf-8');
-      const book: BookWithEnhancedData = JSON.parse(bookData);
+      const rawBook = JSON.parse(bookData);
+      const book: BookWithEnhancedData = transformBookData(rawBook);
       
       if (needsLLMProcessing(book)) {
         unprocessed++;

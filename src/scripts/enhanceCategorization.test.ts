@@ -1,7 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { enhanceBookCategorization, processSpecificBook, getProcessingStatus } from './enhanceCategorization';
 import { readFile, writeFile, readdir } from 'fs/promises';
-import { join } from 'path';
 
 // Mock fs/promises
 vi.mock('fs/promises', () => ({

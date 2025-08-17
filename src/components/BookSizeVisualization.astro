@@ -1,0 +1,352 @@
+---
+import type { BookWithEnhancedData } from "../types/books";
+
+export interface Props {
+	books: BookWithEnhancedData[];
+}
+
+const { books } = Astro.props;
+
+// Process books for visualization
+function processBooks(books: BookWithEnhancedData[]) {
+	// Group by genre and calculate totals
+	const genreData: Record<string, {
+		books: BookWithEnhancedData[];
+		totalPages: number;
+		avgPages: number;
+		color: string;
+	}> = {};
+
+	const colors = [
+		'#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6',
+		'#06b6d4', '#84cc16', '#f97316', '#ec4899', '#6366f1',
+		'#64748b', '#dc2626', '#059669', '#7c3aed', '#db2777'
+	];
+
+	books.forEach(book => {
+		const genre = book.enhancedGenre || book.genre;
+		if (!genreData[genre]) {
+			genreData[genre] = {
+				books: [],
+				totalPages: 0,
+				avgPages: 0,
+				color: colors[Object.keys(genreData).length % colors.length]
+			};
+		}
+		genreData[genre].books.push(book);
+		genreData[genre].totalPages += book.pages;
+	});
+
+	// Calculate averages and sort by total pages
+	Object.values(genreData).forEach(data => {
+		data.avgPages = Math.round(data.totalPages / data.books.length);
+	});
+
+	const sortedGenres = Object.entries(genreData)
+		.sort(([, a], [, b]) => b.totalPages - a.totalPages)
+		.slice(0, 12); // Show top 12 genres
+
+	return sortedGenres;
+}
+
+const genreData = processBooks(books);
+const maxPages = Math.max(...genreData.map(([, data]) => data.totalPages));
+
+// Calculate bubble sizes
+function getBubbleSize(pages: number): number {
+	const minSize = 40;
+	const maxSize = 120;
+	const ratio = pages / maxPages;
+	return minSize + (maxSize - minSize) * ratio;
+}
+
+function formatPages(pages: number): string {
+	if (pages >= 1000) {
+		return `${(pages / 1000).toFixed(1)}k`;
+	}
+	return pages.toString();
+}
+---
+
+<div class="book-size-visualization">
+	<div class="visualization-header">
+		<h3 class="visualization-title">📊 Genre Reading Volume</h3>
+		<p class="visualization-subtitle">
+			Bubble size represents total pages read per genre
+		</p>
+	</div>
+
+	<!-- Treemap/Bubble Chart -->
+	<div class="bubble-container">
+		{genreData.map(([genre, data]) => {
+			const bubbleSize = getBubbleSize(data.totalPages);
+			const bookCount = data.books.length;
+			
+			return (
+				<div 
+					class="genre-bubble"
+					style={`
+						width: ${bubbleSize}px;
+						height: ${bubbleSize}px;
+						background: linear-gradient(135deg, ${data.color}80, ${data.color});
+						box-shadow: 0 4px 20px ${data.color}40;
+					`}
+					data-genre={genre}
+					data-pages={data.totalPages}
+					data-books={bookCount}
+					data-avg-pages={data.avgPages}
+				>
+					<div class="bubble-content">
+						<div class="bubble-genre">{genre}</div>
+						<div class="bubble-stats">
+							<div class="bubble-pages">{formatPages(data.totalPages)}</div>
+							<div class="bubble-meta">{bookCount} book{bookCount !== 1 ? 's' : ''}</div>
+						</div>
+					</div>
+					
+					<!-- Tooltip -->
+					<div class="bubble-tooltip">
+						<div class="tooltip-genre">{genre}</div>
+						<div class="tooltip-stats">
+							<div><strong>{data.totalPages.toLocaleString()}</strong> total pages</div>
+							<div><strong>{bookCount}</strong> book{bookCount !== 1 ? 's' : ''}</div>
+							<div><strong>{data.avgPages}</strong> avg pages per book</div>
+						</div>
+						<div class="tooltip-books">
+							<strong>Recent books:</strong>
+							{data.books.slice(0, 3).map(book => (
+								<div class="tooltip-book">• {book.title}</div>
+							))}
+							{data.books.length > 3 && (
+								<div class="tooltip-more">+{data.books.length - 3} more</div>
+							)}
+						</div>
+					</div>
+				</div>
+			);
+		})}
+	</div>
+
+	<!-- Legend -->
+	<div class="visualization-legend">
+		<div class="legend-item">
+			<div class="legend-bubble small"></div>
+			<span>Fewer pages</span>
+		</div>
+		<div class="legend-item">
+			<div class="legend-bubble large"></div>
+			<span>More pages</span>
+		</div>
+	</div>
+
+	<!-- Stats Summary -->
+	<div class="stats-summary">
+		<div class="summary-item">
+			<span class="summary-label">Top Genre:</span>
+			<span class="summary-value">{genreData[0]?.[0] || 'N/A'}</span>
+		</div>
+		<div class="summary-item">
+			<span class="summary-label">Most Pages:</span>
+			<span class="summary-value">{genreData[0]?.[1]?.totalPages.toLocaleString() || '0'}</span>
+		</div>
+		<div class="summary-item">
+			<span class="summary-label">Genres:</span>
+			<span class="summary-value">{genreData.length}</span>
+		</div>
+	</div>
+</div>
+
+<style>
+	.book-size-visualization {
+		@apply bg-white rounded-lg border border-gray-200 p-6;
+	}
+
+	.visualization-header {
+		@apply text-center mb-6;
+	}
+
+	.visualization-title {
+		@apply text-lg font-semibold text-gray-800 mb-2;
+	}
+
+	.visualization-subtitle {
+		@apply text-sm text-gray-600;
+	}
+
+	.bubble-container {
+		@apply flex flex-wrap justify-center items-center gap-4 min-h-[300px] p-4 bg-gradient-to-br from-gray-50 to-blue-50 rounded-lg mb-6;
+		align-content: center;
+	}
+
+	.genre-bubble {
+		@apply rounded-full cursor-pointer transition-all duration-300 relative flex items-center justify-center;
+		border: 2px solid rgba(255, 255, 255, 0.3);
+		animation: bubbleFloat 0.8s ease-out;
+		animation-fill-mode: both;
+	}
+
+	.genre-bubble:hover {
+		transform: scale(1.1);
+		z-index: 20;
+	}
+
+	.bubble-content {
+		@apply text-center text-white p-2;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	}
+
+	.bubble-genre {
+		@apply font-semibold text-xs mb-1;
+		line-height: 1.2;
+	}
+
+	.bubble-stats {
+		@apply space-y-1;
+	}
+
+	.bubble-pages {
+		@apply text-lg font-bold;
+	}
+
+	.bubble-meta {
+		@apply text-xs opacity-90;
+	}
+
+	/* Tooltip */
+	.bubble-tooltip {
+		@apply absolute top-full left-1/2 transform -translate-x-1/2 mt-2 p-3 bg-gray-900 text-white text-xs rounded-lg shadow-lg opacity-0 pointer-events-none transition-opacity duration-200 z-30;
+		min-width: 200px;
+	}
+
+	.genre-bubble:hover .bubble-tooltip {
+		@apply opacity-100;
+	}
+
+	.tooltip-genre {
+		@apply font-semibold text-sm mb-2 text-blue-300;
+	}
+
+	.tooltip-stats {
+		@apply space-y-1 mb-2 pb-2 border-b border-gray-700;
+	}
+
+	.tooltip-books {
+		@apply space-y-1;
+	}
+
+	.tooltip-book {
+		@apply text-gray-300 truncate;
+		max-width: 180px;
+	}
+
+	.tooltip-more {
+		@apply text-gray-400 italic;
+	}
+
+	/* Legend */
+	.visualization-legend {
+		@apply flex justify-center gap-6 mb-4;
+	}
+
+	.legend-item {
+		@apply flex items-center gap-2 text-sm text-gray-600;
+	}
+
+	.legend-bubble {
+		@apply rounded-full bg-gradient-to-br from-blue-400 to-blue-600;
+	}
+
+	.legend-bubble.small {
+		@apply w-6 h-6;
+	}
+
+	.legend-bubble.large {
+		@apply w-10 h-10;
+	}
+
+	/* Stats Summary */
+	.stats-summary {
+		@apply flex justify-center gap-6 pt-4 border-t border-gray-200;
+	}
+
+	.summary-item {
+		@apply text-center;
+	}
+
+	.summary-label {
+		@apply block text-xs text-gray-500 mb-1;
+	}
+
+	.summary-value {
+		@apply block text-sm font-semibold text-gray-900;
+	}
+
+	/* Responsive adjustments */
+	@media (max-width: 768px) {
+		.bubble-container {
+			@apply min-h-[250px] gap-2 p-2;
+		}
+
+		.genre-bubble {
+			transform: scale(0.8);
+		}
+
+		.genre-bubble:hover {
+			transform: scale(0.9);
+		}
+
+		.visualization-legend,
+		.stats-summary {
+			@apply flex-wrap gap-3;
+		}
+
+		.bubble-tooltip {
+			@apply left-0 right-0 mx-auto transform-none;
+			min-width: auto;
+			max-width: 280px;
+		}
+	}
+
+	/* Staggered animation for bubbles */
+	.genre-bubble:nth-child(1) { animation-delay: 0.1s; }
+	.genre-bubble:nth-child(2) { animation-delay: 0.2s; }
+	.genre-bubble:nth-child(3) { animation-delay: 0.3s; }
+	.genre-bubble:nth-child(4) { animation-delay: 0.4s; }
+	.genre-bubble:nth-child(5) { animation-delay: 0.5s; }
+	.genre-bubble:nth-child(6) { animation-delay: 0.6s; }
+	.genre-bubble:nth-child(n+7) { animation-delay: 0.7s; }
+
+	@keyframes bubbleFloat {
+		from {
+			opacity: 0;
+			transform: translateY(20px) scale(0.8);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
+	}
+
+	/* Gentle floating animation for bubbles */
+	.genre-bubble {
+		animation: bubbleFloat 0.8s ease-out, gentleFloat 6s ease-in-out infinite;
+		animation-delay: calc(var(--index, 0) * 0.1s), calc(var(--index, 0) * 0.5s);
+	}
+
+	@keyframes gentleFloat {
+		0%, 100% { transform: translateY(0) rotate(0deg); }
+		25% { transform: translateY(-3px) rotate(0.5deg); }
+		50% { transform: translateY(0) rotate(-0.5deg); }
+		75% { transform: translateY(-2px) rotate(0.5deg); }
+	}
+</style>
+
+<script>
+	// Add index CSS custom property for staggered animations
+	document.addEventListener('DOMContentLoaded', function() {
+		const bubbles = document.querySelectorAll('.genre-bubble');
+		bubbles.forEach((bubble, index) => {
+			(bubble as HTMLElement).style.setProperty('--index', index.toString());
+		});
+	});
+</script>

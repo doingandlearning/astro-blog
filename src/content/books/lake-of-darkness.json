@@ -1,0 +1,41 @@
+{
+  "title": "Lake of Darkness",
+  "author": "Adam Roberts",
+  "dateFinished": "2025-07-01",
+  "genre": "Fiction",
+  "pages": 272,
+  "coverUrl": "https://books.google.com/books/content?id=POi8EAAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
+  "readingYear": 2025,
+  "readingMonth": 7,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Literary Fiction, Speculative Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Isolation",
+    "Existentialism",
+    "Nature vs. Humanity",
+    "Psychological Conflict"
+  ],
+  "targetAudience": "Readers interested in thought-provoking narratives and speculative themes",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Road by Cormac McCarthy",
+    "Never Let Me Go by Kazuo Ishiguro",
+    "The Overstory by Richard Powers"
+  ],
+  "keyInsights": [
+    "Exploration of human psyche in extreme conditions",
+    "Reflection on the relationship between humanity and nature",
+    "The impact of isolation on mental health"
+  ],
+  "tags": [
+    "Speculative Fiction",
+    "Literary Fiction",
+    "Psychological Drama",
+    "Nature"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T18:05:47.037Z"
+}

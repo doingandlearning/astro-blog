@@ -1,0 +1,42 @@
+{
+  "title": "Foundation City",
+  "author": "Greg Egan",
+  "dateFinished": "2025-07-18",
+  "genre": "Fiction",
+  "pages": 260,
+  "coverUrl": "https://books.google.com/books/content?id=FJjGpoPogJ4C&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
+  "readingYear": 2025,
+  "readingMonth": 7,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "society",
+    "technology",
+    "urban development",
+    "human experience"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and futuristic narratives",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "Neuromancer",
+    "Snow Crash",
+    "The Dispossessed"
+  ],
+  "keyInsights": [
+    "Exploration of urban life in a futuristic setting",
+    "Impact of technology on society",
+    "Philosophical questions about humanity's future"
+  ],
+  "tags": [
+    "science fiction",
+    "urban fiction",
+    "Greg Egan",
+    "futurism",
+    "speculative fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T18:05:24.439Z"
+}

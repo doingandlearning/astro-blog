@@ -1,8 +1,10 @@
 ---
 import type { EnhancedBookStats } from "../utils/bookStats";
+import type { BookWithEnhancedData } from "../types/books";
 
 export interface Props {
 	stats: EnhancedBookStats;
+	books?: BookWithEnhancedData[];
 }
 
 const { stats } = Astro.props;
@@ -10,25 +12,6 @@ const { stats } = Astro.props;
 // Helper function to format numbers
 function formatNumber(num: number): string {
 	return num.toLocaleString();
-}
-
-// Helper function to get month name
-function getMonthName(month: number): string {
-	const months = [
-		"January",
-		"February",
-		"March",
-		"April",
-		"May",
-		"June",
-		"July",
-		"August",
-		"September",
-		"October",
-		"November",
-		"December",
-	];
-	return months[month - 1] || "Unknown";
 }
 
 // Helper function to get color for different categories
@@ -95,397 +78,594 @@ function getCategoryColor(category: string): string {
 					{stats.readingEfficiency.averageCompletionTime}
 				</p>
 			</div>
-			<div class="efficiency-card">
-				<h3 class="efficiency-title">Total Reading Time</h3>
-				<p class="efficiency-number">{stats.totalReadingTime}</p>
-			</div>
 		</div>
 	</section>
 
-	<!-- Enhanced Categorization -->
+	<!-- Enhanced Categorization with Donut Charts -->
 	<section class="stats-section">
 		<h2 class="section-title">🏷️ Content Categories</h2>
 
-		<!-- Book Categories -->
-		<div class="category-section">
-			<h3 class="category-title">Book Categories</h3>
-			<div class="category-tags">
-				{
-					Object.entries(stats.bookCategoryDistribution).map(
-						([category, count]) => (
-							<span class={`category-tag ${getCategoryColor(category)}`}>
-								{category} ({count})
-							</span>
-						),
-					)
-				}
+		<!-- Interactive Distribution Charts -->
+		<div class="distribution-charts">
+			<!-- Book Categories Donut -->
+			<div class="chart-container">
+				<h3 class="category-title">Book Categories</h3>
+				<div class="donut-chart-wrapper">
+					<canvas
+						id="bookCategoriesChart"
+						class="donut-chart"
+						data-values={JSON.stringify(
+							Object.entries(stats.bookCategoryDistribution),
+						)}></canvas>
+					<div class="chart-legend" id="bookCategoriesLegend"></div>
+				</div>
 			</div>
 		</div>
 
-		<!-- Reading Levels -->
-		<div class="category-section">
-			<h3 class="category-title">Reading Levels</h3>
-			<div class="category-tags">
-				{
-					Object.entries(stats.readingLevelDistribution).map(
-						([level, count]) => (
-							<span class={`category-tag ${getCategoryColor(level)}`}>
-								{level} ({count})
-							</span>
-						),
-					)
-				}
-			</div>
-		</div>
+		<!-- Content Analysis -->
+		<section class="stats-section">
+			<h2 class="section-title">🔍 Content Analysis</h2>
 
-		<!-- Complexity -->
-		<div class="category-section">
-			<h3 class="category-title">Complexity</h3>
-			<div class="category-tags">
-				{
-					Object.entries(stats.complexityDistribution).map(
-						([complexity, count]) => (
-							<span class={`category-tag ${getCategoryColor(complexity)}`}>
-								{complexity} ({count})
-							</span>
-						),
-					)
-				}
-			</div>
-		</div>
-	</section>
-
-	<!-- Content Analysis -->
-	<section class="stats-section">
-		<h2 class="section-title">🔍 Content Analysis</h2>
-
-		<!-- Top Themes -->
-		{
-			stats.topThemes.length > 0 && (
-				<div class="analysis-section">
-					<h3 class="analysis-title">Top Themes</h3>
-					<div class="analysis-list">
-						{stats.topThemes.map(({ theme, count }) => (
-							<div class="analysis-item">
-								<span class="analysis-label">{theme}</span>
-								<span class="analysis-count">{count}</span>
-							</div>
-						))}
-					</div>
-				</div>
-			)
-		}
-
-		<!-- Top Tags -->
-		{
-			stats.topTags.length > 0 && (
-				<div class="analysis-section">
-					<h3 class="analysis-title">Popular Tags</h3>
-					<div class="tag-cloud">
-						{stats.topTags.map(({ tag, count }) => (
-							<span
-								class={`tag-cloud-item tag-size-${Math.min(Math.ceil(count / 2), 5)}`}
-							>
-								{tag}
-							</span>
-						))}
-					</div>
-				</div>
-			)
-		}
-
-		<!-- Most Read Authors -->
-		{
-			stats.mostReadAuthors.length > 0 && (
-				<div class="analysis-section">
-					<h3 class="analysis-title">Most Read Authors</h3>
-					<div class="analysis-list">
-						{stats.mostReadAuthors.map(({ author, count }) => (
-							<div class="analysis-item">
-								<span class="analysis-label">{author}</span>
-								<span class="analysis-count">{count}</span>
-							</div>
-						))}
-					</div>
-				</div>
-			)
-		}
-	</section>
-
-	<!-- Reading Patterns -->
-	<section class="stats-section">
-		<h2 class="section-title">📈 Reading Patterns</h2>
-
-		<!-- Monthly Pattern -->
-		{
-			Object.keys(stats.monthlyReadingPattern).length > 0 && (
-				<div class="pattern-section">
-					<h3 class="pattern-title">Monthly Reading Pattern</h3>
-					<div class="monthly-chart">
-						{Array.from({ length: 12 }, (_, i) => i + 1).map((month) => {
-							const count = stats.monthlyReadingPattern[month] || 0;
-							const maxCount = Math.max(
-								...Object.values(stats.monthlyReadingPattern),
-							);
-							const height = maxCount > 0 ? (count / maxCount) * 100 : 0;
-							return (
-								<div class="month-bar">
-									<div class="bar-label">
-										{getMonthName(month).substring(0, 3)}
+			<!-- Top Themes -->
+			{
+				stats.topThemes.length > 0 && (
+					<div class="analysis-section">
+						<h3 class="analysis-title">Top Themes</h3>
+						<div class="analysis-list">
+							{stats.topThemes.map(
+								({ theme, count }: { theme: string; count: number }) => (
+									<div class="analysis-item">
+										<span class="analysis-label">{theme}</span>
+										<span class="analysis-count">{count}</span>
 									</div>
-									<div class="bar" style={`height: ${height}%`} />
-									<div class="bar-value">{count}</div>
-								</div>
-							);
-						})}
+								),
+							)}
+						</div>
 					</div>
-				</div>
-			)
-		}
+				)
+			}
 
-		<!-- Reading Timeline -->
-		{
-			Object.keys(stats.readingTimeline).length > 0 && (
-				<div class="pattern-section">
-					<h3 class="pattern-title">Reading Timeline</h3>
-					<div class="timeline-chart">
-						{Object.entries(stats.readingTimeline)
-							.sort(([a], [b]) => parseInt(a) - parseInt(b))
-							.map(([year, count]) => (
-								<div class="timeline-item">
-									<span class="timeline-year">{year}</span>
-									<span class="timeline-count">{count}</span>
-								</div>
-							))}
+			<!-- Top Tags -->
+			{
+				stats.topTags.length > 0 && (
+					<div class="analysis-section">
+						<h3 class="analysis-title">Popular Tags</h3>
+						<div class="tag-cloud">
+							{stats.topTags.map(
+								({ tag, count }: { tag: string; count: number }) => (
+									<span
+										class={`tag-cloud-item tag-size-${Math.min(Math.ceil(count / 2), 5)}`}
+									>
+										{tag}
+									</span>
+								),
+							)}
+						</div>
 					</div>
-				</div>
+				)
+			}
+
+			<!-- Most Read Authors -->
+			{
+				stats.mostReadAuthors.length > 0 && (
+					<div class="analysis-section">
+						<h3 class="analysis-title">Most Read Authors</h3>
+						<div class="analysis-list">
+							{stats.mostReadAuthors.map(
+								({ author, count }: { author: string; count: number }) => (
+									<div class="analysis-item">
+										<span class="analysis-label">{author}</span>
+										<span class="analysis-count">{count}</span>
+									</div>
+								),
+							)}
+						</div>
+					</div>
+				)
+			}
+		</section>
+
+		<!-- Reading Patterns -->
+		<section class="stats-section">
+			<h2 class="section-title">📈 Reading Patterns</h2>
+
+			<!-- Reading Timeline -->
+			{
+				Object.keys(stats.readingTimeline).length > 0 && (
+					<div class="pattern-section">
+						<h3 class="pattern-title">Reading Timeline</h3>
+						<div class="timeline-chart">
+							{Object.entries(stats.readingTimeline)
+								.sort(([a]: [string, unknown]) => parseInt(a) - parseInt(a))
+								.map(([year, count]: [string, unknown]) => (
+									<div class="timeline-item">
+										<span class="timeline-year">{year}</span>
+										<span class="timeline-count">{count}</span>
+									</div>
+								))}
+						</div>
+					</div>
+				)
+			}
+		</section>
+
+		<!-- Recommendations -->
+		{
+			stats.suggestedNextReads.length > 0 && (
+				<section class="stats-section">
+					<h2 class="section-title">📚 Recommendations</h2>
+					<div class="recommendations-grid">
+						{stats.suggestedNextReads.map((book: BookWithEnhancedData) => (
+							<div class="recommendation-card">
+								<h3 class="recommendation-title">{book.title}</h3>
+								<p class="recommendation-author">by {book.author}</p>
+								<div class="recommendation-tags">
+									{book.readingLevel && (
+										<span
+											class={`recommendation-tag ${getCategoryColor(book.readingLevel)}`}
+										>
+											{book.readingLevel}
+										</span>
+									)}
+									{book.complexity && (
+										<span
+											class={`recommendation-tag ${getCategoryColor(book.complexity)}`}
+										>
+											{book.complexity}
+										</span>
+									)}
+								</div>
+							</div>
+						))}
+					</div>
+				</section>
 			)
 		}
 	</section>
 
-	<!-- Recommendations -->
-	{
-		stats.suggestedNextReads.length > 0 && (
-			<section class="stats-section">
-				<h2 class="section-title">📚 Recommendations</h2>
-				<div class="recommendations-grid">
-					{stats.suggestedNextReads.map((book) => (
-						<div class="recommendation-card">
-							<h3 class="recommendation-title">{book.title}</h3>
-							<p class="recommendation-author">by {book.author}</p>
-							<div class="recommendation-tags">
-								{book.readingLevel && (
-									<span
-										class={`recommendation-tag ${getCategoryColor(book.readingLevel)}`}
-									>
-										{book.readingLevel}
-									</span>
-								)}
-								{book.complexity && (
-									<span
-										class={`recommendation-tag ${getCategoryColor(book.complexity)}`}
-									>
-										{book.complexity}
-									</span>
-								)}
-							</div>
-						</div>
-					))}
-				</div>
-			</section>
-		)
-	}
-</div>
+	<script>
+		// Enhanced visualization initialization
+		document.addEventListener("DOMContentLoaded", function () {
+			// Initialize donut charts
+			initializeDonutChart("bookCategoriesChart", "bookCategoriesLegend");
+			initializeDonutChart("readingLevelsChart", "readingLevelsLegend");
+		});
 
-<style>
-	.enhanced-book-stats {
-		@apply space-y-8;
-	}
+		// Type definitions for chart data
+		type ChartDataItem = [string, number];
+		type ChartData = ChartDataItem[];
 
-	.stats-section {
-		@apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
-	}
+		function initializeDonutChart(canvasId: string, legendId: string): void {
+			const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
+			const legendContainer = document.getElementById(legendId);
 
-	.section-title {
-		@apply text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2;
-	}
+			if (!canvas || !legendContainer) return;
 
-	.stats-grid {
-		@apply grid grid-cols-2 md:grid-cols-4 gap-4;
-	}
+			const data: ChartData = JSON.parse(canvas.dataset.values || "[]");
+			if (data.length === 0) return;
 
-	.stat-card {
-		@apply bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-4 text-center border border-blue-200;
-	}
+			const ctx = canvas.getContext("2d");
+			if (!ctx) return;
 
-	.stat-title {
-		@apply text-sm font-medium text-blue-700 mb-2;
-	}
+			const centerX = canvas.width / 2;
+			const centerY = canvas.height / 2;
+			const radius = Math.min(centerX, centerY) - 20;
+			const innerRadius = radius * 0.6;
 
-	.stat-number {
-		@apply text-2xl font-bold text-blue-900;
-	}
+			const colors: string[] = [
+				"#3b82f6",
+				"#10b981",
+				"#f59e0b",
+				"#ef4444",
+				"#8b5cf6",
+				"#06b6d4",
+				"#84cc16",
+				"#f97316",
+				"#ec4899",
+				"#6366f1",
+			];
 
-	.efficiency-grid {
-		@apply grid grid-cols-2 md:grid-cols-4 gap-4;
-	}
+			const total = data.reduce(
+				(sum: number, [, count]: ChartDataItem) => sum + count,
+				0,
+			);
+			let currentAngle = -Math.PI / 2;
 
-	.efficiency-card {
-		@apply bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-4 text-center border border-green-200;
-	}
+			// Draw donut segments with animation
+			data.forEach(([label, count]: ChartDataItem, index: number) => {
+				const segmentAngle = (count / total) * 2 * Math.PI;
+				const color = colors[index % colors.length];
 
-	.efficiency-title {
-		@apply text-sm font-medium text-green-700 mb-2;
-	}
+				// Draw segment
+				ctx.beginPath();
+				ctx.arc(
+					centerX,
+					centerY,
+					radius,
+					currentAngle,
+					currentAngle + segmentAngle,
+				);
+				ctx.arc(
+					centerX,
+					centerY,
+					innerRadius,
+					currentAngle + segmentAngle,
+					currentAngle,
+					true,
+				);
+				ctx.closePath();
+				ctx.fillStyle = color;
+				ctx.fill();
 
-	.efficiency-number {
-		@apply text-xl font-bold text-green-900;
-	}
+				// Add subtle shadow
+				ctx.shadowColor = "rgba(0,0,0,0.1)";
+				ctx.shadowBlur = 4;
+				ctx.shadowOffsetX = 2;
+				ctx.shadowOffsetY = 2;
 
-	.category-section {
-		@apply mb-6;
-	}
+				currentAngle += segmentAngle;
 
-	.category-title {
-		@apply text-lg font-medium text-gray-800 mb-3;
-	}
+				// Create legend item
+				const legendItem = document.createElement("div");
+				legendItem.className = "legend-item";
+				legendItem.innerHTML = `
+				<div class="legend-color" style="background-color: ${color}"></div>
+				<span>${label} (${count})</span>
+			`;
+				legendContainer.appendChild(legendItem);
+			});
 
-	.category-tags {
-		@apply flex flex-wrap gap-2;
-	}
+			// Draw center text
+			ctx.shadowColor = "transparent";
+			ctx.fillStyle = "#374151";
+			ctx.font = "bold 16px system-ui";
+			ctx.textAlign = "center";
+			ctx.textBaseline = "middle";
+			ctx.fillText(total.toString(), centerX, centerY - 5);
 
-	.category-tag {
-		@apply px-3 py-1 rounded-full text-sm font-medium;
-	}
+			ctx.font = "12px system-ui";
+			ctx.fillStyle = "#6b7280";
+			ctx.fillText("Total", centerX, centerY + 10);
+		}
+	</script>
 
-	.analysis-section {
-		@apply mb-6;
-	}
+	<style>
+		.enhanced-book-stats {
+			@apply space-y-8;
+			animation: fadeInUp 0.6s ease-out;
+		}
 
-	.analysis-title {
-		@apply text-lg font-medium text-gray-800 mb-3;
-	}
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(20px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
 
-	.analysis-list {
-		@apply space-y-2;
-	}
+		.stats-section {
+			@apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+		}
 
-	.analysis-item {
-		@apply flex justify-between items-center py-2 px-3 bg-gray-50 rounded-lg;
-	}
+		.section-title {
+			@apply text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2;
+		}
 
-	.analysis-label {
-		@apply text-gray-700 font-medium;
-	}
+		.stats-grid {
+			@apply grid grid-cols-2 md:grid-cols-4 gap-4;
+		}
 
-	.analysis-count {
-		@apply bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm font-medium;
-	}
+		.stat-card {
+			@apply bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-4 text-center border border-blue-200;
+		}
 
-	.tag-cloud {
-		@apply flex flex-wrap gap-2;
-	}
+		.stat-title {
+			@apply text-sm font-medium text-blue-700 mb-2;
+		}
 
-	.tag-cloud-item {
-		@apply px-2 py-1 rounded text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors;
-	}
+		.stat-number {
+			@apply text-2xl font-bold text-blue-900;
+		}
 
-	.tag-size-1 {
-		@apply text-xs;
-	}
-	.tag-size-2 {
-		@apply text-sm;
-	}
-	.tag-size-3 {
-		@apply text-base;
-	}
-	.tag-size-4 {
-		@apply text-lg;
-	}
-	.tag-size-5 {
-		@apply text-xl;
-	}
-
-	.pattern-section {
-		@apply mb-6;
-	}
-
-	.pattern-title {
-		@apply text-lg font-medium text-gray-800 mb-3;
-	}
-
-	.monthly-chart {
-		@apply flex items-end justify-between h-32 gap-1;
-	}
-
-	.month-bar {
-		@apply flex flex-col items-center flex-1;
-	}
-
-	.bar-label {
-		@apply text-xs text-gray-600 mb-1;
-	}
-
-	.bar {
-		@apply w-full bg-blue-500 rounded-t transition-all duration-300 min-h-[4px];
-	}
-
-	.bar-value {
-		@apply text-xs text-gray-600 mt-1;
-	}
-
-	.timeline-chart {
-		@apply flex items-center gap-4 overflow-x-auto pb-2;
-	}
-
-	.timeline-item {
-		@apply flex flex-col items-center bg-gray-50 rounded-lg px-3 py-2 min-w-[60px];
-	}
-
-	.timeline-year {
-		@apply text-sm font-medium text-gray-700;
-	}
-
-	.timeline-count {
-		@apply text-lg font-bold text-blue-600;
-	}
-
-	.recommendations-grid {
-		@apply grid grid-cols-1 md:grid-cols-3 gap-4;
-	}
-
-	.recommendation-card {
-		@apply bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-4 border border-purple-200;
-	}
-
-	.recommendation-title {
-		@apply text-lg font-semibold text-purple-900 mb-1;
-	}
-
-	.recommendation-author {
-		@apply text-sm text-purple-700 mb-3;
-	}
-
-	.recommendation-tags {
-		@apply flex flex-wrap gap-2;
-	}
-
-	.recommendation-tag {
-		@apply px-2 py-1 rounded-full text-xs font-medium;
-	}
-
-	@media (max-width: 768px) {
-		.stats-grid,
 		.efficiency-grid {
-			@apply grid-cols-2;
+			@apply grid grid-cols-2 md:grid-cols-4 gap-4;
+		}
+
+		.efficiency-card {
+			@apply bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-4 text-center border border-green-200;
+		}
+
+		.efficiency-title {
+			@apply text-sm font-medium text-green-700 mb-2;
+		}
+
+		.efficiency-number {
+			@apply text-xl font-bold text-green-900;
+		}
+
+		.category-section {
+			@apply mb-6;
+		}
+
+		.category-title {
+			@apply text-lg font-medium text-gray-800 mb-3;
+		}
+
+		.category-tags {
+			@apply flex flex-wrap gap-2;
+		}
+
+		.category-tag {
+			@apply px-3 py-1 rounded-full text-sm font-medium;
+		}
+
+		.analysis-section {
+			@apply mb-6;
+		}
+
+		.analysis-title {
+			@apply text-lg font-medium text-gray-800 mb-3;
+		}
+
+		.analysis-list {
+			@apply space-y-2;
+		}
+
+		.analysis-item {
+			@apply flex justify-between items-center py-2 px-3 bg-gray-50 rounded-lg;
+		}
+
+		.analysis-label {
+			@apply text-gray-700 font-medium;
+		}
+
+		.analysis-count {
+			@apply bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm font-medium;
+		}
+
+		.tag-cloud {
+			@apply flex flex-wrap gap-2;
+		}
+
+		.tag-cloud-item {
+			@apply px-2 py-1 rounded text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors;
+		}
+
+		.tag-size-1 {
+			@apply text-xs;
+		}
+		.tag-size-2 {
+			@apply text-sm;
+		}
+		.tag-size-3 {
+			@apply text-base;
+		}
+		.tag-size-4 {
+			@apply text-lg;
+		}
+		.tag-size-5 {
+			@apply text-xl;
+		}
+
+		.pattern-section {
+			@apply mb-6;
+		}
+
+		.pattern-title {
+			@apply text-lg font-medium text-gray-800 mb-3;
 		}
 
 		.monthly-chart {
-			@apply h-24;
+			@apply flex items-end justify-between h-32 gap-1;
+		}
+
+		.month-bar {
+			@apply flex flex-col items-center flex-1;
+		}
+
+		.bar-label {
+			@apply text-xs text-gray-600 mb-1;
+		}
+
+		.bar {
+			@apply w-full bg-blue-500 rounded-t transition-all duration-300 min-h-[4px];
+		}
+
+		.bar-value {
+			@apply text-xs text-gray-600 mt-1;
+		}
+
+		.timeline-chart {
+			@apply flex items-center gap-4 overflow-x-auto pb-2;
+		}
+
+		.timeline-item {
+			@apply flex flex-col items-center bg-gray-50 rounded-lg px-3 py-2 min-w-[60px];
+		}
+
+		.timeline-year {
+			@apply text-sm font-medium text-gray-700;
+		}
+
+		.timeline-count {
+			@apply text-lg font-bold text-blue-600;
 		}
 
 		.recommendations-grid {
-			@apply grid-cols-1;
+			@apply grid grid-cols-1 md:grid-cols-3 gap-4;
 		}
-	}
-</style>
+
+		.recommendation-card {
+			@apply bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-4 border border-purple-200;
+		}
+
+		.recommendation-title {
+			@apply text-lg font-semibold text-purple-900 mb-1;
+		}
+
+		.recommendation-author {
+			@apply text-sm text-purple-700 mb-3;
+		}
+
+		.recommendation-tags {
+			@apply flex flex-wrap gap-2;
+		}
+
+		.recommendation-tag {
+			@apply px-2 py-1 rounded-full text-xs font-medium;
+		}
+
+		/* Enhanced Chart Styles */
+		.distribution-charts {
+			@apply grid grid-cols-1 lg:grid-cols-2 gap-6;
+		}
+
+		.chart-container {
+			@apply bg-gradient-to-br from-gray-50 to-white rounded-lg p-4 border border-gray-200;
+		}
+
+		.chart-container.full-width {
+			@apply lg:col-span-2;
+		}
+
+		.donut-chart-wrapper {
+			@apply flex flex-col items-center;
+		}
+
+		.donut-chart {
+			@apply w-40 h-40 mb-4;
+		}
+
+		.chart-legend {
+			@apply flex flex-wrap gap-2 justify-center;
+		}
+
+		.legend-item {
+			@apply flex items-center gap-1 text-xs bg-white px-2 py-1 rounded border;
+		}
+
+		.legend-color {
+			@apply w-3 h-3 rounded-full;
+		}
+
+		/* Complexity Bars */
+		.complexity-bars {
+			@apply space-y-3;
+		}
+
+		.complexity-bar-item {
+			@apply space-y-2;
+		}
+
+		.complexity-label {
+			@apply flex justify-between items-center;
+		}
+
+		.complexity-tag {
+			@apply px-2 py-1 rounded text-sm font-medium;
+		}
+
+		.complexity-count {
+			@apply text-sm text-gray-600;
+		}
+
+		.complexity-progress {
+			@apply w-full bg-gray-200 rounded-full h-3 overflow-hidden;
+		}
+
+		.complexity-fill {
+			@apply h-full transition-all duration-1000 ease-out;
+			animation: fillProgress 1.5s ease-out;
+		}
+
+		@keyframes fillProgress {
+			from {
+				width: 0%;
+			}
+		}
+
+		/* Enhanced Monthly Chart */
+		.monthly-chart-enhanced {
+			@apply flex items-end justify-between h-40 gap-2 mb-4;
+		}
+
+		.month-bar-enhanced {
+			@apply flex flex-col items-center flex-1 relative;
+		}
+
+		.bar-enhanced {
+			@apply w-full bg-gradient-to-t from-blue-500 to-blue-400 rounded-t transition-all duration-700 min-h-[4px] relative cursor-pointer;
+			position: relative;
+		}
+
+		.month-bar-enhanced.highest .bar-enhanced {
+			@apply from-emerald-500 to-emerald-400;
+			box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+		}
+
+		.bar-enhanced:hover {
+			@apply from-indigo-500 to-indigo-400;
+			transform: scale(1.05);
+		}
+
+		.bar-tooltip {
+			@apply absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900 text-white text-xs rounded opacity-0 pointer-events-none transition-opacity duration-200;
+			white-space: nowrap;
+		}
+
+		.bar-enhanced:hover .bar-tooltip {
+			@apply opacity-100;
+		}
+
+		.bar-label-enhanced {
+			@apply text-xs text-gray-600 mt-2 font-medium;
+		}
+
+		.bar-value-enhanced {
+			@apply text-xs text-gray-500 mt-1;
+		}
+
+		/* Monthly Insights */
+		.monthly-insights {
+			@apply flex justify-center gap-6 pt-4 border-t border-gray-200;
+		}
+
+		.insight-item {
+			@apply flex items-center gap-2 text-sm text-gray-700;
+		}
+
+		.insight-icon {
+			@apply text-lg;
+		}
+
+		@media (max-width: 768px) {
+			.stats-grid,
+			.efficiency-grid {
+				@apply grid-cols-2;
+			}
+
+			.distribution-charts {
+				@apply grid-cols-1;
+			}
+
+			.monthly-chart-enhanced {
+				@apply h-32;
+			}
+
+			.monthly-insights {
+				@apply flex-col gap-2;
+			}
+
+			.recommendations-grid {
+				@apply grid-cols-1;
+			}
+
+			.donut-chart {
+				@apply w-32 h-32;
+			}
+		}
+	</style>
+</div>

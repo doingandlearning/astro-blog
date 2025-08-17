@@ -1,5 +1,5 @@
 // Test setup file for Vitest
-import { vi } from 'vitest';
+// import { vi } from 'vitest'; // Uncomment when vi is needed
 
 // Mock environment variables for testing
 process.env.NODE_ENV = 'test';

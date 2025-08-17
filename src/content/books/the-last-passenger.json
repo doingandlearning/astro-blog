@@ -1,0 +1,43 @@
+{
+  "title": "The Last Passenger",
+  "author": "Will Dean",
+  "dateFinished": "2025-06-16",
+  "genre": "Fiction",
+  "pages": 653,
+  "coverUrl": "https://books.google.com/books/content?id=1-adEAAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
+  "readingYear": 2025,
+  "readingMonth": 6,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Psychological Thriller",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Isolation",
+    "Survival",
+    "Mystery",
+    "Human Psychology",
+    "Adventure"
+  ],
+  "targetAudience": "Readers who enjoy suspenseful and character-driven narratives",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "The Girl on the Train",
+    "Into the Water",
+    "The Woman in Cabin 10"
+  ],
+  "keyInsights": [
+    "Explores the depths of human emotion under duress",
+    "Highlights the impact of isolation on mental health",
+    "Engages readers with unexpected plot twists"
+  ],
+  "tags": [
+    "Thriller",
+    "Suspense",
+    "Adventure",
+    "Psychological",
+    "Fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T18:06:14.973Z"
+}

@@ -1,0 +1,44 @@
+{
+  "title": "Saturns Children",
+  "author": "Charles Stross",
+  "dateFinished": "2025-07-26",
+  "genre": "Fiction",
+  "pages": 407,
+  "coverUrl": "https://books.google.com/books/content?id=GRkp7_kWKiwC&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
+  "readingYear": 2025,
+  "readingMonth": 7,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction, Space Opera",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Artificial Intelligence",
+    "Humanity",
+    "Space Exploration",
+    "Identity",
+    "Society"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and futuristic themes",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "Accelerando",
+    "The Quantum Thief",
+    "Neuromancer",
+    "The Moon is a Harsh Mistress"
+  ],
+  "keyInsights": [
+    "Explores the implications of AI on society",
+    "Questions the nature of humanity",
+    "Presents a unique perspective on space travel"
+  ],
+  "tags": [
+    "Science Fiction",
+    "AI",
+    "Space Opera",
+    "Futurism",
+    "Speculative Fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T18:05:59.004Z"
+}

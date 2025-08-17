@@ -7,5 +7,37 @@
   "coverUrl": "https://books.google.com/books/content?id=CuoCEQAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
   "readingYear": 2025,
   "readingMonth": 1,
-  "isCurrentlyReading": false
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Fantasy Adventure",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "friendship",
+    "survival",
+    "adventure",
+    "humor",
+    "fantasy worlds"
+  ],
+  "targetAudience": "Young adults and adult readers who enjoy fantasy and gaming culture",
+  "complexity": "Moderate",
+  "readingTime": "12 hours",
+  "relatedBooks": [
+    "Ready Player One",
+    "The Land: Founding",
+    "Awaken Online"
+  ],
+  "keyInsights": [
+    "Exploration of friendship in challenging situations",
+    "Humor as a coping mechanism",
+    "The impact of gaming on reality"
+  ],
+  "tags": [
+    "fantasy",
+    "adventure",
+    "gaming",
+    "humor",
+    "survival"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T16:48:46.369Z"
 }

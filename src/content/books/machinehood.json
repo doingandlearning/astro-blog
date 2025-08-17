@@ -1,0 +1,45 @@
+{
+  "title": "Machinehood",
+  "author": "S B Divya",
+  "dateFinished": "2025-07-26",
+  "genre": "Fiction",
+  "pages": 416,
+  "coverUrl": "https://books.google.com/books/content?id=6qJgEAAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
+  "readingYear": 2025,
+  "readingMonth": 7,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction, Speculative Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Artificial Intelligence",
+    "Humanity",
+    "Society",
+    "Technology",
+    "Ethics"
+  ],
+  "targetAudience": "Readers interested in futuristic narratives and ethical dilemmas in technology",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "The Windup Girl",
+    "Neuromancer",
+    "Autonomous",
+    "The Moon is a Harsh Mistress",
+    "The Matrix Trilogy"
+  ],
+  "keyInsights": [
+    "Exploration of AI's impact on society",
+    "Ethical considerations in technology",
+    "Human resilience in a changing world"
+  ],
+  "tags": [
+    "Science Fiction",
+    "Technology",
+    "AI",
+    "Futuristic",
+    "Speculative Fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T18:05:53.438Z"
+}

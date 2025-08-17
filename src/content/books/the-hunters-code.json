@@ -7,5 +7,36 @@
   "coverUrl": "https://books.google.com/books/content?id=ZYzK0AEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
   "readingYear": 2025,
   "readingMonth": 4,
-  "isCurrentlyReading": false
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Adventure Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Survival",
+    "Morality",
+    "Human Nature",
+    "Adventure"
+  ],
+  "targetAudience": "Readers interested in adventure stories and moral dilemmas",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "Into the Wild",
+    "The Call of the Wild",
+    "Hatchet"
+  ],
+  "keyInsights": [
+    "Exploration of survival instincts",
+    "Moral choices in extreme situations",
+    "The relationship between humans and nature"
+  ],
+  "tags": [
+    "Adventure",
+    "Survival",
+    "Fiction",
+    "Morality",
+    "Human Nature"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T16:49:32.546Z"
 }

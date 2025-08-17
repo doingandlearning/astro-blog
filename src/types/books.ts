@@ -25,6 +25,12 @@ export interface BookWithEnhancedData extends Book {
   readingYear: number;
   readingMonth: number;
   isCurrentlyReading?: boolean;
+  isbn?: string;
+  description?: string;
+  slug?: string;
+  rating?: number;
+  imageSrc?: string;
+  enhancedData?: any;
   // LLM-enhanced categorization fields
   llmProcessed?: boolean;
   llmProcessedAt?: string;

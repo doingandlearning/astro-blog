@@ -1,0 +1,42 @@
+{
+  "title": "Dragonslayer",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-08-17T18:04:20.227Z",
+  "genre": "General",
+  "pages": 0,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 8,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Fantasy Adventure",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "heroism",
+    "friendship",
+    "conflict between good and evil",
+    "self-discovery"
+  ],
+  "targetAudience": "Young adults and adults who enjoy fantasy and adventure stories",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The Name of the Wind",
+    "Mistborn",
+    "The Way of Kings"
+  ],
+  "keyInsights": [
+    "Exploration of personal growth through challenges",
+    "The importance of camaraderie in overcoming obstacles",
+    "The moral complexities of good vs. evil"
+  ],
+  "tags": [
+    "fantasy",
+    "adventure",
+    "dragons",
+    "hero's journey",
+    "magic"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T18:04:23.622Z"
+}

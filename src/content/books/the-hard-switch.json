@@ -7,5 +7,36 @@
   "coverUrl": "https://books.google.com/books/content?id=a7_vzgEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
   "readingYear": 2025,
   "readingMonth": 1,
-  "isCurrentlyReading": false
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction Graphic Novel",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "technology",
+    "identity",
+    "society",
+    "conflict"
+  ],
+  "targetAudience": "Young adults and adults interested in speculative fiction and graphic storytelling",
+  "complexity": "Moderate",
+  "readingTime": "2 hours",
+  "relatedBooks": [
+    "Transmetropolitan",
+    "Saga",
+    "Y: The Last Man"
+  ],
+  "keyInsights": [
+    "Explores the impact of technology on human relationships",
+    "Challenges perceptions of identity in a digital age",
+    "Engages with social and political themes through visual storytelling"
+  ],
+  "tags": [
+    "graphic novel",
+    "science fiction",
+    "technology",
+    "identity",
+    "social commentary"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T16:49:28.877Z"
 }

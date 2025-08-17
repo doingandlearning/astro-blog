@@ -7,5 +7,37 @@
   "coverUrl": "https://books.google.com/books/content?id=BxFYDwAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
   "readingYear": 2025,
   "readingMonth": 1,
-  "isCurrentlyReading": false
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Psychological Thriller",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "mental health",
+    "manipulation",
+    "identity",
+    "trust",
+    "deception"
+  ],
+  "targetAudience": "Readers interested in thrillers and psychological fiction",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "Gone Girl",
+    "The Girl on the Train",
+    "Behind Closed Doors"
+  ],
+  "keyInsights": [
+    "Explores the intricacies of the human mind",
+    "Challenges perceptions of reality",
+    "Highlights the impact of past traumas"
+  ],
+  "tags": [
+    "thriller",
+    "psychological",
+    "suspense",
+    "fiction",
+    "Nancy Mehl"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T16:49:06.981Z"
 }

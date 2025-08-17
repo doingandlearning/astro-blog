@@ -1,5 +1,5 @@
 import Papa from 'papaparse';
-import type { Book, BookWithEnhancedData } from '../types/books';
+import type { BookWithEnhancedData } from '../types/books';
 
 export interface CSVBookRow {
   Title: string;
@@ -118,7 +118,7 @@ function validateAndTransformRow(row: CSVBookRow, rowNumber: number): BookWithEn
 /**
  * Validate required fields (title and author)
  */
-function validateRequiredFields(row: CSVBookRow, rowNumber: number): void {
+function validateRequiredFields(row: CSVBookRow, _rowNumber: number): void {
   if (!row.Title || row.Title.trim().length === 0) {
     throw new Error('Title is required and cannot be empty');
   }
@@ -194,7 +194,7 @@ function validateAndParsePages(pagesString: string, rowNumber: number): number {
 /**
  * Validate and process genre field
  */
-function validateAndProcessGenre(genre: string, rowNumber: number): string {
+function validateAndProcessGenre(genre: string, _rowNumber: number): string {
   if (!genre || genre.trim().length === 0) {
     return 'Unknown';
   }
@@ -434,9 +434,9 @@ export function validateAndCleanBookData(book: BookWithEnhancedData): {
 /**
  * Add a warning to the processing result
  */
-function addWarning(result: ProcessingResult, message: string): void {
-  result.warnings.push(message);
-  result.stats.warningRows++;
+function addWarning(_result: ProcessingResult, _message: string): void {
+  _result.warnings.push(_message);
+  _result.stats.warningRows++;
 }
 
 /**
@@ -464,7 +464,7 @@ function isRowEmpty(row: CSVBookRow): boolean {
 /**
  * Parse date string to Date object
  */
-function parseDate(dateString: string, rowNumber: number): Date | null {
+function parseDate(dateString: string, _rowNumber: number): Date | null {
   if (!dateString) return null;
 
   // Try parsing as ISO date (YYYY-MM-DD)
@@ -485,7 +485,7 @@ function parseDate(dateString: string, rowNumber: number): Date | null {
 /**
  * Parse pages string to number
  */
-function parsePages(pagesString: string, rowNumber: number): number | null {
+function parsePages(pagesString: string, _rowNumber: number): number | null {
   if (!pagesString) return null;
 
   const pages = parseInt(pagesString, 10);

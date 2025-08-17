@@ -1,0 +1,46 @@
+{
+  "title": "Ghost Fleet",
+  "author": "P. W. Singer",
+  "dateFinished": "2025-07-31",
+  "genre": "Fiction",
+  "pages": 661,
+  "coverUrl": "https://books.google.com/books/content?id=UP89CgAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
+  "readingYear": 2025,
+  "readingMonth": 7,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Military Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "warfare",
+    "technology",
+    "cybersecurity",
+    "future conflict",
+    "global politics"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and military technology",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "Ghost in the Wires",
+    "Wired for War",
+    "The Pentagon's Brain",
+    "Daemon",
+    "Red Mars"
+  ],
+  "keyInsights": [
+    "Explores the intersection of technology and warfare",
+    "Highlights the implications of cyber warfare",
+    "Challenges traditional notions of military strategy",
+    "Illustrates the potential future of conflict"
+  ],
+  "tags": [
+    "science fiction",
+    "military",
+    "technology",
+    "cyber warfare",
+    "speculative fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T18:05:28.334Z"
+}

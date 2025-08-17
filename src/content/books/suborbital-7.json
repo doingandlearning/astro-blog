@@ -1,0 +1,43 @@
+{
+  "title": "Suborbital 7",
+  "author": "John Shirley",
+  "dateFinished": "2025-06-15",
+  "genre": "Fiction",
+  "pages": 379,
+  "coverUrl": "https://books.google.com/books/content?id=VGiSEAAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
+  "readingYear": 2025,
+  "readingMonth": 6,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "space exploration",
+    "human resilience",
+    "technology and society",
+    "existentialism"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and space-related narratives",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "Neuromancer",
+    "The Martian",
+    "Red Mars",
+    "Foundation"
+  ],
+  "keyInsights": [
+    "Explores the implications of suborbital travel",
+    "Challenges perceptions of human limits",
+    "Examines the intersection of technology and ethics"
+  ],
+  "tags": [
+    "science fiction",
+    "space travel",
+    "technology",
+    "adventure",
+    "human condition"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T18:06:02.877Z"
+}

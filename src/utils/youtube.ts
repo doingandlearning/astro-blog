@@ -6,17 +6,6 @@ export interface YouTubeVideo {
   thumbnailUrl: string;
 }
 
-interface YouTubeFeedItem {
-  'yt:videoId': string;
-  title: string;
-  'media:group': {
-    'media:description': string;
-    'media:thumbnail': {
-      '@_url': string;
-    };
-  };
-  published: string;
-}
 
 /**
  * Fetch YouTube videos from RSS feed
@@ -82,8 +71,8 @@ function parseYouTubeRSS(xmlText: string): YouTubeVideo[] {
       const thumbnailUrl = thumbnailMatch?.[1] || '';
       
       // Extract additional metadata that might help identify live streams
-      const authorMatch = entry.match(/<name>(.*?)<\/name>/);
-      const author = authorMatch?.[1] || '';
+      // const authorMatch = entry.match(/<name>(.*?)<\/name>/);
+      // const _author = authorMatch?.[1] || '';
       
       if (videoId && title && isRegularVideo(title, description, entry)) {
         videos.push({

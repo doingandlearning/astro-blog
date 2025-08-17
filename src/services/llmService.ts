@@ -183,7 +183,7 @@ export class LLMService {
   /**
    * Process book with local model (placeholder for future implementation)
    */
-  private async processWithLocalModel(book: BookWithEnhancedData): Promise<LLMServiceResponse> {
+  private async processWithLocalModel(_book: BookWithEnhancedData): Promise<LLMServiceResponse> {
     // This could integrate with local models like Ollama, LM Studio, etc.
     return {
       success: false,

@@ -7,5 +7,37 @@
   "coverUrl": "https://m.media-amazon.com/images/I/71pBjkH3F6L._UF1000,1000_QL80_.jpg",
   "readingYear": 2025,
   "readingMonth": 2,
-  "isCurrentlyReading": false
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Speculative Fiction, Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "identity",
+    "societal norms",
+    "technology and humanity",
+    "personal growth",
+    "family dynamics"
+  ],
+  "targetAudience": "Readers interested in thought-provoking narratives and speculative themes",
+  "complexity": "Moderate",
+  "readingTime": "12 hours",
+  "relatedBooks": [
+    "The Power by Naomi Alderman",
+    "Station Eleven by Emily St. John Mandel",
+    "The Left Hand of Darkness by Ursula K. Le Guin"
+  ],
+  "keyInsights": [
+    "Explores the impact of technology on personal relationships",
+    "Challenges societal expectations and norms",
+    "Encourages readers to reflect on their own identities"
+  ],
+  "tags": [
+    "speculative fiction",
+    "science fiction",
+    "identity",
+    "technology",
+    "social commentary"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T16:49:11.254Z"
 }

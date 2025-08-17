@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import BookGrid from "../components/BookGrid.astro";
 import BookFilters from "../components/BookFilters.astro";
-import EnhancedBookStats from "../components/EnhancedBookStats.astro";
+import EnhancedBookStats from "../components/EnhancedBookStatsWithThemes.astro";
 import { calculateEnhancedBookStats } from "../utils/bookStats";
 import type { BookWithEnhancedData } from "../types/books";
 import "../styles/books.css";
@@ -83,10 +83,11 @@ const pageDescription = `A collection of ${stats.totalBooks} books I've read, to
 		</header>
 
 		<!-- Enhanced Reading Statistics -->
-		<EnhancedBookStats stats={enhancedStats} />
+		<EnhancedBookStats stats={enhancedStats} books={booksData} />
 
 		<!-- Structured Data for SEO -->
 		<script
+			is:inline
 			type="application/ld+json"
 			set:html={JSON.stringify({
 				"@context": "https://schema.org",
@@ -137,14 +138,14 @@ const pageDescription = `A collection of ${stats.totalBooks} books I've read, to
 		</section>
 	</div>
 
-	<script define:vars={{ sortedBooks }}>
+	<script is:inline define:vars={{ sortedBooks }}>
 		// Make book data available globally for filters
 		window.bookData = sortedBooks;
 		window.filteredBooks = sortedBooks;
 
 		// Listen for filter changes and update the grid
 		window.addEventListener("booksFiltered", (event) => {
-			const { filteredBooks, filters } = event.detail;
+			const { filteredBooks } = event.detail;
 
 			// Update the books grid
 			const bookGrid = document.querySelector(".book-grid");

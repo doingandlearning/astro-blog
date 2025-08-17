@@ -15,10 +15,9 @@ export interface Book {
 
 export interface Props {
 	books: Book[];
-	onFiltersChange?: (filters: any) => void;
 }
 
-const { books, onFiltersChange } = Astro.props;
+const { books } = Astro.props;
 
 // Extract unique values for filter options
 const genres = [
@@ -30,7 +29,7 @@ const years = [...new Set(books.map((book) => book.data.readingYear))].sort(
 const authors = [...new Set(books.map((book) => book.data.author))].sort();
 ---
 
-<div class="book-filters" x-data="bookFilters()">
+<div class="book-filters mt-8" x-data="bookFilters()">
 	<div class="filters-header">
 		<h3>Filter Books</h3>
 		<button

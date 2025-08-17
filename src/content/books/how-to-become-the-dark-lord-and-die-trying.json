@@ -1,0 +1,42 @@
+{
+  "title": "How to Become the Dark Lord and Die Trying",
+  "author": "Django Wexler",
+  "dateFinished": "2025-07-06",
+  "genre": "Fiction",
+  "pages": 250,
+  "coverUrl": "https://books.google.com/books/content?id=vhLVEAAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
+  "readingYear": 2025,
+  "readingMonth": 7,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Fantasy Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Power and Ambition",
+    "Good vs. Evil",
+    "Personal Growth",
+    "Friendship and Loyalty"
+  ],
+  "targetAudience": "Young Adults and Fantasy Enthusiasts",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Name of the Wind",
+    "Mistborn: The Final Empire",
+    "The Lies of Locke Lamora"
+  ],
+  "keyInsights": [
+    "The journey of self-discovery can be filled with challenges.",
+    "Ambition can lead to both greatness and downfall.",
+    "Friendship can be a powerful motivator in the face of adversity."
+  ],
+  "tags": [
+    "Fantasy",
+    "Adventure",
+    "Young Adult",
+    "Magic",
+    "Dark Lord"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T18:05:35.117Z"
+}

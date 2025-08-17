@@ -1,0 +1,42 @@
+{
+  "title": "First Strike",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-08-17T18:04:41.855Z",
+  "genre": "General",
+  "pages": 0,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 8,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "space exploration",
+    "military strategy",
+    "intergalactic conflict",
+    "human resilience"
+  ],
+  "targetAudience": "Readers interested in science fiction and military narratives",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The Forever War",
+    "Old Man's War",
+    "Starship Troopers"
+  ],
+  "keyInsights": [
+    "Exploration of the consequences of war",
+    "Human adaptability in alien environments",
+    "The moral dilemmas of military engagement"
+  ],
+  "tags": [
+    "science fiction",
+    "military",
+    "space opera",
+    "adventure",
+    "interstellar conflict"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T18:04:44.632Z"
+}

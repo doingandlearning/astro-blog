@@ -7,5 +7,37 @@
   "coverUrl": "https://books.google.com/books/content?id=CuoCEQAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
   "readingYear": 2025,
   "readingMonth": 1,
-  "isCurrentlyReading": false
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Dark Fantasy Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "identity",
+    "morality",
+    "society",
+    "violence",
+    "survival"
+  ],
+  "targetAudience": "Readers of dark fantasy and horror fiction, ages 18 and up",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "The Night Circus",
+    "American Gods",
+    "The Ocean at the End of the Lane"
+  ],
+  "keyInsights": [
+    "Explores the duality of human nature",
+    "Challenges societal norms",
+    "Examines the consequences of violence"
+  ],
+  "tags": [
+    "dark fantasy",
+    "horror",
+    "fiction",
+    "mystery",
+    "thriller"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T16:49:14.836Z"
 }

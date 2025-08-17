@@ -1,0 +1,43 @@
+{
+  "title": "Tsalmoth",
+  "author": "Steven Brust",
+  "dateFinished": "2025-07-27",
+  "genre": "Fiction",
+  "pages": 248,
+  "coverUrl": "https://books.google.com/books/content?id=KG9pEAAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
+  "readingYear": 2025,
+  "readingMonth": 7,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Fantasy Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "identity",
+    "power dynamics",
+    "morality",
+    "friendship",
+    "betrayal"
+  ],
+  "targetAudience": "Readers of fantasy literature and fans of character-driven narratives",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Phoenix Guards",
+    "The Viscount of Adrilankha",
+    "Agyar"
+  ],
+  "keyInsights": [
+    "Explores the nature of power and its impact on relationships",
+    "Challenges perceptions of morality through character choices",
+    "Emphasizes the importance of personal identity in a complex world"
+  ],
+  "tags": [
+    "fantasy",
+    "fiction",
+    "character study",
+    "morality",
+    "power"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T18:06:21.172Z"
+}

@@ -140,7 +140,7 @@ class ErrorMonitor {
   /**
    * Send error to external monitoring service (placeholder)
    */
-  private sendToMonitoringService(errorLog: ErrorLog): void {
+  private sendToMonitoringService(_errorLog: ErrorLog): void {
     // In a real implementation, this would send to Sentry, LogRocket, etc.
     // For now, we'll just store it locally
     try {

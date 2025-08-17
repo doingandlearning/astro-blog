@@ -1,0 +1,44 @@
+{
+  "title": "Convergence",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-08-11",
+  "genre": "Fiction",
+  "pages": 200,
+  "coverUrl": "",
+  "readingYear": 2025,
+  "readingMonth": 8,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "exploration",
+    "technology",
+    "humanity",
+    "conflict",
+    "identity"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and science fiction enthusiasts",
+  "complexity": "Moderate",
+  "readingTime": "4 hours",
+  "relatedBooks": [
+    "The Martian",
+    "Dune",
+    "Ender's Game",
+    "Neuromancer"
+  ],
+  "keyInsights": [
+    "The impact of technology on society",
+    "The nature of human relationships in a changing world",
+    "The ethical dilemmas of exploration"
+  ],
+  "tags": [
+    "science fiction",
+    "exploration",
+    "technology",
+    "humanity",
+    "fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T18:05:18.006Z"
+}

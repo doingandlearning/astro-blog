@@ -7,5 +7,37 @@
   "coverUrl": "https://books.google.com/books/content?id=Qw9ep0oDPGoC&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
   "readingYear": 2025,
   "readingMonth": 4,
-  "isCurrentlyReading": false
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Epic Fantasy",
+  "bookCategory": "Fiction",
+  "readingLevel": "Advanced",
+  "themes": [
+    "war",
+    "betrayal",
+    "sacrifice",
+    "friendship",
+    "power dynamics"
+  ],
+  "targetAudience": "Readers of epic fantasy and complex narratives",
+  "complexity": "Complex",
+  "readingTime": "20 hours",
+  "relatedBooks": [
+    "Gardens of the Moon",
+    "Deadhouse Gates",
+    "House of Chains"
+  ],
+  "keyInsights": [
+    "Explores the nature of conflict and its impact on humanity",
+    "Highlights the complexity of moral choices",
+    "Delves into the intricacies of character relationships"
+  ],
+  "tags": [
+    "fantasy",
+    "epic",
+    "war",
+    "character-driven",
+    "high fantasy"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T16:49:03.818Z"
 }

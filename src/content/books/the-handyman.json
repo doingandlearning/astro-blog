@@ -1,0 +1,44 @@
+{
+  "title": "The Handyman",
+  "author": "Aron Beauregard",
+  "dateFinished": "2025-06-18",
+  "genre": "Horror",
+  "pages": 126,
+  "coverUrl": "https://books.google.com/books/content?id=5xqVzQEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
+  "readingYear": 2025,
+  "readingMonth": 6,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Psychological Horror",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Isolation",
+    "Fear",
+    "Mental Illness",
+    "Survival",
+    "Human Nature"
+  ],
+  "targetAudience": "Readers who enjoy horror and psychological thrillers",
+  "complexity": "Moderate",
+  "readingTime": "3 hours",
+  "relatedBooks": [
+    "The Shining",
+    "Misery",
+    "Bird Box",
+    "The Cabin at the End of the World"
+  ],
+  "keyInsights": [
+    "Explores the depths of human fear",
+    "Challenges perceptions of sanity",
+    "Highlights the impact of isolation on mental health"
+  ],
+  "tags": [
+    "Horror",
+    "Psychological",
+    "Thriller",
+    "Suspense",
+    "Fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T18:06:09.156Z"
+}

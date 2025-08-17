@@ -7,5 +7,38 @@
   "coverUrl": "https://books.google.com/books/content?id=7nEc0QEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api",
   "readingYear": 2025,
   "readingMonth": 5,
-  "isCurrentlyReading": false
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Fantasy Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Courage",
+    "Friendship",
+    "Adventure",
+    "Self-Discovery",
+    "Conflict"
+  ],
+  "targetAudience": "Young adults and adult readers who enjoy fantasy and adventure narratives",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "Serpent & Dove",
+    "An Ember in the Ashes",
+    "Crescent City",
+    "Shadow and Bone"
+  ],
+  "keyInsights": [
+    "Exploration of personal growth through adversity",
+    "The importance of loyalty and friendship",
+    "Navigating complex relationships in a fantastical setting"
+  ],
+  "tags": [
+    "Fantasy",
+    "Adventure",
+    "Young Adult",
+    "Magic",
+    "Romance"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T16:48:50.355Z"
 }

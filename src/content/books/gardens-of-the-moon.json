@@ -7,5 +7,39 @@
   "coverUrl": "https://books.google.com/books/content?id=Jiwa2PmB8jkC&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api",
   "readingYear": 2025,
   "readingMonth": 2,
-  "isCurrentlyReading": false
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Epic Fantasy",
+  "bookCategory": "Fiction",
+  "readingLevel": "Advanced",
+  "themes": [
+    "War",
+    "Power",
+    "Betrayal",
+    "Magic",
+    "Civilization"
+  ],
+  "targetAudience": "Fans of high fantasy and complex narratives",
+  "complexity": "Complex",
+  "readingTime": "15 hours",
+  "relatedBooks": [
+    "Deadhouse Gates",
+    "The Malazan Book of the Fallen",
+    "The Name of the Wind",
+    "A Game of Thrones"
+  ],
+  "keyInsights": [
+    "Exploration of moral ambiguity",
+    "Intricate world-building",
+    "Multi-layered character development",
+    "Philosophical undertones"
+  ],
+  "tags": [
+    "Fantasy",
+    "Epic",
+    "Adventure",
+    "Magic",
+    "Military"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-17T16:48:53.651Z"
 }

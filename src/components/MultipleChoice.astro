@@ -1,5 +1,5 @@
 <multiple-choice data-correct-label="Correct" data-incorrect-label="Try again">
-  <form onsubmit="event.preventDefault()">
+  <form onsubmit="(event) => event.preventDefault()">
     <ol class="opt-list"><slot /></ol>
     <div class="footer">
       <button class="submit" type="submit" disabled> Submit</button>
