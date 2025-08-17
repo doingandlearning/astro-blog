@@ -15,17 +15,21 @@
 - `src/scripts/processBooks.test.ts` - Unit tests for CSV processing utilities
 - `src/components/BookCard.test.ts` - Unit tests for BookCard component
 - `src/components/BookGrid.test.ts` - Unit tests for BookGrid component
+- `vitest.config.ts` - Vitest configuration for testing
+- `src/test/setup.ts` - Test environment setup
+- `src/types/books.test.ts` - Unit tests for book type interfaces
 
 ### Notes
 
 - Unit tests should typically be placed alongside the code files they are testing (e.g., `BookCard.astro` and `BookCard.test.ts` in the same directory).
-- Use `npx jest [optional/path/to/test/file]` to run tests. Running without a path executes all tests found by the Jest configuration.
+- Use `npm run test:run` to run all tests, `npm run test` for interactive mode, or `npm run test:ui` for the Vitest UI.
 - The CSV file will be placed in the public directory and processed during build time.
 - LLM integration will be implemented as a build-time process to avoid runtime API calls.
+- Testing is set up with Vitest and jsdom for component testing.
 
 ## Tasks
 
-- [ ] 1.0 Set up project infrastructure and data structures
+- [x] 1.0 Set up project infrastructure and data structures
   - [x] 1.1 Create TypeScript interfaces for book data structures in `src/types/books.ts`
   - [x] 1.2 Set up CSV data directory structure in `public/data/`
   - [x] 1.3 Confirm the sample file is there (books.csv) 
