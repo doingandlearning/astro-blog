@@ -1,0 +1,243 @@
+---
+import BookCard from "./BookCard.astro";
+
+export interface Book {
+	data: {
+		title: string;
+		author: string;
+		genre: string;
+		pages: number;
+		dateFinished: string;
+		coverUrl?: string;
+		enhancedGenre?: string;
+		isCurrentlyReading?: boolean;
+		readingYear: number;
+	};
+}
+
+export interface Props {
+	books: Book[];
+	showFilters?: boolean;
+	filterCount?: number;
+	totalCount?: number;
+}
+
+const { books, showFilters = false, filterCount, totalCount } = Astro.props;
+
+const displayCount = filterCount || books.length;
+const hasFilters =
+	showFilters && filterCount !== undefined && totalCount !== undefined;
+---
+
+<div class="book-grid-container">
+	{
+		hasFilters && (
+			<div class="filter-summary">
+				<p>
+					Showing {displayCount} of {totalCount} books
+					{filterCount !== totalCount && (
+						<button class="clear-filters-btn" onclick="clearAllFilters()">
+							Clear all filters
+						</button>
+					)}
+				</p>
+			</div>
+		)
+	}
+
+	{
+		books.length > 0 ? (
+			<div class="book-grid">
+				{books.map((book) => (
+					<BookCard
+						title={book.data.title}
+						author={book.data.author}
+						genre={book.data.genre}
+						pages={book.data.pages}
+						dateFinished={book.data.dateFinished}
+						coverUrl={book.data.coverUrl}
+						enhancedGenre={book.data.enhancedGenre}
+						isCurrentlyReading={book.data.isCurrentlyReading}
+					/>
+				))}
+			</div>
+		) : (
+			<div class="no-books">
+				<div class="no-books-icon">📚</div>
+				<h3>No books found</h3>
+				<p>
+					{hasFilters
+						? "Try adjusting your filters or search terms."
+						: "No books have been added to your collection yet."}
+				</p>
+			</div>
+		)
+	}
+</div>
+
+<script>
+	function clearAllFilters() {
+		// This will be enhanced when we implement the actual filtering system
+		// For now, just reload the page to clear any URL parameters
+		window.location.href = window.location.pathname;
+	}
+</script>
+
+<style>
+	.book-grid-container {
+		width: 100%;
+	}
+
+	.filter-summary {
+		margin-bottom: 2rem;
+		padding: 1rem;
+		background: #f8f9fa;
+		border-radius: 8px;
+		border: 1px solid #e9ecef;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.filter-summary p {
+		margin: 0;
+		color: #495057;
+		font-size: 0.95rem;
+	}
+
+	.clear-filters-btn {
+		background: var(--accent-light, #646cff);
+		color: white;
+		border: none;
+		padding: 0.5rem 1rem;
+		border-radius: 6px;
+		font-size: 0.9rem;
+		cursor: pointer;
+		transition: background-color 0.2s ease;
+	}
+
+	.clear-filters-btn:hover {
+		background: var(--accent, #535bf2);
+	}
+
+	.book-grid {
+		display: grid;
+		gap: 2rem;
+		width: 100%;
+	}
+
+	/* Desktop: 4 columns */
+	@media (min-width: 1200px) {
+		.book-grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 2rem;
+		}
+	}
+
+	/* Large desktop: 5 columns */
+	@media (min-width: 1400px) {
+		.book-grid {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 2rem;
+		}
+	}
+
+	/* Medium desktop: 3 columns */
+	@media (min-width: 900px) and (max-width: 1199px) {
+		.book-grid {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1.75rem;
+		}
+	}
+
+	/* Tablet: 2 columns */
+	@media (min-width: 600px) and (max-width: 899px) {
+		.book-grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.5rem;
+		}
+	}
+
+	/* Mobile: 1 column */
+	@media (max-width: 599px) {
+		.book-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+	}
+
+	.no-books {
+		text-align: center;
+		padding: 4rem 2rem;
+		color: #6c757d;
+	}
+
+	.no-books-icon {
+		font-size: 4rem;
+		margin-bottom: 1rem;
+		opacity: 0.5;
+	}
+
+	.no-books h3 {
+		margin: 0 0 1rem 0;
+		color: #495057;
+		font-size: 1.5rem;
+	}
+
+	.no-books p {
+		margin: 0;
+		font-size: 1.1rem;
+		line-height: 1.5;
+	}
+
+	/* Animation for grid items */
+	.book-grid > * {
+		animation: fadeInUp 0.6s ease-out;
+		animation-fill-mode: both;
+	}
+
+	.book-grid > *:nth-child(1) {
+		animation-delay: 0.1s;
+	}
+	.book-grid > *:nth-child(2) {
+		animation-delay: 0.2s;
+	}
+	.book-grid > *:nth-child(3) {
+		animation-delay: 0.3s;
+	}
+	.book-grid > *:nth-child(4) {
+		animation-delay: 0.4s;
+	}
+	.book-grid > *:nth-child(5) {
+		animation-delay: 0.5s;
+	}
+	.book-grid > *:nth-child(n + 6) {
+		animation-delay: 0.6s;
+	}
+
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Responsive adjustments for filter summary */
+	@media (max-width: 768px) {
+		.filter-summary {
+			flex-direction: column;
+			align-items: stretch;
+			text-align: center;
+		}
+
+		.clear-filters-btn {
+			align-self: center;
+		}
+	}
+</style>

@@ -1,16 +1,19 @@
 ---
 export interface Props {
   isCorrect?: boolean;
+  optionId?: string;
 }
 
-const { isCorrect } = Astro.props as Props;
+const {
+  isCorrect,
+  optionId = `option-${Math.random().toString(36).substring(2, 11)}`,
+} = Astro.props as Props;
 ---
 
 <li>
-  <label>
-    <input type="radio" disabled data-is-correct={isCorrect} /><span
-      ><slot /></span
-    >
+  <label for={optionId}>
+    <input id={optionId} type="radio" disabled data-is-correct={isCorrect} />
+    <span><slot /></span>
     {
       Astro.slots.has("feedback") && (
         <template>

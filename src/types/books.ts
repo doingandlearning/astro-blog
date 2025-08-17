@@ -7,11 +7,36 @@ export interface Book {
   coverUrl: string;
 }
 
+export interface LLMResponse {
+  enhancedGenre: string;
+  bookCategory: string;
+  readingLevel: string;
+  themes: string[];
+  targetAudience: string;
+  complexity: string;
+  readingTime: string;
+  relatedBooks: string[];
+  keyInsights: string[];
+  tags: string[];
+}
+
 export interface BookWithEnhancedData extends Book {
   enhancedGenre?: string;
   readingYear: number;
   readingMonth: number;
   isCurrentlyReading?: boolean;
+  // LLM-enhanced categorization fields
+  llmProcessed?: boolean;
+  llmProcessedAt?: string;
+  bookCategory?: string;
+  readingLevel?: string;
+  themes?: string[];
+  targetAudience?: string;
+  complexity?: string;
+  readingTime?: string;
+  relatedBooks?: string[];
+  keyInsights?: string[];
+  tags?: string[];
 }
 
 export interface BookFilters {

@@ -1,5 +1,17 @@
-<label class="form-control">
-  <input type="checkbox" name="checkbox-disabled-checked" />
+---
+export interface Props {
+  checkboxId?: string;
+  name?: string;
+}
+
+const {
+  checkboxId = `checkbox-${Math.random().toString(36).substring(2, 11)}`,
+  name = "checkbox",
+} = Astro.props as Props;
+---
+
+<label for={checkboxId} class="form-control">
+  <input id={checkboxId} type="checkbox" name={name} />
   <p>
     <slot />
   </p>

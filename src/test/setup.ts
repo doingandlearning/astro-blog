@@ -14,6 +14,6 @@ global.console = {
 };
 
 // Setup global test utilities
-global.testUtils = {
+(global as any).testUtils = {
   // Add any global test utilities here
 };

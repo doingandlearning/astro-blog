@@ -1,0 +1,341 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import BookGrid from "../components/BookGrid.astro";
+import BookFilters from "../components/BookFilters.astro";
+import EnhancedBookStats from "../components/EnhancedBookStats.astro";
+import { calculateEnhancedBookStats } from "../utils/bookStats";
+import type { BookWithEnhancedData } from "../types/books";
+import "../styles/books.css";
+
+// Get all books from the content collection
+const books = await getCollection("books");
+
+// Sort books by date finished (most recent first)
+const sortedBooks = books.sort(
+	(a, b) =>
+		new Date(b.data.dateFinished).getTime() -
+		new Date(a.data.dateFinished).getTime(),
+);
+
+// Convert collection entries to BookWithEnhancedData format
+const booksData: BookWithEnhancedData[] = books.map((book) => ({
+	title: book.data.title,
+	author: book.data.author,
+	dateFinished: new Date(book.data.dateFinished),
+	genre: book.data.genre,
+	pages: book.data.pages,
+	coverUrl: book.data.coverUrl || "",
+	readingYear: book.data.readingYear,
+	readingMonth: book.data.readingMonth,
+	isCurrentlyReading: book.data.isCurrentlyReading,
+	enhancedGenre: book.data.enhancedGenre,
+	bookCategory: book.data.bookCategory,
+	readingLevel: book.data.readingLevel,
+	themes: book.data.themes,
+	targetAudience: book.data.targetAudience,
+	complexity: book.data.complexity,
+	readingTime: book.data.readingTime,
+	relatedBooks: book.data.relatedBooks,
+	keyInsights: book.data.keyInsights,
+	tags: book.data.tags,
+	llmProcessed: book.data.llmProcessed,
+	llmProcessedAt: book.data.llmProcessedAt,
+}));
+
+// Calculate enhanced statistics
+const enhancedStats = calculateEnhancedBookStats(booksData);
+
+// Legacy stats for backward compatibility
+const stats = {
+	totalBooks: enhancedStats.totalBooks,
+	totalPages: enhancedStats.totalPages,
+	averagePagesPerBook: enhancedStats.averagePagesPerBook,
+	booksThisYear: enhancedStats.booksThisYear,
+	genreDistribution: books.reduce(
+		(acc, book) => {
+			const genre = book.data.genre;
+			acc[genre] = (acc[genre] || 0) + 1;
+			return acc;
+		},
+		{} as Record<string, number>,
+	),
+	readingTimeline: books.reduce(
+		(acc, book) => {
+			const year = book.data.readingYear;
+			acc[year] = (acc[year] || 0) + 1;
+			return acc;
+		},
+		{} as Record<number, number>,
+	),
+};
+
+// Set page metadata
+const pageTitle = "Books I've Read";
+const pageDescription = `A collection of ${stats.totalBooks} books I've read, totaling ${stats.totalPages} pages.`;
+---
+
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
+	<div class="container">
+		<header class="page-header">
+			<h1>{pageTitle}</h1>
+			<p class="page-description">{pageDescription}</p>
+		</header>
+
+		<!-- Enhanced Reading Statistics -->
+		<EnhancedBookStats stats={enhancedStats} />
+
+		<!-- Structured Data for SEO -->
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "CollectionPage",
+				name: "Books I've Read",
+				description: `A collection of ${enhancedStats.totalBooks} books I've read, totaling ${enhancedStats.totalPages} pages.`,
+				url: "https://kevincunningham.co.uk/books",
+				mainEntity: {
+					"@type": "ItemList",
+					numberOfItems: enhancedStats.totalBooks,
+					itemListElement: booksData.slice(0, 10).map((book, index) => ({
+						"@type": "ListItem",
+						position: index + 1,
+						item: {
+							"@type": "Book",
+							name: book.title,
+							author: {
+								"@type": "Person",
+								name: book.author,
+							},
+							bookFormat: "https://schema.org/Paperback",
+							numberOfPages: book.pages,
+							genre: book.genre,
+							datePublished: book.dateFinished,
+							image: book.coverUrl || undefined,
+						},
+					})),
+				},
+				author: {
+					"@type": "Person",
+					name: "Kevin Cunningham",
+					url: "https://kevincunningham.co.uk",
+				},
+			})}
+		/>
+
+		<!-- Book Filters -->
+		<BookFilters books={books} />
+
+		<!-- Books Grid -->
+		<section class="books-section">
+			<h2>All Books ({books.length})</h2>
+			<BookGrid
+				books={sortedBooks}
+				showFilters={true}
+				totalCount={books.length}
+			/>
+		</section>
+	</div>
+
+	<script define:vars={{ sortedBooks }}>
+		// Make book data available globally for filters
+		window.bookData = sortedBooks;
+		window.filteredBooks = sortedBooks;
+
+		// Listen for filter changes and update the grid
+		window.addEventListener("booksFiltered", (event) => {
+			const { filteredBooks, filters } = event.detail;
+
+			// Update the books grid
+			const bookGrid = document.querySelector(".book-grid");
+			if (bookGrid && filteredBooks) {
+				// Clear existing books
+				bookGrid.innerHTML = "";
+
+				// Add filtered books
+				filteredBooks.forEach((book) => {
+					const bookCard = createBookCard(book);
+					bookGrid.appendChild(bookCard);
+				});
+
+				// Update the books count
+				const booksCountElement = document.querySelector(".books-section h2");
+				if (booksCountElement) {
+					booksCountElement.textContent = `All Books (${filteredBooks.length})`;
+				}
+
+				// Show/hide no books message
+				const noBooksElement = document.querySelector(".no-books");
+				if (noBooksElement) {
+					noBooksElement.style.display =
+						filteredBooks.length === 0 ? "block" : "none";
+				}
+			}
+		});
+
+		function createBookCard(book) {
+			const card = document.createElement("div");
+			card.className = "book-card";
+			card.setAttribute(
+				"data-genre",
+				(book.data.enhancedGenre || book.data.genre).toLowerCase(),
+			);
+
+			const coverHtml = book.data.coverUrl
+				? `<img src="${book.data.coverUrl}" alt="Cover of ${book.data.title} by ${book.data.author}" loading="lazy" />`
+				: `<div class="book-cover-placeholder"><span>${book.data.title.substring(0, 20)}${book.data.title.length > 20 ? "..." : ""}</span></div>`;
+
+			card.innerHTML = `
+				${book.data.isCurrentlyReading ? '<div class="currently-reading-badge"><span>Currently Reading</span></div>' : ""}
+				<div class="book-cover">
+					${coverHtml}
+				</div>
+				<div class="book-info">
+					<h3 class="book-title" title="${book.data.title}">${book.data.title}</h3>
+					<p class="book-author" title="${book.data.author}">by ${book.data.author}</p>
+					<div class="book-metadata">
+						<span class="book-genre" title="${book.data.enhancedGenre || book.data.genre}">${book.data.enhancedGenre || book.data.genre}</span>
+						<span class="book-pages">${book.data.pages} pages</span>
+					</div>
+					<p class="book-date">
+						Finished ${new Date(book.data.dateFinished).toLocaleDateString("en-US", {
+							year: "numeric",
+							month: "long",
+							day: "numeric",
+						})}
+					</p>
+				</div>
+			`;
+
+			return card;
+		}
+	</script>
+</BaseLayout>
+
+<style>
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem;
+	}
+
+	.page-header {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.page-header h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		color: var(--accent-light, #646cff);
+	}
+
+	.page-description {
+		font-size: 1.2rem;
+		color: #666;
+	}
+
+	.processing-errors,
+	.processing-warnings {
+		margin-bottom: 2rem;
+		padding: 1rem;
+		border-radius: 8px;
+	}
+
+	.processing-errors {
+		background-color: #fee;
+		border: 1px solid #fcc;
+		color: #c33;
+	}
+
+	.processing-warnings {
+		background-color: #fef;
+		border: 1px solid #ccf;
+		color: #33c;
+	}
+
+	.reading-stats {
+		margin-bottom: 3rem;
+	}
+
+	.reading-stats h2 {
+		text-align: center;
+		margin-bottom: 2rem;
+		font-size: 2rem;
+	}
+
+	.stats-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.stat-card {
+		text-align: center;
+		padding: 1.5rem;
+		background: #f8f9fa;
+		border-radius: 12px;
+		border: 1px solid #e9ecef;
+	}
+
+	.stat-number {
+		font-size: 2rem;
+		font-weight: bold;
+		color: var(--accent-light, #646cff);
+		margin: 0;
+	}
+
+	.genre-distribution {
+		margin-bottom: 3rem;
+	}
+
+	.genre-distribution h2 {
+		text-align: center;
+		margin-bottom: 2rem;
+		font-size: 2rem;
+	}
+
+	.genre-list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 1rem;
+	}
+
+	.genre-item {
+		display: flex;
+		justify-content: space-between;
+		padding: 0.75rem;
+		background: #f8f9fa;
+		border-radius: 8px;
+		border: 1px solid #e9ecef;
+	}
+
+	.genre-count {
+		font-weight: bold;
+		color: var(--accent-light, #646cff);
+	}
+
+	.books-section {
+		margin-bottom: 3rem;
+	}
+
+	.books-section h2 {
+		text-align: center;
+		margin-bottom: 2rem;
+		font-size: 2rem;
+	}
+
+	@media (max-width: 768px) {
+		.container {
+			padding: 1rem;
+		}
+
+		.page-header h1 {
+			font-size: 2rem;
+		}
+
+		.stats-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+</style>

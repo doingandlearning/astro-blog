@@ -48,12 +48,19 @@ const { pageTitle, pageDescription } = Astro.props;
     /><meta property="og:image" content={getMetaImage(pageTitle)} /><meta
       property="og:url"
       content={Astro.url}
-    /><title>{pageTitle}</title><script
+    />
+    <title>{pageTitle}</title>
+    <script
       is:inline
       id="plausible-script"
       data-domain="kevincunningham.co.uk"
-      src="https://plausible.io/js/plausible.outbound-links.js"></script></head
-  >
+      src="https://plausible.io/js/plausible.outbound-links.js"></script>
+    <script>
+      import Alpine from "alpinejs";
+      (window as any).Alpine = Alpine;
+      Alpine.start();
+    </script>
+  </head>
 
   <ClientRouter />
 

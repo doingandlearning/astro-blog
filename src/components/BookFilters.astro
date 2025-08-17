@@ -1,0 +1,550 @@
+---
+export interface Book {
+	data: {
+		title: string;
+		author: string;
+		genre: string;
+		pages: number;
+		dateFinished: string;
+		coverUrl?: string;
+		enhancedGenre?: string;
+		isCurrentlyReading?: boolean;
+		readingYear: number;
+	};
+}
+
+export interface Props {
+	books: Book[];
+	onFiltersChange?: (filters: any) => void;
+}
+
+const { books, onFiltersChange } = Astro.props;
+
+// Extract unique values for filter options
+const genres = [
+	...new Set(books.map((book) => book.data.genre).filter(Boolean)),
+].sort();
+const years = [...new Set(books.map((book) => book.data.readingYear))].sort(
+	(a, b) => b - a,
+);
+const authors = [...new Set(books.map((book) => book.data.author))].sort();
+---
+
+<div class="book-filters" x-data="bookFilters()">
+	<div class="filters-header">
+		<h3>Filter Books</h3>
+		<button
+			class="clear-filters-btn"
+			@click="clearAllFilters()"
+			x-show="hasActiveFilters"
+			x-transition
+		>
+			Clear All Filters
+		</button>
+	</div>
+
+	<div class="filters-grid">
+		<!-- Search Filter -->
+		<div class="filter-group">
+			<label for="search-filter">Search</label>
+			<input
+				id="search-filter"
+				type="text"
+				placeholder="Search by title or author..."
+				x-model="filters.search"
+				@input="applyFilters()"
+				class="filter-input"
+			/>
+		</div>
+
+		<!-- Genre Filter -->
+		<div class="filter-group">
+			<label for="genre-filter">Genre</label>
+			<select
+				id="genre-filter"
+				x-model="filters.genre"
+				@change="applyFilters()"
+				class="filter-select"
+			>
+				<option value="">All Genres</option>
+				{genres.map((genre) => <option value={genre}>{genre}</option>)}
+			</select>
+		</div>
+
+		<!-- Year Filter -->
+		<div class="filter-group">
+			<label for="year-filter">Year Read</label>
+			<select
+				id="year-filter"
+				x-model="filters.year"
+				@change="applyFilters()"
+				class="filter-select"
+			>
+				<option value="">All Years</option>
+				{years.map((year) => <option value={year}>{year}</option>)}
+			</select>
+		</div>
+
+		<!-- Author Filter -->
+		<div class="filter-group">
+			<label for="author-filter">Author</label>
+			<select
+				id="author-filter"
+				x-model="filters.author"
+				@change="applyFilters()"
+				class="filter-select"
+			>
+				<option value="">All Authors</option>
+				{authors.map((author) => <option value={author}>{author}</option>)}
+			</select>
+		</div>
+
+		<!-- Currently Reading Filter -->
+		<div class="filter-group">
+			<label for="currently-reading-filter" class="checkbox-label">
+				<input
+					id="currently-reading-filter"
+					type="checkbox"
+					x-model="filters.currentlyReading"
+					@change="applyFilters()"
+					class="filter-checkbox"
+				/>
+				<span class="checkmark"></span>
+				Currently Reading Only
+			</label>
+		</div>
+
+		<!-- Page Range Filter -->
+		<div class="filter-group page-range">
+			<label for="min-pages-filter">Page Range</label>
+			<div class="range-inputs">
+				<input
+					id="min-pages-filter"
+					type="number"
+					placeholder="Min"
+					x-model="filters.minPages"
+					@input="applyFilters()"
+					class="filter-input range-input"
+					min="0"
+					aria-label="Minimum number of pages"
+				/>
+				<span class="range-separator">-</span>
+				<input
+					id="max-pages-filter"
+					type="number"
+					placeholder="Max"
+					x-model="filters.maxPages"
+					@input="applyFilters()"
+					class="filter-input range-input"
+					min="0"
+					aria-label="Maximum number of pages"
+				/>
+			</div>
+		</div>
+	</div>
+
+	<!-- Active Filters Display -->
+	<div class="active-filters" x-show="hasActiveFilters" x-transition>
+		<h4>Active Filters:</h4>
+		<div class="filter-tags">
+			<template x-for="(value, key) in activeFilterTags" :key="key">
+				<span class="filter-tag">
+					<span x-text="value"></span>
+					<button @click="removeFilter(key)" class="remove-filter">×</button>
+				</span>
+			</template>
+		</div>
+	</div>
+
+	<!-- Results Summary -->
+	<div class="results-summary">
+		<p>
+			Showing <strong x-text="filteredCount"></strong> of <strong
+				x-text="totalCount"></strong> books
+		</p>
+	</div>
+</div>
+
+<script is:inline>
+	// Alpine.js will be loaded globally from the main layout
+	// This script runs on the client side
+	function bookFilters() {
+		return {
+			filters: {
+				search: "",
+				genre: "",
+				year: "",
+				author: "",
+				currentlyReading: false,
+				minPages: "",
+				maxPages: "",
+			},
+
+			// Computed properties
+			get hasActiveFilters() {
+				return Object.values(this.filters).some(
+					(value) => value !== "" && value !== false && value !== null,
+				);
+			},
+
+			get activeFilterTags() {
+				const tags = {};
+				if (this.filters.search)
+					tags.search = `Search: "${this.filters.search}"`;
+				if (this.filters.genre) tags.genre = `Genre: ${this.filters.genre}`;
+				if (this.filters.year) tags.year = `Year: ${this.filters.year}`;
+				if (this.filters.author) tags.author = `Author: ${this.filters.author}`;
+				if (this.filters.currentlyReading)
+					tags.currentlyReading = "Currently Reading";
+				if (this.filters.minPages)
+					tags.minPages = `Min Pages: ${this.filters.minPages}`;
+				if (this.filters.maxPages)
+					tags.maxPages = `Max Pages: ${this.filters.maxPages}`;
+				return tags;
+			},
+
+			get totalCount() {
+				return window.bookData?.length || 0;
+			},
+
+			get filteredCount() {
+				return window.filteredBooks?.length || this.totalCount;
+			},
+
+			// Methods
+			clearAllFilters() {
+				this.filters = {
+					search: "",
+					genre: "",
+					year: "",
+					author: "",
+					currentlyReading: false,
+					minPages: "",
+					maxPages: "",
+				};
+				this.applyFilters();
+			},
+
+			removeFilter(key) {
+				if (key === "search") this.filters.search = "";
+				else if (key === "genre") this.filters.genre = "";
+				else if (key === "year") this.filters.year = "";
+				else if (key === "author") this.filters.author = "";
+				else if (key === "currentlyReading")
+					this.filters.currentlyReading = false;
+				else if (key === "minPages") this.filters.minPages = "";
+				else if (key === "maxPages") this.filters.maxPages = "";
+
+				this.applyFilters();
+			},
+
+			applyFilters() {
+				if (!window.bookData) return;
+
+				const filtered = window.bookData.filter((book) => {
+					const data = book.data;
+
+					// Search filter
+					if (this.filters.search) {
+						const searchTerm = this.filters.search.toLowerCase();
+						const titleMatch = data.title.toLowerCase().includes(searchTerm);
+						const authorMatch = data.author.toLowerCase().includes(searchTerm);
+						if (!titleMatch && !authorMatch) return false;
+					}
+
+					// Genre filter
+					if (this.filters.genre && data.genre !== this.filters.genre) {
+						return false;
+					}
+
+					// Year filter
+					if (
+						this.filters.year &&
+						data.readingYear !== parseInt(this.filters.year)
+					) {
+						return false;
+					}
+
+					// Author filter
+					if (this.filters.author && data.author !== this.filters.author) {
+						return false;
+					}
+
+					// Currently reading filter
+					if (this.filters.currentlyReading && !data.isCurrentlyReading) {
+						return false;
+					}
+
+					// Page range filters
+					if (
+						this.filters.minPages &&
+						data.pages < parseInt(this.filters.minPages)
+					) {
+						return false;
+					}
+					if (
+						this.filters.maxPages &&
+						data.pages > parseInt(this.filters.maxPages)
+					) {
+						return false;
+					}
+
+					return true;
+				});
+
+				// Update global filtered books
+				window.filteredBooks = filtered;
+
+				// Trigger custom event for other components
+				window.dispatchEvent(
+					new CustomEvent("booksFiltered", {
+						detail: { filteredBooks: filtered, filters: this.filters },
+					}),
+				);
+			},
+		};
+	}
+</script>
+
+<style>
+	.book-filters {
+		background: rgba(255, 255, 255, 0.95);
+		border-radius: 16px;
+		padding: 2rem;
+		margin-bottom: 2rem;
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+		backdrop-filter: blur(10px);
+	}
+
+	.filters-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1.5rem;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.filters-header h3 {
+		margin: 0;
+		font-size: 1.5rem;
+		color: #333;
+		font-weight: 600;
+	}
+
+	.clear-filters-btn {
+		background: var(--accent-light, #646cff);
+		color: white;
+		border: none;
+		padding: 0.5rem 1rem;
+		border-radius: 8px;
+		font-size: 0.9rem;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		font-weight: 500;
+	}
+
+	.clear-filters-btn:hover {
+		background: var(--accent, #535bf2);
+		transform: translateY(-1px);
+	}
+
+	.filters-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.filter-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.filter-group label {
+		font-weight: 600;
+		color: #495057;
+		font-size: 0.95rem;
+	}
+
+	.filter-input,
+	.filter-select {
+		padding: 0.75rem;
+		border: 2px solid #e9ecef;
+		border-radius: 8px;
+		font-size: 0.95rem;
+		transition:
+			border-color 0.2s ease,
+			box-shadow 0.2s ease;
+		background: white;
+	}
+
+	.filter-input:focus,
+	.filter-select:focus {
+		outline: none;
+		border-color: var(--accent-light, #646cff);
+		box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.1);
+	}
+
+	.filter-checkbox {
+		display: none;
+	}
+
+	.checkbox-label {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		cursor: pointer;
+		font-weight: 500;
+		color: #495057;
+	}
+
+	.checkmark {
+		width: 20px;
+		height: 20px;
+		border: 2px solid #e9ecef;
+		border-radius: 4px;
+		position: relative;
+		transition: all 0.2s ease;
+	}
+
+	.filter-checkbox:checked + .checkmark {
+		background: var(--accent-light, #646cff);
+		border-color: var(--accent-light, #646cff);
+	}
+
+	.filter-checkbox:checked + .checkmark::after {
+		content: "✓";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: white;
+		font-size: 12px;
+		font-weight: bold;
+	}
+
+	.page-range .range-inputs {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.range-input {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.range-separator {
+		color: #6c757d;
+		font-weight: 600;
+	}
+
+	.active-filters {
+		margin-bottom: 1.5rem;
+		padding: 1rem;
+		background: #f8f9fa;
+		border-radius: 8px;
+		border: 1px solid #e9ecef;
+	}
+
+	.active-filters h4 {
+		margin: 0 0 1rem 0;
+		font-size: 1rem;
+		color: #495057;
+	}
+
+	.filter-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.filter-tag {
+		background: var(--accent-light, #646cff);
+		color: white;
+		padding: 0.25rem 0.75rem;
+		border-radius: 20px;
+		font-size: 0.85rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.remove-filter {
+		background: none;
+		border: none;
+		color: white;
+		cursor: pointer;
+		font-size: 1.2rem;
+		line-height: 1;
+		padding: 0;
+		width: 16px;
+		height: 16px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		transition: background-color 0.2s ease;
+	}
+
+	.remove-filter:hover {
+		background: rgba(255, 255, 255, 0.2);
+	}
+
+	.results-summary {
+		text-align: center;
+		padding: 1rem;
+		background: #e8f4fd;
+		border-radius: 8px;
+		border: 1px solid #bee5eb;
+	}
+
+	.results-summary p {
+		margin: 0;
+		color: #0c5460;
+		font-size: 0.95rem;
+	}
+
+	.results-summary strong {
+		color: var(--accent-light, #646cff);
+	}
+
+	/* Responsive adjustments */
+	@media (max-width: 768px) {
+		.book-filters {
+			padding: 1.5rem;
+		}
+
+		.filters-grid {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+
+		.filters-header {
+			flex-direction: column;
+			align-items: stretch;
+			text-align: center;
+		}
+
+		.clear-filters-btn {
+			align-self: center;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.book-filters {
+			padding: 1rem;
+		}
+
+		.page-range .range-inputs {
+			flex-direction: column;
+			gap: 0.25rem;
+		}
+
+		.range-separator {
+			display: none;
+		}
+	}
+</style>

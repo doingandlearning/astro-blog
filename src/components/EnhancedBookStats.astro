@@ -1,0 +1,491 @@
+---
+import type { EnhancedBookStats } from "../utils/bookStats";
+
+export interface Props {
+	stats: EnhancedBookStats;
+}
+
+const { stats } = Astro.props;
+
+// Helper function to format numbers
+function formatNumber(num: number): string {
+	return num.toLocaleString();
+}
+
+// Helper function to get month name
+function getMonthName(month: number): string {
+	const months = [
+		"January",
+		"February",
+		"March",
+		"April",
+		"May",
+		"June",
+		"July",
+		"August",
+		"September",
+		"October",
+		"November",
+		"December",
+	];
+	return months[month - 1] || "Unknown";
+}
+
+// Helper function to get color for different categories
+function getCategoryColor(category: string): string {
+	const colors: Record<string, string> = {
+		Fiction: "bg-blue-100 text-blue-800",
+		"Non-Fiction": "bg-green-100 text-green-800",
+		Technical: "bg-purple-100 text-purple-800",
+		Academic: "bg-orange-100 text-orange-800",
+		Fantasy: "bg-indigo-100 text-indigo-800",
+		Science: "bg-red-100 text-red-800",
+		Philosophy: "bg-yellow-100 text-yellow-800",
+		Beginner: "bg-emerald-100 text-emerald-800",
+		Intermediate: "bg-amber-100 text-amber-800",
+		Advanced: "bg-rose-100 text-rose-800",
+		Simple: "bg-teal-100 text-teal-800",
+		Moderate: "bg-cyan-100 text-cyan-800",
+		Complex: "bg-pink-100 text-pink-800",
+	};
+
+	return colors[category] || "bg-gray-100 text-gray-800";
+}
+---
+
+<div class="enhanced-book-stats">
+	<!-- Basic Statistics -->
+	<section class="stats-section">
+		<h2 class="section-title">📊 Reading Overview</h2>
+		<div class="stats-grid">
+			<div class="stat-card">
+				<h3 class="stat-title">Total Books</h3>
+				<p class="stat-number">{formatNumber(stats.totalBooks)}</p>
+			</div>
+			<div class="stat-card">
+				<h3 class="stat-title">Total Pages</h3>
+				<p class="stat-number">{formatNumber(stats.totalPages)}</p>
+			</div>
+			<div class="stat-card">
+				<h3 class="stat-title">Average Pages</h3>
+				<p class="stat-number">{formatNumber(stats.averagePagesPerBook)}</p>
+			</div>
+			<div class="stat-card">
+				<h3 class="stat-title">Books This Year</h3>
+				<p class="stat-number">{formatNumber(stats.booksThisYear)}</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Reading Efficiency -->
+	<section class="stats-section">
+		<h2 class="section-title">⚡ Reading Efficiency</h2>
+		<div class="efficiency-grid">
+			<div class="efficiency-card">
+				<h3 class="efficiency-title">Pages per Day</h3>
+				<p class="efficiency-number">{stats.readingEfficiency.pagesPerDay}</p>
+			</div>
+			<div class="efficiency-card">
+				<h3 class="efficiency-title">Books per Month</h3>
+				<p class="efficiency-number">{stats.readingEfficiency.booksPerMonth}</p>
+			</div>
+			<div class="efficiency-card">
+				<h3 class="efficiency-title">Avg. Completion Time</h3>
+				<p class="efficiency-number">
+					{stats.readingEfficiency.averageCompletionTime}
+				</p>
+			</div>
+			<div class="efficiency-card">
+				<h3 class="efficiency-title">Total Reading Time</h3>
+				<p class="efficiency-number">{stats.totalReadingTime}</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Enhanced Categorization -->
+	<section class="stats-section">
+		<h2 class="section-title">🏷️ Content Categories</h2>
+
+		<!-- Book Categories -->
+		<div class="category-section">
+			<h3 class="category-title">Book Categories</h3>
+			<div class="category-tags">
+				{
+					Object.entries(stats.bookCategoryDistribution).map(
+						([category, count]) => (
+							<span class={`category-tag ${getCategoryColor(category)}`}>
+								{category} ({count})
+							</span>
+						),
+					)
+				}
+			</div>
+		</div>
+
+		<!-- Reading Levels -->
+		<div class="category-section">
+			<h3 class="category-title">Reading Levels</h3>
+			<div class="category-tags">
+				{
+					Object.entries(stats.readingLevelDistribution).map(
+						([level, count]) => (
+							<span class={`category-tag ${getCategoryColor(level)}`}>
+								{level} ({count})
+							</span>
+						),
+					)
+				}
+			</div>
+		</div>
+
+		<!-- Complexity -->
+		<div class="category-section">
+			<h3 class="category-title">Complexity</h3>
+			<div class="category-tags">
+				{
+					Object.entries(stats.complexityDistribution).map(
+						([complexity, count]) => (
+							<span class={`category-tag ${getCategoryColor(complexity)}`}>
+								{complexity} ({count})
+							</span>
+						),
+					)
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- Content Analysis -->
+	<section class="stats-section">
+		<h2 class="section-title">🔍 Content Analysis</h2>
+
+		<!-- Top Themes -->
+		{
+			stats.topThemes.length > 0 && (
+				<div class="analysis-section">
+					<h3 class="analysis-title">Top Themes</h3>
+					<div class="analysis-list">
+						{stats.topThemes.map(({ theme, count }) => (
+							<div class="analysis-item">
+								<span class="analysis-label">{theme}</span>
+								<span class="analysis-count">{count}</span>
+							</div>
+						))}
+					</div>
+				</div>
+			)
+		}
+
+		<!-- Top Tags -->
+		{
+			stats.topTags.length > 0 && (
+				<div class="analysis-section">
+					<h3 class="analysis-title">Popular Tags</h3>
+					<div class="tag-cloud">
+						{stats.topTags.map(({ tag, count }) => (
+							<span
+								class={`tag-cloud-item tag-size-${Math.min(Math.ceil(count / 2), 5)}`}
+							>
+								{tag}
+							</span>
+						))}
+					</div>
+				</div>
+			)
+		}
+
+		<!-- Most Read Authors -->
+		{
+			stats.mostReadAuthors.length > 0 && (
+				<div class="analysis-section">
+					<h3 class="analysis-title">Most Read Authors</h3>
+					<div class="analysis-list">
+						{stats.mostReadAuthors.map(({ author, count }) => (
+							<div class="analysis-item">
+								<span class="analysis-label">{author}</span>
+								<span class="analysis-count">{count}</span>
+							</div>
+						))}
+					</div>
+				</div>
+			)
+		}
+	</section>
+
+	<!-- Reading Patterns -->
+	<section class="stats-section">
+		<h2 class="section-title">📈 Reading Patterns</h2>
+
+		<!-- Monthly Pattern -->
+		{
+			Object.keys(stats.monthlyReadingPattern).length > 0 && (
+				<div class="pattern-section">
+					<h3 class="pattern-title">Monthly Reading Pattern</h3>
+					<div class="monthly-chart">
+						{Array.from({ length: 12 }, (_, i) => i + 1).map((month) => {
+							const count = stats.monthlyReadingPattern[month] || 0;
+							const maxCount = Math.max(
+								...Object.values(stats.monthlyReadingPattern),
+							);
+							const height = maxCount > 0 ? (count / maxCount) * 100 : 0;
+							return (
+								<div class="month-bar">
+									<div class="bar-label">
+										{getMonthName(month).substring(0, 3)}
+									</div>
+									<div class="bar" style={`height: ${height}%`} />
+									<div class="bar-value">{count}</div>
+								</div>
+							);
+						})}
+					</div>
+				</div>
+			)
+		}
+
+		<!-- Reading Timeline -->
+		{
+			Object.keys(stats.readingTimeline).length > 0 && (
+				<div class="pattern-section">
+					<h3 class="pattern-title">Reading Timeline</h3>
+					<div class="timeline-chart">
+						{Object.entries(stats.readingTimeline)
+							.sort(([a], [b]) => parseInt(a) - parseInt(b))
+							.map(([year, count]) => (
+								<div class="timeline-item">
+									<span class="timeline-year">{year}</span>
+									<span class="timeline-count">{count}</span>
+								</div>
+							))}
+					</div>
+				</div>
+			)
+		}
+	</section>
+
+	<!-- Recommendations -->
+	{
+		stats.suggestedNextReads.length > 0 && (
+			<section class="stats-section">
+				<h2 class="section-title">📚 Recommendations</h2>
+				<div class="recommendations-grid">
+					{stats.suggestedNextReads.map((book) => (
+						<div class="recommendation-card">
+							<h3 class="recommendation-title">{book.title}</h3>
+							<p class="recommendation-author">by {book.author}</p>
+							<div class="recommendation-tags">
+								{book.readingLevel && (
+									<span
+										class={`recommendation-tag ${getCategoryColor(book.readingLevel)}`}
+									>
+										{book.readingLevel}
+									</span>
+								)}
+								{book.complexity && (
+									<span
+										class={`recommendation-tag ${getCategoryColor(book.complexity)}`}
+									>
+										{book.complexity}
+									</span>
+								)}
+							</div>
+						</div>
+					))}
+				</div>
+			</section>
+		)
+	}
+</div>
+
+<style>
+	.enhanced-book-stats {
+		@apply space-y-8;
+	}
+
+	.stats-section {
+		@apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+	}
+
+	.section-title {
+		@apply text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2;
+	}
+
+	.stats-grid {
+		@apply grid grid-cols-2 md:grid-cols-4 gap-4;
+	}
+
+	.stat-card {
+		@apply bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-4 text-center border border-blue-200;
+	}
+
+	.stat-title {
+		@apply text-sm font-medium text-blue-700 mb-2;
+	}
+
+	.stat-number {
+		@apply text-2xl font-bold text-blue-900;
+	}
+
+	.efficiency-grid {
+		@apply grid grid-cols-2 md:grid-cols-4 gap-4;
+	}
+
+	.efficiency-card {
+		@apply bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-4 text-center border border-green-200;
+	}
+
+	.efficiency-title {
+		@apply text-sm font-medium text-green-700 mb-2;
+	}
+
+	.efficiency-number {
+		@apply text-xl font-bold text-green-900;
+	}
+
+	.category-section {
+		@apply mb-6;
+	}
+
+	.category-title {
+		@apply text-lg font-medium text-gray-800 mb-3;
+	}
+
+	.category-tags {
+		@apply flex flex-wrap gap-2;
+	}
+
+	.category-tag {
+		@apply px-3 py-1 rounded-full text-sm font-medium;
+	}
+
+	.analysis-section {
+		@apply mb-6;
+	}
+
+	.analysis-title {
+		@apply text-lg font-medium text-gray-800 mb-3;
+	}
+
+	.analysis-list {
+		@apply space-y-2;
+	}
+
+	.analysis-item {
+		@apply flex justify-between items-center py-2 px-3 bg-gray-50 rounded-lg;
+	}
+
+	.analysis-label {
+		@apply text-gray-700 font-medium;
+	}
+
+	.analysis-count {
+		@apply bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm font-medium;
+	}
+
+	.tag-cloud {
+		@apply flex flex-wrap gap-2;
+	}
+
+	.tag-cloud-item {
+		@apply px-2 py-1 rounded text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors;
+	}
+
+	.tag-size-1 {
+		@apply text-xs;
+	}
+	.tag-size-2 {
+		@apply text-sm;
+	}
+	.tag-size-3 {
+		@apply text-base;
+	}
+	.tag-size-4 {
+		@apply text-lg;
+	}
+	.tag-size-5 {
+		@apply text-xl;
+	}
+
+	.pattern-section {
+		@apply mb-6;
+	}
+
+	.pattern-title {
+		@apply text-lg font-medium text-gray-800 mb-3;
+	}
+
+	.monthly-chart {
+		@apply flex items-end justify-between h-32 gap-1;
+	}
+
+	.month-bar {
+		@apply flex flex-col items-center flex-1;
+	}
+
+	.bar-label {
+		@apply text-xs text-gray-600 mb-1;
+	}
+
+	.bar {
+		@apply w-full bg-blue-500 rounded-t transition-all duration-300 min-h-[4px];
+	}
+
+	.bar-value {
+		@apply text-xs text-gray-600 mt-1;
+	}
+
+	.timeline-chart {
+		@apply flex items-center gap-4 overflow-x-auto pb-2;
+	}
+
+	.timeline-item {
+		@apply flex flex-col items-center bg-gray-50 rounded-lg px-3 py-2 min-w-[60px];
+	}
+
+	.timeline-year {
+		@apply text-sm font-medium text-gray-700;
+	}
+
+	.timeline-count {
+		@apply text-lg font-bold text-blue-600;
+	}
+
+	.recommendations-grid {
+		@apply grid grid-cols-1 md:grid-cols-3 gap-4;
+	}
+
+	.recommendation-card {
+		@apply bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-4 border border-purple-200;
+	}
+
+	.recommendation-title {
+		@apply text-lg font-semibold text-purple-900 mb-1;
+	}
+
+	.recommendation-author {
+		@apply text-sm text-purple-700 mb-3;
+	}
+
+	.recommendation-tags {
+		@apply flex flex-wrap gap-2;
+	}
+
+	.recommendation-tag {
+		@apply px-2 py-1 rounded-full text-xs font-medium;
+	}
+
+	@media (max-width: 768px) {
+		.stats-grid,
+		.efficiency-grid {
+			@apply grid-cols-2;
+		}
+
+		.monthly-chart {
+			@apply h-24;
+		}
+
+		.recommendations-grid {
+			@apply grid-cols-1;
+		}
+	}
+</style>
