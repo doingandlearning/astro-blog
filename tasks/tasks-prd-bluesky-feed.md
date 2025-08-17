@@ -18,7 +18,7 @@
 
 ## Tasks
 
-- [ ] 1.0 Set up Bluesky API integration and data fetching
+- [x] 1.0 Set up Bluesky API integration and data fetching
   - [x] 1.1 Research Bluesky API documentation and authentication requirements
   - [x] 1.2 Install necessary dependencies for Bluesky API integration
 - [x] 1.3 Create `src/utils/bluesky.ts` utility file
