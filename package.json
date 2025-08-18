@@ -32,7 +32,6 @@
     "@astrojs/preact": "^4.1.0",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.4.1",
-    "@astrojs/vercel": "^8.2.2",
     "@atproto/api": "^0.16.2",
     "@codemirror/lang-javascript": "^6.2.1",
     "@codemirror/theme-one-dark": "^6.1.3",

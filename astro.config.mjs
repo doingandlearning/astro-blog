@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config";
 import preact from "@astrojs/preact";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import vercel from "@astrojs/vercel";
+import netlify from "@astrojs/netlify";
 import expressiveCode from "astro-expressive-code";
 
 import customToc from "astro-custom-toc";
@@ -20,7 +20,7 @@ export default defineConfig({
     sitemap(),
   ],
   output: "static",
-  adapter: vercel(),
+  adapter: netlify(),
   redirects: {
     "/feed.xml": {
       status: 302,
