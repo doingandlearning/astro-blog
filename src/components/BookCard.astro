@@ -35,6 +35,9 @@ const displayGenre = enhancedGenre || genre;
 
 // Create a fallback cover if none is provided
 const hasCover = coverUrl && coverUrl.trim() !== "";
+
+// Determine if the image is remote (external) or local
+const isRemoteImage = hasCover && (coverUrl.startsWith('http://') || coverUrl.startsWith('https://'));
 ---
 
 <div class="book-card" data-genre={displayGenre.toLowerCase()}>
@@ -49,17 +52,31 @@ const hasCover = coverUrl && coverUrl.trim() !== "";
 	<div class="book-cover">
 		{
 			hasCover ? (
-				<Image
-					src={coverUrl}
-					alt={`Cover of ${title} by ${author}`}
-					width={300}
-					height={400}
-					class="book-cover-image"
-					format="webp"
-					quality={80}
-					loading="lazy"
-					decoding="async"
-				/>
+				isRemoteImage ? (
+					// Use regular img tag for remote images to avoid server-side fetch issues
+					<img
+						src={coverUrl}
+						alt={`Cover of ${title} by ${author}`}
+						width={300}
+						height={400}
+						class="book-cover-image"
+						loading="lazy"
+						decoding="async"
+					/>
+				) : (
+					// Use Astro's Image component for local images to get optimization
+					<Image
+						src={coverUrl}
+						alt={`Cover of ${title} by ${author}`}
+						width={300}
+						height={400}
+						class="book-cover-image"
+						format="webp"
+						quality={80}
+						loading="lazy"
+						decoding="async"
+					/>
+				)
 			) : (
 				<div class="book-cover-placeholder">
 					<div class="placeholder-content">
