@@ -209,42 +209,44 @@ function hasItems(item: NavItem | DropdownItem): item is DropdownItem {
 
       // Handle keyboard navigation
       toggle.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
+        const keyboardEvent = e as KeyboardEvent;
+        if (keyboardEvent.key === "Enter" || keyboardEvent.key === " ") {
           e.preventDefault();
           const isExpanded = toggle.getAttribute("aria-expanded") === "true";
           toggle.setAttribute("aria-expanded", (!isExpanded).toString());
 
           if (!isExpanded) {
-            items[0]?.focus();
+            (items[0] as HTMLElement)?.focus();
           }
         }
 
-        if (e.key === "ArrowDown") {
+        if (keyboardEvent.key === "ArrowDown") {
           e.preventDefault();
           toggle.setAttribute("aria-expanded", "true");
-          items[0]?.focus();
+          (items[0] as HTMLElement)?.focus();
         }
       });
 
       // Handle menu item navigation
       items.forEach((item, index) => {
         item.addEventListener("keydown", (e) => {
-          if (e.key === "ArrowDown") {
+          const keyboardEvent = e as KeyboardEvent;
+          if (keyboardEvent.key === "ArrowDown") {
             e.preventDefault();
             const nextItem = items[index + 1] || items[0];
-            nextItem.focus();
+            (nextItem as HTMLElement).focus();
           }
 
-          if (e.key === "ArrowUp") {
+          if (keyboardEvent.key === "ArrowUp") {
             e.preventDefault();
             const prevItem = items[index - 1] || items[items.length - 1];
-            prevItem.focus();
+            (prevItem as HTMLElement).focus();
           }
 
-          if (e.key === "Escape") {
+          if (keyboardEvent.key === "Escape") {
             e.preventDefault();
             toggle.setAttribute("aria-expanded", "false");
-            toggle.focus();
+            (toggle as HTMLElement).focus();
           }
         });
       });
