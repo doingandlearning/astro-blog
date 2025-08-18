@@ -5,33 +5,258 @@ interface NavItem {
   external?: boolean;
 }
 
+interface DropdownItem {
+  label: string;
+  items: NavItem[];
+}
+
 interface Props {
   isMobile?: boolean;
 }
 
-const navmenu: NavItem[] = [
-  { label: "Home", href: "/" },
+const navmenu: (NavItem | DropdownItem)[] = [
   { label: "Courses", href: "/courses" },
   { label: "Blog", href: "/blog" },
-  { label: "Books", href: "/books" },
+  {
+    label: "Library",
+    items: [
+      { label: "Books", href: "/books" },
+      { label: "Bookmarks", href: "/bookmarks" },
+    ],
+  },
   { label: "YouTube", href: "/youtube" },
-  { label: "Bookmarks", href: "/bookmarks" },
   { label: "About", href: "/about" },
 ];
 
 const { isMobile } = Astro.props;
+
+function hasItems(item: NavItem | DropdownItem): item is DropdownItem {
+  return "items" in item;
+}
 ---
 
 <div class={isMobile ? "mobile-nav-links hidden" : "nav-links hidden"}>
   {
-    navmenu.map((item) => (
-      <a
-        href={item.href}
-        target={item.external ? "_blank" : ""}
-        rel={item.external ? "noopener" : ""}
-      >
-        {item.label}
-      </a>
-    ))
+    navmenu.map((item) =>
+      hasItems(item) ? (
+        <div class="dropdown">
+          <button
+            class="dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-label={`${item.label} menu`}
+          >
+            {item.label}
+            <span class="dropdown-arrow" aria-hidden="true">
+              ▼
+            </span>
+          </button>
+          <div
+            class="dropdown-menu"
+            role="menu"
+            aria-label={`${item.label} submenu`}
+          >
+            {item.items.map((subItem) => (
+              <a
+                href={subItem.href}
+                target={subItem.external ? "_blank" : ""}
+                rel={subItem.external ? "noopener" : ""}
+                class="dropdown-item"
+                role="menuitem"
+                aria-label={`Go to ${subItem.label} page`}
+              >
+                {subItem.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <a
+          href={item.href}
+          target={item.external ? "_blank" : ""}
+          rel={item.external ? "noopener" : ""}
+        >
+          {item.label}
+        </a>
+      ),
+    )
   }
 </div>
+
+<style>
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--site-green);
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-family: inherit;
+  }
+
+  .dropdown-toggle:hover,
+  .dropdown-toggle:focus {
+    background-color: var(--site-green);
+    color: white;
+  }
+
+  .dropdown-toggle .dropdown-arrow {
+    margin-left: 0.5rem;
+  }
+
+  .dropdown-arrow {
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 160px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-item {
+    display: block;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .dropdown-item:last-child {
+    border-bottom: none;
+  }
+
+  .dropdown-item:hover {
+    background-color: var(--site-green);
+    color: white;
+  }
+
+  /* Mobile styles - show dropdown items as separate links */
+  @media screen and (max-width: 635px) {
+    .dropdown {
+      display: contents; /* This will flatten the dropdown structure */
+    }
+
+    .dropdown-toggle {
+      display: none; /* Hide the dropdown button on mobile */
+    }
+
+    .dropdown-menu {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      background: transparent;
+      max-height: none;
+      overflow: visible;
+    }
+
+    .dropdown-item {
+      display: block;
+      text-align: center;
+      padding: 10px 0;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-bottom: none;
+    }
+
+    .dropdown-item:hover,
+    .dropdown-item:focus {
+      background-color: var(--site-green);
+      color: white;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    dropdowns.forEach((dropdown) => {
+      const toggle = dropdown.querySelector(".dropdown-toggle");
+      const menu = dropdown.querySelector(".dropdown-menu");
+      const items = dropdown.querySelectorAll(".dropdown-item");
+
+      if (!toggle || !menu) return;
+
+      // Handle keyboard navigation
+      toggle.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", (!isExpanded).toString());
+
+          if (!isExpanded) {
+            items[0]?.focus();
+          }
+        }
+
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          toggle.setAttribute("aria-expanded", "true");
+          items[0]?.focus();
+        }
+      });
+
+      // Handle menu item navigation
+      items.forEach((item, index) => {
+        item.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowDown") {
+            e.preventDefault();
+            const nextItem = items[index + 1] || items[0];
+            nextItem.focus();
+          }
+
+          if (e.key === "ArrowUp") {
+            e.preventDefault();
+            const prevItem = items[index - 1] || items[items.length - 1];
+            prevItem.focus();
+          }
+
+          if (e.key === "Escape") {
+            e.preventDefault();
+            toggle.setAttribute("aria-expanded", "false");
+            toggle.focus();
+          }
+        });
+      });
+
+      // Update aria-expanded on hover
+      dropdown.addEventListener("mouseenter", () => {
+        toggle.setAttribute("aria-expanded", "true");
+      });
+
+      dropdown.addEventListener("mouseleave", () => {
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  });
+</script>

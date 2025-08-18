@@ -3,24 +3,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import YouTubeFeed from "../components/YouTubeFeed.astro";
 
 const pageTitle = "YouTube Channel - Programming Tutorials by Kevin Cunningham";
-const pageDescription = "Watch my latest programming tutorials, tech talks, and educational content covering JavaScript, React, Vue.js, Node.js, TypeScript, and modern web development practices.";
+const pageDescription =
+  "Watch my latest programming tutorials, tech talks, and educational content covering JavaScript, React, Vue.js, Node.js, TypeScript, and modern web development practices.";
 ---
 
-<BaseLayout 
-  pageTitle={pageTitle}
-  pageDescription={pageDescription}
->
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
   <div class="youtube-page">
     <header class="page-header">
       <h1>📺 YouTube Channel</h1>
       <p class="lead">
-        Welcome to my YouTube channel! I create educational content about web development, 
-        programming languages, and developer tools. Subscribe to stay updated with the latest tutorials.
+        Welcome to my YouTube channel! I create educational content about web
+        development, programming languages, and developer tools. Subscribe to
+        stay updated with the latest tutorials.
       </p>
       <div class="channel-stats">
-        <a 
-          href="https://www.youtube.com/channel/UCtzNXx0YjJFvAuAPL9ZjQOw?sub_confirmation=1" 
-          target="_blank" 
+        <a
+          href="https://www.youtube.com/channel/UCtzNXx0YjJFvAuAPL9ZjQOw?sub_confirmation=1"
+          target="_blank"
           rel="noopener noreferrer"
           class="subscribe-btn"
         >
@@ -29,7 +28,7 @@ const pageDescription = "Watch my latest programming tutorials, tech talks, and 
       </div>
     </header>
 
-    <YouTubeFeed 
+    <YouTubeFeed
       maxVideos={6}
       showTitle={false}
       showVideoTitles={true}
@@ -50,15 +49,22 @@ const pageDescription = "Watch my latest programming tutorials, tech talks, and 
         </div>
         <div class="topic-card">
           <h3>💚 Vue.js</h3>
-          <p>Vue fundamentals, composition API, and building reactive applications</p>
+          <p>
+            Vue fundamentals, composition API, and building reactive
+            applications
+          </p>
         </div>
         <div class="topic-card">
           <h3>🟢 Node.js</h3>
-          <p>Server-side JavaScript, APIs, databases, and backend development</p>
+          <p>
+            Server-side JavaScript, APIs, databases, and backend development
+          </p>
         </div>
         <div class="topic-card">
           <h3>🔷 TypeScript</h3>
-          <p>Type safety, interfaces, generics, and advanced TypeScript patterns</p>
+          <p>
+            Type safety, interfaces, generics, and advanced TypeScript patterns
+          </p>
         </div>
         <div class="topic-card">
           <h3>🎨 CSS & Design</h3>
@@ -70,17 +76,29 @@ const pageDescription = "Watch my latest programming tutorials, tech talks, and 
     <section class="community-section">
       <h2>Join the Community</h2>
       <p>
-        Have questions about the tutorials? Want to suggest a topic? 
-        Connect with me and other learners:
+        Have questions about the tutorials? Want to suggest a topic? Connect
+        with me and other learners:
       </p>
       <div class="community-links">
-        <a href="https://bsky.app/profile/dolearning.dev" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://bsky.app/profile/dolearning.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           💙 Bluesky
         </a>
-        <a href="https://hachyderm.io/@dolearning/" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://hachyderm.io/@dolearning/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           🐘 Mastodon
         </a>
-        <a href="https://github.com/doingandlearning" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://github.com/doingandlearning"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           🐙 GitHub
         </a>
       </div>
@@ -126,7 +144,9 @@ const pageDescription = "Watch my latest programming tutorials, tech talks, and 
     border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
   }
 
   .subscribe-btn:hover {
@@ -156,7 +176,9 @@ const pageDescription = "Watch my latest programming tutorials, tech talks, and 
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
   }
 
   .topic-card:hover {
@@ -204,11 +226,13 @@ const pageDescription = "Watch my latest programming tutorials, tech talks, and 
   .community-links a {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background: var(--site-orange, #ff6b35);
+    background: var(--site-green, #ff6b35);
     color: white;
     text-decoration: none;
     border-radius: 20px;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
   }
 
   .community-links a:hover {
@@ -243,31 +267,31 @@ const pageDescription = "Watch my latest programming tutorials, tech talks, and 
 </style>
 
 <script is:inline type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "YouTube Channel - Programming Tutorials by Kevin Cunningham",
-  "description": "Watch my latest programming tutorials, tech talks, and educational content covering JavaScript, React, Vue.js, Node.js, TypeScript, and modern web development practices.",
-  "author": {
-    "@type": "Person",
-    "name": "Kevin Cunningham",
-    "url": "https://kevincunningham.co.uk",
-    "sameAs": [
-      "https://www.youtube.com/channel/UCtzNXx0YjJFvAuAPL9ZjQOw",
-      "https://github.com/doingandlearning",
-      "https://bsky.app/profile/dolearning.dev"
-    ]
-  },
-  "mainEntity": {
-    "@type": "VideoObject",
-    "name": "Programming Tutorials by Kevin Cunningham",
-    "description": "Educational programming content covering web development, JavaScript, React, Vue.js, and more",
-    "thumbnailUrl": "https://kevincunningham.co.uk/favicon.ico",
-    "uploadDate": "2024-01-01",
-    "publisher": {
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "YouTube Channel - Programming Tutorials by Kevin Cunningham",
+    "description": "Watch my latest programming tutorials, tech talks, and educational content covering JavaScript, React, Vue.js, Node.js, TypeScript, and modern web development practices.",
+    "author": {
       "@type": "Person",
-      "name": "Kevin Cunningham"
+      "name": "Kevin Cunningham",
+      "url": "https://kevincunningham.co.uk",
+      "sameAs": [
+        "https://www.youtube.com/channel/UCtzNXx0YjJFvAuAPL9ZjQOw",
+        "https://github.com/doingandlearning",
+        "https://bsky.app/profile/dolearning.dev"
+      ]
+    },
+    "mainEntity": {
+      "@type": "VideoObject",
+      "name": "Programming Tutorials by Kevin Cunningham",
+      "description": "Educational programming content covering web development, JavaScript, React, Vue.js, and more",
+      "thumbnailUrl": "https://kevincunningham.co.uk/favicon.ico",
+      "uploadDate": "2024-01-01",
+      "publisher": {
+        "@type": "Person",
+        "name": "Kevin Cunningham"
+      }
     }
   }
-}
 </script>

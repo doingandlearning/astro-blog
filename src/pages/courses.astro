@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 const precordedCourses = await getCollection("prerecorded").then((data) =>
-  data.sort((a, b) => a.data.order - b.data.order)
+  data.sort((a, b) => a.data.order - b.data.order),
 );
 const liveCourses = await getCollection("livecourses", ({ data }) => {
   return data.draft !== true;
@@ -129,7 +129,7 @@ const liveCourses = await getCollection("livecourses", ({ data }) => {
   .grid-container a {
     text-decoration: none;
     color: inherit;
-    color: var(--site-orange);
+    color: var(--site-green);
   }
 
   .grid-container a:hover {

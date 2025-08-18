@@ -1,7 +1,10 @@
 ---
 import { YouTube } from "@astro-community/astro-embed-youtube";
 import { getYouTubeVideos } from "../utils/youtube.ts";
-import { createVideoToBlogMappings, generateBlogSlug } from "../utils/youtube-blog-mapping.ts";
+import {
+  createVideoToBlogMappings,
+  generateBlogSlug,
+} from "../utils/youtube-blog-mapping.ts";
 import { getCollection } from "astro:content";
 
 export interface Props {
@@ -68,25 +71,26 @@ const limitedVideos = videosToShow.slice(0, maxVideos);
 
 // Get existing blog posts to check for matches
 const allPosts = await getCollection("posts");
-const publishedPosts = allPosts.filter(post => !post.data.draft);
+const publishedPosts = allPosts.filter((post) => !post.data.draft);
 
 // Create video to blog mappings
 const videoMappings = await createVideoToBlogMappings(limitedVideos);
 
 // Check which videos have corresponding blog posts
-const videosWithBlogInfo = limitedVideos.map(video => {
-  const mapping = videoMappings.find(m => m.videoId === video.id);
-  const existingPost = publishedPosts.find(post => 
-    post.data.youtubeId === video.id || 
-    post.slug === generateBlogSlug(video.title)
+const videosWithBlogInfo = limitedVideos.map((video) => {
+  const mapping = videoMappings.find((m) => m.videoId === video.id);
+  const existingPost = publishedPosts.find(
+    (post) =>
+      post.data.youtubeId === video.id ||
+      post.slug === generateBlogSlug(video.title),
   );
-  
+
   return {
     ...video,
     blogSlug: mapping?.blogSlug,
     blogTitle: mapping?.blogTitle,
     hasBlogPost: !!existingPost,
-    blogUrl: existingPost ? `/posts/${existingPost.slug}` : null
+    blogUrl: existingPost ? `/posts/${existingPost.slug}` : null,
   };
 });
 ---
@@ -159,7 +163,7 @@ const videosWithBlogInfo = limitedVideos.map(video => {
 
   .channel-link {
     display: inline-block;
-    color: var(--site-orange, #ff6b35);
+    color: var(--site-green, #ff6b35);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.2s ease;
@@ -227,7 +231,7 @@ const videosWithBlogInfo = limitedVideos.map(video => {
   }
 
   .blog-link-exists {
-    background: var(--site-orange, #ff6b35);
+    background: var(--site-green, #ff6b35);
     color: white;
   }
 

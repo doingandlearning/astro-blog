@@ -1,7 +1,7 @@
 :root {
-  /* --site-orange: rgb(254,132,47); */
-  /* --site-orange: #00692e */
-  --site-orange: #00692e;
+  /* --site-green: rgb(254,132,47); */
+  /* --site-green: #00692e */
+  --site-green: #00692e;
   --dark-blue: rgb(12, 9, 93);
   --font-size-base: calc(((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) * var(--fluid-bp));
   --theme-shade-subtle: rgb(255, 0, 128);
@@ -9,7 +9,7 @@
   --theme-bg: white;
   --theme-text-light: rgb(90, 86, 86);
   --theme-text: black;
-  --theme-bg-offset: var(--site-orange);
+  --theme-bg-offset: var(--site-green);
   --theme-accent-opacity: 0.1;
 }
 
@@ -44,7 +44,7 @@ p {
 }
 
 a {
-  color: var(--site-orange);
+  color: var(--site-green);
   text-decoration: none;
 }
 
@@ -80,7 +80,7 @@ a {
   width: 40px;
   height: 5px;
   margin-bottom: 10px;
-  background-color: var(--site-orange);
+  background-color: var(--site-green);
 }
 
 
@@ -89,7 +89,7 @@ a {
   position: absolute;
   top: 0;
   right: 0;
-  background-color: var(--site-orange);
+  background-color: var(--site-green);
   color: white;
   padding: 0.25rem 0.5rem;
   font-size: 0.75rem;
@@ -98,7 +98,7 @@ a {
 
 .copy-code:hover {
   background-color: white;
-  color: var(--site-orange);
+  color: var(--site-green);
 }
 
 
@@ -118,8 +118,8 @@ blockquote {
   text-align: justify;
 
   /*Borders - (Optional)*/
-  border-left: 15px solid var(--site-orange);
-  border-right: 2px solid var(--site-orange);
+  border-left: 15px solid var(--site-green);
+  border-right: 2px solid var(--site-green);
 
   /*Box Shadow - (Optional)*/
   -moz-box-shadow: 2px 2px 15px #ccc;
@@ -183,7 +183,7 @@ pre code {
   width: 100%;
   top: 5rem;
   left: 48px;
-  background-color: var(--site-orange);
+  background-color: var(--site-green);
   display: none;
 
 }
@@ -198,14 +198,14 @@ pre code {
   padding: 10px 0;
   text-decoration: none;
   font-size: 1.2rem;
-  color: rgb(12, 9, 93);
+  color: var(--site-green);
 }
 
 .nav-links a:hover,
 .nav-links a:focus,
 .mobile-nav-links a:hover,
 .mobile-nav-links a:focus {
-  background-color: var(--site-orange);
+  background-color: var(--site-green);
   color: white
 }
 
@@ -230,7 +230,7 @@ pre code {
   padding: 10px 0;
   text-decoration: none;
   font-size: 1.2rem;
-  color: rgb(12, 9, 93);
+  color: var(--site-green);
 }
 
 @media screen and (min-width: 636px) {
@@ -368,7 +368,7 @@ pre code {
 
 .search-card-container:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  border: 1px solid var(--site-orange);
+  border: 1px solid var(--site-green);
 }
 
 table {
@@ -422,11 +422,11 @@ li {
 }
 
 ul li::marker {
-  color: var(--site-orange);
+  color: var(--site-green);
   font-size: 1.2em;
 }
 
 ol li::marker {
-  color: var(--site-orange);
+  color: var(--site-green);
   font-weight: bold;
 }
