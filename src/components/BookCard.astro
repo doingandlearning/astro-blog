@@ -8,6 +8,7 @@ export interface Props {
 	pages: number;
 	dateFinished: string;
 	coverUrl?: string;
+	localCoverPath?: string;
 	enhancedGenre?: string;
 	isCurrentlyReading?: boolean;
 }
@@ -19,6 +20,7 @@ const {
 	pages,
 	dateFinished,
 	coverUrl,
+	localCoverPath,
 	enhancedGenre,
 	isCurrentlyReading = false,
 } = Astro.props;
@@ -33,11 +35,15 @@ const formattedDate = new Date(dateFinished).toLocaleDateString("en-US", {
 // Determine the display genre (use enhanced if available, fallback to original)
 const displayGenre = enhancedGenre || genre;
 
-// Create a fallback cover if none is provided
-const hasCover = coverUrl && coverUrl.trim() !== "";
+// Prefer local cover path over remote cover URL
+const effectiveCoverPath = localCoverPath || coverUrl;
+const hasCover = effectiveCoverPath && effectiveCoverPath.trim() !== "";
 
-// Determine if the image is remote (external) or local
-const isRemoteImage = hasCover && (coverUrl.startsWith('http://') || coverUrl.startsWith('https://'));
+// Determine if we should use Astro Image component (for local images) or regular img tag (for remote)
+const shouldUseAstroImage = hasCover && (
+	localCoverPath || 
+	(coverUrl && !coverUrl.startsWith('http://') && !coverUrl.startsWith('https://'))
+);
 ---
 
 <div class="book-card" data-genre={displayGenre.toLowerCase()}>
@@ -52,27 +58,27 @@ const isRemoteImage = hasCover && (coverUrl.startsWith('http://') || coverUrl.st
 	<div class="book-cover">
 		{
 			hasCover ? (
-				isRemoteImage ? (
-					// Use regular img tag for remote images to avoid server-side fetch issues
-					<img
-						src={coverUrl}
-						alt={`Cover of ${title} by ${author}`}
-						width={300}
-						height={400}
-						class="book-cover-image"
-						loading="lazy"
-						decoding="async"
-					/>
-				) : (
+				shouldUseAstroImage ? (
 					// Use Astro's Image component for local images to get optimization
 					<Image
-						src={coverUrl}
+						src={effectiveCoverPath}
 						alt={`Cover of ${title} by ${author}`}
 						width={300}
 						height={400}
 						class="book-cover-image"
 						format="webp"
 						quality={80}
+						loading="lazy"
+						decoding="async"
+					/>
+				) : (
+					// Use regular img tag for remote images to avoid server-side fetch issues
+					<img
+						src={effectiveCoverPath}
+						alt={`Cover of ${title} by ${author}`}
+						width={300}
+						height={400}
+						class="book-cover-image"
 						loading="lazy"
 						decoding="async"
 					/>

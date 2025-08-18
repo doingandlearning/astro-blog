@@ -9,6 +9,7 @@ export interface Book {
 		pages: number;
 		dateFinished: string;
 		coverUrl?: string;
+		localCoverPath?: string;
 		enhancedGenre?: string;
 		isCurrentlyReading?: boolean;
 		readingYear: number;
@@ -56,6 +57,7 @@ const hasFilters =
 						pages={book.data.pages}
 						dateFinished={book.data.dateFinished}
 						coverUrl={book.data.coverUrl}
+						localCoverPath={book.data.localCoverPath}
 						enhancedGenre={book.data.enhancedGenre}
 						isCurrentlyReading={book.data.isCurrentlyReading}
 					/>

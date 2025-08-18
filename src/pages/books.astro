@@ -182,8 +182,9 @@ const pageDescription = `A collection of ${stats.totalBooks} books I've read, to
 				(book.data.enhancedGenre || book.data.genre).toLowerCase(),
 			);
 
-			const coverHtml = book.data.coverUrl
-				? `<img src="${book.data.coverUrl}" alt="Cover of ${book.data.title} by ${book.data.author}" loading="lazy" />`
+			const effectiveCoverPath = book.data.localCoverPath || book.data.coverUrl;
+			const coverHtml = effectiveCoverPath
+				? `<img src="${effectiveCoverPath}" alt="Cover of ${book.data.title} by ${book.data.author}" loading="lazy" />`
 				: `<div class="book-cover-placeholder"><span>${book.data.title.substring(0, 20)}${book.data.title.length > 20 ? "..." : ""}</span></div>`;
 
 			card.innerHTML = `
