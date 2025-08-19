@@ -1,0 +1,41 @@
+{
+  "title": "Recon",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-08-19T15:38:18.427Z",
+  "genre": "General",
+  "pages": 0,
+  "coverUrl": "/images/book-covers/recon.jpg",
+  "readingYear": 2025,
+  "readingMonth": 8,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Exploration",
+    "Survival",
+    "Technology",
+    "Adventure"
+  ],
+  "targetAudience": "Fans of science fiction and military adventure stories",
+  "complexity": "Moderate",
+  "readingTime": "N/A",
+  "relatedBooks": [
+    "The Forever War",
+    "Old Man's War",
+    "Starship Troopers"
+  ],
+  "keyInsights": [
+    "The impact of technology on warfare",
+    "The nature of human resilience",
+    "The importance of teamwork in survival situations"
+  ],
+  "tags": [
+    "Science Fiction",
+    "Military",
+    "Adventure",
+    "Space Exploration"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-19T15:38:21.699Z"
+}
