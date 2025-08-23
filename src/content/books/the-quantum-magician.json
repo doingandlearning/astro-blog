@@ -1,0 +1,44 @@
+{
+  "title": "The Quantum Magician",
+  "author": "Derek Kunsken",
+  "dateFinished": "2025-08-23T14:25:27.719Z",
+  "genre": "General",
+  "pages": 241,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 8,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction, Space Opera",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Quantum Mechanics",
+    "Artificial Intelligence",
+    "Space Exploration",
+    "Identity",
+    "Ethics in Technology"
+  ],
+  "targetAudience": "Readers interested in science fiction and speculative technology",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Three-Body Problem",
+    "Neuromancer",
+    "The Expanse Series",
+    "Foundation Series"
+  ],
+  "keyInsights": [
+    "Exploration of quantum theories in a narrative context",
+    "Impact of technology on identity and society",
+    "Ethical dilemmas in advanced AI and space travel"
+  ],
+  "tags": [
+    "Science Fiction",
+    "Quantum Physics",
+    "Space Opera",
+    "AI",
+    "Technology Ethics"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-23T14:25:35.552Z"
+}
