@@ -1,0 +1,43 @@
+{
+  "title": "Stars Uncharted",
+  "author": "S. K. Dunstall",
+  "dateFinished": "2025-08-24T19:05:26.732Z",
+  "genre": "General",
+  "pages": 401,
+  "coverUrl": "/book-covers/stars-uncharted-s-k-dunstall.jpg",
+  "readingYear": 2025,
+  "readingMonth": 8,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "exploration",
+    "space travel",
+    "humanity",
+    "technology",
+    "survival"
+  ],
+  "targetAudience": "Readers interested in science fiction and space adventures",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "The Expanse series by James S.A. Corey",
+    "Leviathan Wakes by James S.A. Corey",
+    "The Long Way to a Small, Angry Planet by Becky Chambers"
+  ],
+  "keyInsights": [
+    "The importance of teamwork in space exploration",
+    "Ethical dilemmas in technology use",
+    "The resilience of humanity in the face of adversity"
+  ],
+  "tags": [
+    "space opera",
+    "adventure",
+    "science fiction",
+    "exploration",
+    "technology"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-24T19:05:30.741Z"
+}

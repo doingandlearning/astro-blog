@@ -40,10 +40,12 @@ const effectiveCoverPath = localCoverPath || coverUrl;
 const hasCover = effectiveCoverPath && effectiveCoverPath.trim() !== "";
 
 // Determine if we should use Astro Image component (for local images) or regular img tag (for remote)
-const shouldUseAstroImage = hasCover && (
-	localCoverPath || 
-	(coverUrl && !coverUrl.startsWith('http://') && !coverUrl.startsWith('https://'))
-);
+const shouldUseAstroImage =
+	hasCover &&
+	(localCoverPath ||
+		(coverUrl &&
+			!coverUrl.startsWith("http://") &&
+			!coverUrl.startsWith("https://")));
 ---
 
 <div class="book-card" data-genre={displayGenre.toLowerCase()}>
@@ -150,10 +152,11 @@ const shouldUseAstroImage = hasCover && (
 	}
 
 	.book-cover {
-		height: 300px;
+		aspect-ratio: 2/3;
 		overflow: hidden;
 		position: relative;
 		background: #f8f9fa;
+		width: 100%;
 	}
 
 	.book-cover-image {
@@ -262,10 +265,6 @@ const shouldUseAstroImage = hasCover && (
 
 	/* Responsive adjustments */
 	@media (max-width: 768px) {
-		.book-cover {
-			height: 250px;
-		}
-
 		.book-info {
 			padding: 1rem;
 		}
@@ -284,10 +283,6 @@ const shouldUseAstroImage = hasCover && (
 	}
 
 	@media (max-width: 480px) {
-		.book-cover {
-			height: 200px;
-		}
-
 		.book-info {
 			padding: 0.75rem;
 		}
