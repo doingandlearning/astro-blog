@@ -1,0 +1,420 @@
+---
+import { Image } from "astro:assets";
+
+export interface Props {
+	// Modal will be populated via JavaScript
+}
+---
+
+<div id="book-modal" class="modal-overlay" onclick="closeBookModal(event)">
+	<div class="modal-content" onclick="event.stopPropagation()">
+		<button class="close-button" onclick="closeBookModal()">&times;</button>
+		
+		<div class="modal-body">
+			<div class="book-cover-section">
+				<div id="modal-cover" class="modal-book-cover"></div>
+			</div>
+			
+			<div class="book-details-section">
+				<div class="book-header">
+					<h2 id="modal-title" class="modal-book-title"></h2>
+					<p id="modal-author" class="modal-book-author"></p>
+				</div>
+
+				<div class="book-metadata">
+					<div class="metadata-grid">
+						<div class="metadata-item">
+							<span class="metadata-label">Genre:</span>
+							<span id="modal-genre" class="metadata-value"></span>
+						</div>
+						<div class="metadata-item">
+							<span class="metadata-label">Pages:</span>
+							<span id="modal-pages" class="metadata-value"></span>
+						</div>
+						<div class="metadata-item">
+							<span class="metadata-label">Finished:</span>
+							<span id="modal-finished" class="metadata-value"></span>
+						</div>
+						<div class="metadata-item">
+							<span class="metadata-label">Reading Time:</span>
+							<span id="modal-reading-time" class="metadata-value"></span>
+						</div>
+					</div>
+				</div>
+
+				<div id="modal-themes" class="themes-section">
+					<h3>Themes</h3>
+					<div class="themes-list"></div>
+				</div>
+
+				<div id="modal-insights" class="insights-section">
+					<h3>Key Insights</h3>
+					<ul class="insights-list"></ul>
+				</div>
+
+				<div id="modal-related" class="related-section">
+					<h3>Related Books</h3>
+					<div class="related-list"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	function openBookModal(bookData) {
+		const modal = document.getElementById('book-modal');
+		const title = document.getElementById('modal-title');
+		const author = document.getElementById('modal-author');
+		const genre = document.getElementById('modal-genre');
+		const pages = document.getElementById('modal-pages');
+		const finished = document.getElementById('modal-finished');
+		const readingTime = document.getElementById('modal-reading-time');
+		const cover = document.getElementById('modal-cover');
+		const themesSection = document.getElementById('modal-themes');
+		const insightsSection = document.getElementById('modal-insights');
+		const relatedSection = document.getElementById('modal-related');
+
+		// Set basic info
+		title.textContent = bookData.title;
+		author.textContent = `by ${bookData.author}`;
+		genre.textContent = bookData.enhancedGenre || bookData.genre;
+		pages.textContent = `${bookData.pages} pages`;
+		finished.textContent = new Date(bookData.dateFinished).toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric'
+		});
+		readingTime.textContent = bookData.readingTime || 'Not specified';
+
+		// Set cover
+		const coverUrl = bookData.localCoverPath || bookData.coverUrl;
+		if (coverUrl) {
+			cover.innerHTML = `<img src="${coverUrl}" alt="Cover of ${bookData.title}" />`;
+		} else {
+			cover.innerHTML = `
+				<div class="cover-placeholder">
+					<div class="placeholder-content">
+						<span class="placeholder-title">${bookData.title}</span>
+						<span class="placeholder-author">${bookData.author}</span>
+					</div>
+				</div>
+			`;
+		}
+
+		// Set themes
+		if (bookData.themes && bookData.themes.length > 0) {
+			const themesList = themesSection.querySelector('.themes-list');
+			themesList.innerHTML = bookData.themes.map(theme => 
+				`<span class="theme-tag">${theme}</span>`
+			).join('');
+			themesSection.style.display = 'block';
+		} else {
+			themesSection.style.display = 'none';
+		}
+
+		// Set insights
+		if (bookData.keyInsights && bookData.keyInsights.length > 0) {
+			const insightsList = insightsSection.querySelector('.insights-list');
+			insightsList.innerHTML = bookData.keyInsights.map(insight => 
+				`<li>${insight}</li>`
+			).join('');
+			insightsSection.style.display = 'block';
+		} else {
+			insightsSection.style.display = 'none';
+		}
+
+		// Set related books
+		if (bookData.relatedBooks && bookData.relatedBooks.length > 0) {
+			const relatedList = relatedSection.querySelector('.related-list');
+			relatedList.innerHTML = bookData.relatedBooks.map(book => 
+				`<span class="related-book">${book}</span>`
+			).join('');
+			relatedSection.style.display = 'block';
+		} else {
+			relatedSection.style.display = 'none';
+		}
+
+		// Show modal
+		modal.style.display = 'flex';
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeBookModal(event) {
+		if (event && event.target !== event.currentTarget && !event.target.classList.contains('close-button')) {
+			return;
+		}
+		
+		const modal = document.getElementById('book-modal');
+		modal.style.display = 'none';
+		document.body.style.overflow = 'auto';
+	}
+
+	// Close modal on escape key
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') {
+			closeBookModal();
+		}
+	});
+
+	// Make functions globally available
+	window.openBookModal = openBookModal;
+	window.closeBookModal = closeBookModal;
+</script>
+
+<style>
+	.modal-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.8);
+		display: none;
+		justify-content: center;
+		align-items: center;
+		z-index: 1000;
+		padding: 2rem;
+	}
+
+	.modal-content {
+		background: white;
+		border-radius: 16px;
+		max-width: 800px;
+		width: 100%;
+		max-height: 90vh;
+		overflow-y: auto;
+		position: relative;
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+	}
+
+	.close-button {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		background: none;
+		border: none;
+		font-size: 2rem;
+		cursor: pointer;
+		color: #666;
+		width: 40px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		transition: all 0.2s ease;
+		z-index: 1001;
+	}
+
+	.close-button:hover {
+		background-color: #f0f0f0;
+		color: #333;
+	}
+
+	.modal-body {
+		display: flex;
+		min-height: 400px;
+	}
+
+	.book-cover-section {
+		flex: 0 0 250px;
+		padding: 2rem;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		background: #f8f9fa;
+	}
+
+	.modal-book-cover {
+		width: 180px;
+		height: 270px;
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		background: #fff;
+	}
+
+	.modal-book-cover img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		object-position: center;
+	}
+
+	.cover-placeholder {
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: white;
+		text-align: center;
+		padding: 1.5rem;
+	}
+
+	.placeholder-content {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.placeholder-title {
+		font-weight: 600;
+		font-size: 0.9rem;
+		line-height: 1.3;
+	}
+
+	.placeholder-author {
+		font-size: 0.8rem;
+		opacity: 0.9;
+		font-style: italic;
+	}
+
+	.book-details-section {
+		flex: 1;
+		padding: 2rem;
+		padding-top: 3rem;
+	}
+
+	.book-header {
+		margin-bottom: 2rem;
+	}
+
+	.modal-book-title {
+		font-size: 2rem;
+		margin: 0 0 0.5rem 0;
+		color: #333;
+		line-height: 1.3;
+	}
+
+	.modal-book-author {
+		font-size: 1.3rem;
+		margin: 0 0 0 0;
+		color: #666;
+		font-style: italic;
+	}
+
+	.book-metadata {
+		margin-bottom: 2rem;
+	}
+
+	.metadata-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1rem;
+	}
+
+	.metadata-item {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.metadata-label {
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: #666;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+
+	.metadata-value {
+		font-size: 1.1rem;
+		color: #333;
+	}
+
+	.themes-section,
+	.insights-section,
+	.related-section {
+		margin-bottom: 2rem;
+	}
+
+	.themes-section h3,
+	.insights-section h3,
+	.related-section h3 {
+		font-size: 1.3rem;
+		margin: 0 0 1rem 0;
+		color: #333;
+	}
+
+	.themes-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.theme-tag {
+		background: var(--accent-light, #646cff);
+		color: white;
+		padding: 0.4rem 0.8rem;
+		border-radius: 20px;
+		font-size: 0.9rem;
+		font-weight: 500;
+	}
+
+	.insights-list {
+		margin: 0;
+		padding-left: 1.5rem;
+	}
+
+	.insights-list li {
+		margin-bottom: 0.75rem;
+		line-height: 1.6;
+		color: #555;
+	}
+
+	.related-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.related-book {
+		background: #f8f9fa;
+		color: #333;
+		padding: 0.4rem 0.8rem;
+		border-radius: 8px;
+		font-size: 0.9rem;
+		border: 1px solid #e9ecef;
+	}
+
+	/* Responsive design */
+	@media (max-width: 768px) {
+		.modal-overlay {
+			padding: 1rem;
+		}
+
+		.modal-body {
+			flex-direction: column;
+		}
+
+		.book-cover-section {
+			flex: none;
+			padding: 1rem;
+			justify-content: center;
+		}
+
+		.modal-book-cover {
+			width: 140px;
+			height: 210px;
+		}
+
+		.book-details-section {
+			padding: 1rem;
+		}
+
+		.modal-book-title {
+			font-size: 1.6rem;
+		}
+
+		.modal-book-author {
+			font-size: 1.1rem;
+		}
+
+		.metadata-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

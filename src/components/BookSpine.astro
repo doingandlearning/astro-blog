@@ -1,0 +1,258 @@
+---
+export interface Props {
+	title: string;
+	author: string;
+	genre: string;
+	pages: number;
+	dateFinished: string;
+	coverUrl?: string;
+	localCoverPath?: string;
+	enhancedGenre?: string;
+	isCurrentlyReading?: boolean;
+	onClick?: string;
+}
+
+const {
+	title,
+	author,
+	genre,
+	pages,
+	dateFinished,
+	coverUrl,
+	localCoverPath,
+	enhancedGenre,
+	isCurrentlyReading = false,
+	onClick = '',
+} = Astro.props;
+
+// Calculate spine thickness based on page count (min 15px, max 45px)
+const baseThickness = Math.max(15, Math.min(45, pages / 12));
+const spineThickness = `${baseThickness}px`;
+
+// Determine spine color based on genre
+const getSpineColor = (genre: string) => {
+	const colors: Record<string, string> = {
+		'fantasy': '#8B4513',
+		'science fiction': '#4169E1',
+		'fiction': '#228B22',
+		'mystery': '#800080',
+		'biography': '#FF6347',
+		'history': '#CD853F',
+		'romance': '#FF69B4',
+		'horror': '#8B0000',
+		'thriller': '#2F4F4F',
+		'non-fiction': '#4682B4',
+	};
+	
+	const key = (enhancedGenre || genre).toLowerCase();
+	return colors[key] || colors[Object.keys(colors).find(k => key.includes(k)) || ''] || '#8B4513';
+};
+
+const spineColor = getSpineColor(genre);
+const displayGenre = enhancedGenre || genre;
+
+// Truncate title based on spine thickness
+const getTitleLength = (thickness: number) => {
+	if (thickness <= 18) return 14; // Thin books
+	if (thickness <= 25) return 18; // Medium-thin books
+	if (thickness <= 35) return 22; // Medium books
+	return 28; // Thick books
+};
+
+const getAuthorLength = (thickness: number) => {
+	if (thickness <= 18) return 10; // Thin books
+	if (thickness <= 25) return 14; // Medium-thin books
+	return 18; // Medium and thick books
+};
+
+const maxTitleLength = getTitleLength(baseThickness);
+const maxAuthorLength = getAuthorLength(baseThickness);
+
+const displayTitle = title.length > maxTitleLength ? title.substring(0, maxTitleLength) + '...' : title;
+const displayAuthor = author.length > maxAuthorLength ? author.substring(0, maxAuthorLength) + '...' : author;
+---
+
+<div 
+	class="book-spine" 
+	data-genre={displayGenre.toLowerCase()}
+	data-pages={pages}
+	data-title={title}
+	data-author={author}
+	data-finished={dateFinished}
+	style={`width: ${spineThickness}; background-color: ${spineColor};`}
+	onclick={onClick}
+>
+	{isCurrentlyReading && (
+		<div class="currently-reading-indicator"></div>
+	)}
+	
+	<div class="spine-content">
+		<div class="spine-title">{displayTitle}</div>
+		<div class="spine-author">{displayAuthor}</div>
+	</div>
+	
+	<div class="spine-details">
+		<div class="spine-pages">{pages}p</div>
+	</div>
+</div>
+
+<style>
+	.book-spine {
+		height: 250px;
+		position: relative;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		border-radius: 2px;
+		box-shadow: 
+			2px 2px 4px rgba(0, 0, 0, 0.3),
+			inset -2px 0 2px rgba(0, 0, 0, 0.2),
+			inset 2px 0 2px rgba(255, 255, 255, 0.1);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 8px 4px;
+		margin: 0 1px;
+		writing-mode: vertical-lr;
+		text-orientation: mixed;
+		overflow: hidden;
+	}
+
+	.book-spine:hover {
+		transform: translateY(-5px);
+		box-shadow: 
+			2px 7px 8px rgba(0, 0, 0, 0.4),
+			inset -2px 0 2px rgba(0, 0, 0, 0.2),
+			inset 2px 0 2px rgba(255, 255, 255, 0.2);
+	}
+
+	.currently-reading-indicator {
+		position: absolute;
+		top: 4px;
+		right: 4px;
+		width: 8px;
+		height: 8px;
+		background-color: #FFD700;
+		border-radius: 50%;
+		animation: pulse 2s infinite;
+		box-shadow: 0 0 4px rgba(255, 215, 0, 0.6);
+	}
+
+	@keyframes pulse {
+		0% { opacity: 1; }
+		50% { opacity: 0.5; }
+		100% { opacity: 1; }
+	}
+
+	.spine-content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		color: white;
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+	}
+
+	.spine-title {
+		font-weight: 600;
+		font-size: 0.7rem;
+		line-height: 1.1;
+		margin-bottom: 4px;
+		word-break: break-word;
+	}
+
+	.spine-author {
+		font-size: 0.6rem;
+		opacity: 0.9;
+		font-style: italic;
+		word-break: break-word;
+	}
+
+	.spine-details {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		color: white;
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+	}
+
+	.spine-pages {
+		font-size: 0.5rem;
+		opacity: 0.8;
+		transform: rotate(0deg);
+		writing-mode: horizontal-tb;
+	}
+
+	/* Responsive adjustments */
+	@media (max-width: 768px) {
+		.book-spine {
+			height: 200px;
+		}
+
+		.spine-title {
+			font-size: 0.6rem;
+		}
+
+		.spine-author {
+			font-size: 0.5rem;
+		}
+
+		.spine-pages {
+			font-size: 0.45rem;
+		}
+	}
+
+	/* Special styling for thick books */
+	.book-spine[style*="width: 5"] .spine-title,
+	.book-spine[style*="width: 4"] .spine-title {
+		font-size: 0.8rem;
+	}
+
+	.book-spine[style*="width: 5"] .spine-author,
+	.book-spine[style*="width: 4"] .spine-author {
+		font-size: 0.7rem;
+	}
+
+	/* Thin books (15-20px) - smaller text but keep vertical */
+	.book-spine[style*="width: 15px"] .spine-title,
+	.book-spine[style*="width: 16px"] .spine-title,
+	.book-spine[style*="width: 17px"] .spine-title,
+	.book-spine[style*="width: 18px"] .spine-title,
+	.book-spine[style*="width: 19px"] .spine-title,
+	.book-spine[style*="width: 20px"] .spine-title {
+		font-size: 0.6rem;
+		font-weight: 600;
+		line-height: 1.1;
+		margin-bottom: 3px;
+	}
+
+	.book-spine[style*="width: 15px"] .spine-author,
+	.book-spine[style*="width: 16px"] .spine-author,
+	.book-spine[style*="width: 17px"] .spine-author,
+	.book-spine[style*="width: 18px"] .spine-author,
+	.book-spine[style*="width: 19px"] .spine-author,
+	.book-spine[style*="width: 20px"] .spine-author {
+		font-size: 0.5rem;
+		line-height: 1.1;
+	}
+
+	/* Medium thin books (21-30px) */
+	.book-spine[style*="width: 2"][style*="px"] .spine-title {
+		font-size: 0.65rem;
+		line-height: 1.2;
+	}
+
+	.book-spine[style*="width: 2"][style*="px"] .spine-author {
+		font-size: 0.55rem;
+	}
+
+	.book-spine[style*="width: 3"][style*="0px"] .spine-title {
+		font-size: 0.65rem;
+		line-height: 1.2;
+	}
+
+	.book-spine[style*="width: 3"][style*="0px"] .spine-author {
+		font-size: 0.55rem;
+	}
+</style>

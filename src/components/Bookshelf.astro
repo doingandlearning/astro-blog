@@ -1,0 +1,352 @@
+---
+import BookSpine from "./BookSpine.astro";
+import BookModal from "./BookModal.astro";
+
+export interface Book {
+	data: {
+		title: string;
+		author: string;
+		genre: string;
+		pages: number;
+		dateFinished: string;
+		coverUrl?: string;
+		localCoverPath?: string;
+		enhancedGenre?: string;
+		isCurrentlyReading?: boolean;
+		readingYear: number;
+		themes?: string[];
+		keyInsights?: string[];
+		relatedBooks?: string[];
+		readingTime?: string;
+		complexity?: string;
+		targetAudience?: string;
+	};
+}
+
+export interface Props {
+	books: Book[];
+	maxShelfWidth?: number;
+	shelfHeight?: number;
+}
+
+const { 
+	books, 
+	maxShelfWidth = 800, // Reduced default width
+	shelfHeight = 250 
+} = Astro.props;
+
+// Function to organize books into shelves based on their width
+function organizeIntoShelves(books: Book[], maxWidth: number) {
+	const shelves: Book[][] = [];
+	let currentShelf: Book[] = [];
+	let currentWidth = 0;
+	const shelfPadding = 80; // Increased space for bookends
+	const bookSpacing = 3; // Slightly more space between books
+
+	books.forEach(book => {
+		// Calculate book width (thickness) based on pages
+		const bookWidth = Math.max(15, Math.min(45, book.data.pages / 12)); // Better minimum for click targets
+		
+		// Check if book fits on current shelf (more conservative calculation)
+		const totalRequiredWidth = currentWidth + bookWidth + bookSpacing;
+		
+		if (totalRequiredWidth <= (maxWidth - shelfPadding) && currentShelf.length < 15) { // Max 15 books per shelf
+			currentShelf.push(book);
+			currentWidth = totalRequiredWidth;
+		} else {
+			// Start new shelf
+			if (currentShelf.length > 0) {
+				shelves.push(currentShelf);
+			}
+			currentShelf = [book];
+			currentWidth = bookWidth + bookSpacing;
+		}
+	});
+
+	// Add the last shelf
+	if (currentShelf.length > 0) {
+		shelves.push(currentShelf);
+	}
+
+	return shelves;
+}
+
+const shelves = organizeIntoShelves(books, maxShelfWidth);
+---
+
+<div class="bookshelf-container">
+	<div class="bookshelf-wrapper">
+		{shelves.map((shelf, shelfIndex) => (
+			<div class="bookshelf" key={shelfIndex}>
+				<div class="bookend left-bookend">📚</div>
+				<div class="books-row">
+					{shelf.map((book, bookIndex) => (
+						<BookSpine
+							key={`${shelfIndex}-${bookIndex}`}
+							title={book.data.title}
+							author={book.data.author}
+							genre={book.data.genre}
+							pages={book.data.pages}
+							dateFinished={book.data.dateFinished}
+							coverUrl={book.data.coverUrl}
+							localCoverPath={book.data.localCoverPath}
+							enhancedGenre={book.data.enhancedGenre}
+							isCurrentlyReading={book.data.isCurrentlyReading}
+							onClick={`openBookModal(window.bookshelfData['${book.data.title.replace(/'/g, "\\'")}'])`}
+						/>
+					))}
+				</div>
+				<div class="bookend right-bookend">📖</div>
+			</div>
+		))}
+	</div>
+</div>
+
+<BookModal />
+
+<script define:vars={{ books }}>
+	// Store book data globally for modal access
+	if (!window.bookshelfData) {
+		window.bookshelfData = {};
+	}
+	
+	books.forEach(book => {
+		window.bookshelfData[book.data.title] = book.data;
+	});
+
+	// Enhanced modal opening function
+	function openBookModal(bookData) {
+		// Create modal if it doesn't exist
+		let modal = document.getElementById('book-modal');
+		if (!modal) return;
+
+		const title = document.getElementById('modal-title');
+		const author = document.getElementById('modal-author');
+		const genre = document.getElementById('modal-genre');
+		const pages = document.getElementById('modal-pages');
+		const finished = document.getElementById('modal-finished');
+		const readingTime = document.getElementById('modal-reading-time');
+		const cover = document.getElementById('modal-cover');
+		const themesSection = document.getElementById('modal-themes');
+		const insightsSection = document.getElementById('modal-insights');
+		const relatedSection = document.getElementById('modal-related');
+
+		// Set basic info
+		if (title) title.textContent = bookData.title;
+		if (author) author.textContent = `by ${bookData.author}`;
+		if (genre) genre.textContent = bookData.enhancedGenre || bookData.genre;
+		if (pages) pages.textContent = `${bookData.pages} pages`;
+		if (finished) {
+			finished.textContent = new Date(bookData.dateFinished).toLocaleDateString('en-US', {
+				year: 'numeric',
+				month: 'long',
+				day: 'numeric'
+			});
+		}
+		if (readingTime) readingTime.textContent = bookData.readingTime || 'Not specified';
+
+		// Set cover
+		if (cover) {
+			const coverUrl = bookData.localCoverPath || bookData.coverUrl;
+			if (coverUrl) {
+				cover.innerHTML = `<img src="${coverUrl}" alt="Cover of ${bookData.title}" style="width: 100%; height: 100%; object-fit: contain; object-position: center;" />`;
+			} else {
+				cover.innerHTML = `
+					<div class="cover-placeholder">
+						<div class="placeholder-content">
+							<span class="placeholder-title">${bookData.title.substring(0, 30)}${bookData.title.length > 30 ? '...' : ''}</span>
+							<span class="placeholder-author">${bookData.author}</span>
+						</div>
+					</div>
+				`;
+			}
+		}
+
+		// Set themes
+		if (themesSection && bookData.themes && bookData.themes.length > 0) {
+			const themesList = themesSection.querySelector('.themes-list');
+			if (themesList) {
+				themesList.innerHTML = bookData.themes.map(theme => 
+					`<span class="theme-tag">${theme}</span>`
+				).join('');
+			}
+			themesSection.style.display = 'block';
+		} else if (themesSection) {
+			themesSection.style.display = 'none';
+		}
+
+		// Set insights
+		if (insightsSection && bookData.keyInsights && bookData.keyInsights.length > 0) {
+			const insightsList = insightsSection.querySelector('.insights-list');
+			if (insightsList) {
+				insightsList.innerHTML = bookData.keyInsights.map(insight => 
+					`<li>${insight}</li>`
+				).join('');
+			}
+			insightsSection.style.display = 'block';
+		} else if (insightsSection) {
+			insightsSection.style.display = 'none';
+		}
+
+		// Set related books
+		if (relatedSection && bookData.relatedBooks && bookData.relatedBooks.length > 0) {
+			const relatedList = relatedSection.querySelector('.related-list');
+			if (relatedList) {
+				relatedList.innerHTML = bookData.relatedBooks.map(book => 
+					`<span class="related-book">${book}</span>`
+				).join('');
+			}
+			relatedSection.style.display = 'block';
+		} else if (relatedSection) {
+			relatedSection.style.display = 'none';
+		}
+
+		// Show modal
+		modal.style.display = 'flex';
+		document.body.style.overflow = 'hidden';
+	}
+
+	// Make function globally available
+	window.openBookModal = openBookModal;
+</script>
+
+<style>
+	.bookshelf-container {
+		width: 100%;
+		margin: 2rem 0;
+	}
+
+	.bookshelf-wrapper {
+		max-width: 100%;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.bookshelf {
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		background: 
+			linear-gradient(
+				to bottom,
+				transparent 0%,
+				transparent 85%,
+				#8B4513 85%,
+				#A0522D 90%,
+				#654321 95%,
+				#3D2914 100%
+			);
+		padding: 0 1rem 1rem 1rem;
+		border-radius: 4px;
+		box-shadow: 
+			0 4px 8px rgba(0, 0, 0, 0.2),
+			inset 0 -4px 8px rgba(0, 0, 0, 0.1);
+		position: relative;
+		min-height: 280px;
+	}
+
+	.books-row {
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-start;
+		flex-wrap: nowrap;
+		gap: 0;
+		flex: 1;
+		padding: 0 1rem;
+	}
+
+	.bookend {
+		font-size: 2rem;
+		color: #8B4513;
+		display: flex;
+		align-items: flex-end;
+		padding-bottom: 1rem;
+		opacity: 0.7;
+		user-select: none;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	}
+
+	.left-bookend {
+		margin-right: 0.5rem;
+	}
+
+	.right-bookend {
+		margin-left: 0.5rem;
+	}
+
+	/* Add some shelf lighting effects */
+	.bookshelf::before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 4px;
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			rgba(255, 255, 255, 0.1) 50%,
+			transparent 100%
+		);
+		border-radius: 2px;
+	}
+
+	/* Responsive design */
+	@media (max-width: 768px) {
+		.bookshelf-wrapper {
+			gap: 1.5rem;
+		}
+
+		.bookshelf {
+			padding: 0 0.5rem 0.5rem 0.5rem;
+			min-height: 220px;
+		}
+
+		.books-row {
+			padding: 0 0.5rem;
+		}
+
+		.bookend {
+			font-size: 1.5rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.bookshelf {
+			padding: 0 0.25rem 0.5rem 0.25rem;
+		}
+
+		.books-row {
+			padding: 0 0.25rem;
+		}
+
+		.bookend {
+			font-size: 1.2rem;
+		}
+	}
+
+	/* Add subtle animation on load */
+	.bookshelf {
+		animation: shelfAppear 0.8s ease-out;
+	}
+
+	@keyframes shelfAppear {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Stagger the shelf animations */
+	.bookshelf:nth-child(1) { animation-delay: 0.1s; }
+	.bookshelf:nth-child(2) { animation-delay: 0.2s; }
+	.bookshelf:nth-child(3) { animation-delay: 0.3s; }
+	.bookshelf:nth-child(4) { animation-delay: 0.4s; }
+	.bookshelf:nth-child(n+5) { animation-delay: 0.5s; }
+</style>

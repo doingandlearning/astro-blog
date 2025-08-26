@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import BookGrid from "../components/BookGrid.astro";
+import Bookshelf from "../components/Bookshelf.astro";
 import BookFilters from "../components/BookFilters.astro";
 import EnhancedBookStats from "../components/EnhancedBookStatsWithThemes.astro";
 import { calculateEnhancedBookStats } from "../utils/bookStats";
@@ -127,14 +128,35 @@ const pageDescription = `A collection of ${stats.totalBooks} books I've read, to
 		<!-- Book Filters -->
 		<BookFilters books={books} />
 
-		<!-- Books Grid -->
+		<!-- View Toggle -->
+		<section class="view-toggle-section">
+			<div class="view-toggle">
+				<button id="grid-view-btn" class="view-btn active" onclick="switchToGridView()">
+					<span class="view-icon">⊞</span> Grid View
+				</button>
+				<button id="shelf-view-btn" class="view-btn" onclick="switchToShelfView()">
+					<span class="view-icon">📚</span> Shelf View
+				</button>
+			</div>
+		</section>
+
+		<!-- Books Display -->
 		<section class="books-section">
 			<h2>All Books ({books.length})</h2>
-			<BookGrid
-				books={sortedBooks}
-				showFilters={true}
-				totalCount={books.length}
-			/>
+			
+			<!-- Grid View -->
+			<div id="grid-view" class="books-view active">
+				<BookGrid
+					books={sortedBooks}
+					showFilters={true}
+					totalCount={books.length}
+				/>
+			</div>
+			
+			<!-- Shelf View -->
+			<div id="shelf-view" class="books-view">
+				<Bookshelf books={sortedBooks} />
+			</div>
 		</section>
 	</div>
 
@@ -142,6 +164,35 @@ const pageDescription = `A collection of ${stats.totalBooks} books I've read, to
 		// Make book data available globally for filters
 		window.bookData = sortedBooks;
 		window.filteredBooks = sortedBooks;
+
+		// View switching functions
+		function switchToGridView() {
+			document.getElementById('grid-view').classList.add('active');
+			document.getElementById('shelf-view').classList.remove('active');
+			document.getElementById('grid-view-btn').classList.add('active');
+			document.getElementById('shelf-view-btn').classList.remove('active');
+			localStorage.setItem('booksViewPreference', 'grid');
+		}
+
+		function switchToShelfView() {
+			document.getElementById('grid-view').classList.remove('active');
+			document.getElementById('shelf-view').classList.add('active');
+			document.getElementById('grid-view-btn').classList.remove('active');
+			document.getElementById('shelf-view-btn').classList.add('active');
+			localStorage.setItem('booksViewPreference', 'shelf');
+		}
+
+		// Restore user's view preference
+		document.addEventListener('DOMContentLoaded', () => {
+			const preference = localStorage.getItem('booksViewPreference');
+			if (preference === 'shelf') {
+				switchToShelfView();
+			}
+		});
+
+		// Make functions globally available
+		window.switchToGridView = switchToGridView;
+		window.switchToShelfView = switchToShelfView;
 
 		// Listen for filter changes and update the grid
 		window.addEventListener("booksFiltered", (event) => {
@@ -325,6 +376,62 @@ const pageDescription = `A collection of ${stats.totalBooks} books I've read, to
 		text-align: center;
 		margin-bottom: 2rem;
 		font-size: 2rem;
+	}
+
+	.view-toggle-section {
+		margin-bottom: 2rem;
+		display: flex;
+		justify-content: center;
+	}
+
+	.view-toggle {
+		display: flex;
+		background: #f8f9fa;
+		border-radius: 8px;
+		border: 1px solid #e9ecef;
+		overflow: hidden;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	}
+
+	.view-btn {
+		background: transparent;
+		border: none;
+		padding: 0.75rem 1.5rem;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.95rem;
+		font-weight: 500;
+		color: #666;
+		transition: all 0.2s ease;
+		border-right: 1px solid #e9ecef;
+	}
+
+	.view-btn:last-child {
+		border-right: none;
+	}
+
+	.view-btn:hover {
+		background: #e9ecef;
+		color: #333;
+	}
+
+	.view-btn.active {
+		background: var(--accent-light, #646cff);
+		color: white;
+	}
+
+	.view-icon {
+		font-size: 1.1rem;
+	}
+
+	.books-view {
+		display: none;
+	}
+
+	.books-view.active {
+		display: block;
 	}
 
 	@media (max-width: 768px) {
