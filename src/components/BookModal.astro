@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 
 export interface Props {
 	// Modal will be populated via JavaScript
@@ -8,7 +7,7 @@ export interface Props {
 
 <div id="book-modal" class="modal-overlay" onclick="closeBookModal(event)">
 	<div class="modal-content" onclick="event.stopPropagation()">
-		<button class="close-button" onclick="closeBookModal()">&times;</button>
+		<button class="close-button" onclick="closeBookModal(null)">&times;</button>
 		
 		<div class="modal-body">
 			<div class="book-cover-section">
@@ -62,7 +61,7 @@ export interface Props {
 </div>
 
 <script>
-	function openBookModal(bookData) {
+	function openBookModal(bookData: any) {
 		const modal = document.getElementById('book-modal');
 		const title = document.getElementById('modal-title');
 		const author = document.getElementById('modal-author');
@@ -74,6 +73,10 @@ export interface Props {
 		const themesSection = document.getElementById('modal-themes');
 		const insightsSection = document.getElementById('modal-insights');
 		const relatedSection = document.getElementById('modal-related');
+
+		if (!modal || !title || !author || !genre || !pages || !finished || !readingTime || !cover || !themesSection || !insightsSection || !relatedSection) {
+			return;
+		}
 
 		// Set basic info
 		title.textContent = bookData.title;
@@ -105,9 +108,11 @@ export interface Props {
 		// Set themes
 		if (bookData.themes && bookData.themes.length > 0) {
 			const themesList = themesSection.querySelector('.themes-list');
-			themesList.innerHTML = bookData.themes.map(theme => 
-				`<span class="theme-tag">${theme}</span>`
-			).join('');
+			if (themesList) {
+				themesList.innerHTML = bookData.themes.map((theme: string) => 
+					`<span class="theme-tag">${theme}</span>`
+				).join('');
+			}
 			themesSection.style.display = 'block';
 		} else {
 			themesSection.style.display = 'none';
@@ -116,9 +121,11 @@ export interface Props {
 		// Set insights
 		if (bookData.keyInsights && bookData.keyInsights.length > 0) {
 			const insightsList = insightsSection.querySelector('.insights-list');
-			insightsList.innerHTML = bookData.keyInsights.map(insight => 
-				`<li>${insight}</li>`
-			).join('');
+			if (insightsList) {
+				insightsList.innerHTML = bookData.keyInsights.map((insight: string) => 
+					`<li>${insight}</li>`
+				).join('');
+			}
 			insightsSection.style.display = 'block';
 		} else {
 			insightsSection.style.display = 'none';
@@ -127,9 +134,11 @@ export interface Props {
 		// Set related books
 		if (bookData.relatedBooks && bookData.relatedBooks.length > 0) {
 			const relatedList = relatedSection.querySelector('.related-list');
-			relatedList.innerHTML = bookData.relatedBooks.map(book => 
-				`<span class="related-book">${book}</span>`
-			).join('');
+			if (relatedList) {
+				relatedList.innerHTML = bookData.relatedBooks.map((book: string) => 
+					`<span class="related-book">${book}</span>`
+				).join('');
+			}
 			relatedSection.style.display = 'block';
 		} else {
 			relatedSection.style.display = 'none';
@@ -140,26 +149,28 @@ export interface Props {
 		document.body.style.overflow = 'hidden';
 	}
 
-	function closeBookModal(event) {
-		if (event && event.target !== event.currentTarget && !event.target.classList.contains('close-button')) {
+	function closeBookModal(event: any) {
+		if (event && event.target !== event.currentTarget && !event.target?.classList?.contains('close-button')) {
 			return;
 		}
 		
 		const modal = document.getElementById('book-modal');
-		modal.style.display = 'none';
+		if (modal) {
+			modal.style.display = 'none';
+		}
 		document.body.style.overflow = 'auto';
 	}
 
 	// Close modal on escape key
 	document.addEventListener('keydown', (e) => {
 		if (e.key === 'Escape') {
-			closeBookModal();
+			closeBookModal(null);
 		}
 	});
 
 	// Make functions globally available
-	window.openBookModal = openBookModal;
-	window.closeBookModal = closeBookModal;
+	(window as any).openBookModal = openBookModal;
+	(window as any).closeBookModal = closeBookModal;
 </script>
 
 <style>

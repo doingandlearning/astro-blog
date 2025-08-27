@@ -167,7 +167,7 @@ const authors = [...new Set(books.map((book) => book.data.author))].sort();
 <script is:inline>
 	// Alpine.js will be loaded globally from the main layout
 	// This script runs on the client side
-	function bookFilters() {
+	window.bookFilters = function bookFilters() {
 		return {
 			filters: {
 				search: "",

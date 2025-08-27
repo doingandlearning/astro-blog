@@ -31,8 +31,7 @@ export interface Props {
 
 const { 
 	books, 
-	maxShelfWidth = 800, // Reduced default width
-	shelfHeight = 250 
+	maxShelfWidth = 800 // Reduced default width
 } = Astro.props;
 
 // Function to organize books into shelves based on their width
@@ -76,13 +75,12 @@ const shelves = organizeIntoShelves(books, maxShelfWidth);
 
 <div class="bookshelf-container">
 	<div class="bookshelf-wrapper">
-		{shelves.map((shelf, shelfIndex) => (
-			<div class="bookshelf" key={shelfIndex}>
+		{shelves.map((shelf) => (
+			<div class="bookshelf">
 				<div class="bookend left-bookend">📚</div>
 				<div class="books-row">
-					{shelf.map((book, bookIndex) => (
+					{shelf.map((book) => (
 						<BookSpine
-							key={`${shelfIndex}-${bookIndex}`}
 							title={book.data.title}
 							author={book.data.author}
 							genre={book.data.genre}

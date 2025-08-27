@@ -434,9 +434,9 @@ export function validateAndCleanBookData(book: BookWithEnhancedData): {
 /**
  * Add a warning to the processing result
  */
-function addWarning(_result: ProcessingResult, _message: string): void {
-  _result.warnings.push(_message);
-  _result.stats.warningRows++;
+function addWarning(result: ProcessingResult, message: string): void {
+  result.warnings.push(message);
+  result.stats.warningRows++;
 }
 
 /**
