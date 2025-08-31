@@ -1,0 +1,384 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import TestimonialCard from "../components/TestimonialCard.astro";
+// Get testimonials from the content collection
+const testimonials = await getCollection("testimonials");
+
+// Extract the testimonial data from the array (since it's stored as an array in JSON)
+const testimonialsData = testimonials.length > 0 ? testimonials[0].data : [];
+
+// Sort testimonials by date (most recent first)
+const sortedTestimonials = testimonialsData.sort(
+	(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+);
+
+// Get unique course names for filtering
+const uniqueCourses = [
+	...new Set(testimonialsData.map((t) => t.course_name)),
+].sort();
+
+// Calculate statistics
+const stats = {
+	totalTestimonials: testimonialsData.length,
+	totalCourses: uniqueCourses.length,
+	courseDistribution: testimonialsData.reduce(
+		(acc, testimonial) => {
+			acc[testimonial.course_name] = (acc[testimonial.course_name] || 0) + 1;
+			return acc;
+		},
+		{} as Record<string, number>,
+	),
+};
+
+// Set page metadata
+const pageTitle = "Testimonials";
+const pageDescription = `Feedback from ${stats.totalTestimonials} participants across ${stats.totalCourses} different courses.`;
+---
+
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
+	<div class="container">
+		<header class="page-header">
+			<h1>{pageTitle}</h1>
+			<p class="page-description">{pageDescription}</p>
+		</header>
+
+		<!-- Testimonials Grid -->
+		<section class="testimonials-section">
+			<h2>All Testimonials ({sortedTestimonials.length})</h2>
+			<div class="testimonials-grid" id="testimonials-grid">
+				{
+					sortedTestimonials.map((testimonial) => (
+						<TestimonialCard
+							course_name={testimonial.course_name}
+							date={testimonial.date}
+							feedback={testimonial.feedback}
+							source_file={testimonial.source_file}
+							row_index={testimonial.row_index}
+						/>
+					))
+				}
+			</div>
+
+			<div class="no-testimonials" id="no-testimonials" style="display: none;">
+				<p>No testimonials found for the selected course.</p>
+			</div>
+		</section>
+
+		<!-- Structured Data for SEO -->
+		<script
+			is:inline
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "CollectionPage",
+				name: "Course Testimonials",
+				description: pageDescription,
+				url: "https://kevincunningham.co.uk/testimonials",
+				author: {
+					"@type": "Person",
+					name: "Kevin Cunningham",
+					url: "https://kevincunningham.co.uk",
+				},
+				mainEntity: {
+					"@type": "ItemList",
+					numberOfItems: stats.totalTestimonials,
+					itemListElement: sortedTestimonials
+						.slice(0, 10)
+						.map((testimonial, index) => ({
+							"@type": "ListItem",
+							position: index + 1,
+							item: {
+								"@type": "Review",
+								author: {
+									"@type": "Person",
+									name: "Course Participant",
+								},
+								itemReviewed: {
+									"@type": "Course",
+									name: testimonial.course_name,
+									provider: {
+										"@type": "Person",
+										name: "Kevin Cunningham",
+									},
+								},
+								reviewBody: testimonial.feedback,
+								datePublished: testimonial.date,
+							},
+						})),
+				},
+			})}
+		/>
+	</div>
+
+	<script is:inline define:vars={{ sortedTestimonials }}>
+		// Make testimonial data available globally
+		window.testimonialsData = sortedTestimonials;
+
+		// Filter functionality
+		document.addEventListener("DOMContentLoaded", function () {
+			const courseFilter = document.getElementById("course-filter");
+			const testimonialsGrid = document.getElementById("testimonials-grid");
+			const noTestimonialsMessage = document.getElementById("no-testimonials");
+			const sectionTitle = document.querySelector(".testimonials-section h2");
+
+			courseFilter.addEventListener("change", function () {
+				const selectedCourse = this.value;
+				const testimonialCards =
+					testimonialsGrid.querySelectorAll(".testimonial-card");
+				let visibleCount = 0;
+
+				testimonialCards.forEach((card) => {
+					const courseName = card.querySelector(".course-name").textContent;
+					if (selectedCourse === "all" || courseName === selectedCourse) {
+						card.style.display = "flex";
+						visibleCount++;
+					} else {
+						card.style.display = "none";
+					}
+				});
+
+				// Update count and show/hide no testimonials message
+				const courseText = selectedCourse === "all" ? "All" : selectedCourse;
+				sectionTitle.textContent = `${courseText} Testimonials (${visibleCount})`;
+
+				if (visibleCount === 0) {
+					noTestimonialsMessage.style.display = "block";
+					testimonialsGrid.style.display = "none";
+				} else {
+					noTestimonialsMessage.style.display = "none";
+					testimonialsGrid.style.display = "grid";
+				}
+			});
+		});
+	</script>
+</BaseLayout>
+
+<style>
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem;
+	}
+
+	.page-header {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.page-header h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		color: var(--accent-light, #646cff);
+	}
+
+	.page-description {
+		font-size: 1.2rem;
+		color: #666;
+	}
+
+	.stats-section {
+		margin-bottom: 3rem;
+	}
+
+	.stats-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.stat-card {
+		text-align: center;
+		padding: 1.5rem;
+		background: white;
+		border-radius: 12px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		border: 1px solid #e9ecef;
+		transition: transform 0.2s ease;
+	}
+
+	.stat-card:hover {
+		transform: translateY(-2px);
+	}
+
+	.stat-number {
+		font-size: 2.5rem;
+		font-weight: bold;
+		color: var(--accent-light, #646cff);
+		margin: 0 0 0.5rem 0;
+	}
+
+	.stat-card p {
+		margin: 0;
+		color: #666;
+		font-size: 0.9rem;
+		font-weight: 500;
+	}
+
+	.filter-section {
+		margin-bottom: 3rem;
+		display: flex;
+		justify-content: center;
+	}
+
+	.filter-container {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		background: white;
+		padding: 1rem 1.5rem;
+		border-radius: 12px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		border: 1px solid #e9ecef;
+	}
+
+	.filter-label {
+		font-weight: 500;
+		color: #333;
+		margin: 0;
+	}
+
+	.course-filter {
+		padding: 0.5rem 1rem;
+		border: 1px solid #ddd;
+		border-radius: 8px;
+		background: white;
+		color: #333;
+		font-size: 0.95rem;
+		cursor: pointer;
+		transition: border-color 0.2s ease;
+	}
+
+	.course-filter:focus {
+		outline: none;
+		border-color: var(--accent-light, #646cff);
+	}
+
+	.course-distribution {
+		margin-bottom: 3rem;
+	}
+
+	.course-distribution h2 {
+		text-align: center;
+		margin-bottom: 2rem;
+		font-size: 1.8rem;
+		color: #333;
+	}
+
+	.course-list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1rem;
+	}
+
+	.course-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem 1.5rem;
+		background: white;
+		border-radius: 8px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+		border: 1px solid #e9ecef;
+		transition: transform 0.2s ease;
+	}
+
+	.course-item:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	}
+
+	.course-name {
+		font-weight: 500;
+		color: #333;
+	}
+
+	.course-count {
+		font-weight: bold;
+		color: var(--accent-light, #646cff);
+		background: #f0f0ff;
+		padding: 0.25rem 0.75rem;
+		border-radius: 12px;
+		font-size: 0.9rem;
+	}
+
+	.testimonials-section {
+		margin-bottom: 3rem;
+	}
+
+	.testimonials-section h2 {
+		text-align: center;
+		margin-bottom: 2rem;
+		font-size: 1.8rem;
+		color: #333;
+	}
+
+	.testimonials-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+		gap: 2rem;
+	}
+
+	.no-testimonials {
+		text-align: center;
+		padding: 3rem;
+		color: #666;
+		font-size: 1.1rem;
+		background: #f8f9fa;
+		border-radius: 12px;
+		border: 1px solid #e9ecef;
+	}
+
+	/* Responsive adjustments */
+	@media (max-width: 768px) {
+		.container {
+			padding: 1rem;
+		}
+
+		.page-header h1 {
+			font-size: 2rem;
+		}
+
+		.stats-grid {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1rem;
+		}
+
+		.stat-card {
+			padding: 1rem;
+		}
+
+		.stat-number {
+			font-size: 2rem;
+		}
+
+		.filter-container {
+			flex-direction: column;
+			gap: 0.5rem;
+			padding: 1rem;
+		}
+
+		.testimonials-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.course-list {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.stats-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.page-header h1 {
+			font-size: 1.8rem;
+		}
+
+		.course-item {
+			padding: 0.75rem 1rem;
+		}
+	}
+</style>

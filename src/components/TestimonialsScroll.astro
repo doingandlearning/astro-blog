@@ -1,0 +1,441 @@
+---
+import { getCollection } from "astro:content";
+import TestimonialCard from "./TestimonialCard.astro";
+
+export interface Props {
+	count?: number;
+	title?: string;
+	showTitle?: boolean;
+}
+
+const {
+	count = 9,
+	title = "What Students Say",
+	showTitle = true,
+} = Astro.props;
+
+// Get testimonials from the content collection
+const testimonials = await getCollection("testimonials");
+
+// Extract the testimonial data from the array (since it's stored as an array in JSON)
+const testimonialsData = testimonials.length > 0 ? testimonials[0].data : [];
+
+// Shuffle the testimonials and take the requested count
+function shuffleArray(array: any[]) {
+	const shuffled = [...array];
+	for (let i = shuffled.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+	}
+	return shuffled;
+}
+
+const randomTestimonials = shuffleArray(testimonialsData).slice(0, count);
+---
+
+<section class="testimonials-scroll-section">
+	{
+		showTitle && (
+			<div class="section-header">
+				<h2 class="section-title">{title}</h2>
+				<p class="section-subtitle">Feedback from course participants</p>
+			</div>
+		)
+	}
+
+	<div class="testimonials-scroll-container">
+		<div class="testimonials-scroll" id="testimonials-scroll">
+			{
+				randomTestimonials.map((testimonial) => (
+					<div class="testimonial-scroll-item">
+						<TestimonialCard
+							course_name={testimonial.course_name}
+							date={testimonial.date}
+							feedback={testimonial.feedback}
+							source_file={testimonial.source_file}
+							row_index={testimonial.row_index}
+						/>
+					</div>
+				))
+			}
+		</div>
+
+		<!-- Navigation arrows -->
+		<button
+			class="scroll-btn scroll-btn-left"
+			id="scroll-left"
+			aria-label="Scroll left"
+		>
+			<svg
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="M15 18L9 12L15 6"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"></path>
+			</svg>
+		</button>
+
+		<button
+			class="scroll-btn scroll-btn-right"
+			id="scroll-right"
+			aria-label="Scroll right"
+		>
+			<svg
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="M9 18L15 12L9 6"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"></path>
+			</svg>
+		</button>
+	</div>
+
+	<!-- View all testimonials link -->
+	<div class="view-all-container">
+		<a href="/testimonials" class="view-all-link">
+			View All Testimonials
+			<svg
+				width="16"
+				height="16"
+				viewBox="0 0 24 24"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="M7 17L17 7"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"></path>
+				<path
+					d="M7 7H17V17"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"></path>
+			</svg>
+		</a>
+	</div>
+</section>
+
+<style>
+	.testimonials-scroll-section {
+		position: relative;
+		margin: 3rem 0;
+		padding: 2rem 0;
+		width: 100vw;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 2rem;
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 2rem;
+	}
+
+	.section-title {
+		font-size: 2rem;
+		margin: 0 0 0.5rem 0;
+		color: #333;
+		font-weight: 700;
+	}
+
+	.section-subtitle {
+		margin: 0;
+		color: #666;
+		font-size: 1.1rem;
+	}
+
+	.testimonials-scroll-container {
+		position: relative;
+		max-width: 100%;
+		overflow: hidden;
+		padding: 0 3rem;
+		max-width: 1400px;
+		margin: 0 auto;
+	}
+
+	.testimonials-scroll {
+		display: flex;
+		gap: 1.5rem;
+		overflow-x: auto;
+		scroll-behavior: smooth;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+		padding: 1rem 0;
+		scroll-snap-type: x mandatory;
+	}
+
+	.testimonials-scroll::-webkit-scrollbar {
+		display: none;
+	}
+
+	.testimonial-scroll-item {
+		flex: 0 0 350px;
+		scroll-snap-align: start;
+		height: 100%;
+	}
+
+	.testimonial-scroll-item :global(.testimonial-card) {
+		height: 100%;
+		min-height: 280px;
+		width: 100%;
+	}
+
+	.scroll-btn {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		background: white;
+		border: 1px solid #e9ecef;
+		border-radius: 50%;
+		width: 48px;
+		height: 48px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		color: #666;
+		z-index: 2;
+	}
+
+	.scroll-btn:hover {
+		background: var(--accent-light, #646cff);
+		color: white;
+		border-color: var(--accent-light, #646cff);
+		transform: translateY(-50%) scale(1.05);
+		box-shadow: 0 6px 20px rgba(100, 108, 255, 0.3);
+	}
+
+	.scroll-btn:active {
+		transform: translateY(-50%) scale(0.95);
+	}
+
+	.scroll-btn-left {
+		left: 0.5rem;
+	}
+
+	.scroll-btn-right {
+		right: 0.5rem;
+	}
+
+	.scroll-btn:disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
+		background: #f8f9fa;
+		color: #ccc;
+	}
+
+	.scroll-btn:disabled:hover {
+		background: #f8f9fa;
+		color: #ccc;
+		transform: translateY(-50%);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	}
+
+	.view-all-container {
+		text-align: center;
+		margin-top: 2rem;
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 2rem;
+		padding: 0 2rem;
+	}
+
+	.view-all-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--accent-light, #646cff);
+		text-decoration: none;
+		font-weight: 500;
+		font-size: 1.1rem;
+		padding: 0.75rem 1.5rem;
+		border: 2px solid var(--accent-light, #646cff);
+		border-radius: 8px;
+		transition: all 0.2s ease;
+		background: transparent;
+	}
+
+	.view-all-link:hover {
+		background: var(--site-green, #646cff);
+		color: white;
+		transform: translateY(-2px);
+		box-shadow: 0 6px 20px rgba(100, 108, 255, 0.3);
+	}
+
+	.view-all-link svg {
+		transition: transform 0.2s ease;
+	}
+
+	.view-all-link:hover svg {
+		transform: translate(2px, -2px);
+	}
+
+	/* Mobile responsive */
+	@media (max-width: 768px) {
+		.testimonials-scroll-container {
+			padding: 0 2.5rem;
+		}
+
+		.testimonial-scroll-item {
+			flex: 0 0 300px;
+		}
+
+		.scroll-btn {
+			width: 40px;
+			height: 40px;
+		}
+
+		.scroll-btn-left {
+			left: 0.25rem;
+		}
+
+		.scroll-btn-right {
+			right: 0.25rem;
+		}
+
+		.section-title {
+			font-size: 1.75rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.testimonials-scroll-container {
+			padding: 0 2rem;
+		}
+
+		.testimonial-scroll-item {
+			flex: 0 0 280px;
+		}
+
+		.scroll-btn {
+			width: 36px;
+			height: 36px;
+		}
+
+		.section-title {
+			font-size: 1.5rem;
+		}
+
+		.view-all-link {
+			font-size: 1rem;
+			padding: 0.625rem 1.25rem;
+		}
+	}
+</style>
+
+<script is:inline>
+	// Add scroll functionality
+	document.addEventListener("DOMContentLoaded", function () {
+		const scrollContainer = document.getElementById("testimonials-scroll");
+		const leftBtn = document.getElementById("scroll-left");
+		const rightBtn = document.getElementById("scroll-right");
+
+		if (!scrollContainer || !leftBtn || !rightBtn) return;
+
+		const cardWidth = 350; // Width of each testimonial card + gap
+		const gap = 24; // 1.5rem converted to pixels
+		const scrollAmount = cardWidth + gap;
+
+		function updateButtonStates() {
+			const isAtStart = scrollContainer.scrollLeft <= 0;
+			const isAtEnd =
+				scrollContainer.scrollLeft >=
+				scrollContainer.scrollWidth - scrollContainer.clientWidth - 1;
+
+			leftBtn.disabled = isAtStart;
+			rightBtn.disabled = isAtEnd;
+		}
+
+		function scrollLeft() {
+			scrollContainer.scrollBy({
+				left: -scrollAmount,
+				behavior: "smooth",
+			});
+		}
+
+		function scrollRight() {
+			scrollContainer.scrollBy({
+				left: scrollAmount,
+				behavior: "smooth",
+			});
+		}
+
+		leftBtn.addEventListener("click", scrollLeft);
+		rightBtn.addEventListener("click", scrollRight);
+
+		// Update button states on scroll
+		scrollContainer.addEventListener("scroll", updateButtonStates);
+
+		// Initial button state
+		updateButtonStates();
+
+		// Add keyboard navigation
+		scrollContainer.addEventListener("keydown", function (e) {
+			if (e.key === "ArrowLeft") {
+				e.preventDefault();
+				scrollLeft();
+			} else if (e.key === "ArrowRight") {
+				e.preventDefault();
+				scrollRight();
+			}
+		});
+
+		// Touch/swipe support for mobile
+		let startX = 0;
+		let scrollLeftStart = 0;
+
+		scrollContainer.addEventListener(
+			"touchstart",
+			function (e) {
+				startX = e.touches[0].clientX;
+				scrollLeftStart = scrollContainer.scrollLeft;
+			},
+			{ passive: true },
+		);
+
+		scrollContainer.addEventListener(
+			"touchmove",
+			function (e) {
+				if (!startX) return;
+
+				const currentX = e.touches[0].clientX;
+				const diff = startX - currentX;
+				scrollContainer.scrollLeft = scrollLeftStart + diff;
+			},
+			{ passive: true },
+		);
+
+		scrollContainer.addEventListener(
+			"touchend",
+			function () {
+				startX = 0;
+			},
+			{ passive: true },
+		);
+	});
+</script>

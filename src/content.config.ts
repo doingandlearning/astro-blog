@@ -112,6 +112,20 @@ const booksCollection = defineCollection({
   }),
 });
 
+// define testimonials collection
+const testimonialsCollection = defineCollection({
+  type: "data",
+  schema: z.array(
+    z.object({
+      course_name: z.string(),
+      date: z.string(),
+      feedback: z.string(),
+      source_file: z.string(),
+      row_index: z.number(),
+    })
+  ),
+});
+
 // Export a single `collections` object to register your collection(s)
 export const collections = {
   posts: postsCollection,
@@ -120,4 +134,5 @@ export const collections = {
   bookmarks: bookmarksCollection,
   webmentions: webmentions,
   books: booksCollection,
+  testimonials: testimonialsCollection,
 };

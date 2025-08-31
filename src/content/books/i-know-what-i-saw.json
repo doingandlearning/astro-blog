@@ -1,0 +1,43 @@
+{
+  "title": "I Know What I Saw",
+  "author": "Imran Mahmood",
+  "dateFinished": "2025-08-30T15:40:34.523Z",
+  "genre": "General",
+  "pages": 0,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 8,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Psychological Thriller",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "perception",
+    "truth",
+    "memory",
+    "justice",
+    "identity"
+  ],
+  "targetAudience": "Readers who enjoy suspenseful narratives and psychological explorations",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Girl on the Train",
+    "Gone Girl",
+    "Before I Go to Sleep"
+  ],
+  "keyInsights": [
+    "The nature of truth can be subjective",
+    "Memory can be unreliable",
+    "The impact of trauma on perception"
+  ],
+  "tags": [
+    "thriller",
+    "suspense",
+    "psychological",
+    "fiction",
+    "mystery"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-30T15:40:39.691Z"
+}

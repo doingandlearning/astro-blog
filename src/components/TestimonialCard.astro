@@ -1,0 +1,218 @@
+---
+export interface Props {
+	course_name: string;
+	date: string;
+	feedback: string;
+	source_file: string;
+	row_index: number;
+}
+
+const { course_name, feedback } = Astro.props;
+
+// Clean up feedback text - remove rating numbers and separators if present
+const cleanFeedback = feedback
+	.replace(/^\d+\s*\|\s*\d+\s*\|\s*\d+\s*\|\s*\d+\s*\|\s*/, "") // Remove rating pattern "10 | 8 | 10 | 8 |"
+	.replace(/\s*\|\s*$/, "") // Remove trailing separator
+	.trim();
+---
+
+<div
+	class="testimonial-card"
+	data-course={course_name.toLowerCase().replace(/\s+/g, "-")}
+>
+	<div class="testimonial-header">
+		<h3 class="course-name">{course_name}</h3>
+	</div>
+
+	<div class="testimonial-content">
+		<blockquote class="feedback">
+			<span class="feedback-text">{cleanFeedback}</span>
+		</blockquote>
+	</div>
+</div>
+
+<style>
+	.testimonial-card {
+		background: white;
+		border-radius: 12px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		overflow: hidden;
+		transition:
+			transform 0.2s ease,
+			box-shadow 0.2s ease;
+		position: relative;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		padding: 1.5rem;
+		border-left: 4px solid var(--accent-light, #646cff);
+	}
+
+	.testimonial-card:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+	}
+
+	.testimonial-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: 1rem;
+		gap: 1rem;
+	}
+
+	.course-name {
+		font-size: 1.2rem;
+		margin: 0;
+		color: #333;
+		line-height: 1.3;
+		font-weight: 600;
+		flex: 1;
+	}
+
+	.testimonial-date {
+		font-size: 0.85rem;
+		color: #666;
+		white-space: nowrap;
+		background: #f8f9fa;
+		padding: 0.25rem 0.5rem;
+		border-radius: 6px;
+	}
+
+	.testimonial-content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.feedback {
+		margin: 0;
+		font-size: 1rem;
+		line-height: 1.6;
+		color: #555;
+		font-style: italic;
+		position: relative;
+	}
+
+	.feedback-text {
+		display: block;
+		padding: 0 0.5rem;
+	}
+
+	.expand-btn {
+		background: none;
+		border: none;
+		color: var(--accent-light, #646cff);
+		cursor: pointer;
+		font-size: 0.9rem;
+		font-weight: 500;
+		margin-top: 0.5rem;
+		padding: 0.25rem 0.5rem;
+		border-radius: 4px;
+		transition: background-color 0.2s ease;
+	}
+
+	.expand-btn:hover {
+		background-color: rgba(100, 108, 255, 0.1);
+	}
+
+	.full-feedback {
+		display: block;
+		padding: 0 0.5rem;
+	}
+
+	.hidden {
+		display: none;
+	}
+
+	/* Course-specific styling */
+	.testimonial-card[data-course*="python"] {
+		border-left-color: #3776ab;
+	}
+
+	.testimonial-card[data-course*="typescript"] {
+		border-left-color: #3178c6;
+	}
+
+	.testimonial-card[data-course*="react"] {
+		border-left-color: #61dafb;
+	}
+
+	.testimonial-card[data-course*="nodejs"] {
+		border-left-color: #339933;
+	}
+
+	.testimonial-card[data-course*="tdd"] {
+		border-left-color: #ff6b6b;
+	}
+
+	.testimonial-card[data-course*="github"] {
+		border-left-color: #333;
+	}
+
+	/* Responsive adjustments */
+	@media (max-width: 768px) {
+		.testimonial-card {
+			padding: 1rem;
+		}
+
+		.testimonial-header {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.5rem;
+		}
+
+		.course-name {
+			font-size: 1.1rem;
+		}
+
+		.testimonial-date {
+			align-self: flex-end;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.testimonial-card {
+			padding: 0.75rem;
+		}
+
+		.course-name {
+			font-size: 1rem;
+		}
+
+		.feedback {
+			font-size: 0.9rem;
+		}
+	}
+</style>
+
+<script is:inline>
+	// Add interactivity for expand/collapse functionality
+	document.addEventListener("DOMContentLoaded", function () {
+		const expandButtons = document.querySelectorAll(".expand-btn");
+
+		expandButtons.forEach((button) => {
+			button.addEventListener("click", function () {
+				const card = this.closest(".testimonial-card");
+				if (!card) return;
+				
+				const truncatedText = card.querySelector(".feedback-text");
+				const fullText = card.querySelector(".full-feedback");
+
+				if (!truncatedText || !fullText) return;
+
+				if (fullText.classList.contains("hidden")) {
+					// Expand
+					truncatedText.style.display = "none";
+					fullText.classList.remove("hidden");
+					this.textContent = "Read less";
+				} else {
+					// Collapse
+					truncatedText.style.display = "block";
+					fullText.classList.add("hidden");
+					this.textContent = "Read more";
+				}
+			});
+		});
+	});
+</script>

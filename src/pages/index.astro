@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 import Newsletter from "../components/Newsletter.astro";
 import BlogPostCard from "../components/BlogPostCard.astro";
 import YouTubeFeed from "../components/YouTubeFeed.astro";
+import TestimonialsScroll from "../components/TestimonialsScroll.astro";
 const latestPosts = await getCollection("posts", ({ data }) => {
   return data.draft !== true;
 }).then((postMessages) =>
@@ -67,6 +68,7 @@ const latestPosts = await getCollection("posts", ({ data }) => {
       />
     </div>
   </div>
+  <TestimonialsScroll />
   <div>
     <h3>✍️ I write</h3>
     <p>

@@ -1,0 +1,43 @@
+{
+  "title": "Six Wakes",
+  "author": "Mur Lafferty",
+  "dateFinished": "2025-08-30T15:39:33.659Z",
+  "genre": "General",
+  "pages": 391,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 8,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction, Mystery",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "identity",
+    "memory",
+    "morality",
+    "technology",
+    "murder"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and mystery genres",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "Altered Carbon",
+    "The Murderbot Diaries",
+    "The Long Way to a Small, Angry Planet"
+  ],
+  "keyInsights": [
+    "Explores the implications of cloning and identity",
+    "Raises questions about morality in technology",
+    "Engages with themes of trust and betrayal"
+  ],
+  "tags": [
+    "science fiction",
+    "mystery",
+    "cloning",
+    "technology",
+    "thriller"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-08-30T15:39:38.761Z"
+}
