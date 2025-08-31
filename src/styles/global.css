@@ -115,7 +115,7 @@ blockquote {
   font-size: 19px;
   line-height: 1.2;
   color: #666;
-  text-align: justify;
+  text-align: left;
 
   /*Borders - (Optional)*/
   border-left: 15px solid var(--site-green);
