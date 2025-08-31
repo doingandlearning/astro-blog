@@ -1,37 +1,37 @@
 [
   {
-    "course_name": "NodeJS",
+    "course_name": "Node.js",
     "date": "2025-03-06",
-    "feedback": "Really great use of github to give examples and labs when needed rather than all at once, lovely and clear explanations and great follow on links for further exploration! | Honestly nothing - the pace was a bit quick at time, but I very much appreciate that is to be expected! | Thanks again to Kevin, great as always :)",
-    "source_file": "BBC - NodeJS - Kevin Cunningham.xlsx",
+    "feedback": "Really great use of github to give examples and labs when needed rather than all at once, lovely and clear explanations and great follow on links for further exploration! Thanks again to Kevin, great as always :)",
+    "source_file": "BBC - Node.js - Kevin Cunningham.xlsx",
     "row_index": 2
   },
   {
-    "course_name": "NodeJS",
+    "course_name": "Node.js",
     "date": "2025-03-06",
     "feedback": "detail and explanations",
-    "source_file": "BBC - NodeJS - Kevin Cunningham.xlsx",
+    "source_file": "BBC - Node.js - Kevin Cunningham.xlsx",
     "row_index": 3
   },
   {
-    "course_name": "NodeJS",
+    "course_name": "Node.js",
     "date": "2025-03-06",
     "feedback": "Great, I would recommend to any developer. Very nice, very good pace, just the right amount of breaks",
-    "source_file": "BBC - NodeJS - Kevin Cunningham.xlsx",
+    "source_file": "BBC - Node.js - Kevin Cunningham.xlsx",
     "row_index": 4
   },
   {
-    "course_name": "NodeJS",
+    "course_name": "Node.js",
     "date": "2025-03-06",
     "feedback": "Great overview with lots of small details included.",
-    "source_file": "BBC - NodeJS - Kevin Cunningham.xlsx",
+    "source_file": "BBC - Node.js - Kevin Cunningham.xlsx",
     "row_index": 5
   },
   {
-    "course_name": "NodeJS",
+    "course_name": "Node.js",
     "date": "2025-03-06",
     "feedback": "The pacing and the instructor's way of teaching were excellent.",
-    "source_file": "BBC - NodeJS - Kevin Cunningham.xlsx",
+    "source_file": "BBC - Node.js - Kevin Cunningham.xlsx",
     "row_index": 6
   },
   {
@@ -191,7 +191,7 @@
   {
     "course_name": "Python",
     "date": "2024-08-27",
-    "feedback": "10 | 10 | 10 | 10 | The whole course was very clear and went through at a great pace that seemed to keep everyone at the relevant pace for themselves, which is something I've found is rare in these courses, so very impressed! | N/a",
+    "feedback": "The whole course was very clear and went through at a great pace that seemed to keep everyone at the relevant pace for themselves, which is something I've found is rare in these courses, so very impressed!",
     "source_file": "Feed back from 27 August 2024 Python.xlsx",
     "row_index": 2
   },
@@ -261,49 +261,42 @@
   {
     "course_name": "Python",
     "date": "2025-06-25",
-    "feedback": "8 | 5 | 10 | 7 | Time was used to answer any questions we had | slow it down or make the course longer",
-    "source_file": "BBC - Python - Kevin Cunningham Feedback.xlsx",
-    "row_index": 2
-  },
-  {
-    "course_name": "Python",
-    "date": "2025-06-25",
-    "feedback": "10 | 8 | 10 | 8 | Lots of examples, Kevin is enthusiastic about the subject, and was great at problem solving our issues! | possibly more short labs, however I understand that time would be an issue. | delivery was great, the github repo was well organised, and Kevin provided loads of great links for tools and future learning",
+    "feedback": "Lots of examples, Kevin is enthusiastic about the subject, and was great at problem solving our issues! The delivery was great, the github repo was well organised, and Kevin provided loads of great links for tools and future learning",
     "source_file": "BBC - Python - Kevin Cunningham Feedback.xlsx",
     "row_index": 3
   },
   {
     "course_name": "Python",
     "date": "2025-06-25",
-    "feedback": "10 | 9 | 10 | 10 | Instructor was brilliant and engaging. Content was great with a good balance of labs | If all the labs eventually built up to a single end goal/product that would feel really rewarding. i.e. a game | It worked really well, breakout rooms were helpful",
+    "feedback": "Instructor was brilliant and engaging. Content was great with a good balance of labs. It worked really well, breakout rooms were helpful",
     "source_file": "BBC - Python - Kevin Cunningham Feedback.xlsx",
     "row_index": 4
   },
   {
     "course_name": "Python",
     "date": "2025-06-25",
-    "feedback": "10 | 7 | 10 | 8 | Covered a lot of material, Kevin was really approachable, helpful and funny - thank you so much for the patience with explaining the basics in the break out rooms! Content and structure of course was also good.",
+    "feedback": "Covered a lot of material, Kevin was really approachable, helpful and funny - thank you so much for the patience with explaining the basics in the break out rooms! Content and structure of course was also good.",
     "source_file": "BBC - Python - Kevin Cunningham Feedback.xlsx",
     "row_index": 5
   },
   {
     "course_name": "Python",
     "date": "2025-06-25",
-    "feedback": "10 | 10 | 10 | 10 | The trainer, Kevin was excellent and very clear. He made very udnerstandable some Python concepts I hadd found abstruse before. | Can't think of anything. | Very well organised, with al lthe fiels, labs and solutions available for later review.",
+    "feedback": "The trainer, Kevin was excellent and very clear. He made very udnerstandable some Python concepts I hadd found abstruse before. Very well organised, with al lthe fiels, labs and solutions available for later review.",
     "source_file": "BBC - Python - Kevin Cunningham Feedback.xlsx",
     "row_index": 6
   },
   {
     "course_name": "Python",
     "date": "2025-06-25",
-    "feedback": "9 | 10 | 10 | 9 | Lots of practical examples and labs. Not putting pressure on attendees to complete tasks. | This course can have 2 variations maybe if enough resources. I can see some topics and aspects could be challenging for people who never code. | Excellent",
+    "feedback": "Lots of practical examples and labs. Not putting pressure on attendees to complete tasks. This course can have 2 variations maybe if enough resources. I can see some topics and aspects could be challenging for people who never code. Excellent",
     "source_file": "BBC - Python - Kevin Cunningham Feedback.xlsx",
     "row_index": 7
   },
   {
     "course_name": "Python",
     "date": "2025-06-25",
-    "feedback": "10 | 7 | 10 | 10 | Despite being just 3 days I came away with a good overall knowledge of python and what it can do. The labs were structured well and organised and Kevin was a great instructor as always explained things in an easy way to follow. Was great. Good timings with breaks and lunch and never felt long or tiring like others can do",
+    "feedback": "Despite being just 3 days I came away with a good overall knowledge of python and what it can do. The labs were structured well and organised and Kevin was a great instructor as always explained things in an easy way to follow. Was great. Good timings with breaks and lunch and never felt long or tiring like others can do",
     "source_file": "BBC - Python - Kevin Cunningham Feedback.xlsx",
     "row_index": 8
   },
