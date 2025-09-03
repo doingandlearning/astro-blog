@@ -38,6 +38,7 @@ if (videos.length === 0) {
   try {
     console.log("Fetching latest YouTube videos...");
     const fetchedVideos = await getYouTubeVideos(channelId, maxVideos);
+    console.log("Fetched videos:", fetchedVideos);
     videosToShow = fetchedVideos.map((video) => ({
       id: video.id,
       title: video.title,

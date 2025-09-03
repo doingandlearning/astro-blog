@@ -73,7 +73,9 @@ function parseYouTubeRSS(xmlText: string): YouTubeVideo[] {
       // Extract additional metadata that might help identify live streams
       // const authorMatch = entry.match(/<name>(.*?)<\/name>/);
       // const _author = authorMatch?.[1] || '';
-      
+     console.log("Video ID:", videoId);
+     console.log("Title:", title);
+     console.log("Is Regular Video:", isRegularVideo(title, description, entry));
       if (videoId && title && isRegularVideo(title, description, entry)) {
         videos.push({
           id: videoId,
@@ -165,6 +167,7 @@ function isRegularVideo(title: string, description: string, fullEntry?: string):
   for (const indicator of shortsIndicators) {
     if (cleanTitle.includes(indicator) || cleanDescription.includes(indicator)) {
       console.log(`Filtering out shorts: ${title}`);
+      console.log("Clean Title:", cleanTitle);
       return false;
     }
   }
@@ -260,16 +263,41 @@ function isRegularVideo(title: string, description: string, fullEntry?: string):
   if (fullEntry) {
     const cleanEntry = fullEntry.toLowerCase();
     
-    // Look for media:community statistics that might indicate live content
-    if (cleanEntry.includes('media:community') && cleanEntry.includes('live')) {
-      console.log(`Filtering out live stream (XML metadata): ${title}`);
-      return false;
+    // Look for specific live stream indicators in XML metadata
+    // Only flag as live if we find specific live-related patterns
+    const liveXmlPatterns = [
+      'live_stream',
+      'livestream',
+      'live_broadcast',
+      'live_event',
+      'live_session',
+      'live_now',
+      'streaming_live',
+      'broadcasting_live'
+    ];
+    
+    for (const pattern of liveXmlPatterns) {
+      if (cleanEntry.includes(pattern)) {
+        console.log(`Filtering out live stream (XML metadata): ${title}`);
+        return false;
+      }
     }
     
-    // Check for yt:statistics that might indicate live streams
-    if (cleanEntry.includes('yt:statistics') && cleanEntry.includes('live')) {
-      console.log(`Filtering out live stream (YouTube statistics): ${title}`);
-      return false;
+    // Check for media:community with specific live indicators
+    if (cleanEntry.includes('media:community')) {
+      const liveCommunityPatterns = [
+        'live_stream',
+        'livestream', 
+        'live_broadcast',
+        'live_event'
+      ];
+      
+      for (const pattern of liveCommunityPatterns) {
+        if (cleanEntry.includes(pattern)) {
+          console.log(`Filtering out live stream (media:community): ${title}`);
+          return false;
+        }
+      }
     }
   }
   
