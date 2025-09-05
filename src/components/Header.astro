@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Hamburger from "./Hamburger.astro";
 import Navigation from "./Navigation.astro";
 ---
@@ -7,11 +8,12 @@ import Navigation from "./Navigation.astro";
   <nav>
     <div class="home-link">
       <a href="/">
-        <img
-          src="https://res.cloudinary.com/kc-cloud/image/upload/f_auto,q_auto/w_40,h_40/v1/raycast-uploads/iyw3czoskuf7nvvjgpz8"
-          height="40"
-          width="40"
+        <Image
+          src="/images/brain-Circle.jpg"
           alt="brain on treadmill"
+          width={60}
+          height={60}
+          loading="eager"
         />
       </a>
     </div>

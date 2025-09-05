@@ -159,8 +159,6 @@
     image = new Image();
     image.src = URL.createObjectURL(file);
     image.onload = () => {
-      console.log(image);
-      console.log(image.width, image.height);
       xSlider.max = String(image.width / 4);
       ySlider.max = String(image.height / 4);
 
@@ -198,22 +196,15 @@
   });
 
   const updateTextOverlay = () => {
-    console.log("updating text overlay");
     if (image && context) {
-      console.log("drawing text");
       context.clearRect(0, 0, canvas.width, canvas.height);
       context.drawImage(image, 0, 0);
       context.font = `${size}px ${font}`;
       context.fillStyle = color;
-      console.log(
-        textInput.value,
-        parseInt(xSlider.value),
-        parseInt(ySlider.value)
-      );
       context.fillText(
         textInput.value,
         parseInt(xSlider.value),
-        parseInt(ySlider.value)
+        parseInt(ySlider.value),
       );
     }
   };
