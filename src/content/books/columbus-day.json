@@ -1,0 +1,43 @@
+{
+  "title": "Columbus Day",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-09-16T11:01:59.976Z",
+  "genre": "General",
+  "pages": 303,
+  "coverUrl": "/book-covers/columbus-day-craig-alanson.jpg",
+  "readingYear": 2025,
+  "readingMonth": 9,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction Adventure",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "exploration",
+    "discovery",
+    "humanity's place in the universe",
+    "conflict",
+    "survival"
+  ],
+  "targetAudience": "Readers interested in science fiction and adventure stories",
+  "complexity": "Moderate",
+  "readingTime": "7 hours",
+  "relatedBooks": [
+    "The Martian",
+    "Red Mars",
+    "Old Man's War"
+  ],
+  "keyInsights": [
+    "The importance of exploration and discovery",
+    "The impact of technology on humanity",
+    "The complexities of interstellar relations"
+  ],
+  "tags": [
+    "science fiction",
+    "adventure",
+    "space exploration",
+    "humanity",
+    "conflict"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-09-16T11:02:05.174Z"
+}

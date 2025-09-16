@@ -1,0 +1,41 @@
+{
+  "title": "Flybot",
+  "author": "Dennis E. Taylor",
+  "dateFinished": "2025-09-12T10:05:45.243Z",
+  "genre": "General",
+  "pages": 0,
+  "coverUrl": "/book-covers/flybot-dennis-e-taylor.jpg",
+  "readingYear": 2025,
+  "readingMonth": 9,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Artificial Intelligence",
+    "Technology",
+    "Human-Computer Interaction",
+    "Exploration"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and technology",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Moon is a Harsh Mistress",
+    "Neuromancer",
+    "The Martian"
+  ],
+  "keyInsights": [
+    "Exploration of AI ethics",
+    "Impact of technology on society",
+    "Human adaptability to new technologies"
+  ],
+  "tags": [
+    "Science Fiction",
+    "AI",
+    "Technology",
+    "Fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-09-12T10:05:49.258Z"
+}
