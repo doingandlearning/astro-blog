@@ -1,0 +1,43 @@
+{
+  "title": "Paradise",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-09-27T09:13:45.292Z",
+  "genre": "General",
+  "pages": 283,
+  "coverUrl": "/book-covers/paradise-craig-alanson.jpg",
+  "readingYear": 2025,
+  "readingMonth": 9,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction Adventure",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "exploration",
+    "survival",
+    "humanity",
+    "technology",
+    "moral dilemmas"
+  ],
+  "targetAudience": "Readers of science fiction and adventure genres, particularly those who enjoy character-driven narratives",
+  "complexity": "Moderate",
+  "readingTime": "7 hours",
+  "relatedBooks": [
+    "The Martian by Andy Weir",
+    "Red Mars by Kim Stanley Robinson",
+    "Old Man's War by John Scalzi"
+  ],
+  "keyInsights": [
+    "The importance of resilience in the face of adversity",
+    "Exploration of human nature in extreme conditions",
+    "The impact of technology on society"
+  ],
+  "tags": [
+    "science fiction",
+    "adventure",
+    "exploration",
+    "survival",
+    "human nature"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-09-27T09:13:47.797Z"
+}
