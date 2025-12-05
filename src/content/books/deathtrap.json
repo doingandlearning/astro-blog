@@ -1,0 +1,43 @@
+{
+  "title": "Deathtrap",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-12-01T19:22:17.539Z",
+  "genre": "General",
+  "pages": 257,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Thriller, Mystery, Suspense",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "deception",
+    "murder",
+    "survival",
+    "trust",
+    "betrayal"
+  ],
+  "targetAudience": "Readers who enjoy suspenseful thrillers and mystery novels",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Girl with the Dragon Tattoo",
+    "Gone Girl",
+    "The Da Vinci Code"
+  ],
+  "keyInsights": [
+    "Explores the nature of trust in relationships",
+    "Highlights the consequences of deception",
+    "Engages readers with unexpected twists"
+  ],
+  "tags": [
+    "thriller",
+    "mystery",
+    "suspense",
+    "fiction",
+    "crime"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:22:22.357Z"
+}

@@ -1,0 +1,43 @@
+{
+  "title": "Homefront",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-12-01T19:21:07.478Z",
+  "genre": "General",
+  "pages": 0,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction, Military Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "war",
+    "family",
+    "sacrifice",
+    "resilience",
+    "homecoming"
+  ],
+  "targetAudience": "Readers interested in military science fiction and character-driven narratives",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The Forever War",
+    "Starship Troopers",
+    "Old Man's War"
+  ],
+  "keyInsights": [
+    "Exploration of the impact of war on personal relationships",
+    "The struggle between duty and home life",
+    "The psychological effects of combat"
+  ],
+  "tags": [
+    "military",
+    "science fiction",
+    "family",
+    "resilience",
+    "homefront"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:21:11.447Z"
+}

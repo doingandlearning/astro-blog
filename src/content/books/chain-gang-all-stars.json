@@ -1,0 +1,43 @@
+{
+  "title": "Chain Gang All Stars",
+  "author": "Nana Kwame Adjei-Brenyah",
+  "dateFinished": "2025-12-01T19:19:39.860Z",
+  "genre": "General",
+  "pages": 384,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Literary Fiction, Social Commentary",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "justice system",
+    "race and inequality",
+    "entertainment and exploitation",
+    "human rights",
+    "identity"
+  ],
+  "targetAudience": "Readers interested in contemporary social issues and literary fiction",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The New Jim Crow by Michelle Alexander",
+    "Just Mercy by Bryan Stevenson",
+    "The Underground Railroad by Colson Whitehead"
+  ],
+  "keyInsights": [
+    "Critique of the prison-industrial complex",
+    "Exploration of race and identity",
+    "Reflection on societal values and entertainment"
+  ],
+  "tags": [
+    "prison",
+    "race",
+    "social justice",
+    "literature",
+    "contemporary issues"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:19:44.989Z"
+}

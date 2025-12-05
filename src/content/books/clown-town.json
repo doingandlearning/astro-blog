@@ -1,0 +1,43 @@
+{
+  "title": "Clown Town",
+  "author": "Mick Herron",
+  "dateFinished": "2025-12-01T19:24:06.028Z",
+  "genre": "General",
+  "pages": 335,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Contemporary Fiction, Mystery",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "identity",
+    "society",
+    "humor",
+    "crime",
+    "human relationships"
+  ],
+  "targetAudience": "Readers who enjoy character-driven narratives with a blend of humor and suspense",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "Slow Horses",
+    "The Spy Who Came in from the Cold",
+    "The Cuckoo's Calling"
+  ],
+  "keyInsights": [
+    "Exploration of modern societal issues",
+    "Blend of humor and suspense",
+    "Character development and interpersonal dynamics"
+  ],
+  "tags": [
+    "mystery",
+    "humor",
+    "contemporary",
+    "crime",
+    "fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:24:09.970Z"
+}

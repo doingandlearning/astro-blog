@@ -1,0 +1,44 @@
+{
+  "title": "Going Dark",
+  "author": "Linda Nagata",
+  "dateFinished": "2025-12-01T19:27:08.382Z",
+  "genre": "General",
+  "pages": 464,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Technology",
+    "Surveillance",
+    "Society",
+    "Privacy",
+    "Humanity"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and technology-driven narratives",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "Neuromancer",
+    "Snow Crash",
+    "The Circle",
+    "Little Brother"
+  ],
+  "keyInsights": [
+    "Exploration of the impact of technology on society",
+    "The balance between security and privacy",
+    "Human resilience in the face of systemic control"
+  ],
+  "tags": [
+    "Sci-Fi",
+    "Dystopian",
+    "Technology",
+    "Thriller",
+    "Speculative Fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:27:11.943Z"
+}

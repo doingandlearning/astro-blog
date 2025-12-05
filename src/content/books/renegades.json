@@ -1,0 +1,43 @@
+{
+  "title": "Renegades",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-12-01T19:20:19.535Z",
+  "genre": "General",
+  "pages": 314,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction / Fantasy",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Adventure",
+    "Rebellion",
+    "Friendship",
+    "Survival",
+    "Conflict"
+  ],
+  "targetAudience": "Young adults and adults who enjoy speculative fiction and action-packed narratives",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Expanse Series by James S.A. Corey",
+    "Old Man's War by John Scalzi",
+    "The Forever War by Joe Haldeman"
+  ],
+  "keyInsights": [
+    "Exploration of moral dilemmas in conflict",
+    "The importance of camaraderie in adversity",
+    "The impact of rebellion against oppressive systems"
+  ],
+  "tags": [
+    "Science Fiction",
+    "Fantasy",
+    "Adventure",
+    "Space Opera",
+    "Rebellion"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:20:25.358Z"
+}

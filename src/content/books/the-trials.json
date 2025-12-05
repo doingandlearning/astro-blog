@@ -1,0 +1,43 @@
+{
+  "title": "The Trials",
+  "author": "Linda Nagata",
+  "dateFinished": "2025-12-01T19:26:52.227Z",
+  "genre": "General",
+  "pages": 456,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "survival",
+    "human resilience",
+    "technology",
+    "society",
+    "ethical dilemmas"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and futuristic narratives",
+  "complexity": "Moderate",
+  "readingTime": "12 hours",
+  "relatedBooks": [
+    "The Forever War",
+    "Neuromancer",
+    "Snow Crash"
+  ],
+  "keyInsights": [
+    "Exploration of human nature under extreme conditions",
+    "Impact of technology on society",
+    "Ethical considerations in scientific advancements"
+  ],
+  "tags": [
+    "science fiction",
+    "technology",
+    "survival",
+    "human nature",
+    "ethical dilemmas"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:26:56.413Z"
+}

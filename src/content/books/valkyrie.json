@@ -1,0 +1,43 @@
+{
+  "title": "Valkyrie",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-12-01T19:21:44.230Z",
+  "genre": "General",
+  "pages": 396,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction / Fantasy",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "heroism",
+    "sacrifice",
+    "intergalactic conflict",
+    "friendship",
+    "identity"
+  ],
+  "targetAudience": "Readers who enjoy science fiction and fantasy adventures, particularly fans of space operas",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The Expanse series by James S.A. Corey",
+    "Old Man's War by John Scalzi",
+    "The Forever War by Joe Haldeman"
+  ],
+  "keyInsights": [
+    "Exploration of moral dilemmas in warfare",
+    "The importance of camaraderie in challenging situations",
+    "The balance between duty and personal desires"
+  ],
+  "tags": [
+    "space opera",
+    "adventure",
+    "sci-fi",
+    "fantasy",
+    "military science fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:21:48.452Z"
+}

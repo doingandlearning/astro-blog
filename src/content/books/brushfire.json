@@ -1,0 +1,42 @@
+{
+  "title": "Brushfire",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-12-01T19:22:30.280Z",
+  "genre": "General",
+  "pages": 0,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction Adventure",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "survival",
+    "conflict",
+    "exploration",
+    "human resilience"
+  ],
+  "targetAudience": "Young adults and adult readers who enjoy speculative fiction",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The Expanse Series by James S.A. Corey",
+    "Old Man's War by John Scalzi",
+    "The Forever War by Joe Haldeman"
+  ],
+  "keyInsights": [
+    "Exploration of human nature in extreme situations",
+    "The impact of conflict on society",
+    "Themes of resilience and survival"
+  ],
+  "tags": [
+    "science fiction",
+    "adventure",
+    "survival",
+    "conflict",
+    "exploration"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:22:35.057Z"
+}

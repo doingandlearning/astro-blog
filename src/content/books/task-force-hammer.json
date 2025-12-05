@@ -1,0 +1,43 @@
+{
+  "title": "Task Force Hammer",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-12-01T19:23:51.080Z",
+  "genre": "General",
+  "pages": 0,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Military Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "military strategy",
+    "team dynamics",
+    "science fiction",
+    "leadership",
+    "conflict resolution"
+  ],
+  "targetAudience": "Fans of science fiction and military fiction, particularly those interested in tactical narratives",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "Old Man's War by John Scalzi",
+    "The Forever War by Joe Haldeman",
+    "Starship Troopers by Robert A. Heinlein"
+  ],
+  "keyInsights": [
+    "Exploration of military ethics in a sci-fi context",
+    "Importance of teamwork in high-stakes situations",
+    "Impact of technology on warfare"
+  ],
+  "tags": [
+    "science fiction",
+    "military",
+    "tactical",
+    "teamwork",
+    "leadership"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:23:55.768Z"
+}

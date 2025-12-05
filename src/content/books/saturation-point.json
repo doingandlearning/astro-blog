@@ -1,0 +1,42 @@
+{
+  "title": "Saturation Point",
+  "author": "Adrian Tchaikovsky",
+  "dateFinished": "2025-12-01T19:25:31.247Z",
+  "genre": "General",
+  "pages": 0,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "environmental change",
+    "human resilience",
+    "technology and society",
+    "survival"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and ecological themes",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "Children of Time",
+    "The Ministry for the Future",
+    "Annihilation"
+  ],
+  "keyInsights": [
+    "Explores the impact of climate change",
+    "Challenges human adaptability",
+    "Examines the intersection of technology and nature"
+  ],
+  "tags": [
+    "science fiction",
+    "ecology",
+    "climate change",
+    "survival",
+    "speculative fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:25:34.799Z"
+}

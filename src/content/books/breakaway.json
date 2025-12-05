@@ -1,0 +1,43 @@
+{
+  "title": "Breakaway",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-12-01T19:22:43.410Z",
+  "genre": "General",
+  "pages": 0,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction, Adventure",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "exploration",
+    "self-discovery",
+    "overcoming adversity",
+    "friendship",
+    "courage"
+  ],
+  "targetAudience": "Young adults and adults who enjoy speculative fiction and adventure stories",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The Martian by Andy Weir",
+    "Ready Player One by Ernest Cline",
+    "Old Man's War by John Scalzi"
+  ],
+  "keyInsights": [
+    "The importance of resilience in the face of challenges",
+    "The value of teamwork and camaraderie",
+    "Exploration as a means of personal growth"
+  ],
+  "tags": [
+    "science fiction",
+    "adventure",
+    "exploration",
+    "self-discovery",
+    "resilience"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:22:47.955Z"
+}

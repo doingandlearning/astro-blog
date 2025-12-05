@@ -1,0 +1,43 @@
+{
+  "title": "Match Game",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-12-01T19:23:14.200Z",
+  "genre": "General",
+  "pages": 0,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction, Adventure",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "competition",
+    "strategy",
+    "team dynamics",
+    "survival",
+    "innovation"
+  ],
+  "targetAudience": "Readers interested in science fiction and adventure narratives",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Hitchhiker's Guide to the Galaxy",
+    "Red Mars",
+    "Ender's Game"
+  ],
+  "keyInsights": [
+    "Exploration of human ingenuity",
+    "The importance of teamwork in overcoming challenges",
+    "The balance between competition and collaboration"
+  ],
+  "tags": [
+    "science fiction",
+    "adventure",
+    "teamwork",
+    "strategy",
+    "competition"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:23:17.781Z"
+}

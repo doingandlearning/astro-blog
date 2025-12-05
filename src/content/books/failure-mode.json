@@ -1,0 +1,45 @@
+{
+  "title": "Failure Mode",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-12-01T19:23:28.279Z",
+  "genre": "General",
+  "pages": 0,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "failure",
+    "innovation",
+    "technology",
+    "human resilience",
+    "problem-solving"
+  ],
+  "targetAudience": "Readers interested in science fiction and speculative narratives",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The Martian",
+    "Red Mars",
+    "Neuromancer",
+    "Dune",
+    "Snow Crash"
+  ],
+  "keyInsights": [
+    "Exploration of failure as a pathway to success",
+    "Impact of technology on society",
+    "The importance of resilience in the face of challenges"
+  ],
+  "tags": [
+    "science fiction",
+    "technology",
+    "innovation",
+    "failure",
+    "resilience"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:23:31.669Z"
+}

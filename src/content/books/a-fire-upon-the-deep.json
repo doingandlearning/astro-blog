@@ -1,0 +1,45 @@
+{
+  "title": "A Fire Upon the Deep",
+  "author": "Verno Vinge",
+  "dateFinished": "2025-12-01T19:24:34.650Z",
+  "genre": "General",
+  "pages": 0,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Advanced",
+  "themes": [
+    "Cosmology",
+    "Artificial Intelligence",
+    "Interstellar Conflict",
+    "Human Evolution",
+    "Societal Structures"
+  ],
+  "targetAudience": "Readers interested in complex science fiction narratives and speculative futures",
+  "complexity": "Complex",
+  "readingTime": "15 hours",
+  "relatedBooks": [
+    "The Left Hand of Darkness",
+    "Dune",
+    "Foundation",
+    "Hyperion",
+    "Snow Crash"
+  ],
+  "keyInsights": [
+    "Explores the impact of technology on society",
+    "Examines the nature of intelligence",
+    "Highlights the vastness of the universe and its implications for humanity"
+  ],
+  "tags": [
+    "Science Fiction",
+    "Space Opera",
+    "Epic",
+    "Philosophical",
+    "Adventure"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:24:38.330Z"
+}

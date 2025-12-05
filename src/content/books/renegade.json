@@ -1,0 +1,44 @@
+{
+  "title": "Renegade",
+  "author": "Joel Shepherd",
+  "dateFinished": "2025-12-01T19:28:13.028Z",
+  "genre": "General",
+  "pages": 470,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "rebellion",
+    "identity",
+    "power dynamics",
+    "survival",
+    "technology"
+  ],
+  "targetAudience": "Readers of speculative fiction and science fiction enthusiasts",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "Altered Carbon",
+    "The Expanse series",
+    "Dune",
+    "Neuromancer"
+  ],
+  "keyInsights": [
+    "Exploration of moral ambiguity in technology",
+    "Impact of societal structures on individual choices",
+    "The nature of rebellion and its consequences"
+  ],
+  "tags": [
+    "science fiction",
+    "rebellion",
+    "identity",
+    "technology",
+    "futuristic"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:28:19.149Z"
+}

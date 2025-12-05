@@ -1,0 +1,42 @@
+{
+  "title": "Aftermath",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-12-01T19:23:39.192Z",
+  "genre": "General",
+  "pages": 0,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "survival",
+    "post-apocalyptic",
+    "human resilience",
+    "moral dilemmas"
+  ],
+  "targetAudience": "Fans of science fiction and post-apocalyptic narratives",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The Road by Cormac McCarthy",
+    "Station Eleven by Emily St. John Mandel",
+    "World War Z by Max Brooks"
+  ],
+  "keyInsights": [
+    "Exploration of human nature in crisis",
+    "Impact of choices on survival",
+    "The importance of community in rebuilding"
+  ],
+  "tags": [
+    "science fiction",
+    "post-apocalyptic",
+    "survival",
+    "human nature",
+    "community"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:23:42.947Z"
+}

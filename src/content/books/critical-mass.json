@@ -1,0 +1,43 @@
+{
+  "title": "Critical Mass",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-12-01T19:22:02.434Z",
+  "genre": "General",
+  "pages": 0,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction Adventure",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "exploration",
+    "conflict",
+    "survival",
+    "team dynamics",
+    "science and technology"
+  ],
+  "targetAudience": "Readers who enjoy science fiction and adventure narratives",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The Expanse Series",
+    "Old Man's War",
+    "The Forever War"
+  ],
+  "keyInsights": [
+    "The importance of teamwork in overcoming challenges",
+    "The impact of technology on human relationships",
+    "Exploration of moral dilemmas in a futuristic setting"
+  ],
+  "tags": [
+    "science fiction",
+    "adventure",
+    "space exploration",
+    "teamwork",
+    "technology"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:22:06.112Z"
+}

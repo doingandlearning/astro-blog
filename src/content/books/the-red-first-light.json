@@ -1,0 +1,43 @@
+{
+  "title": "The Red: First Light",
+  "author": "Linda Nagata",
+  "dateFinished": "2025-12-01T19:26:27.960Z",
+  "genre": "General",
+  "pages": 416,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction, Military Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Artificial Intelligence",
+    "Military Strategy",
+    "Humanity vs Technology",
+    "Survival",
+    "Ethics of Warfare"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and military themes",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "Ghost Fleet by P.W. Singer",
+    "The Forever War by Joe Haldeman",
+    "Old Man's War by John Scalzi"
+  ],
+  "keyInsights": [
+    "Exploration of AI's role in modern warfare",
+    "The moral implications of technology in combat",
+    "Human resilience in the face of technological advancement"
+  ],
+  "tags": [
+    "Science Fiction",
+    "Military",
+    "AI",
+    "Technology",
+    "Ethics"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:26:32.671Z"
+}

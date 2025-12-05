@@ -1,0 +1,43 @@
+{
+  "title": "The Will of the Many",
+  "author": "James Islington",
+  "dateFinished": "2025-12-01T19:25:55.863Z",
+  "genre": "General",
+  "pages": 720,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Epic Fantasy",
+  "bookCategory": "Fiction",
+  "readingLevel": "Advanced",
+  "themes": [
+    "Power dynamics",
+    "Morality",
+    "Sacrifice",
+    "Rebellion",
+    "Friendship"
+  ],
+  "targetAudience": "Fans of epic fantasy and complex narratives",
+  "complexity": "Complex",
+  "readingTime": "15 hours",
+  "relatedBooks": [
+    "The Name of the Wind",
+    "Mistborn",
+    "The Way of Kings"
+  ],
+  "keyInsights": [
+    "Exploration of moral ambiguity",
+    "Impact of choices on society",
+    "The nature of power and its consequences"
+  ],
+  "tags": [
+    "fantasy",
+    "epic",
+    "adventure",
+    "political intrigue",
+    "character development"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:26:01.112Z"
+}

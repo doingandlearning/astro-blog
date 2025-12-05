@@ -1,0 +1,44 @@
+{
+  "title": "Drysine Legacy",
+  "author": "Joel Shepherd",
+  "dateFinished": "2025-12-01T19:28:34.007Z",
+  "genre": "General",
+  "pages": 0,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction / Fantasy",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Legacy",
+    "Identity",
+    "Conflict",
+    "Survival",
+    "Technology"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and character-driven narratives",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "Dune by Frank Herbert",
+    "The Left Hand of Darkness by Ursula K. Le Guin",
+    "Altered Carbon by Richard K. Morgan"
+  ],
+  "keyInsights": [
+    "Exploration of personal and societal legacies",
+    "Impact of technology on identity",
+    "Moral dilemmas in conflict situations"
+  ],
+  "tags": [
+    "Science Fiction",
+    "Fantasy",
+    "Legacy",
+    "Identity",
+    "Technology",
+    "Conflict"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:28:37.207Z"
+}

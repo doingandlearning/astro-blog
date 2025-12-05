@@ -1,0 +1,43 @@
+{
+  "title": "Armageddon",
+  "author": "Craig Alanson",
+  "dateFinished": "2025-12-01T19:21:26.750Z",
+  "genre": "General",
+  "pages": 366,
+  "coverUrl": "https://via.placeholder.com/300x400?text=No+Cover",
+  "readingYear": 2025,
+  "readingMonth": 12,
+  "isCurrentlyReading": false,
+  "enhancedGenre": "Science Fiction, Space Opera",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "survival",
+    "conflict",
+    "intergalactic warfare",
+    "human resilience",
+    "exploration"
+  ],
+  "targetAudience": "Fans of science fiction and space adventure stories",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Expanse series by James S.A. Corey",
+    "Old Man's War by John Scalzi",
+    "The Forever War by Joe Haldeman"
+  ],
+  "keyInsights": [
+    "Explores the consequences of war on humanity",
+    "Highlights the importance of teamwork in crisis",
+    "Examines moral dilemmas in survival situations"
+  ],
+  "tags": [
+    "science fiction",
+    "space opera",
+    "adventure",
+    "military",
+    "intergalactic"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2025-12-01T19:21:30.647Z"
+}
