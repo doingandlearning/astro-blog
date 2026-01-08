@@ -2,6 +2,7 @@
 title: "Being Smart !== Feeling Smart"
 date: "2020-12-05"
 tags: ["learning"]
+draft: false
 ---
 
 Would you rather be smart or feel smart?

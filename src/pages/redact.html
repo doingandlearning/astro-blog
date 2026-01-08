@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PII Redactor (Client-Side)</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; line-height: 1.4; }
+      h1 { margin: 0 0 12px; font-size: 20px; }
+      p { margin: 0 0 16px; opacity: 0.85; }
+      .grid { display: grid; gap: 12px; grid-template-columns: 1fr; }
+      @media (min-width: 1000px) { .grid { grid-template-columns: 1fr 1fr; } }
+      textarea { width: 100%; min-height: 360px; padding: 12px; border-radius: 10px; border: 1px solid rgba(127,127,127,0.35); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: 13px; }
+      .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+      button { padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(127,127,127,0.35); background: transparent; cursor: pointer; }
+      button:hover { background: rgba(127,127,127,0.08); }
+      label { display: inline-flex; gap: 8px; align-items: center; user-select: none; }
+      input[type="text"] { padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(127,127,127,0.35); width: min(520px, 100%); }
+      .small { font-size: 12px; opacity: 0.8; }
+      .pill { font-size: 12px; opacity: 0.9; padding: 2px 8px; border: 1px solid rgba(127,127,127,0.35); border-radius: 999px; }
+      .muted { opacity: 0.75; }
+      details { border: 1px solid rgba(127,127,127,0.25); border-radius: 10px; padding: 10px 12px; }
+      summary { cursor: pointer; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+    </style>
+  </head>
+  <body>
+    <h1>PII Redactor (client-side)</h1>
+    <p>
+      Paste text, redact common identifiers, then copy the safe version for your LLM prompt.
+      This runs entirely in your browser.
+      <span class="pill">No React</span>
+      <span class="pill">Single HTML file</span>
+    </p>
+
+    <div class="row" style="margin-bottom: 12px;">
+      <button id="redactBtn" type="button">Redact</button>
+      <button id="copyBtn" type="button">Copy output</button>
+      <button id="swapBtn" type="button">Swap</button>
+      <button id="clearBtn" type="button">Clear</button>
+      <span id="status" class="small muted"></span>
+    </div>
+
+    <div class="row" style="margin-bottom: 12px;">
+      <label><input type="checkbox" id="emails" checked /> Emails</label>
+      <label><input type="checkbox" id="phones" checked /> Phone numbers</label>
+      <label><input type="checkbox" id="urls" checked /> URLs</label>
+      <label><input type="checkbox" id="ips" checked /> IP addresses</label>
+      <label><input type="checkbox" id="creditCards" /> Card-like numbers</label>
+      <label><input type="checkbox" id="ukPostcodes" checked /> UK postcodes</label>
+      <label><input type="checkbox" id="dates" /> Dates (broad)</label>
+    </div>
+
+    <div class="row" style="margin-bottom: 16px;">
+      <input
+        id="customTerms"
+        type="text"
+        placeholder="Custom terms to redact (comma-separated): e.g. Acme Ltd, Kevin Cunningham, Belfast"
+        autocomplete="off"
+      />
+      <button id="applyTermsBtn" type="button">Apply terms</button>
+      <span class="small muted">Tip: add proper nouns you know are identifying.</span>
+    </div>
+
+    <div class="grid">
+      <div>
+        <div class="row" style="justify-content: space-between; margin-bottom: 6px;">
+          <strong>Input</strong>
+          <span id="inputCount" class="small muted"></span>
+        </div>
+        <textarea id="input" placeholder="Paste text here..."></textarea>
+      </div>
+
+      <div>
+        <div class="row" style="justify-content: space-between; margin-bottom: 6px;">
+          <strong>Output (redacted)</strong>
+          <span id="outputCount" class="small muted"></span>
+        </div>
+        <textarea id="output" placeholder="Redacted output appears here..." readonly></textarea>
+      </div>
+    </div>
+
+    <details style="margin-top: 14px;">
+      <summary><strong>What this will (and won’t) catch</strong></summary>
+      <div class="small" style="margin-top: 8px;">
+        <ul>
+          <li>Good at: emails, URLs, IPs, common phone patterns, UK postcodes, and any custom terms you add.</li>
+          <li>Not reliable for: people’s names, organisations, job titles, or “identifiability” in general — add those via custom terms.</li>
+          <li>“Card-like numbers” is conservative and may redact non-card numbers that look similar.</li>
+        </ul>
+        <div class="muted">
+          If you need stronger guarantees, use a dedicated PII detection library/service (NER-based), but that usually means sending data somewhere or bundling a heavier model.
+        </div>
+      </div>
+    </details>
+
+    <script>
+      // --- Utilities ---
+      const $ = (id) => document.getElementById(id);
+
+      function escapeRegExp(str) {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      }
+
+      // Luhn check for card-like numbers (optional, heuristic)
+      function luhnValid(numStr) {
+        const digits = numStr.replace(/\D/g, "");
+        if (digits.length < 13 || digits.length > 19) return false;
+
+        let sum = 0;
+        let dbl = false;
+        for (let i = digits.length - 1; i >= 0; i--) {
+          let d = digits.charCodeAt(i) - 48;
+          if (d < 0 || d > 9) return false;
+          if (dbl) {
+            d *= 2;
+            if (d > 9) d -= 9;
+          }
+          sum += d;
+          dbl = !dbl;
+        }
+        return sum % 10 === 0;
+      }
+
+      function redactWithRegex(text, regex, token) {
+        return text.replace(regex, token);
+      }
+
+      function normaliseWhitespace(text) {
+        // Optional: reduce accidental token adjacency after replacements
+        return text.replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n");
+      }
+
+      // --- PII Patterns ---
+      // Emails: fairly permissive but avoids many false positives.
+      const EMAIL_RE = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi;
+
+      // URLs: http(s)://, or bare domains with a TLD (best-effort)
+      const URL_RE =
+        /\b(?:https?:\/\/|www\.)[^\s<>()"]+|\b(?:[a-z0-9-]+\.)+(?:[a-z]{2,})(?:\/[^\s<>()"]*)?\b/gi;
+
+      // IP v4: basic validation-ish (0-255 segments)
+      const IPV4_RE =
+        /\b(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|1?\d?\d)\b/g;
+
+      // Phone numbers: broad; aims at UK/US-ish patterns. Expect some false positives.
+      const PHONE_RE =
+        /\b(?:\+?\d{1,3}[\s.-]?)?(?:\(?\d{2,4}\)?[\s.-]?)?\d{3,4}[\s.-]?\d{3,4}\b/g;
+
+      // UK postcodes (approx; covers most standard forms)
+      const UK_POSTCODE_RE =
+        /\b(?:GIR\s?0AA|(?:[A-Z]{1,2}\d{1,2}[A-Z]?)\s?\d[A-Z]{2})\b/gi;
+
+      // Dates (broad): dd/mm/yyyy, yyyy-mm-dd, "1 Jan 2025", etc. High false-positive risk.
+      const DATE_RE =
+        /\b(?:\d{1,2}[\/.-]\d{1,2}[\/.-]\d{2,4}|\d{4}[\/.-]\d{1,2}[\/.-]\d{1,2}|\d{1,2}\s(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\s\d{2,4})\b/gi;
+
+      // Card-like numbers: find digit groups 13-19 with spaces/hyphens; optionally Luhn validate
+      const CARD_CANDIDATE_RE = /\b(?:\d[ -]*?){13,19}\b/g;
+
+      // --- Custom terms state ---
+      let customTermRegexes = [];
+
+      function buildCustomTermRegexes(termsCsv) {
+        const terms = termsCsv
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean)
+          // longest first to avoid partial masking first
+          .sort((a, b) => b.length - a.length);
+
+        customTermRegexes = terms.map((t) => {
+          // word boundary is not always correct for names/orgs; use plain escaped match with basic case-insensitive flag
+          return new RegExp(escapeRegExp(t), "gi");
+        });
+
+        return terms.length;
+      }
+
+      function applyRedactions(input) {
+        let text = input;
+
+        const tokens = {
+          email: "[REDACTED_EMAIL]",
+          phone: "[REDACTED_PHONE]",
+          url: "[REDACTED_URL]",
+          ip: "[REDACTED_IP]",
+          postcode: "[REDACTED_POSTCODE]",
+          date: "[REDACTED_DATE]",
+          card: "[REDACTED_CARD]",
+          term: "[REDACTED_TERM]",
+        };
+
+        // 1) Apply custom terms first (user-known identifiers)
+        for (const re of customTermRegexes) {
+          text = redactWithRegex(text, re, tokens.term);
+        }
+
+        // 2) Apply selected automatic redactions
+        if ($("emails").checked) text = redactWithRegex(text, EMAIL_RE, tokens.email);
+        if ($("urls").checked) text = redactWithRegex(text, URL_RE, tokens.url);
+        if ($("ips").checked) text = redactWithRegex(text, IPV4_RE, tokens.ip);
+        if ($("ukPostcodes").checked) text = redactWithRegex(text, UK_POSTCODE_RE, tokens.postcode);
+        if ($("dates").checked) text = redactWithRegex(text, DATE_RE, tokens.date);
+
+        if ($("phones").checked) {
+          // Avoid clobbering tokens we already inserted (basic guard)
+          text = text.replace(PHONE_RE, (m) => {
+            const looksLikeToken = /^\[REDACTED_[A-Z_]+\]$/.test(m.trim());
+            if (looksLikeToken) return m;
+            // Reduce false positives: require at least 9 digits total
+            const digits = m.replace(/\D/g, "");
+            if (digits.length < 9) return m;
+            return tokens.phone;
+          });
+        }
+
+        if ($("creditCards").checked) {
+          text = text.replace(CARD_CANDIDATE_RE, (m) => {
+            const digits = m.replace(/\D/g, "");
+            if (digits.length < 13 || digits.length > 19) return m;
+            // Luhn validate to reduce false positives
+            if (!luhnValid(digits)) return m;
+            return tokens.card;
+          });
+        }
+
+        return normaliseWhitespace(text);
+      }
+
+      function updateCounts() {
+        const inText = $("input").value || "";
+        const outText = $("output").value || "";
+        $("inputCount").textContent = `${inText.length.toLocaleString()} chars`;
+        $("outputCount").textContent = `${outText.length.toLocaleString()} chars`;
+      }
+
+      function setStatus(msg) {
+        $("status").textContent = msg;
+        if (msg) {
+          clearTimeout(setStatus._t);
+          setStatus._t = setTimeout(() => setStatus(""), 2000);
+        }
+      }
+
+      // --- UI handlers ---
+      $("applyTermsBtn").addEventListener("click", () => {
+        const n = buildCustomTermRegexes($("customTerms").value || "");
+        setStatus(`Custom terms loaded: ${n}`);
+      });
+
+      $("redactBtn").addEventListener("click", () => {
+        // Auto-load terms on redact (so user doesn’t have to click Apply every time)
+        buildCustomTermRegexes($("customTerms").value || "");
+        $("output").value = applyRedactions($("input").value || "");
+        updateCounts();
+        setStatus("Redacted");
+      });
+
+      $("copyBtn").addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText($("output").value || "");
+          setStatus("Copied");
+        } catch {
+          // Fallback for restrictive clipboard environments
+          $("output").focus();
+          $("output").select();
+          document.execCommand("copy");
+          setStatus("Copied");
+        }
+      });
+
+      $("swapBtn").addEventListener("click", () => {
+        const a = $("input").value;
+        const b = $("output").value;
+        $("input").value = b;
+        $("output").value = a;
+        updateCounts();
+        setStatus("Swapped");
+      });
+
+      $("clearBtn").addEventListener("click", () => {
+        $("input").value = "";
+        $("output").value = "";
+        $("customTerms").value = "";
+        customTermRegexes = [];
+        updateCounts();
+        setStatus("Cleared");
+      });
+
+      $("input").addEventListener("input", updateCounts);
+      updateCounts();
+    </script>
+  </body>
+</html>
