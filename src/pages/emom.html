@@ -9,14 +9,46 @@
   :root{
     --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8; --text:#e6eef6;
   }
-  html,body{height:100%;margin:0;font-family:Inter,Segoe UI,Roboto,system-ui,-apple-system,"Helvetica Neue",Arial;}
-  body{background:linear-gradient(180deg,#071028 0%, #0b1220 60%);color:var(--text);display:flex;align-items:center;justify-content:center;padding:24px;}
-  .wrap{width:100%;max-width:960px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:12px;padding:20px;box-shadow:0 8px 30px rgba(2,6,23,0.7);border:1px solid rgba(255,255,255,0.03);}
+
+  /* Use min-height so layout can grow and page can scroll on small screens.
+     Align start so top of app remains visible (not centered vertically). */
+  html,body{min-height:100vh;margin:0;font-family:Inter,Segoe UI,Roboto,system-ui,-apple-system,"Helvetica Neue",Arial;}
+  body{
+    background:linear-gradient(180deg,#071028 0%, #0b1220 60%);
+    color:var(--text);
+    display:flex;
+    align-items:flex-start;       /* was center — causes top to be cut off on mobile */
+    justify-content:center;
+    padding:20px;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  /* Make the card scrollable if viewport is short (keyboard, small devices) */
+  .wrap{
+    width:100%;
+    max-width:960px;
+    background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
+    border-radius:12px;
+    padding:16px;
+    box-shadow:0 8px 30px rgba(2,6,23,0.7);
+    border:1px solid rgba(255,255,255,0.03);
+    max-height: calc(100vh - 40px); /* leave some room for viewport chrome */
+    overflow:auto;                  /* allow scrolling inside card */
+  }
+
   h1{margin:0 0 8px;font-size:20px;}
   .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;}
   label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
-  textarea{width:100%;min-height:260px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:#061124;color:var(--text);resize:vertical;font-size:14px;line-height:1.4}
-  .controls{background:linear-gradient(180deg,#071327,#06101a);padding:16px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:12px;}
+  textarea{
+    width:100%;
+    min-height:160px;              /* reduced from 260 to be friendlier on mobile */
+    max-height: calc(45vh);        /* keep textarea reasonable on short viewports */
+    padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);
+    background:#061124;color:var(--text);resize:vertical;font-size:14px;line-height:1.4;
+    box-sizing:border-box;
+  }
+  .controls{background:linear-gradient(180deg,#071327,#06101a);padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:12px;}
   .row{display:flex;gap:8px;align-items:center;}
   input[type=number]{width:90px;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:#071627;color:var(--text);font-size:14px}
   button{cursor:pointer;padding:10px 12px;border-radius:8px;border:0;background:var(--accent);color:#012;font-weight:600}
@@ -30,7 +62,27 @@
   .progress{height:8px;background:rgba(255,255,255,0.04);border-radius:999px;overflow:hidden;width:100%}
   .bar{height:100%;background:linear-gradient(90deg,var(--accent),#7dd3fc);width:0%}
   .hidden{display:none !important}
-  @media (max-width:860px){.grid{grid-template-columns:1fr;}.controls{order:2}.display{order:1}}
+
+  /* Responsive tweaks */
+  @media (max-width:860px){
+    .grid{grid-template-columns:1fr;}
+    .controls{order:2}
+    .display{order:1}
+  }
+
+  @media (max-width:480px){
+    body{padding:12px;}
+    .wrap{padding:12px;}
+    .timer{font-size:48px;}            /* reduce huge timer on small viewports */
+    .grid{gap:12px;}
+    textarea{min-height:120px; max-height:40vh;}
+    .controls{padding:10px;}
+  }
+
+  /* Ensure focusable elements are visible when keyboard opens on mobile:
+     the card is scrollable, so the focused textarea/input can be scrolled into view. */
+  :focus{outline: none;}
+  textarea:focus, input:focus, button:focus { box-shadow: 0 0 0 3px rgba(6,182,212,0.08); outline: none; }
 </style>
 </head>
 <body>
@@ -443,6 +495,19 @@
 
   // populate on load
   populateSavedList();
+
+  // Optional: scroll focused input into view on mobile (helps when keyboard opens)
+  ['focus','click'].forEach(ev => {
+    document.addEventListener(ev, (e) => {
+      const target = e.target;
+      if (target && (target.tagName === 'TEXTAREA' || target.tagName === 'INPUT')) {
+        // slight delay so mobile keyboard begins to open then scroll
+        setTimeout(() => {
+          target.scrollIntoView({block:'center', behavior:'smooth'});
+        }, 250);
+      }
+    }, true);
+  });
 
 })();
 </script>
