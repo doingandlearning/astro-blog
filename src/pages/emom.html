@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -43,6 +44,16 @@
           <button id="pasteSample" class="secondary">Load sample</button>
           <button id="clear" class="secondary">Clear</button>
         </div>
+  <!-- SAVE / LOAD -->
+  <div style="display:flex;gap:8px;margin-top:10px;align-items:center">
+    <input id="saveName" type="text" placeholder="Workout name" style="flex:1;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.04);background:#061124;color:var(--text)" />
+    <button id="saveWorkout" class="secondary">Save</button>
+  </div>
+  <div style="display:flex;gap:8px;margin-top:8px;align-items:center">
+    <select id="savedWorkouts" style="flex:1;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.04);background:#061124;color:var(--text)"></select>
+    <button id="loadWorkout" class="secondary">Load</button>
+    <button id="deleteWorkout" class="secondary">Delete</button>
+  </div>
       </div>
 
       <div class="controls">
@@ -104,6 +115,11 @@
   const totalTimeEl = document.getElementById('totalTime');
   const pasteSample = document.getElementById('pasteSample');
   const clearBtn = document.getElementById('clear');
+  const saveNameEl = document.getElementById('saveName');
+  const saveWorkoutBtn = document.getElementById('saveWorkout');
+  const savedSelect = document.getElementById('savedWorkouts');
+  const loadWorkoutBtn = document.getElementById('loadWorkout');
+  const deleteWorkoutBtn = document.getElementById('deleteWorkout');
 
   // State
   let exercises = [];
@@ -118,14 +134,16 @@
   let totalMinutes = 0;
   let minutesElapsed = 0;
 
+  const STORAGE_KEY = 'emom_workouts';
+
   function parseExercises(){
-    // split on real newlines (handles CRLF too)
     const lines = exercisesEl.value.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
     exercises = lines;
     return exercises;
   }
 
   function formatTimeSec(s){
+    s = Math.max(0, Math.floor(Number(s) || 0));
     const mm = String(Math.floor(s/60)).padStart(2,'0');
     const ss = String(s % 60).padStart(2,'0');
     return mm + ':' + ss;
@@ -135,11 +153,16 @@
     // Show timer default when not running/paused
     if(!running && !paused){
       timerEl.textContent = formatTimeSec(Math.ceil(minuteMs/1000));
+    } else {
+      // when running or paused, timer updated via tick or pause shows current remaining
+      // but ensure tick has been run at least once
     }
-    currentExerciseEl.textContent = exercises.length ? (exercises[getCurrentIndex()] ) : '—';
-    roundDisplayEl.textContent = `Round ${getCurrentRound()} of ${rounds}`;
-    exerciseDisplayEl.textContent = `Exercise ${ (exercises.length ? (getCurrentIndex() + 1) : 0) } of ${exercises.length || 0}`;
-    totalTimeEl.textContent = `${totalMinutes}m`;
+
+    const idx = (exercises.length ? getCurrentIndex() : -1);
+    currentExerciseEl.textContent = (idx >= 0 ? exercises[idx] : '—');
+    roundDisplayEl.textContent = `Round ${ getCurrentRound() } of ${ rounds }`;
+    exerciseDisplayEl.textContent = `Exercise ${ (exercises.length ? (idx + 1) : 0) } of ${ exercises.length || 0 }`;
+    totalTimeEl.textContent = `${ totalMinutes }m`;
   }
 
   function beep(){
@@ -179,7 +202,7 @@
         finish();
         return;
       } else {
-        // schedule next minute
+        // schedule next minute and refresh displays to show next exercise
         endTime = Date.now() + minuteMs;
         updateDisplays();
       }
@@ -187,9 +210,9 @@
   }
 
   function getCurrentIndex(){
-    if(totalMinutes === 0) return 0;
-    // current exercise index based on minutesElapsed (0-based) while running/paused
-    const idx = minutesElapsed % (exercises.length || 1);
+    if(exercises.length === 0) return 0;
+    // index is based on minutesElapsed (0-based)
+    const idx = minutesElapsed % exercises.length;
     return idx;
   }
   function getCurrentRound(){
@@ -240,6 +263,7 @@
       // resume
       paused = false;
       endTime = Date.now() + remainingMsOnPause;
+      if(intervalId) clearInterval(intervalId);
       intervalId = setInterval(tick, 200);
       statusEl.textContent = 'Running';
       pauseBtn.textContent = 'Pause';
@@ -250,7 +274,8 @@
       remainingMsOnPause = Math.max(0, endTime - Date.now());
       statusEl.textContent = 'Paused';
       pauseBtn.textContent = 'Resume';
-      // keep displays showing current values while paused
+      // show the paused remaining time
+      timerEl.textContent = formatTimeSec(Math.ceil(remainingMsOnPause/1000));
     }
   }
 
@@ -261,8 +286,9 @@
     if(intervalId) clearInterval(intervalId);
     intervalId = null;
     minutesElapsed = 0;
-    totalMinutes = Math.max(1, (Number(roundsEl.value) || 1) * (parseExercises().length || 1));
+    parseExercises();
     minuteMs = Math.max(1, Number(durationEl.value) || 60) * 1000;
+    totalMinutes = Math.max(1, (Number(roundsEl.value) || 1) * (exercises.length || 1));
 
     setupPanel.classList.remove('hidden');
     setupInputs.classList.remove('hidden');
@@ -320,6 +346,103 @@
       e.preventDefault(); start();
     }
   });
+
+  // Storage helpers
+  function getSavedWorkouts() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    } catch (e) {
+      console.warn('bad saved data', e);
+      return {};
+    }
+  }
+
+  function persistSavedWorkouts(obj) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+  }
+
+  function populateSavedList() {
+    const data = getSavedWorkouts();
+    const names = Object.keys(data).sort((a,b)=>a.localeCompare(b));
+    savedSelect.innerHTML = '';
+    if (names.length === 0) {
+      const opt = document.createElement('option');
+      opt.value = '';
+      opt.textContent = 'No saved workouts';
+      savedSelect.appendChild(opt);
+      savedSelect.disabled = true;
+      loadWorkoutBtn.disabled = true;
+      deleteWorkoutBtn.disabled = true;
+    } else {
+      savedSelect.disabled = false;
+      loadWorkoutBtn.disabled = false;
+      deleteWorkoutBtn.disabled = false;
+      names.forEach(name => {
+        const opt = document.createElement('option');
+        opt.value = name;
+        const item = data[name];
+        const count = (typeof item.exercises === 'string') ? item.exercises.split(/\r?\n/).filter(Boolean).length : 0;
+        opt.textContent = name + ' — ' + count + ' ex • ' + (item.rounds||1) + ' r • ' + (item.duration||60) + ' s';
+        savedSelect.appendChild(opt);
+      });
+    }
+  }
+
+  function saveWorkout(name) {
+    if (!name || !name.trim()) { alert('Please enter a name to save.'); return; }
+    const data = getSavedWorkouts();
+    const normalized = name.trim();
+    if (data[normalized]) {
+      if (!confirm('A workout with that name exists. Overwrite?')) return;
+    }
+    data[normalized] = {
+      exercises: exercisesEl.value,
+      rounds: Number(roundsEl.value) || 1,
+      duration: Number(durationEl.value) || 60,
+      savedAt: Date.now()
+    };
+    persistSavedWorkouts(data);
+    populateSavedList();
+    // select newly saved
+    savedSelect.value = normalized;
+    saveNameEl.value = '';
+  }
+
+  function loadWorkoutByName(name) {
+    const data = getSavedWorkouts();
+    if (!name || !data[name]) { alert('Workout not found'); return; }
+    const w = data[name];
+    exercisesEl.value = w.exercises || '';
+    roundsEl.value = w.rounds || 1;
+    durationEl.value = w.duration || 60;
+    parseExercises();
+    updateDisplays();
+  }
+
+  function deleteWorkoutByName(name) {
+    const data = getSavedWorkouts();
+    if (!name || !data[name]) return;
+    if (!confirm('Delete workout "' + name + '"?')) return;
+    delete data[name];
+    persistSavedWorkouts(data);
+    populateSavedList();
+  }
+
+  // wire save/load/delete buttons
+  saveWorkoutBtn.addEventListener('click', () => saveWorkout(saveNameEl.value));
+  loadWorkoutBtn.addEventListener('click', () => {
+    const name = savedSelect.value;
+    if (!name) { alert('Select a workout to load'); return; }
+    loadWorkoutByName(name);
+  });
+  deleteWorkoutBtn.addEventListener('click', () => {
+    const name = savedSelect.value;
+    if (!name) { alert('Select a workout to delete'); return; }
+    deleteWorkoutByName(name);
+  });
+
+  // populate on load
+  populateSavedList();
 
 })();
 </script>
