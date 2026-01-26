@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>EMOM Timer</title>
+<style>
+  :root{
+    --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8; --text:#e6eef6;
+  }
+  html,body{height:100%;margin:0;font-family:Inter,Segoe UI,Roboto,system-ui,-apple-system,"Helvetica Neue",Arial;}
+  body{background:linear-gradient(180deg,#071028 0%, #0b1220 60%);color:var(--text);display:flex;align-items:center;justify-content:center;padding:24px;}
+  .wrap{width:100%;max-width:960px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:12px;padding:20px;box-shadow:0 8px 30px rgba(2,6,23,0.7);border:1px solid rgba(255,255,255,0.03);}
+  h1{margin:0 0 8px;font-size:20px;}
+  .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;}
+  label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+  textarea{width:100%;min-height:260px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:#061124;color:var(--text);resize:vertical;font-size:14px;line-height:1.4}
+  .controls{background:linear-gradient(180deg,#071327,#06101a);padding:16px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:12px;}
+  .row{display:flex;gap:8px;align-items:center;}
+  input[type=number]{width:90px;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:#071627;color:var(--text);font-size:14px}
+  button{cursor:pointer;padding:10px 12px;border-radius:8px;border:0;background:var(--accent);color:#012;font-weight:600}
+  button.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);font-weight:600}
+  .display{display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:center;padding:8px 6px;}
+  .timer{font-size:64px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+  .exercise{font-size:20px;text-align:center;min-height:48px;padding:6px 10px;border-radius:8px;background:rgba(255,255,255,0.02);width:100%}
+  .meta{font-size:14px;color:var(--muted)}
+  .small{font-size:12px;color:var(--muted);text-align:center}
+  .footer{margin-top:12px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+  .progress{height:8px;background:rgba(255,255,255,0.04);border-radius:999px;overflow:hidden;width:100%}
+  .bar{height:100%;background:linear-gradient(90deg,var(--accent),#7dd3fc);width:0%}
+  .hidden{display:none !important}
+  @media (max-width:860px){.grid{grid-template-columns:1fr;}.controls{order:2}.display{order:1}}
+</style>
+</head>
+<body>
+  <div class="wrap" role="application" aria-label="EMOM timer">
+    <h1>EMOM Timer</h1>
+    <div class="grid">
+      <div id="setupPanel">
+        <label for="exercises">Exercises (one per line)</label>
+        <textarea id="exercises" placeholder="e.g. Push-ups&#10;Air Squats&#10;Plank 60s"></textarea>
+        <div style="display:flex;gap:8px;margin-top:8px;align-items:center">
+          <button id="pasteSample" class="secondary">Load sample</button>
+          <button id="clear" class="secondary">Clear</button>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div id="setupInputs">
+          <div class="row">
+            <div style="flex:1">
+              <label for="rounds">Rounds (full cycles through all exercises)</label>
+              <input id="rounds" type="number" min="1" value="1" />
+            </div>
+            <div>
+              <label for="duration">Minute length (seconds)</label>
+              <input id="duration" type="number" min="5" value="60" style="width:100px" />
+            </div>
+          </div>
+        </div>
+
+        <div class="display">
+          <div class="timer" id="timer">01:00</div>
+          <div class="exercise" id="currentExercise">Ready</div>
+          <div class="meta" id="roundDisplay">Round — of —</div>
+          <div class="meta" id="exerciseDisplay">Exercise — of —</div>
+          <div class="progress" aria-hidden="true" style="width:100%;max-width:320px">
+            <div class="bar" id="progressBar"></div>
+          </div>
+          <div class="small" id="status">Stopped</div>
+        </div>
+
+        <div style="display:flex;gap:8px">
+          <button id="start">Start</button>
+          <button id="pause" class="secondary" disabled>Pause</button>
+          <button id="reset" class="secondary" disabled>Reset</button>
+        </div>
+
+        <div class="footer">
+          <div>Auto beep at minute end</div>
+          <div style="opacity:0.9;font-size:12px">Total time: <span id="totalTime">0m</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+(function(){
+  // Elements
+  const setupPanel = document.getElementById('setupPanel');
+  const setupInputs = document.getElementById('setupInputs');
+  const exercisesEl = document.getElementById('exercises');
+  const roundsEl = document.getElementById('rounds');
+  const durationEl = document.getElementById('duration');
+  const startBtn = document.getElementById('start');
+  const pauseBtn = document.getElementById('pause');
+  const resetBtn = document.getElementById('reset');
+  const timerEl = document.getElementById('timer');
+  const currentExerciseEl = document.getElementById('currentExercise');
+  const roundDisplayEl = document.getElementById('roundDisplay');
+  const exerciseDisplayEl = document.getElementById('exerciseDisplay');
+  const statusEl = document.getElementById('status');
+  const progressBar = document.getElementById('progressBar');
+  const totalTimeEl = document.getElementById('totalTime');
+  const pasteSample = document.getElementById('pasteSample');
+  const clearBtn = document.getElementById('clear');
+
+  // State
+  let exercises = [];
+  let rounds = 1;
+  let minuteMs = 60000;
+  let running = false;
+  let paused = false;
+  let intervalId = null;
+  let endTime = 0;
+  let remainingMsOnPause = 0;
+  let audioCtx = null;
+  let totalMinutes = 0;
+  let minutesElapsed = 0;
+
+  function parseExercises(){
+    // split on real newlines (handles CRLF too)
+    const lines = exercisesEl.value.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+    exercises = lines;
+    return exercises;
+  }
+
+  function formatTimeSec(s){
+    const mm = String(Math.floor(s/60)).padStart(2,'0');
+    const ss = String(s % 60).padStart(2,'0');
+    return mm + ':' + ss;
+  }
+
+  function updateDisplays(){
+    // Show timer default when not running/paused
+    if(!running && !paused){
+      timerEl.textContent = formatTimeSec(Math.ceil(minuteMs/1000));
+    }
+    currentExerciseEl.textContent = exercises.length ? (exercises[getCurrentIndex()] ) : '—';
+    roundDisplayEl.textContent = `Round ${getCurrentRound()} of ${rounds}`;
+    exerciseDisplayEl.textContent = `Exercise ${ (exercises.length ? (getCurrentIndex() + 1) : 0) } of ${exercises.length || 0}`;
+    totalTimeEl.textContent = `${totalMinutes}m`;
+  }
+
+  function beep(){
+    try{
+      if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const o = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      o.type = 'sine';
+      o.frequency.value = 880;
+      g.gain.value = 0.0001;
+      o.connect(g);
+      g.connect(audioCtx.destination);
+      const now = audioCtx.currentTime;
+      g.gain.exponentialRampToValueAtTime(0.08, now + 0.01);
+      o.start(now);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + 0.35);
+      o.stop(now + 0.36);
+    }catch(e){
+      console.warn('beep failed', e);
+    }
+  }
+
+  function tick(){
+    const now = Date.now();
+    let ms = Math.max(0, endTime - now);
+    const secondsLeft = Math.ceil(ms / 1000);
+    timerEl.textContent = formatTimeSec(secondsLeft);
+    const elapsed = minuteMs - ms;
+    const pct = Math.min(100, Math.max(0, (elapsed / minuteMs) * 100));
+    progressBar.style.width = pct + '%';
+
+    if(now >= endTime){
+      // minute ended
+      beep();
+      minutesElapsed++;
+      if(minutesElapsed >= totalMinutes){
+        finish();
+        return;
+      } else {
+        // schedule next minute
+        endTime = Date.now() + minuteMs;
+        updateDisplays();
+      }
+    }
+  }
+
+  function getCurrentIndex(){
+    if(totalMinutes === 0) return 0;
+    // current exercise index based on minutesElapsed (0-based) while running/paused
+    const idx = minutesElapsed % (exercises.length || 1);
+    return idx;
+  }
+  function getCurrentRound(){
+    if(exercises.length === 0) return 0;
+    return Math.floor(minutesElapsed / exercises.length) + 1;
+  }
+
+  function start(){
+    if(running) return;
+    parseExercises();
+    if(exercises.length === 0){
+      alert('Please add at least one exercise (one per line).');
+      return;
+    }
+    rounds = Math.max(1, parseInt(roundsEl.value) || 1);
+    const dVal = Number(durationEl.value) || 60;
+    minuteMs = Math.max(1, dVal) * 1000;
+
+    // initialize counters
+    running = true;
+    paused = false;
+    minutesElapsed = 0;
+    totalMinutes = rounds * exercises.length;
+
+    // hide setup inputs and panel
+    setupPanel.classList.add('hidden');
+    setupInputs.classList.add('hidden');
+
+    // UI state
+    statusEl.textContent = 'Running';
+    startBtn.disabled = true;
+    pauseBtn.disabled = false;
+    resetBtn.disabled = false;
+
+    // set first minute end
+    endTime = Date.now() + minuteMs;
+    progressBar.style.width = '0%';
+    updateDisplays();
+
+    if(intervalId) clearInterval(intervalId);
+    intervalId = setInterval(tick, 200);
+    tick();
+  }
+
+  function pause(){
+    if(!running) return;
+    if(paused){
+      // resume
+      paused = false;
+      endTime = Date.now() + remainingMsOnPause;
+      intervalId = setInterval(tick, 200);
+      statusEl.textContent = 'Running';
+      pauseBtn.textContent = 'Pause';
+    } else {
+      // pause
+      paused = true;
+      if(intervalId) clearInterval(intervalId);
+      remainingMsOnPause = Math.max(0, endTime - Date.now());
+      statusEl.textContent = 'Paused';
+      pauseBtn.textContent = 'Resume';
+      // keep displays showing current values while paused
+    }
+  }
+
+  function reset(){
+    // stop and reveal setup
+    running = false;
+    paused = false;
+    if(intervalId) clearInterval(intervalId);
+    intervalId = null;
+    minutesElapsed = 0;
+    totalMinutes = Math.max(1, (Number(roundsEl.value) || 1) * (parseExercises().length || 1));
+    minuteMs = Math.max(1, Number(durationEl.value) || 60) * 1000;
+
+    setupPanel.classList.remove('hidden');
+    setupInputs.classList.remove('hidden');
+
+    statusEl.textContent = 'Stopped';
+    startBtn.disabled = false;
+    pauseBtn.disabled = true;
+    pauseBtn.textContent = 'Pause';
+    resetBtn.disabled = true;
+    progressBar.style.width = '0%';
+    updateDisplays();
+  }
+
+  function finish(){
+    running = false;
+    paused = false;
+    if(intervalId) clearInterval(intervalId);
+    intervalId = null;
+    timerEl.textContent = formatTimeSec(0);
+    statusEl.textContent = 'Completed!';
+    currentExerciseEl.textContent = 'Done';
+    progressBar.style.width = '100%';
+    startBtn.disabled = false;
+    pauseBtn.disabled = true;
+    resetBtn.disabled = false;
+    // reveal setup for next session
+    setupPanel.classList.remove('hidden');
+    setupInputs.classList.remove('hidden');
+  }
+
+  // Helpers / bindings
+  pasteSample.addEventListener('click', () => {
+    exercisesEl.value = 'Jumping Jacks\nPush-ups\nAir Squats\nPlank';
+    parseExercises(); updateDisplays();
+  });
+  clearBtn.addEventListener('click', () => { exercisesEl.value = ''; parseExercises(); updateDisplays(); });
+
+  startBtn.addEventListener('click', start);
+  pauseBtn.addEventListener('click', pause);
+  resetBtn.addEventListener('click', reset);
+
+  // Update displays initially and on input changes
+  updateDisplays();
+  exercisesEl.addEventListener('input', () => { parseExercises(); updateDisplays(); });
+  roundsEl.addEventListener('change', updateDisplays);
+  durationEl.addEventListener('change', () => {
+    const val = Number(durationEl.value) || 60;
+    minuteMs = Math.max(1, val) * 1000;
+    updateDisplays();
+  });
+
+  // Ctrl/Cmd+Enter to start from textarea
+  exercisesEl.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' && (e.ctrlKey || e.metaKey)){
+      e.preventDefault(); start();
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
