@@ -1,0 +1,594 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  pageTitle="Indicia - Introduction to Python for Programmers"
+  pageDescription="5-day Python course for developers: fundamentals through HTTP, databases, and testing. Hands-on labs, slides, and sample code included."
+>
+  <article class="course-page">
+    <header>
+      <h1>Indicia - Introduction to Python for Programmers</h1>
+      <p class="course-tagline">
+        5-day intensive • For developers with programming experience
+      </p>
+    </header>
+
+    <section class="course-aim">
+      <h2>Course aim</h2>
+      <p>
+        This 5-day Python course is designed for developers, engineers, and
+        professionals with programming experience who want to become confident
+        in reading, writing, and working with Python code. The course progresses
+        from Python fundamentals through to advanced topics including HTTP
+        communication, database access, and testing.
+      </p>
+      <p>
+        We start with environment setup, syntax, data types, and flow control,
+        and progress through functions, object-oriented programming, error
+        handling, modules, file handling, and modern Python practices. The
+        course emphasizes hands-on learning with real-world scenarios and
+        practical labs.
+      </p>
+      <p>
+        Each section is accompanied by slides, sample code, interactive labs,
+        and complete solutions. As a live course, we can go deeper on topics of
+        interest, whether or not they're explicitly on the syllabus.
+      </p>
+    </section>
+
+    <section class="downloads-section" id="materials">
+      <h2>Course materials</h2>
+      <p>
+        Labs are released in batches. Download the batch you need below; slides
+        and code samples are added as they become available.
+      </p>
+
+      <h3>Labs (by batch)</h3>
+      <ul class="downloads-list">
+        <li>
+          <a
+            href="/courses/indicia-introduction-python-programmers/labs-1-5-with-solutions.zip"
+            download><strong>Labs 1–5 with solutions</strong></a
+          > — Environment setup, Interactive input, Iteration and control, Containers,
+          Dictionaries
+        </li>
+      </ul>
+      <p>Further lab batches will be added as the course progresses.</p>
+      <h3>Slides (by batch)</h3>
+      <ul class="downloads-list">
+        <li>
+          <a
+            href="/courses/indicia-introduction-python-programmers/slides-1-5.zip"
+            download><strong>Slides 1–5</strong></a
+          > — Days 1 and 2
+        </li>
+      </ul>
+      <!-- <h3>Slides and code</h3>
+      <div class="downloads-grid">
+        <a class="download-card" href="/courses/indicia-introduction-python-programmers/slides.zip" download>📊 <span class="download-label">Slides</span> <span class="download-desc">Slide decks by topic</span></a>
+        <a class="download-card" href="/courses/indicia-introduction-python-programmers/code-samples.zip" download>💻 <span class="download-label">Code samples</span> <span class="download-desc">Working examples and snippets</span></a>
+      </div> -->
+    </section>
+
+    <section class="schedule-section">
+      <h2>Daily schedule</h2>
+      <p>5-day intensive course:</p>
+      <ul class="schedule-list">
+        <li><strong>09:30-11:00</strong> — Session 1</li>
+        <li><strong>11:00-11:20</strong> — Break</li>
+        <li><strong>11:20-12:45</strong> — Session 2</li>
+        <li><strong>12:45-13:45</strong> — Lunch</li>
+        <li><strong>13:45-15:10</strong> — Session 3</li>
+        <li><strong>15:10-15:30</strong> — Break</li>
+        <li><strong>15:30-16:30</strong> — Session 4</li>
+      </ul>
+    </section>
+
+    <nav class="outline-nav" aria-label="Course outline">
+      <h2>Course outline</h2>
+      <ul>
+        <li><a href="#day1">Day 1: Python Fundamentals</a></li>
+        <li><a href="#day2">Day 2: Data Structures and Collections</a></li>
+        <li><a href="#day3">Day 3: Functions and Advanced Programming</a></li>
+        <li>
+          <a href="#day4">Day 4: Error Handling, Modules, and File Operations</a
+          >
+        </li>
+        <li><a href="#day5">Day 5: Testing, HTTP, and Database Access</a></li>
+      </ul>
+    </nav>
+
+    <section id="day1">
+      <h2>Day 1: Python Fundamentals</h2>
+      <h3>Getting Started with Python</h3>
+      <ul>
+        <li>Using the Interactive Interpreter (REPL)</li>
+        <li>Setting up Python virtual environments</li>
+        <li>Using an Integrated Development Environment (IDE)</li>
+        <li>Python execution model</li>
+        <li>Running programs</li>
+      </ul>
+      <div class="lab-box">
+        <strong>Lab 1: Environment Setup</strong> — Configure your Python development
+        environment with virtual environments and IDE setup.
+      </div>
+
+      <h3>Python Language Fundamentals</h3>
+      <ul>
+        <li>Overview of core Python syntax</li>
+        <li>Identifiers and reserved words</li>
+        <li>Data types and variables</li>
+        <li>
+          Type conversion (<code>int()</code>, <code>float()</code>, <code
+            >str()</code
+          >)
+        </li>
+        <li>Arithmetic and assignment operations</li>
+        <li>Strings, Numbers, and <code>None</code></li>
+      </ul>
+      <div class="lab-box">
+        <strong>Lab 2: Interactive Input</strong> — Build a customer registration
+        system using <code>input()</code>, type conversion, and string
+        formatting.
+      </div>
+
+      <h3>Flow Control</h3>
+      <ul>
+        <li>
+          <code>if</code>, <code>elif</code>, <code>else</code> statements
+        </li>
+        <li>Comparison and logical operators</li>
+        <li>Ternary expressions</li>
+        <li><code>while</code> loops</li>
+        <li><code>for</code> loops</li>
+        <li>
+          <code>break</code>, <code>continue</code>, and <code>else</code> clauses
+        </li>
+      </ul>
+      <div class="lab-box">
+        <strong>Lab 3: Iteration and Control</strong> — Create an interactive number
+        guessing game using loops and conditional logic.
+      </div>
+    </section>
+
+    <section id="day2">
+      <h2>Day 2: Data Structures and Collections</h2>
+      <h3>Data Containers</h3>
+      <ul>
+        <li>Python collection types overview</li>
+        <li>Tuples</li>
+        <li>Lists</li>
+        <li>Collection constructors</li>
+        <li>Membership testing</li>
+        <li>Iteration over collections</li>
+      </ul>
+      <div class="lab-box">
+        <strong>Lab 4: Containers</strong> — Enhance the guessing game with history
+        tracking using lists and tuples.
+      </div>
+
+      <h3>Advanced Data Containers</h3>
+      <ul>
+        <li>Sets and FrozenSets</li>
+        <li>Dictionaries</li>
+        <li>
+          Dictionary operations (<code>.get()</code>, <code>.items()</code>, <code
+            >.keys()</code
+          >, <code>.values()</code>)
+        </li>
+        <li>List comprehensions</li>
+        <li>Set and dictionary comprehensions</li>
+      </ul>
+      <div class="lab-box">
+        <strong>Lab 5: Dictionaries</strong> — Add score tracking to the guessing
+        game using dictionaries.
+      </div>
+    </section>
+
+    <section id="day3">
+      <h2>Day 3: Functions and Advanced Programming</h2>
+      <h3>Working with Functions</h3>
+      <ul>
+        <li>Writing and calling functions</li>
+        <li>Passing parameters</li>
+        <li>Positional and keyword arguments</li>
+        <li>Default parameter values</li>
+        <li>Returning values</li>
+        <li>Returning multiple values</li>
+        <li>Function scope and namespaces</li>
+      </ul>
+      <div class="lab-box">
+        <strong>Lab 6: Functions</strong> — Refactor code into reusable functions
+        for an e-commerce pricing system.
+      </div>
+
+      <h3>Higher-Order Functions</h3>
+      <ul>
+        <li>Lambda functions</li>
+        <li>
+          <code>map()</code>, <code>filter()</code>, and <code>reduce()</code>
+        </li>
+        <li>Function composition</li>
+        <li>Decorator syntax overview</li>
+      </ul>
+      <div class="lab-box">
+        <strong>Lab 7: Higher-Order Functions</strong> — Process news articles using
+        functional programming techniques.
+      </div>
+
+      <h3>Classes and Object-Oriented Programming</h3>
+      <ul>
+        <li>Everything is an object in Python</li>
+        <li>Class terminology</li>
+        <li>Defining and instantiating classes</li>
+        <li>Instance variables and methods</li>
+        <li><code>__init__</code> and <code>__str__</code> methods</li>
+        <li>Classes and inheritance</li>
+        <li>Method overriding</li>
+        <li>Extending built-ins</li>
+        <li>Accessors and mutators (<code>@property</code>)</li>
+        <li>Composition vs. inheritance</li>
+      </ul>
+      <div class="lab-box">
+        <strong>Lab 8: Classes</strong> — Build an order management system using object-oriented
+        programming.
+      </div>
+    </section>
+
+    <section id="day4">
+      <h2>Day 4: Error Handling, Modules, and File Operations</h2>
+      <h3>Exception Handling</h3>
+      <ul>
+        <li>Errors and exceptions</li>
+        <li>
+          <code>try</code>, <code>except</code>, <code>finally</code> blocks
+        </li>
+        <li>Raising exceptions</li>
+        <li>Custom exceptions</li>
+        <li>Exception hierarchies</li>
+      </ul>
+      <div class="lab-box">
+        <strong>Lab 9: Exceptions</strong> — Implement robust error handling in a
+        financial transaction processing system.
+      </div>
+
+      <h3>Packages, Programs, and Modules</h3>
+      <ul>
+        <li>Python architectural approaches</li>
+        <li>Defining modules and packages</li>
+        <li><code>import</code> statements</li>
+        <li>
+          Module properties (<code>__name__</code>, <code>__file__</code>)
+        </li>
+        <li>The <code>if __name__ == "__main__"</code> pattern</li>
+        <li>The Python Standard Library</li>
+        <li>Using <code>pip</code> to install packages</li>
+        <li><code>requirements.txt</code> files</li>
+      </ul>
+      <div class="lab-box">
+        <strong>Lab 10: Modules</strong> — Create a modular analytics package with
+        reusable components.
+      </div>
+
+      <h3>File Handling</h3>
+      <ul>
+        <li>Overview of file handling in Python</li>
+        <li>Reading and writing text files</li>
+        <li>Structured text files (CSV, JSON)</li>
+        <li>Working with binary files</li>
+        <li>
+          Streaming and serializing Python objects (<code>pickle</code>, <code
+            >json</code
+          >)
+        </li>
+        <li>Context managers (<code>with</code> statements)</li>
+      </ul>
+      <div class="lab-box">
+        <strong>Lab 15: Files</strong> — Work with various file formats and data serialization.
+      </div>
+    </section>
+
+    <section id="day5">
+      <h2>Day 5: Testing, HTTP, and Database Access</h2>
+      <h3>Introduction to Testing</h3>
+      <ul>
+        <li>Approaches to unit testing</li>
+        <li>Test-driven development (TDD)</li>
+        <li>Python testing tools (<code>pytest</code>)</li>
+        <li>Writing tests</li>
+        <li>Assertions</li>
+        <li>Fixtures</li>
+        <li>Parameterizing tests</li>
+        <li>Testing for exceptions</li>
+      </ul>
+      <div class="lab-box">
+        <strong>Lab 11: Testing</strong> — Leverage automated testing to build confidence
+        in your code.
+      </div>
+
+      <h3>Accessing HTTP Endpoints</h3>
+      <ul>
+        <li>Implementing web services using Python</li>
+        <li>Making HTTP requests (<code>requests</code> library)</li>
+        <li>Dealing with URL parameters</li>
+        <li>Common data transfer structures (JSON)</li>
+        <li>Handling HTTP errors and status codes</li>
+        <li>Parsing API responses</li>
+      </ul>
+      <div class="lab-box">
+        <strong>Lab 18: HTTP Endpoints</strong> — Build a news API client to fetch
+        and process data from web services.
+      </div>
+
+      <h3>Database Access</h3>
+      <ul>
+        <li>Configuring database access</li>
+        <li>Connecting to databases (SQLite)</li>
+        <li>Making SQL requests</li>
+        <li>Parameterized queries</li>
+        <li>Handling data responses</li>
+        <li>Transaction management</li>
+      </ul>
+      <div class="lab-box">
+        <strong>Lab 19: Database Access</strong> — Create a customer database system
+        with SQLite.
+      </div>
+    </section>
+
+    <section>
+      <h2>Lab structure and pedagogy</h2>
+      <p>All labs follow a consistent structure:</p>
+      <ol>
+        <li><strong>Objective</strong> — Clear learning goals for the lab</li>
+        <li><strong>Scenario</strong> — Real-world context for the exercise</li>
+        <li>
+          <strong>Tasks</strong> — Step-by-step tasks with "Your task", "Hints", and
+          collapsible solution sections
+        </li>
+      </ol>
+      <p>
+        This approach encourages you to think through problems before seeing
+        solutions, learn by doing, check your work when needed, and build
+        confidence through guided discovery.
+      </p>
+    </section>
+
+    <section>
+      <h2>What's included</h2>
+      <ul>
+        <li>
+          <strong>Labs</strong> — HTML format with collapsible solutions; real-world
+          scenarios; progressive difficulty; complete solutions in <code
+            >labs-solutions/</code
+          >
+        </li>
+        <li>
+          <strong>Slides</strong> — Decks per topic with code examples and visual
+          explanations
+        </li>
+        <li>
+          <strong>Sample code</strong> — Working, commented examples and multiple
+          approaches
+        </li>
+        <li><strong>Solutions</strong> — Tested solution files for all labs</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Learning outcomes</h2>
+      <p>By the end of the course you will be able to:</p>
+      <ul>
+        <li>✅ Set up a professional Python development environment</li>
+        <li>✅ Write Python programs using core syntax and data types</li>
+        <li>✅ Use control flow structures effectively</li>
+        <li>✅ Work with collections (lists, tuples, sets, dictionaries)</li>
+        <li>✅ Write and use functions with various parameter types</li>
+        <li>✅ Create classes and use object-oriented programming</li>
+        <li>✅ Handle errors and exceptions gracefully</li>
+        <li>✅ Organize code into modules and packages</li>
+        <li>✅ Read and write files in various formats</li>
+        <li>✅ Write and run automated tests</li>
+        <li>✅ Make HTTP requests and work with APIs</li>
+        <li>✅ Connect to databases and execute queries</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Prerequisites</h2>
+      <ul>
+        <li>
+          <strong>Programming experience</strong> in at least one other language
+        </li>
+        <li>
+          <strong>Basic computer skills</strong> (file management, text editing)
+        </li>
+        <li>No prior Python knowledge required</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Course delivery</h2>
+      <ul>
+        <li><strong>Format:</strong> Live, instructor-led training</li>
+        <li>
+          <strong>Hands-on:</strong> Extensive lab work with real-world scenarios
+        </li>
+        <li>
+          <strong>Interactive:</strong> Questions and deeper dives encouraged
+        </li>
+        <li>
+          <strong>Materials:</strong> All labs, slides, and solutions provided
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Getting started</h2>
+      <ol>
+        <li>
+          <strong>Set up your environment</strong> — Follow Lab 1 to configure Python,
+          virtual environments, and your IDE
+        </li>
+        <li>
+          <strong>Work through labs sequentially</strong> — Each lab builds on previous
+          concepts
+        </li>
+        <li>
+          <strong>Try before looking</strong> — Attempt each task before checking
+          the solution
+        </li>
+        <li><strong>Experiment</strong> — Modify code and see what happens</li>
+        <li>
+          <strong>Ask questions</strong> — Use the interactive format to dive deeper
+          into topics
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Additional resources</h2>
+      <ul>
+        <li>
+          <a
+            href="https://docs.python.org/3/"
+            target="_blank"
+            rel="noopener noreferrer">Python Official Documentation</a
+          >
+        </li>
+        <li>
+          <a href="https://pep8.org/" target="_blank" rel="noopener noreferrer"
+            >PEP 8 Style Guide</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://realpython.com/"
+            target="_blank"
+            rel="noopener noreferrer">Real Python</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://docs.python.org/3/library/"
+            target="_blank"
+            rel="noopener noreferrer">Python Standard Library</a
+          >
+        </li>
+      </ul>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .course-page {
+    max-width: 90ch;
+    margin: 0 auto;
+  }
+
+  .course-page .course-tagline {
+    color: #666;
+    font-size: 1rem;
+    margin: 0 0 2rem 0;
+  }
+
+  .course-page section {
+    margin-bottom: 2.5rem;
+  }
+
+  .course-page h2 {
+    font-size: 1.35rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 2px solid var(--site-green);
+  }
+
+  .course-page h3 {
+    font-size: 1.15rem;
+    margin: 1.25rem 0 0.5rem 0;
+  }
+
+  .course-page .downloads-section {
+    background: rgba(0, 105, 46, 0.06);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 105, 46, 0.2);
+  }
+
+  .course-page .downloads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .course-page .download-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem 1rem;
+    background: white;
+    border: 1px solid rgba(0, 105, 46, 0.25);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .course-page .download-card:hover {
+    border-color: var(--site-green);
+    box-shadow: 0 4px 12px rgba(0, 105, 46, 0.15);
+  }
+
+  .course-page .download-label {
+    font-weight: 700;
+    color: var(--site-green);
+  }
+
+  .course-page .download-desc {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.25rem;
+    text-align: center;
+  }
+
+  .course-page .lab-box {
+    background: rgba(0, 105, 46, 0.08);
+    border-left: 4px solid var(--site-green);
+    padding: 0.75rem 1rem;
+    margin-top: 0.75rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .course-page .schedule-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .course-page .outline-nav ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .course-page .outline-nav li {
+    margin: 0.5rem 0;
+  }
+
+  .course-page .where-to-store {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .course-page .downloads-list {
+    margin: 0.5rem 0 1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .course-page .downloads-list li {
+    margin: 0.5rem 0;
+  }
+</style>
