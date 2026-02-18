@@ -3,15 +3,13 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  pageTitle="Indicia - Introduction to Python for Programmers"
+  pageTitle="Indicia - Introduction to Python"
   pageDescription="5-day Python course for developers: fundamentals through HTTP, databases, and testing. Hands-on labs, slides, and sample code included."
 >
   <article class="course-page">
     <header>
-      <h1>Indicia - Introduction to Python for Programmers</h1>
-      <p class="course-tagline">
-        5-day intensive • For developers with programming experience
-      </p>
+      <h1>Indicia - Introduction to Python</h1>
+      <p class="course-tagline">5-day intensive training course</p>
     </header>
 
     <section class="course-aim">
@@ -77,12 +75,22 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         </li>
       </ul>
       <h3>Code samples</h3>
+      <p class="code-samples-note">
+        Each zip is cumulative: it includes all code from that day and all
+        previous days.
+      </p>
       <ul class="downloads-list">
         <li>
           <a
             href="/courses/indicia-introduction-python-programmers/end_of_day_1.zip"
             download><strong>End of Day 1 code</strong></a
           > — Code written during Day 1
+        </li>
+        <li>
+          <a
+            href="/courses/indicia-introduction-python-programmers/end-of-day-2.zip"
+            download><strong>End of Day 2 code</strong></a
+          > — Code written through Day 2 (includes Day 1)
         </li>
       </ul>
       <!-- <h3>Slides and code</h3>
@@ -611,5 +619,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
   .course-page .downloads-list li {
     margin: 0.5rem 0;
+  }
+
+  .course-page .code-samples-note {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 0 0.5rem 0;
   }
 </style>
