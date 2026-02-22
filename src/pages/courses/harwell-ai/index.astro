@@ -1,0 +1,488 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  pageTitle="Harwell — Prompt Engineering for Developers"
+  pageDescription="Two-day course on prompting, AI-assisted Java, tooling, RAG, and MCP. Slides, handouts, demos, and sample code in the GitHub repository."
+  showSocials={false}
+>
+  <article class="course-page">
+    <header>
+      <h1>Harwell — Prompt Engineering for Developers</h1>
+      <p class="course-tagline">2-day practical course</p>
+    </header>
+
+    <section class="course-aim">
+      <h2>Course aim</h2>
+      <p>
+        This two-day course is designed for developers who want to use AI effectively
+        for coding: prompting, AI-assisted Java, tooling choices, RAG, and the Model
+        Context Protocol (MCP). We focus on practical techniques you can apply immediately,
+        with demos, sample code, and runnable POCs in the course repository.
+      </p>
+      <p>
+        Day 1 covers introduction to GenAI, core prompt engineering (the 3 Cs, few-shot,
+        debugging), AI-assisted Java (generation, explanation, refactoring, testing),
+        and tooling strategies (sidecar vs integrated, chat vs inline). Day 2 covers
+        RAG, MCP, AI APIs (stateful/stateless, temperature, streaming, cost), and
+        the future of AI with clear next steps.
+      </p>
+    </section>
+
+    <section class="downloads-section" id="materials">
+      <h2>Course materials</h2>
+      <p>
+        All slides, demo prompts, sample code, and runnable RAG/MCP demos are in the
+        GitHub repository. Handouts and resources are below and can be downloaded
+        from the links in this section.
+      </p>
+
+      <h3>Repository</h3>
+      <ul class="downloads-list">
+        <li>
+          <a
+            href="https://github.com/doingandlearning/harwell-ai-course/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub: doingandlearning/harwell-ai-course</a
+          >
+          — Code, demos, POCs, and slide sources
+        </li>
+      </ul>
+
+      <h3>Handouts</h3>
+      <p>Quick-reference handouts:</p>
+      <ul class="downloads-list">
+        <li>
+          <a href="/courses/harwell-ai/prompt-template"
+            >Prompt template</a
+          >
+        </li>
+        <li>
+          <a href="/courses/harwell-ai/context-header"
+            >Context header for sidecar AI</a
+          >
+        </li>
+      </ul>
+
+      <h3>Slides (PDF)</h3>
+      <p>
+        Module slides are available as PDFs for offline reference. Download by module:
+      </p>
+      <ul class="downloads-list">
+        <li>
+          <a href="/courses/harwell-ai/slides_pdfs/module-01-intro-genai.pdf" download
+            >Module 1 — Introduction to GenAI</a
+          >
+        </li>
+        <li>
+          <a href="/courses/harwell-ai/slides_pdfs/module-02-core-prompt-engineering.pdf" download
+            >Module 2 — Core Prompt Engineering</a
+          >
+        </li>
+        <li>
+          <a href="/courses/harwell-ai/slides_pdfs/module-03-ai-assisted-java.pdf" download
+            >Module 3 — AI-Assisted Java</a
+          >
+        </li>
+        <li>
+          <a href="/courses/harwell-ai/slides_pdfs/module-04-tooling-strategies.pdf" download
+            >Module 4 — Tooling Strategies</a
+          >
+        </li>
+        <li>
+          <a href="/courses/harwell-ai/slides_pdfs/module-05-rag.pdf" download
+            >Module 5 — RAG</a
+          >
+        </li>
+        <li>
+          <a href="/courses/harwell-ai/slides_pdfs/module-06-mcp.pdf" download
+            >Module 6 — MCP</a
+          >
+        </li>
+        <li>
+          <a href="/courses/harwell-ai/slides_pdfs/module-07-ai-apis.pdf" download
+            >Module 7 — AI APIs</a
+          >
+        </li>
+        <li>
+          <a href="/courses/harwell-ai/slides_pdfs/module-08-future-of-ai.pdf" download
+            >Module 8 — Future of AI</a
+          >
+        </li>
+      </ul>
+      <p class="code-samples-note">
+        To regenerate PDFs from the reveal.js sources, run
+        <code>npm run export-harwell-slides</code> (requires Puppeteer). Slide sources
+        are in the <a
+          href="https://github.com/doingandlearning/harwell-ai-course/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub repo</a
+        >.
+      </p>
+    </section>
+
+    <nav class="outline-nav" aria-label="Course outline">
+      <h2>Course outline</h2>
+      <ul>
+        <li><a href="#module1">Module 1: Introduction to GenAI</a></li>
+        <li><a href="#module2">Module 2: Core Prompt Engineering</a></li>
+        <li><a href="#module3">Module 3: AI-Assisted Java</a></li>
+        <li><a href="#module4">Module 4: Tooling Strategies</a></li>
+        <li><a href="#module5">Module 5: RAG</a></li>
+        <li><a href="#module6">Module 6: MCP</a></li>
+        <li><a href="#module7">Module 7: AI APIs</a></li>
+        <li><a href="#module8">Module 8: Future of AI</a></li>
+      </ul>
+    </nav>
+
+    <section id="module1">
+      <h2>Module 1: Introduction to GenAI</h2>
+      <p>
+        LLM landscape, choosing the right model and tool, public vs. enterprise AI,
+        MS Copilot in context, capabilities and limitations (hallucinations, cut-offs,
+        bias), and when to trust or verify AI output.
+      </p>
+    </section>
+
+    <section id="module2">
+      <h2>Module 2: Core Prompt Engineering</h2>
+      <p>
+        The three Cs (context, clarity, constraints), zero-shot and few-shot prompting,
+        chain-of-thought, iterative refinement, and debugging prompts.
+      </p>
+    </section>
+
+    <section id="module3">
+      <h2>Module 3: AI-Assisted Java</h2>
+      <p>
+        Code generation, explanation, refactoring, and unit testing with AI; when to
+        generate vs. write manually; review-before-paste and evaluation checklists.
+      </p>
+    </section>
+
+    <section id="module4">
+      <h2>Module 4: Tooling Strategies</h2>
+      <p>
+        Sidecar vs. integrated workflows, context headers for sidecar AI, chat vs.
+        inline completion, and best practices for mixed environments.
+      </p>
+    </section>
+
+    <section id="module5">
+      <h2>Module 5: RAG</h2>
+      <p>
+        Retrieval-augmented generation: when LLMs don’t know your knowledge, how RAG
+        works, RAG vs. fine-tuning vs. long context, and when RAG helps.
+      </p>
+    </section>
+
+    <section id="module6">
+      <h2>Module 6: MCP</h2>
+      <p>
+        Model Context Protocol: the silo problem, how MCP works, and when to consider
+        it in your tooling.
+      </p>
+    </section>
+
+    <section id="module7">
+      <h2>Module 7: AI APIs</h2>
+      <p>
+        Stateful vs. stateless APIs, non-determinism and temperature, streaming,
+        token economics and cost, and when to use what.
+      </p>
+    </section>
+
+    <section id="module8">
+      <h2>Module 8: Future of AI</h2>
+      <p>
+        Recent developments, what’s coming next, what to try now vs. watch, course
+        recap, and next steps so Monday feels different.
+      </p>
+    </section>
+
+    <section id="handouts">
+      <h2>Handouts (inline)</h2>
+
+      <div class="handout-block">
+        <h3>Prompt template</h3>
+        <p>
+          Use this structure to get consistent, useful answers from AI when writing
+          or reviewing code.
+        </p>
+        <ol>
+          <li>
+            <strong>Context (role + environment)</strong> — Role, stack, style (e.g.
+            constructor injection, no <code>@Autowired</code>, immutable DTOs).
+          </li>
+          <li>
+            <strong>Clarity (one clear ask)</strong> — One-sentence task, input, and
+            desired output.
+          </li>
+          <li>
+            <strong>Constraints (what to avoid)</strong> — No deprecated APIs, no
+            new dependencies, same method signature, etc.
+          </li>
+        </ol>
+        <div class="lab-box">
+          <strong>Example</strong><br />
+          Context: Senior Java developer. Stack: Spring Boot 3, Java 17, JUnit 5,
+          Mockito. Style: Constructor injection, no @Autowired.<br />
+          Task: Generate a JPA repository interface and a service method that
+          returns all books by author. Return ResponseEntity&lt;List&lt;Book&gt;&gt;.<br />
+          Constraints: Use the existing Book entity. Do not add new dependencies.
+          Include error handling for empty results.
+        </div>
+      </div>
+
+      <div class="handout-block">
+        <h3>Context header for sidecar AI</h3>
+        <p>
+          When using a browser-based AI (e.g. ChatGPT, Copilot) alongside an IDE
+          without built-in AI, paste this header <strong>above</strong> your code
+          so the model knows your environment.
+        </p>
+        <div class="lab-box">
+          <strong>Copy-paste template</strong><br />
+          Context: Framework: Spring Boot 3. Java version: 17. Style: Constructor
+          injection (no @Autowired). Testing: JUnit 5, Mockito. Database: JPA/Hibernate.<br />
+          Code: [Paste your code here]<br />
+          Question: [Your question]
+        </div>
+        <p>
+          Customise framework, Java version, style rules, and testing stack for your
+          project. Without context, the AI gives generic answers; with this header,
+          answers respect your stack and reduce back-and-forth.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>What we covered</h2>
+      <p>
+        <strong>Day 1:</strong> Introduction to GenAI, core prompt engineering (3
+        Cs, few-shot, debug), AI-assisted Java (generation, explanation, refactoring,
+        testing), tooling strategies (sidecar vs integrated, chat vs inline).
+      </p>
+      <p>
+        <strong>Day 2:</strong> RAG (retrieve–augment–generate), Model Context
+        Protocol (MCP), AI APIs (stateful/stateless, temperature, streaming, cost),
+        future of AI and next steps.
+      </p>
+    </section>
+
+    <section>
+      <h2>Additional resources</h2>
+      <p>Links to documentation and tools referenced in the course:</p>
+      <ul class="downloads-list">
+        <li>
+          <a
+            href="https://docs.spring.io/spring-ai/reference/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Spring AI Reference</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://spring.io/projects/spring-boot"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Spring Boot</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://docs.spring.io/spring-ai/reference/api/retrieval-augmented-generation.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Spring AI — Retrieval Augmented Generation</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://docs.spring.io/spring-ai/reference/api/vectordbs/pgvector.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Spring AI — PGvector</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://github.com/pgvector/pgvector"
+            target="_blank"
+            rel="noopener noreferrer"
+            >pgvector</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://modelcontextprotocol.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Model Context Protocol</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://docs.spring.io/spring-ai/reference/api/mcp/mcp-overview.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Spring AI MCP</a
+          >
+        </li>
+        <li>
+          <a href="https://ollama.com/" target="_blank" rel="noopener noreferrer"
+            >Ollama</a
+          >
+          — run models locally (e.g. Llama, nomic-embed-text)
+        </li>
+        <li>
+          <a
+            href="https://platform.openai.com/docs"
+            target="_blank"
+            rel="noopener noreferrer"
+            >OpenAI API</a
+          >
+          (if using OpenAI)
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Learning outcomes</h2>
+      <p>By the end of the course you will be able to:</p>
+      <ul>
+        <li>Choose the right model and tool for coding tasks and policy</li>
+        <li>Write prompts using context, clarity, and constraints</li>
+        <li>Use few-shot and iterative refinement effectively</li>
+        <li>Apply AI for Java code generation, explanation, refactoring, and testing</li>
+        <li>Use sidecar and integrated workflows and context headers</li>
+        <li>Explain when and how RAG and MCP apply</li>
+        <li>Reason about API design: stateful vs stateless, temperature, streaming, cost</li>
+        <li>Plan next steps to use AI confidently and safely</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Prerequisites</h2>
+      <ul>
+        <li><strong>Programming experience</strong> (Java/Spring helpful but not required)</li>
+        <li><strong>Basic familiarity</strong> with using an IDE and running code</li>
+        <li>No prior AI or prompt-engineering experience required</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Course delivery</h2>
+      <ul>
+        <li><strong>Format:</strong> Live, instructor-led training (2 days)</li>
+        <li><strong>Hands-on:</strong> Demos, sample code, and runnable POCs in the repo</li>
+        <li><strong>Materials:</strong> Slides (reveal.js), handouts, and GitHub repo</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Getting started</h2>
+      <ol>
+        <li>
+          <strong>Clone the repo</strong> — All code, demos, and slide sources are in
+          <a
+            href="https://github.com/doingandlearning/harwell-ai-course/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >doingandlearning/harwell-ai-course</a
+          >.
+        </li>
+        <li>
+          <strong>Use the handouts</strong> — <a href="/courses/harwell-ai/prompt-template">Prompt template</a>
+          and <a href="/courses/harwell-ai/context-header">context header for sidecar AI</a>
+          when working with AI.
+        </li>
+        <li>
+          <strong>Export slide PDFs</strong> — Open each module’s <code>index.html</code>
+          in a browser and use Print → Save as PDF for offline reference.
+        </li>
+      </ol>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .course-page {
+    max-width: 90ch;
+    margin: 0 auto;
+  }
+
+  .course-page .course-tagline {
+    color: #666;
+    font-size: 1rem;
+    margin: 0 0 2rem 0;
+  }
+
+  .course-page section {
+    margin-bottom: 2.5rem;
+  }
+
+  .course-page h2 {
+    font-size: 1.35rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 2px solid var(--site-green);
+  }
+
+  .course-page h3 {
+    font-size: 1.15rem;
+    margin: 1.25rem 0 0.5rem 0;
+  }
+
+  .course-page .downloads-section {
+    background: rgba(0, 105, 46, 0.06);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 105, 46, 0.2);
+  }
+
+  .course-page .lab-box {
+    background: rgba(0, 105, 46, 0.08);
+    border-left: 4px solid var(--site-green);
+    padding: 0.75rem 1rem;
+    margin-top: 0.75rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .course-page .outline-nav ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .course-page .outline-nav li {
+    margin: 0.5rem 0;
+  }
+
+  .course-page .downloads-list {
+    margin: 0.5rem 0 1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .course-page .downloads-list li {
+    margin: 0.5rem 0;
+  }
+
+  .course-page .code-samples-note {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .course-page .handout-block {
+    margin-bottom: 2rem;
+  }
+
+  .course-page .handout-block h3 {
+    margin-top: 1.5rem;
+  }
+</style>

@@ -75,15 +75,29 @@ const shouldUseAstroImage =
 					/>
 				) : (
 					// Use regular img tag for remote images to avoid server-side fetch issues
-					<img
-						src={effectiveCoverPath}
-						alt={`Cover of ${title} by ${author}`}
-						width={300}
-						height={400}
-						class="book-cover-image"
-						loading="lazy"
-						decoding="async"
-					/>
+					<>
+						<img
+							src={effectiveCoverPath}
+							alt={`Cover of ${title} by ${author}`}
+							width={300}
+							height={400}
+							class="book-cover-image"
+							loading="lazy"
+							decoding="async"
+							data-error="false"
+							onerror="this.dataset.error='true'"
+						/>
+						<div class="book-cover-fallback" aria-hidden="true">
+							<span class="placeholder-title">
+								{title.substring(0, 20)}
+								{title.length > 20 ? "..." : ""}
+							</span>
+							<span class="placeholder-author">
+								{author.substring(0, 15)}
+								{author.length > 15 ? "..." : ""}
+							</span>
+						</div>
+					</>
 				)
 			) : (
 				<div class="book-cover-placeholder">

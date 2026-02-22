@@ -1,0 +1,110 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  pageTitle="Context header for sidecar AI — Harwell Prompt Engineering"
+  pageDescription="Paste this header above your code when using browser-based AI alongside an IDE so the model knows your environment."
+  showSocials={false}
+>
+  <article class="course-page handout-page">
+    <header>
+      <p class="course-breadcrumb"><a href="/courses/harwell-ai">Harwell — Prompt Engineering</a></p>
+      <h1>Context header for sidecar AI</h1>
+    </header>
+
+    <p>
+      When you use a <strong>browser-based AI</strong> (e.g. ChatGPT, Copilot) alongside
+      an IDE that doesn't have AI built in, paste this header <strong>above</strong> your
+      code so the model knows your environment. Then paste your code and ask your question.
+    </p>
+
+    <section>
+      <h2>Copy-paste template</h2>
+      <pre class="handout-pre"><code>Context:
+- Framework: Spring Boot 3
+- Java version: 17
+- Style: Constructor injection (no @Autowired)
+- Testing: JUnit 5, Mockito
+- Database: JPA/Hibernate
+
+Code:
+[Paste your code here]
+
+Question: [Your question]</code></pre>
+    </section>
+
+    <section>
+      <h2>Customise for your project</h2>
+      <ul>
+        <li>Change <strong>Framework</strong> and <strong>Java version</strong> to match your stack.</li>
+        <li>Add <strong>Style</strong> rules (e.g. "No Optional in public API", "Use records for DTOs").</li>
+        <li>Add <strong>Testing</strong> (e.g. "JUnit 5, AssertJ").</li>
+        <li>Add <strong>Database</strong> or other tech (e.g. "PostgreSQL", "MongoDB").</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Why use it?</h2>
+      <ul>
+        <li>Without context, the AI gives <strong>generic</strong> answers that may not match your codebase.</li>
+        <li>With this header, you get answers that respect your stack and style and reduce back-and-forth.</li>
+      </ul>
+    </section>
+
+    <p class="handout-footer">
+      From the Harwell Prompt Engineering course (Module 4 — Tooling strategies).
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .course-page {
+    max-width: 90ch;
+    margin: 0 auto;
+  }
+
+  .handout-page .course-breadcrumb {
+    font-size: 0.9rem;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .handout-page .course-breadcrumb a {
+    color: var(--site-green);
+  }
+
+  .handout-page h1 {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 2px solid var(--site-green);
+  }
+
+  .handout-page section {
+    margin-bottom: 2rem;
+  }
+
+  .handout-page h2 {
+    font-size: 1.2rem;
+    margin: 1.5rem 0 0.5rem 0;
+  }
+
+  .handout-pre {
+    background: rgba(0, 105, 46, 0.08);
+    border-left: 4px solid var(--site-green);
+    padding: 1rem 1.25rem;
+    border-radius: 0 6px 6px 0;
+    overflow-x: auto;
+    font-size: 0.9rem;
+  }
+
+  .handout-pre code {
+    background: none;
+    padding: 0;
+  }
+
+  .handout-footer {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 2rem;
+  }
+</style>

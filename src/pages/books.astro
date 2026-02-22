@@ -234,9 +234,11 @@ const pageDescription = `A collection of ${stats.totalBooks} books I've read, to
 			);
 
 			const effectiveCoverPath = book.data.localCoverPath || book.data.coverUrl;
+			const titleSnippet = book.data.title.substring(0, 20) + (book.data.title.length > 20 ? "..." : "");
+			const authorSnippet = book.data.author.substring(0, 15) + (book.data.author.length > 15 ? "..." : "");
 			const coverHtml = effectiveCoverPath
-				? `<img src="${effectiveCoverPath}" alt="Cover of ${book.data.title} by ${book.data.author}" loading="lazy" />`
-				: `<div class="book-cover-placeholder"><span>${book.data.title.substring(0, 20)}${book.data.title.length > 20 ? "..." : ""}</span></div>`;
+				? `<img class="book-cover-image" src="${effectiveCoverPath}" alt="Cover of ${book.data.title} by ${book.data.author}" width="300" height="400" loading="lazy" data-error="false" onerror="this.dataset.error='true'" /><div class="book-cover-fallback" aria-hidden="true"><span class="placeholder-title">${titleSnippet}</span><span class="placeholder-author">${authorSnippet}</span></div>`
+				: `<div class="book-cover-placeholder"><div class="placeholder-content"><span class="placeholder-title">${titleSnippet}</span><span class="placeholder-author">${authorSnippet}</span></div></div>`;
 
 			card.innerHTML = `
 				${book.data.isCurrentlyReading ? '<div class="currently-reading-badge"><span>Currently Reading</span></div>' : ""}

@@ -7,9 +7,11 @@ import { getMetaImage } from "../scripts/utils";
 interface Props {
   pageTitle: string;
   pageDescription?: string;
+  /** When false, hides the "Connect with me on socials" block in the footer. Default true. */
+  showSocials?: boolean;
 }
 
-const { pageTitle, pageDescription } = Astro.props;
+const { pageTitle, pageDescription, showSocials = true } = Astro.props;
 ---
 
 <html lang="en">
@@ -71,7 +73,7 @@ const { pageTitle, pageDescription } = Astro.props;
         <slot />
       </div>
       <div id="footer">
-        <Footer />
+        <Footer showSocials={showSocials} />
       </div>
     </div>
     <script>

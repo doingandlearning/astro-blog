@@ -22,7 +22,8 @@
     "enhance-book": "tsx src/scripts/enhanceCategorization.ts process-book",
     "cleanup-data": "tsx src/scripts/cleanupTestData.ts cleanup",
     "cleanup-full": "tsx src/scripts/cleanupTestData.ts full",
-    "download-covers": "tsx src/scripts/downloadCoverImages.ts"
+    "download-covers": "tsx src/scripts/downloadCoverImages.ts",
+    "export-harwell-slides": "tsx src/scripts/exportHarwellSlidesPdf.ts"
   },
   "dependencies": {
     "@astro-community/astro-embed-bluesky": "^0.1.3",
@@ -60,6 +61,7 @@
     "@types/papaparse": "^5.3.16",
     "@vitest/ui": "^3.2.4",
     "jsdom": "^26.1.0",
+    "puppeteer": "^24.37.5",
     "sass": "^1.69.5",
     "tsx": "^4.20.4",
     "vitest": "^3.2.4"

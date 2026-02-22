@@ -1,5 +1,8 @@
 ---
-
+interface Props {
+  showSocials?: boolean;
+}
+const { showSocials = true } = Astro.props;
 ---
 
 <style>
@@ -79,6 +82,7 @@
   }
 </style>
 
+{showSocials && (
 <div class="pb-8">
   <h2 class="">Connect with me on socials</h2>
   <div class="mt-8">
@@ -150,6 +154,7 @@
     </div>
   </div>
 </div>
+)}
 <footer>
   <p>
     <a

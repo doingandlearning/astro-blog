@@ -1,0 +1,117 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  pageTitle="Prompt template — Harwell Prompt Engineering"
+  pageDescription="Use this structure to get consistent, useful answers from AI when writing or reviewing code."
+  showSocials={false}
+>
+  <article class="course-page handout-page">
+    <header>
+      <p class="course-breadcrumb"><a href="/courses/harwell-ai">Harwell — Prompt Engineering</a></p>
+      <h1>Prompt template</h1>
+    </header>
+
+    <p>
+      Use this structure to get consistent, useful answers from AI when writing or
+      reviewing code.
+    </p>
+
+    <section>
+      <h2>1. Context (role + environment)</h2>
+      <ul>
+        <li><strong>Role:</strong> e.g. "You are a senior Java developer..."</li>
+        <li><strong>Stack:</strong> e.g. "Spring Boot 3, Java 17, JUnit 5, Mockito."</li>
+        <li><strong>Style:</strong> e.g. "Use constructor injection, no @Autowired. Prefer immutable DTOs."</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>2. Clarity (one clear ask)</h2>
+      <ul>
+        <li>State the <strong>task</strong> in one sentence.</li>
+        <li>Specify <strong>input</strong> (e.g. "Here is the method..." or "Given the entity below...").</li>
+        <li>Specify <strong>output</strong> (e.g. "Return only the refactored method" or "List the steps, then the code").</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Constraints (what to avoid)</h2>
+      <ul>
+        <li>e.g. "Do not use deprecated APIs."</li>
+        <li>e.g. "Do not add dependencies we don't already have."</li>
+        <li>e.g. "Keep the same method signature."</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Example (paste into your AI tool)</h2>
+      <pre class="handout-pre"><code>Context:
+- Role: Senior Java developer
+- Stack: Spring Boot 3, Java 17, JUnit 5, Mockito
+- Style: Constructor injection, no @Autowired
+
+Task: Generate a JPA repository interface and a service method that returns all books by author. Return ResponseEntity&lt;List&lt;Book&gt;&gt;.
+
+Constraints:
+- Use the existing Book entity. Do not add new dependencies.
+- Include error handling for empty results.</code></pre>
+    </section>
+
+    <p class="handout-footer">
+      From the Harwell Prompt Engineering course. Replace placeholders with your own context.
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .course-page {
+    max-width: 90ch;
+    margin: 0 auto;
+  }
+
+  .handout-page .course-breadcrumb {
+    font-size: 0.9rem;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .handout-page .course-breadcrumb a {
+    color: var(--site-green);
+  }
+
+  .handout-page h1 {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 2px solid var(--site-green);
+  }
+
+  .handout-page section {
+    margin-bottom: 2rem;
+  }
+
+  .handout-page h2 {
+    font-size: 1.2rem;
+    margin: 1.5rem 0 0.5rem 0;
+  }
+
+  .handout-pre {
+    background: rgba(0, 105, 46, 0.08);
+    border-left: 4px solid var(--site-green);
+    padding: 1rem 1.25rem;
+    border-radius: 0 6px 6px 0;
+    overflow-x: auto;
+    font-size: 0.9rem;
+  }
+
+  .handout-pre code {
+    background: none;
+    padding: 0;
+  }
+
+  .handout-footer {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 2rem;
+  }
+</style>
