@@ -1,0 +1,47 @@
+{
+  "title": "Commotion In The Ocean Board Book",
+  "author": "Giles Andreae",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 24,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "10802114",
+  "rating": 5,
+  "isbn": "1408308452",
+  "isbn13": "9781408308455",
+  "enhancedGenre": "Children's Picture Book",
+  "bookCategory": "Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "Ocean Life",
+    "Animals",
+    "Adventure",
+    "Friendship"
+  ],
+  "targetAudience": "Toddlers and Preschoolers",
+  "complexity": "Simple",
+  "readingTime": "10 minutes",
+  "relatedBooks": [
+    "Brown Bear, Brown Bear, What Do You See?",
+    "The Very Hungry Caterpillar",
+    "Dear Zoo"
+  ],
+  "keyInsights": [
+    "Introduces children to ocean animals",
+    "Encourages early literacy",
+    "Promotes curiosity about nature"
+  ],
+  "tags": [
+    "children's books",
+    "ocean",
+    "animals",
+    "picture book",
+    "early learning"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:50:52.142Z",
+  "localCoverPath": "/book-covers/commotion-in-the-ocean-board-book-giles-andreae.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781408308455-M.jpg"
+}

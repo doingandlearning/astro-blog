@@ -1,0 +1,48 @@
+{
+  "title": "Who Moved My Cheese?",
+  "author": "Spencer Johnson",
+  "dateFinished": "2022-02-24",
+  "genre": "Unknown",
+  "pages": 98,
+  "readingYear": 2022,
+  "readingMonth": 2,
+  "isCurrentlyReading": false,
+  "goodreadsId": "4894",
+  "rating": 0,
+  "isbn": "0091883768",
+  "isbn13": "9780091883768",
+  "enhancedGenre": "Self-Help, Motivational",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "Change",
+    "Adaptability",
+    "Fear",
+    "Success",
+    "Personal Development"
+  ],
+  "targetAudience": "Individuals seeking personal growth and strategies for dealing with change",
+  "complexity": "Simple",
+  "readingTime": "2 hours",
+  "relatedBooks": [
+    "The 7 Habits of Highly Effective People",
+    "Mindset: The New Psychology of Success",
+    "The Power of Now"
+  ],
+  "keyInsights": [
+    "Embrace change as a constant",
+    "Adapt quickly to new circumstances",
+    "Overcome fear to achieve success"
+  ],
+  "tags": [
+    "Self-Help",
+    "Motivation",
+    "Change Management",
+    "Personal Growth",
+    "Business"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:31:38.717Z",
+  "localCoverPath": "/book-covers/who-moved-my-cheese-spencer-johnson.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780091883768-M.jpg"
+}

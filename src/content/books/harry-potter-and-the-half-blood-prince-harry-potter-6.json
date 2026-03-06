@@ -1,0 +1,49 @@
+{
+  "title": "Harry Potter and the Half-Blood Prince (Harry Potter, #6)",
+  "author": "J.K. Rowling",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 652,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "1",
+  "rating": 4,
+  "enhancedGenre": "Fantasy, Young Adult",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Friendship",
+    "Love",
+    "Good vs. Evil",
+    "Coming of Age",
+    "Sacrifice"
+  ],
+  "targetAudience": "Young adults and fans of fantasy literature",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "Harry Potter and the Philosopher's Stone",
+    "Harry Potter and the Chamber of Secrets",
+    "Harry Potter and the Prisoner of Azkaban",
+    "Harry Potter and the Goblet of Fire",
+    "Harry Potter and the Order of the Phoenix"
+  ],
+  "keyInsights": [
+    "Explores the complexities of relationships",
+    "Highlights the importance of choices",
+    "Addresses themes of loyalty and betrayal",
+    "Sets the stage for the series conclusion"
+  ],
+  "tags": [
+    "Fantasy",
+    "Magic",
+    "Wizards",
+    "Adventure",
+    "Young Adult"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:44:31.340Z",
+  "localCoverPath": "/book-covers/harry-potter-and-the-half-blood-prince-harry-potter-6-j.k.-rowling.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/id/15155833-M.jpg"
+}

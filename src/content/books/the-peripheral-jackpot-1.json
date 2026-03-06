@@ -1,0 +1,50 @@
+{
+  "title": "The Peripheral (Jackpot, #1)",
+  "author": "William Gibson",
+  "dateFinished": "2022-03-26",
+  "genre": "Unknown",
+  "pages": 485,
+  "readingYear": 2022,
+  "readingMonth": 3,
+  "isCurrentlyReading": false,
+  "goodreadsId": "24611819",
+  "rating": 3,
+  "isbn": "0425276236",
+  "isbn13": "9780425276235",
+  "enhancedGenre": "Science Fiction, Cyberpunk",
+  "bookCategory": "Fiction",
+  "readingLevel": "Advanced",
+  "themes": [
+    "Technology and Society",
+    "Identity",
+    "Reality vs. Virtuality",
+    "Class Struggle",
+    "Futurism"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and cyberpunk narratives",
+  "complexity": "Complex",
+  "readingTime": "12 hours",
+  "relatedBooks": [
+    "Neuromancer",
+    "Snow Crash",
+    "Altered Carbon",
+    "Ready Player One",
+    "The Windup Girl"
+  ],
+  "keyInsights": [
+    "Explores the implications of advanced technology on human life",
+    "Questions the nature of reality and perception",
+    "Highlights socio-economic disparities in futuristic settings"
+  ],
+  "tags": [
+    "Science Fiction",
+    "Cyberpunk",
+    "Futuristic",
+    "Dystopian",
+    "Speculative Fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:30:43.171Z",
+  "localCoverPath": "/book-covers/the-peripheral-jackpot-1-william-gibson.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780425276235-M.jpg"
+}

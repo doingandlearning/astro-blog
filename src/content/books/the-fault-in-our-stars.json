@@ -1,0 +1,47 @@
+{
+  "title": "The Fault in Our Stars",
+  "author": "John Green",
+  "dateFinished": "2013-04-04",
+  "genre": "Unknown",
+  "pages": 313,
+  "readingYear": 2013,
+  "readingMonth": 4,
+  "isCurrentlyReading": false,
+  "goodreadsId": "11870085",
+  "rating": 4,
+  "enhancedGenre": "Young Adult Fiction, Contemporary Romance",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Love",
+    "Illness",
+    "Mortality",
+    "Friendship",
+    "Coming of Age"
+  ],
+  "targetAudience": "Young adults and mature teens",
+  "complexity": "Moderate",
+  "readingTime": "5 hours",
+  "relatedBooks": [
+    "Looking for Alaska",
+    "The Perks of Being a Wallflower",
+    "Eleanor & Park",
+    "Thirteen Reasons Why"
+  ],
+  "keyInsights": [
+    "The impact of terminal illness on relationships",
+    "The importance of living fully despite challenges",
+    "The exploration of love and loss"
+  ],
+  "tags": [
+    "Young Adult",
+    "Romance",
+    "Cancer",
+    "Friendship",
+    "Life Lessons"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:44:05.201Z",
+  "localCoverPath": "/book-covers/the-fault-in-our-stars-john-green.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/id/7418786-M.jpg"
+}

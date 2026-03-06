@@ -1,0 +1,46 @@
+{
+  "title": "How to Win Friends & Influence People",
+  "author": "Dale Carnegie",
+  "dateFinished": "2022-02-24",
+  "genre": "Unknown",
+  "pages": 288,
+  "readingYear": 2022,
+  "readingMonth": 2,
+  "isCurrentlyReading": false,
+  "goodreadsId": "4865",
+  "rating": 0,
+  "enhancedGenre": "Self-Help, Personal Development",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "Interpersonal Skills",
+    "Communication",
+    "Influence",
+    "Networking",
+    "Personal Growth"
+  ],
+  "targetAudience": "Individuals seeking to improve their social skills and relationships",
+  "complexity": "Simple",
+  "readingTime": "5 hours",
+  "relatedBooks": [
+    "The 7 Habits of Highly Effective People",
+    "How to Talk to Anyone",
+    "Influence: The Psychology of Persuasion"
+  ],
+  "keyInsights": [
+    "The importance of empathy in communication",
+    "Techniques for building rapport",
+    "Strategies for influencing others positively"
+  ],
+  "tags": [
+    "Self-Help",
+    "Communication",
+    "Influence",
+    "Networking",
+    "Personal Development"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:32:07.822Z",
+  "localCoverPath": "/book-covers/how-to-win-friends--influence-people-dale-carnegie.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/id/13314878-M.jpg"
+}

@@ -1,0 +1,48 @@
+{
+  "title": "The Mountain in the Sea",
+  "author": "Ray Nayler",
+  "dateFinished": "2026-03-06",
+  "genre": "Unknown",
+  "pages": 456,
+  "readingYear": 2026,
+  "readingMonth": 3,
+  "isCurrentlyReading": false,
+  "goodreadsId": "59808603",
+  "rating": 0,
+  "isbn": "0374605955",
+  "isbn13": "9780374605957",
+  "enhancedGenre": "Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Artificial Intelligence",
+    "Environmentalism",
+    "Human-Technology Interaction",
+    "Isolation",
+    "Exploration"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and environmental themes",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "The Overstory by Richard Powers",
+    "Annihilation by Jeff VanderMeer",
+    "The Windup Girl by Paolo Bacigalupi"
+  ],
+  "keyInsights": [
+    "Explores the relationship between humanity and nature",
+    "Questions the impact of technology on society",
+    "Highlights the importance of biodiversity"
+  ],
+  "tags": [
+    "Science Fiction",
+    "Environmentalism",
+    "AI",
+    "Exploration",
+    "Isolation"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:25:04.887Z",
+  "localCoverPath": "/book-covers/the-mountain-in-the-sea-ray-nayler.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780374605957-M.jpg"
+}

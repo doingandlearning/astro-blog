@@ -1,0 +1,49 @@
+{
+  "title": "True Believer (Terminal List, #2)",
+  "author": "Jack Carr",
+  "dateFinished": "2022-04-15",
+  "genre": "Unknown",
+  "pages": 485,
+  "readingYear": 2022,
+  "readingMonth": 4,
+  "isCurrentlyReading": false,
+  "goodreadsId": "40538564",
+  "rating": 3,
+  "isbn": "1501180843",
+  "isbn13": "9781501180842",
+  "enhancedGenre": "Thriller, Military Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "revenge",
+    "justice",
+    "military operations",
+    "loyalty",
+    "betrayal"
+  ],
+  "targetAudience": "Fans of military thrillers and action-packed narratives",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "The Terminal List",
+    "The Last Patriot",
+    "American Assassin",
+    "The Kill Artist"
+  ],
+  "keyInsights": [
+    "Explores the moral complexities of revenge",
+    "Highlights the psychological impact of warfare",
+    "Examines loyalty among comrades"
+  ],
+  "tags": [
+    "thriller",
+    "military",
+    "action",
+    "revenge",
+    "suspense"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:30:26.359Z",
+  "localCoverPath": "/book-covers/true-believer-terminal-list-2-jack-carr.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781501180842-M.jpg"
+}

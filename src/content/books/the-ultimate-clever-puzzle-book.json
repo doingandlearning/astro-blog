@@ -1,0 +1,47 @@
+{
+  "title": "The Ultimate Clever Puzzle Book",
+  "author": "Olivia Carlton",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 320,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "1145750",
+  "rating": 3,
+  "isbn": "1402704798",
+  "isbn13": "9781402704796",
+  "enhancedGenre": "Puzzle & Brain Teasers",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "Cognitive Skills",
+    "Problem Solving",
+    "Entertainment",
+    "Critical Thinking"
+  ],
+  "targetAudience": "Puzzle enthusiasts, families, and individuals seeking mental challenges",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The Big Book of Puzzles",
+    "Brain Games for Adults",
+    "The Ultimate Puzzle Book"
+  ],
+  "keyInsights": [
+    "Enhances cognitive abilities",
+    "Provides entertainment through challenges",
+    "Encourages critical thinking"
+  ],
+  "tags": [
+    "puzzles",
+    "brain teasers",
+    "mental exercises",
+    "problem solving",
+    "entertainment"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:49:49.020Z",
+  "localCoverPath": "/book-covers/the-ultimate-clever-puzzle-book-olivia-carlton.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781402704796-M.jpg"
+}

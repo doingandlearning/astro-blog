@@ -1,0 +1,47 @@
+{
+  "title": "The Little Prince",
+  "author": "Antoine de Saint-Exupéry",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 96,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "157993",
+  "rating": 3,
+  "isbn": "0152023984",
+  "isbn13": "9780152023980",
+  "enhancedGenre": "Philosophical Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "Friendship",
+    "Love",
+    "Loss",
+    "Childhood",
+    "Human Nature"
+  ],
+  "targetAudience": "Children and Adults",
+  "complexity": "Simple",
+  "readingTime": "2 hours",
+  "relatedBooks": [
+    "The Alchemist",
+    "The Giving Tree",
+    "The Velveteen Rabbit"
+  ],
+  "keyInsights": [
+    "The importance of seeing with the heart",
+    "The value of relationships",
+    "The critique of adult behavior"
+  ],
+  "tags": [
+    "Classic",
+    "Philosophy",
+    "Children's Literature",
+    "Fantasy"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:44:01.374Z",
+  "localCoverPath": "/book-covers/the-little-prince-antoine-de-saint-exupry.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780152023980-M.jpg"
+}

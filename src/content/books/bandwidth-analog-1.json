@@ -1,0 +1,49 @@
+{
+  "title": "Bandwidth (Analog #1)",
+  "author": "Eliot Peper",
+  "dateFinished": "2022-06-14",
+  "genre": "Unknown",
+  "pages": 272,
+  "readingYear": 2022,
+  "readingMonth": 6,
+  "isCurrentlyReading": false,
+  "goodreadsId": "36458711",
+  "rating": 0,
+  "isbn": "1612184529",
+  "isbn13": "9781612184524",
+  "enhancedGenre": "Science Fiction, Cyberpunk",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "technology",
+    "society",
+    "identity",
+    "human connection",
+    "digital landscape"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and technology-driven narratives",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "Neuromancer",
+    "Snow Crash",
+    "The Peripheral",
+    "Ready Player One"
+  ],
+  "keyInsights": [
+    "Explores the impact of technology on human relationships",
+    "Questions the nature of reality in a digital age",
+    "Highlights the ethical dilemmas of technological advancements"
+  ],
+  "tags": [
+    "science fiction",
+    "cyberpunk",
+    "technology",
+    "digital culture",
+    "speculative fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:29:51.250Z",
+  "localCoverPath": "/book-covers/bandwidth-analog-1-eliot-peper.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781612184524-M.jpg"
+}

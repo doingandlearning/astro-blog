@@ -1,0 +1,52 @@
+{
+  "title": "World War Z: An Oral History of the Zombie War",
+  "author": "Max Brooks",
+  "dateFinished": "2013-04-04",
+  "genre": "Unknown",
+  "pages": 342,
+  "readingYear": 2013,
+  "readingMonth": 4,
+  "isCurrentlyReading": false,
+  "goodreadsId": "8908",
+  "rating": 4,
+  "isbn": "0307346609",
+  "isbn13": "9780307346605",
+  "enhancedGenre": "Horror Fiction, Post-Apocalyptic Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "survival",
+    "humanity",
+    "societal collapse",
+    "war",
+    "zombie apocalypse"
+  ],
+  "targetAudience": "Fans of horror, science fiction, and post-apocalyptic narratives",
+  "complexity": "Moderate",
+  "readingTime": "7 hours",
+  "relatedBooks": [
+    "The Zombie Survival Guide",
+    "The Road",
+    "I Am Legend",
+    "Cell",
+    "Zone One"
+  ],
+  "keyInsights": [
+    "Explores the fragility of civilization",
+    "Highlights human resilience in crisis",
+    "Examines the impact of global pandemics",
+    "Uses oral history format to present diverse perspectives"
+  ],
+  "tags": [
+    "zombies",
+    "apocalypse",
+    "horror",
+    "survival",
+    "oral history",
+    "fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:53:09.924Z",
+  "localCoverPath": "/book-covers/world-war-z-an-oral-history-of-the-zombie-war-max-brooks.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780307346605-M.jpg"
+}

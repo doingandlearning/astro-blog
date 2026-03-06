@@ -1,0 +1,48 @@
+{
+  "title": "The Quantum Spy",
+  "author": "David Ignatius",
+  "dateFinished": "2026-03-06",
+  "genre": "Unknown",
+  "pages": 336,
+  "readingYear": 2026,
+  "readingMonth": 3,
+  "isCurrentlyReading": false,
+  "goodreadsId": "38212118",
+  "rating": 0,
+  "isbn": "0393356248",
+  "isbn13": "9780393356243",
+  "enhancedGenre": "Thriller, Espionage Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "espionage",
+    "quantum computing",
+    "national security",
+    "betrayal",
+    "technology"
+  ],
+  "targetAudience": "Readers interested in espionage thrillers and technology-driven narratives",
+  "complexity": "Moderate",
+  "readingTime": "7 hours",
+  "relatedBooks": [
+    "The Spy Who Came in from the Cold",
+    "I Am Pilgrim",
+    "The Bourne Identity"
+  ],
+  "keyInsights": [
+    "Explores the intersection of technology and espionage",
+    "Highlights the ethical dilemmas in national security",
+    "Provides a thrilling narrative with unexpected twists"
+  ],
+  "tags": [
+    "thriller",
+    "espionage",
+    "quantum computing",
+    "David Ignatius",
+    "fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:25:21.021Z",
+  "localCoverPath": "/book-covers/the-quantum-spy-david-ignatius.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780393356243-M.jpg"
+}

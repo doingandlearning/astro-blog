@@ -1,0 +1,49 @@
+{
+  "title": "The Pragmatic Programmer: From Journeyman to Master",
+  "author": "Andy   Hunt",
+  "dateFinished": "2018-01-06",
+  "genre": "Unknown",
+  "pages": 352,
+  "readingYear": 2018,
+  "readingMonth": 1,
+  "isCurrentlyReading": false,
+  "goodreadsId": "8214124",
+  "rating": 4,
+  "isbn": "0768665086",
+  "isbn13": "9780768665086",
+  "enhancedGenre": "Software Development, Programming",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Software craftsmanship",
+    "Best practices",
+    "Programming techniques",
+    "Career development"
+  ],
+  "targetAudience": "Software developers, programmers, and tech professionals seeking to improve their skills",
+  "complexity": "Moderate",
+  "readingTime": "7 hours",
+  "relatedBooks": [
+    "Clean Code",
+    "Code Complete",
+    "The Mythical Man-Month",
+    "Design Patterns: Elements of Reusable Object-Oriented Software"
+  ],
+  "keyInsights": [
+    "Emphasizes the importance of continuous learning",
+    "Advocates for pragmatic approaches to problem-solving",
+    "Encourages collaboration and communication in teams",
+    "Highlights the significance of code quality and maintainability"
+  ],
+  "tags": [
+    "programming",
+    "software development",
+    "best practices",
+    "career growth",
+    "technical skills"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:26:13.403Z",
+  "localCoverPath": "/book-covers/the-pragmatic-programmer-from-journeyman-to-master-andy-hunt.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780768665086-M.jpg"
+}

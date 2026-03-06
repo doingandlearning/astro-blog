@@ -1,0 +1,48 @@
+{
+  "title": "The Smartest Giant in Town",
+  "author": "Julia Donaldson",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 32,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "928967",
+  "rating": 5,
+  "isbn": "0333963962",
+  "isbn13": "9780333963968",
+  "enhancedGenre": "Children's Picture Book",
+  "bookCategory": "Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "kindness",
+    "friendship",
+    "generosity",
+    "community",
+    "self-acceptance"
+  ],
+  "targetAudience": "Children aged 3-7 years",
+  "complexity": "Simple",
+  "readingTime": "15 minutes",
+  "relatedBooks": [
+    "The Gruffalo",
+    "Room on the Broom",
+    "The Snail and the Whale"
+  ],
+  "keyInsights": [
+    "The importance of helping others",
+    "Embracing one's uniqueness",
+    "The value of community support"
+  ],
+  "tags": [
+    "children's literature",
+    "picture book",
+    "illustrated",
+    "storytime",
+    "moral lessons"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:49:08.225Z",
+  "localCoverPath": "/book-covers/the-smartest-giant-in-town-julia-donaldson.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780333963968-M.jpg"
+}

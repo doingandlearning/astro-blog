@@ -1,0 +1,48 @@
+{
+  "title": "Digital Fortress",
+  "author": "Dan    Brown",
+  "dateFinished": "2022-09-14",
+  "genre": "Unknown",
+  "pages": 510,
+  "readingYear": 2022,
+  "readingMonth": 9,
+  "isCurrentlyReading": false,
+  "goodreadsId": "11125",
+  "rating": 0,
+  "enhancedGenre": "Techno-thriller",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Cryptography",
+    "National Security",
+    "Ethics of Technology",
+    "Surveillance",
+    "Trust and Betrayal"
+  ],
+  "targetAudience": "Readers interested in thrillers and technology-related narratives",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The Da Vinci Code",
+    "Deception Point",
+    "The Girl with the Dragon Tattoo",
+    "The Code Book"
+  ],
+  "keyInsights": [
+    "The impact of technology on privacy",
+    "The moral dilemmas of surveillance",
+    "The importance of trust in relationships",
+    "The balance between security and freedom"
+  ],
+  "tags": [
+    "Thriller",
+    "Technology",
+    "Cryptography",
+    "Suspense",
+    "Dan Brown"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:27:31.808Z",
+  "localCoverPath": "/book-covers/digital-fortress-dan-brown.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/id/8396115-M.jpg"
+}

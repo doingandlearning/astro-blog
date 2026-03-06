@@ -1,0 +1,51 @@
+{
+  "title": "Lord of the Flies",
+  "author": "William Golding",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 182,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "7624",
+  "rating": 3,
+  "isbn": "0140283331",
+  "isbn13": "9780140283334",
+  "enhancedGenre": "Dystopian Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Survival",
+    "Human Nature",
+    "Civilization vs. Savagery",
+    "Loss of Innocence",
+    "Power and Control"
+  ],
+  "targetAudience": "Young Adults and Adults",
+  "complexity": "Moderate",
+  "readingTime": "4-6 hours",
+  "relatedBooks": [
+    "The Catcher in the Rye",
+    "Animal Farm",
+    "1984",
+    "Brave New World",
+    "The Hunger Games"
+  ],
+  "keyInsights": [
+    "Explores the darkness within human nature",
+    "Critiques societal structures",
+    "Illustrates the fragility of civilization",
+    "Highlights the impact of isolation on behavior"
+  ],
+  "tags": [
+    "Dystopia",
+    "Classic Literature",
+    "Psychological Fiction",
+    "Adventure",
+    "Social Commentary"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:44:13.389Z",
+  "localCoverPath": "/book-covers/lord-of-the-flies-william-golding.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780140283334-M.jpg"
+}

@@ -1,0 +1,48 @@
+{
+  "title": "The Nanny Diaries",
+  "author": "Emma McLaughlin",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 307,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "829579",
+  "rating": 1,
+  "isbn": "014100892X",
+  "isbn13": "9780141008929",
+  "enhancedGenre": "Contemporary Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Parenting",
+    "Socioeconomic Class",
+    "Work-Life Balance",
+    "Identity",
+    "Social Commentary"
+  ],
+  "targetAudience": "Adults, particularly those interested in family dynamics and social issues",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Help",
+    "The Devil Wears Prada",
+    "Little Children"
+  ],
+  "keyInsights": [
+    "Explores the challenges of modern parenting",
+    "Highlights class disparities in urban settings",
+    "Examines the impact of work on personal identity"
+  ],
+  "tags": [
+    "Contemporary",
+    "Family",
+    "Society",
+    "Urban Life",
+    "Women’s Fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:50:01.351Z",
+  "localCoverPath": "/book-covers/the-nanny-diaries-emma-mclaughlin.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780141008929-M.jpg"
+}

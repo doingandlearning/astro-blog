@@ -1,0 +1,47 @@
+{
+  "title": "Daemon (Daemon, #1)",
+  "author": "Leinad Zeraus",
+  "dateFinished": "2022-09-14",
+  "genre": "Unknown",
+  "pages": 432,
+  "readingYear": 2022,
+  "readingMonth": 9,
+  "isCurrentlyReading": false,
+  "goodreadsId": "4699575",
+  "rating": 0,
+  "isbn": "0525951113",
+  "isbn13": "9780525951117",
+  "enhancedGenre": "Science Fiction, Cyberpunk",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Technology and Society",
+    "Artificial Intelligence",
+    "Surveillance",
+    "Control and Freedom"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and technology-driven narratives",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "Neuromancer",
+    "Snow Crash",
+    "Altered Carbon"
+  ],
+  "keyInsights": [
+    "Explores the implications of technology on human behavior",
+    "Critiques societal structures through a speculative lens",
+    "Raises questions about autonomy in a digital age"
+  ],
+  "tags": [
+    "Science Fiction",
+    "Cyberpunk",
+    "Technology",
+    "Artificial Intelligence",
+    "Surveillance"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:27:43.283Z",
+  "localCoverPath": "/book-covers/daemon-daemon-1-leinad-zeraus.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780525951117-M.jpg"
+}

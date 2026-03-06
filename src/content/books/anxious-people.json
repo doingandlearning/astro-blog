@@ -1,0 +1,48 @@
+{
+  "title": "Anxious People",
+  "author": "Fredrik Backman",
+  "dateFinished": "2022-03-13",
+  "genre": "Unknown",
+  "pages": 336,
+  "readingYear": 2022,
+  "readingMonth": 3,
+  "isCurrentlyReading": false,
+  "goodreadsId": "53799686",
+  "rating": 4,
+  "isbn": "1982121602",
+  "isbn13": "9781982121600",
+  "enhancedGenre": "Contemporary Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "anxiety",
+    "human connection",
+    "community",
+    "empathy",
+    "life's unpredictability"
+  ],
+  "targetAudience": "Readers interested in character-driven stories and explorations of human emotions",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "A Man Called Ove",
+    "The Midnight Library",
+    "The Unhoneymooners"
+  ],
+  "keyInsights": [
+    "Life is unpredictable and often chaotic",
+    "Empathy can bridge divides between people",
+    "Anxiety is a common human experience"
+  ],
+  "tags": [
+    "contemporary fiction",
+    "anxiety",
+    "human relationships",
+    "empathy",
+    "Fredrik Backman"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:30:53.047Z",
+  "localCoverPath": "/book-covers/anxious-people-fredrik-backman.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781982121600-M.jpg"
+}

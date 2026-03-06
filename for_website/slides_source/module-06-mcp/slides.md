@@ -8,30 +8,30 @@
 
 By the end of this module you will be able to:
 
-- Explain the "silo" problem: AI tools unable to access local files, repos, or databases directly
-- Describe the Model Context Protocol (MCP) as a standard for supplying context to AI
-- Outline how MCP works: standardized context servers connecting AI to git repos, databases, or local files
-- Discuss implications: how tools like Claude Desktop or IDEs can use MCP to "read" project structure without manually uploading code to the cloud
+- <span class="fragment">Explain the "silo" problem: AI tools unable to access local files, repos, or databases directly</span>
+- <span class="fragment">Describe the Model Context Protocol (MCP) as a standard for supplying context to AI</span>
+- <span class="fragment">Outline how MCP works: standardized context servers connecting AI to git repos, databases, or local files</span>
+- <span class="fragment">Discuss implications: how tools like Claude Desktop or IDEs can use MCP to "read" project structure without manually uploading code to the cloud</span>
 
 ---
 
 ## Bridge from Module 5
 
-**What we learned yesterday:**
+**What we learned last time:**
 
-- **RAG** connects AI to documents
+- <span class="fragment">**RAG** connects AI to documents</span>
 
 **The connection:**
 
-- RAG: Documents (static)
-- MCP: Files, repos, databases (live)
-- Both solve "AI doesn't know your context"
+- <span class="fragment">RAG: Documents (static)</span>
+- <span class="fragment">MCP: Files, repos, databases (live)</span>
+- <span class="fragment">Both solve "AI doesn't know your context"</span>
 
 **Frame explicitly:**
 
-- This section is **orientation** — understanding what MCP is
-- Not adoption or rollout guidance
-- MCP is still early/evolving
+- <span class="fragment">This section is **orientation** — understanding what MCP is</span>
+- <span class="fragment">Not adoption or rollout guidance</span>
+- <span class="fragment">MCP is still early/evolving</span>
 
 ---
 
@@ -39,19 +39,21 @@ By the end of this module you will be able to:
 
 **The limitation:**
 
-- AI tools (browser, apps) can't see your local files, repos, or databases
-- ❌ You have to manually copy-paste code
-- ❌ AI doesn't know your project structure
-- ❌ AI can't access your database schema
-- ❌ Context switching is slow and error-prone
+- <span class="fragment">AI tools (browser, apps) can't see your local files, repos, or databases</span>
+- <span class="fragment">❌ You have to manually copy-paste code</span>
+- <span class="fragment">❌ AI doesn't know your project structure</span>
+- <span class="fragment">❌ AI can't access your database schema</span>
+- <span class="fragment">❌ Context switching is slow and error-prone</span>
+
+---
 
 **The pain:**
 
-- Scenario: "Explain how this module works"
-- ❌ You copy-paste files one by one
-- ❌ Lose project structure context
-- ❌ Can't reference related files
-- ❌ Slow, manual, risky (data privacy)
+- <span class="fragment">Scenario: "Explain how this module works"</span>
+- <span class="fragment">❌ You copy-paste files one by one</span>
+- <span class="fragment">❌ Lose project structure context</span>
+- <span class="fragment">❌ Can't reference related files</span>
+- <span class="fragment">❌ Slow, manual, risky (data privacy)</span>
 
 ---
 
@@ -59,16 +61,18 @@ By the end of this module you will be able to:
 
 **MCP = Model Context Protocol**
 
-- Standardized protocol for context servers
-- ✅ AI can request context through protocol
-- ✅ Structured, safe access to files/repos/databases
-- ✅ Less manual copy-paste
+- <span class="fragment">Standardized protocol for context servers</span>
+- <span class="fragment">✅ AI can request context through protocol</span>
+- <span class="fragment">✅ Structured, safe access to files/repos/databases</span>
+- <span class="fragment">✅ Less manual copy-paste</span>
+
+---
 
 **Key idea:**
 
-- Context servers expose data (filesystem, git, database)
-- Clients (AI tools) request context through protocol
-- Standardized, interoperable
+- <span class="fragment">Context servers expose data (filesystem, git, database)</span>
+- <span class="fragment">Clients (AI tools) request context through protocol</span>
+- <span class="fragment">Standardized, interoperable</span>
 
 ---
 
@@ -76,19 +80,21 @@ By the end of this module you will be able to:
 
 **Without MCP:**
 
-- AI tool can't see your files
-- ❌ You paste code manually
-- ❌ No project structure awareness
-- ❌ Can't reference other files
-- ❌ Context is lost
+- <span class="fragment">AI tool can't see your files</span>
+- <span class="fragment">❌ You paste code manually</span>
+- <span class="fragment">❌ No project structure awareness</span>
+- <span class="fragment">❌ Can't reference other files</span>
+- <span class="fragment">❌ Context is lost</span>
+
+---
 
 **With MCP:**
 
-- AI tool requests context through MCP protocol
-- Context server exposes files/repos/databases
-- ✅ AI can "read" project structure
-- ✅ Can reference specific files
-- ✅ Structured, controlled access
+- <span class="fragment">AI tool requests context through MCP protocol</span>
+- <span class="fragment">Context server exposes files/repos/databases</span>
+- <span class="fragment">✅ AI can "read" project structure</span>
+- <span class="fragment">✅ Can reference specific files</span>
+- <span class="fragment">✅ Structured, controlled access</span>
 
 ---
 
@@ -96,21 +102,25 @@ By the end of this module you will be able to:
 
 **Context servers:**
 
-- Expose data sources (filesystem, git, database)
-- Examples: Filesystem server, Git server, Database server
-- Standardized way to access different data sources
+- <span class="fragment">Expose data sources (filesystem, git, database)</span>
+- <span class="fragment">Examples: Filesystem server, Git server, Database server</span>
+- <span class="fragment">Standardized way to access different data sources</span>
+
+---
 
 **Clients:**
 
-- AI tools that request context
-- Examples: Claude Desktop, IDEs, AI applications
-- Request context through MCP protocol
+- <span class="fragment">AI tools that request context</span>
+- <span class="fragment">Examples: Claude Desktop, IDEs, AI applications</span>
+- <span class="fragment">Request context through MCP protocol</span>
+
+---
 
 **The protocol:**
 
-- Standardized request/response format
-- Any client can work with any server
-- Defines how to request files, list directories, query databases
+- <span class="fragment">Standardized request/response format</span>
+- <span class="fragment">Any client can work with any server</span>
+- <span class="fragment">Defines how to request files, list directories, query databases</span>
 
 ---
 
@@ -118,11 +128,11 @@ By the end of this module you will be able to:
 
 **User asks AI:** "Explain this module"
 
-1. AI client requests: "List files in src/main/java/module1"
-2. Filesystem server responds: ["File1.java", "File2.java"]
-3. AI client requests: "Read File1.java"
-4. Filesystem server responds: File contents
-5. AI generates explanation based on retrieved files
+1. <span class="fragment">AI client requests: "List files in src/main/java/module1"</span>
+2. <span class="fragment">Filesystem server responds: ["File1.java", "File2.java"]</span>
+3. <span class="fragment">AI client requests: "Read File1.java"</span>
+4. <span class="fragment">Filesystem server responds: File contents</span>
+5. <span class="fragment">AI generates explanation based on retrieved files</span>
 
 **Result:** AI understands your project structure without manual copy-paste.
 
@@ -132,10 +142,10 @@ By the end of this module you will be able to:
 
 **Think of MCP like a library API:**
 
-- Client (AI tool) requests information
-- Server (context server) provides it
-- Protocol defines the request/response format
-- Standardized, structured, safe
+- <span class="fragment">Client (AI tool) requests information</span>
+- <span class="fragment">Server (context server) provides it</span>
+- <span class="fragment">Protocol defines the request/response format</span>
+- <span class="fragment">Standardized, structured, safe</span>
 
 **MCP enables structured access to your systems.**
 
@@ -145,22 +155,26 @@ By the end of this module you will be able to:
 
 **Implication 1: Safer access**
 
-- ✅ Structured, controlled access to files/repos
-- ✅ Can limit what AI can see (e.g. "only this module")
-- ✅ Less risky than manual copy-paste
+- <span class="fragment">✅ Structured, controlled access to files/repos</span>
+- <span class="fragment">✅ Can limit what AI can see (e.g. "only this module")</span>
+- <span class="fragment">✅ Less risky than manual copy-paste</span>
+
+---
 
 **Implication 2: Less copy-paste**
 
-- ✅ AI can request context automatically
-- ✅ No manual file copying
-- ✅ Faster iteration
+- <span class="fragment">✅ AI can request context automatically</span>
+- <span class="fragment">✅ No manual file copying</span>
+- <span class="fragment">✅ Faster iteration</span>
+
+---
 
 **Implication 3: Still early**
 
-- ⚠️ MCP is still evolving
-- ⚠️ Not all tools support it yet
-- ⚠️ Expect changes and improvements
-- ⚠️ This is orientation, not adoption guidance
+- <span class="fragment">⚠️ MCP is still evolving</span>
+- <span class="fragment">⚠️ Not all tools support it yet</span>
+- <span class="fragment">⚠️ Expect changes and improvements</span>
+- <span class="fragment">⚠️ This is orientation, not adoption guidance</span>
 
 ---
 
@@ -168,10 +182,10 @@ By the end of this module you will be able to:
 
 **Consider MCP when:**
 
-- ✅ You need AI to reason over many files
-- ✅ You need structured access to repos/databases
-- ✅ Manual copy-paste is too slow or risky
-- ✅ Your tools support MCP
+- <span class="fragment">✅ You need AI to reason over many files</span>
+- <span class="fragment">✅ You need structured access to repos/databases</span>
+- <span class="fragment">✅ Manual copy-paste is too slow or risky</span>
+- <span class="fragment">✅ Your tools support MCP</span>
 
 **MCP is still early** — watch for adoption and tool support.
 
@@ -179,11 +193,11 @@ By the end of this module you will be able to:
 
 ## Summary
 
-1. **Problem**: AI tools can't access local files/repos/databases
-2. **Solution**: MCP provides standardized protocol for context servers
-3. **How it works**: Servers expose data, clients request through protocol
-4. **Implications**: Safer, structured access; less copy-paste; still early
-5. **Orientation only**: Understanding, not adoption guidance
+1. <span class="fragment">**Problem**: AI tools can't access local files/repos/databases</span>
+2. <span class="fragment">**Solution**: MCP provides standardized protocol for context servers</span>
+3. <span class="fragment">**How it works**: Servers expose data, clients request through protocol</span>
+4. <span class="fragment">**Implications**: Safer, structured access; less copy-paste; still early</span>
+5. <span class="fragment">**Orientation only**: Understanding, not adoption guidance</span>
 
 ---
 
@@ -191,7 +205,7 @@ By the end of this module you will be able to:
 
 **What we've learned:**
 
-- **MCP** connects AI to live systems (files, repos, databases)
+- <span class="fragment">**MCP** connects AI to live systems (files, repos, databases)</span>
 
 **What's next:**
 

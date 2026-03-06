@@ -1,0 +1,51 @@
+{
+  "title": "The Fellowship of the Ring (The Lord of the Rings, #1)",
+  "author": "J.R.R. Tolkien",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 398,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "34",
+  "rating": 5,
+  "isbn": "0618346252",
+  "isbn13": "9780618346257",
+  "enhancedGenre": "High Fantasy",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Friendship",
+    "Courage",
+    "Good vs. Evil",
+    "Adventure",
+    "Sacrifice"
+  ],
+  "targetAudience": "Young adults and adults who enjoy epic fantasy",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "The Two Towers (The Lord of the Rings, #2)",
+    "The Return of the King (The Lord of the Rings, #3)",
+    "The Hobbit",
+    "A Game of Thrones (A Song of Ice and Fire, #1)",
+    "The Chronicles of Narnia"
+  ],
+  "keyInsights": [
+    "Exploration of moral choices",
+    "The importance of fellowship",
+    "The journey as a path to self-discovery",
+    "The struggle against overwhelming odds"
+  ],
+  "tags": [
+    "Fantasy",
+    "Epic",
+    "Adventure",
+    "Classic",
+    "Mythology"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:52:01.397Z",
+  "localCoverPath": "/book-covers/the-fellowship-of-the-ring-the-lord-of-the-rings-1-j.r.r.-tolkien.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780618346257-M.jpg"
+}

@@ -1,0 +1,47 @@
+{
+  "title": "The Half Hour Allotment",
+  "author": "Lia Leendertz",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 160,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "836864",
+  "rating": 4,
+  "isbn": "0711226059",
+  "isbn13": "9780711226050",
+  "enhancedGenre": "Self-Help / Personal Development",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "Time Management",
+    "Productivity",
+    "Work-Life Balance",
+    "Self-Improvement"
+  ],
+  "targetAudience": "Individuals seeking to improve their productivity and time management skills",
+  "complexity": "Simple",
+  "readingTime": "4 hours",
+  "relatedBooks": [
+    "The 7 Habits of Highly Effective People",
+    "Getting Things Done",
+    "Atomic Habits"
+  ],
+  "keyInsights": [
+    "Effective time allocation can enhance productivity",
+    "Small changes can lead to significant improvements",
+    "Balancing work and personal life is essential for well-being"
+  ],
+  "tags": [
+    "Time Management",
+    "Productivity",
+    "Self-Help",
+    "Personal Development",
+    "Work-Life Balance"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:51:06.380Z",
+  "localCoverPath": "/book-covers/the-half-hour-allotment-lia-leendertz.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780711226050-M.jpg"
+}

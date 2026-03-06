@@ -1,0 +1,50 @@
+{
+  "title": "Cloud Atlas",
+  "author": "David  Mitchell",
+  "dateFinished": "2022-06-27",
+  "genre": "Unknown",
+  "pages": 509,
+  "readingYear": 2022,
+  "readingMonth": 6,
+  "isCurrentlyReading": false,
+  "goodreadsId": "49628",
+  "rating": 3,
+  "isbn": "0375507256",
+  "isbn13": "9780375507250",
+  "enhancedGenre": "Speculative Fiction, Literary Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Advanced",
+  "themes": [
+    "Interconnectedness",
+    "Reincarnation",
+    "Power and Oppression",
+    "Humanity and Morality",
+    "Time and History"
+  ],
+  "targetAudience": "Readers interested in complex narratives and philosophical themes",
+  "complexity": "Complex",
+  "readingTime": "12 hours",
+  "relatedBooks": [
+    "The Bone Clocks",
+    "The Cloud Atlas",
+    "Slaughterhouse-Five",
+    "The Time Traveler's Wife",
+    "The Invisible Man"
+  ],
+  "keyInsights": [
+    "Exploration of how individual actions impact the future",
+    "The cyclical nature of time and existence",
+    "The interplay between different narratives and genres"
+  ],
+  "tags": [
+    "Literary Fiction",
+    "Speculative Fiction",
+    "Philosophy",
+    "Interconnected Stories",
+    "Historical Elements"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:29:32.564Z",
+  "localCoverPath": "/book-covers/cloud-atlas-david-mitchell.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780375507250-M.jpg"
+}

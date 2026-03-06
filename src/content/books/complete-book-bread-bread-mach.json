@@ -1,0 +1,47 @@
+{
+  "title": "Complete Book Bread & Bread Mach",
+  "author": "Christine Ingram",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 512,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "3401200",
+  "rating": 5,
+  "isbn": "1844771849",
+  "isbn13": "9781844771844",
+  "enhancedGenre": "Cookbook, Baking",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "Baking Techniques",
+    "Bread Recipes",
+    "Culinary Skills",
+    "Home Cooking"
+  ],
+  "targetAudience": "Home bakers, Cooking enthusiasts, Culinary students",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "The Bread Baker's Apprentice",
+    "Bread: A Baker's Book of Techniques and Recipes",
+    "Artisan Bread in Five Minutes a Day"
+  ],
+  "keyInsights": [
+    "Comprehensive guide to bread making",
+    "Step-by-step instructions for various bread types",
+    "Tips for using a bread machine effectively"
+  ],
+  "tags": [
+    "Bread",
+    "Baking",
+    "Cookbook",
+    "Home Cooking",
+    "Culinary Arts"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:48:50.468Z",
+  "localCoverPath": "/book-covers/complete-book-bread--bread-mach-christine-ingram.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781844771844-M.jpg"
+}

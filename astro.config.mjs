@@ -26,5 +26,9 @@ export default defineConfig({
       status: 302,
       destination: "/rss.xml",
     },
+    "/course/harwell-ai": {
+      status: 302,
+      destination: "/courses/harwell-ai",
+    },
   },
 });

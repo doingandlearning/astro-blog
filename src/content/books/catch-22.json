@@ -1,0 +1,48 @@
+{
+  "title": "Catch-22",
+  "author": "Joseph Heller",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 453,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "168668",
+  "rating": 1,
+  "isbn": "0684833395",
+  "isbn13": "9780684833392",
+  "enhancedGenre": "Satirical Novel, War Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Advanced",
+  "themes": [
+    "Absurdity of War",
+    "Bureaucracy",
+    "Survival",
+    "Mental Health",
+    "Morality"
+  ],
+  "targetAudience": "Readers interested in war literature, satire, and complex narratives",
+  "complexity": "Complex",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "Slaughterhouse-Five",
+    "One Flew Over the Cuckoo's Nest",
+    "The Things They Carried"
+  ],
+  "keyInsights": [
+    "Critique of military bureaucracy",
+    "Exploration of the absurdity of human existence",
+    "Impact of war on mental health"
+  ],
+  "tags": [
+    "war",
+    "satire",
+    "literature",
+    "classic",
+    "American fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:53:25.658Z",
+  "localCoverPath": "/book-covers/catch-22-joseph-heller.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780684833392-M.jpg"
+}

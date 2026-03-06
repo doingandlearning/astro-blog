@@ -1,0 +1,47 @@
+{
+  "title": "Mathematical Modeling",
+  "author": "J.G. Andrews",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 260,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "3930535",
+  "rating": 2,
+  "isbn": "0408106018",
+  "isbn13": "9780408106016",
+  "enhancedGenre": "Mathematics, Applied Mathematics",
+  "bookCategory": "Academic",
+  "readingLevel": "Advanced",
+  "themes": [
+    "Mathematical modeling",
+    "Problem-solving",
+    "Applications of mathematics",
+    "Interdisciplinary approaches"
+  ],
+  "targetAudience": "Students and professionals in mathematics, engineering, and related fields",
+  "complexity": "Complex",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "Introduction to Mathematical Modeling by Edward A. Bender",
+    "Mathematical Models: Theory and Practice by Daniel A. Klain",
+    "Applied Mathematical Modeling by Michael C. Georgiopoulos"
+  ],
+  "keyInsights": [
+    "Understanding the principles of mathematical modeling",
+    "Application of mathematical concepts to real-world problems",
+    "Interdisciplinary nature of mathematical modeling"
+  ],
+  "tags": [
+    "Mathematics",
+    "Modeling",
+    "Applied Mathematics",
+    "Engineering",
+    "Academic"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:49:24.230Z",
+  "localCoverPath": "/book-covers/mathematical-modeling-j.g.-andrews.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780408106016-M.jpg"
+}

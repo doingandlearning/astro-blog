@@ -1,0 +1,49 @@
+{
+  "title": "The No.1 Ladies' Detective Agency",
+  "author": "Alexander McCall Smith",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 1,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "840751",
+  "rating": 1,
+  "isbn": "1405500018",
+  "isbn13": "9781405500012",
+  "enhancedGenre": "Cozy Mystery",
+  "bookCategory": "Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "Friendship",
+    "Cultural Identity",
+    "Justice",
+    "Community",
+    "Problem Solving"
+  ],
+  "targetAudience": "Readers who enjoy light-hearted mysteries and character-driven stories",
+  "complexity": "Simple",
+  "readingTime": "4 hours",
+  "relatedBooks": [
+    "The No. 2 Ladies' Detective Agency",
+    "The Cuckoo's Calling",
+    "Still Life",
+    "A Man Called Ove"
+  ],
+  "keyInsights": [
+    "The importance of community and relationships",
+    "Cultural nuances in problem-solving",
+    "The charm of everyday life in Botswana"
+  ],
+  "tags": [
+    "mystery",
+    "detective",
+    "Botswana",
+    "humor",
+    "fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:48:27.727Z",
+  "localCoverPath": "/book-covers/the-no.1-ladies-detective-agency-alexander-mccall-smith.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781405500012-M.jpg"
+}

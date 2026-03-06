@@ -1,0 +1,47 @@
+{
+  "title": "Thinking, Fast and Slow",
+  "author": "Daniel Kahneman",
+  "dateFinished": "2022-02-24",
+  "genre": "Unknown",
+  "pages": 499,
+  "readingYear": 2022,
+  "readingMonth": 2,
+  "isCurrentlyReading": false,
+  "goodreadsId": "11468377",
+  "rating": 0,
+  "isbn": "0374275637",
+  "isbn13": "9780374275631",
+  "enhancedGenre": "Cognitive Psychology, Behavioral Economics",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Cognitive Biases",
+    "Decision Making",
+    "Behavioral Economics",
+    "Psychological Insights"
+  ],
+  "targetAudience": "Individuals interested in psychology, economics, and decision-making processes",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "Predictably Irrational by Dan Ariely",
+    "Nudge by Richard H. Thaler and Cass R. Sunstein",
+    "Blink by Malcolm Gladwell"
+  ],
+  "keyInsights": [
+    "Understanding the two systems of thought",
+    "The impact of cognitive biases on decision making",
+    "The importance of intuition and reasoning"
+  ],
+  "tags": [
+    "Psychology",
+    "Economics",
+    "Decision Making",
+    "Cognitive Science",
+    "Behavioral Science"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:31:34.741Z",
+  "localCoverPath": "/book-covers/thinking-fast-and-slow-daniel-kahneman.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780374275631-M.jpg"
+}

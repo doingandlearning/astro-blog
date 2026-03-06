@@ -1,0 +1,48 @@
+{
+  "title": "Running Is Easy",
+  "author": "Bruce Tulloh",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 192,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "6865116",
+  "rating": 3,
+  "isbn": "0002187310",
+  "isbn13": "9780002187312",
+  "enhancedGenre": "Sports & Recreation",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "Running",
+    "Fitness",
+    "Health",
+    "Motivation"
+  ],
+  "targetAudience": "Individuals interested in running and fitness enthusiasts",
+  "complexity": "Simple",
+  "readingTime": "4 hours",
+  "relatedBooks": [
+    "Born to Run by Christopher McDougall",
+    "The Complete Book of Running by Jim Fixx",
+    "Running with the Mind of Meditation by Sakyong Mipham"
+  ],
+  "keyInsights": [
+    "Running can be accessible to everyone",
+    "Importance of proper technique",
+    "Mental benefits of running",
+    "Building a sustainable running habit"
+  ],
+  "tags": [
+    "Running",
+    "Fitness",
+    "Health",
+    "Exercise",
+    "Motivation"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:47:50.998Z",
+  "localCoverPath": "/book-covers/running-is-easy-bruce-tulloh.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780002187312-M.jpg"
+}

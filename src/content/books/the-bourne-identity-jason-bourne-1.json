@@ -1,0 +1,49 @@
+{
+  "title": "The Bourne Identity (Jason Bourne, #1)",
+  "author": "Robert Ludlum",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 566,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "7869",
+  "rating": 5,
+  "isbn": "0752864327",
+  "isbn13": "9780752864327",
+  "enhancedGenre": "Thriller, Espionage",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "identity",
+    "memory",
+    "espionage",
+    "survival",
+    "trust"
+  ],
+  "targetAudience": "Readers of spy fiction and thrillers, fans of action-packed narratives",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "The Bourne Supremacy",
+    "The Bourne Ultimatum",
+    "Tinker Tailor Soldier Spy",
+    "The Spy Who Came in from the Cold"
+  ],
+  "keyInsights": [
+    "Exploration of identity and self-discovery",
+    "The impact of memory loss on personal relationships",
+    "The moral ambiguity in espionage"
+  ],
+  "tags": [
+    "spy fiction",
+    "thriller",
+    "action",
+    "mystery",
+    "Robert Ludlum"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:53:34.951Z",
+  "localCoverPath": "/book-covers/the-bourne-identity-jason-bourne-1-robert-ludlum.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780752864327-M.jpg"
+}

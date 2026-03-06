@@ -1,0 +1,49 @@
+{
+  "title": "Code 6",
+  "author": "James Grippando",
+  "dateFinished": "2023-02-11",
+  "genre": "Unknown",
+  "pages": 368,
+  "readingYear": 2023,
+  "readingMonth": 2,
+  "isCurrentlyReading": false,
+  "goodreadsId": "60776094",
+  "rating": 4,
+  "isbn": "0063223783",
+  "isbn13": "9780063223783",
+  "enhancedGenre": "Legal Thriller",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Justice",
+    "Morality",
+    "Crime",
+    "Legal System",
+    "Corruption"
+  ],
+  "targetAudience": "Readers who enjoy suspenseful legal dramas and thrillers",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Firm",
+    "A Time to Kill",
+    "The Lincoln Lawyer",
+    "The Pelican Brief"
+  ],
+  "keyInsights": [
+    "Exploration of ethical dilemmas in the legal profession",
+    "The impact of personal choices on justice",
+    "The interplay between law and morality"
+  ],
+  "tags": [
+    "Thriller",
+    "Legal",
+    "Mystery",
+    "Suspense",
+    "Crime Fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:26:28.215Z",
+  "localCoverPath": "/book-covers/code-6-james-grippando.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780063223783-M.jpg"
+}

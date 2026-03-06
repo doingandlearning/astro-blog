@@ -1,0 +1,48 @@
+{
+  "title": "Orthodoxy",
+  "author": "G.K. Chesterton",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 168,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "87665",
+  "rating": 3,
+  "isbn": "160096527X",
+  "isbn13": "9781600965272",
+  "enhancedGenre": "Philosophical Theology",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Faith",
+    "Reason",
+    "Christianity",
+    "Philosophy",
+    "Doubt"
+  ],
+  "targetAudience": "Readers interested in theology, philosophy, and Christian apologetics",
+  "complexity": "Moderate",
+  "readingTime": "4 hours",
+  "relatedBooks": [
+    "Mere Christianity by C.S. Lewis",
+    "The Everlasting Man by G.K. Chesterton",
+    "The Confessions by Augustine"
+  ],
+  "keyInsights": [
+    "Exploration of faith and reason",
+    "Defense of Christianity against modern skepticism",
+    "Importance of paradox in understanding truth"
+  ],
+  "tags": [
+    "Theology",
+    "Philosophy",
+    "Christianity",
+    "Apologetics",
+    "G.K. Chesterton"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:56:16.743Z",
+  "localCoverPath": "/book-covers/orthodoxy-g.k.-chesterton.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781600965272-M.jpg"
+}

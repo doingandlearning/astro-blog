@@ -1,0 +1,50 @@
+{
+  "title": "Watchmen",
+  "author": "Alan             Moore",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 416,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "472331",
+  "rating": 3,
+  "isbn": "0930289234",
+  "isbn13": "9780930289232",
+  "enhancedGenre": "Graphic Novel, Superhero",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Morality",
+    "Power and Corruption",
+    "Identity",
+    "The Nature of Heroism",
+    "Society and Politics"
+  ],
+  "targetAudience": "Adults and Young Adults interested in graphic novels and complex narratives",
+  "complexity": "Complex",
+  "readingTime": "6-8 hours",
+  "relatedBooks": [
+    "V for Vendetta",
+    "The Dark Knight Returns",
+    "Maus",
+    "Sandman"
+  ],
+  "keyInsights": [
+    "Explores the deconstruction of the superhero archetype",
+    "Questions the morality of vigilantism",
+    "Reflects on the impact of power on society",
+    "Intertwines personal and political narratives"
+  ],
+  "tags": [
+    "Graphic Novel",
+    "Superheroes",
+    "Dystopian",
+    "Classic",
+    "Literary"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:54:55.023Z",
+  "localCoverPath": "/book-covers/watchmen-alan-moore.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780930289232-M.jpg"
+}

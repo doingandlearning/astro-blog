@@ -1,0 +1,50 @@
+{
+  "title": "Confessions",
+  "author": "Augustine of Hippo",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 341,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "27037",
+  "rating": 4,
+  "isbn": "0192833723",
+  "isbn13": "9780192833723",
+  "enhancedGenre": "Autobiography, Spiritual Memoir",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Advanced",
+  "themes": [
+    "Self-reflection",
+    "Faith",
+    "Redemption",
+    "Philosophy",
+    "Theology"
+  ],
+  "targetAudience": "Readers interested in Christian theology, philosophy, and personal narratives",
+  "complexity": "Complex",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The Confessions of St. Augustine",
+    "The City of God",
+    "Meditations by Marcus Aurelius",
+    "The Imitation of Christ by Thomas à Kempis"
+  ],
+  "keyInsights": [
+    "Exploration of personal sin and redemption",
+    "The relationship between God and humanity",
+    "The nature of time and memory",
+    "The importance of self-examination"
+  ],
+  "tags": [
+    "Augustine of Hippo",
+    "Christianity",
+    "Autobiography",
+    "Philosophy",
+    "Theology"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:45:54.675Z",
+  "localCoverPath": "/book-covers/confessions-augustine-of-hippo.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780192833723-M.jpg"
+}

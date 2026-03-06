@@ -9,8 +9,10 @@ import { calculateEnhancedBookStats } from "../utils/bookStats";
 import type { BookWithEnhancedData } from "../types/books";
 import "../styles/books.css";
 
-// Get all books from the content collection
-const books = await getCollection("books");
+// Get all books from the content collection, then filter to those read since start of 2025
+const allBooks = await getCollection("books");
+const sinceDate = new Date("2025-01-01");
+const books = allBooks.filter((book) => new Date(book.data.dateFinished) >= sinceDate);
 
 // Sort books by date finished (most recent first)
 const sortedBooks = books.sort(
@@ -71,9 +73,9 @@ const stats = {
 	),
 };
 
-// Set page metadata
-const pageTitle = "Books I've Read";
-const pageDescription = `A collection of ${stats.totalBooks} books I've read, totaling ${stats.totalPages} pages.`;
+// Set page metadata (since start of 2025)
+const pageTitle = "Books I've Read Since 2025";
+const pageDescription = `${stats.totalBooks} books read since the start of 2025, totaling ${stats.totalPages} pages.`;
 ---
 
 <BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
@@ -93,8 +95,8 @@ const pageDescription = `A collection of ${stats.totalBooks} books I've read, to
 			set:html={JSON.stringify({
 				"@context": "https://schema.org",
 				"@type": "CollectionPage",
-				name: "Books I've Read",
-				description: `A collection of ${enhancedStats.totalBooks} books I've read, totaling ${enhancedStats.totalPages} pages.`,
+				name: "Books I've Read Since 2025",
+				description: `${enhancedStats.totalBooks} books read since the start of 2025, totaling ${enhancedStats.totalPages} pages.`,
 				url: "https://kevincunningham.co.uk/books",
 				mainEntity: {
 					"@type": "ItemList",
@@ -142,7 +144,7 @@ const pageDescription = `A collection of ${stats.totalBooks} books I've read, to
 
 		<!-- Books Display -->
 		<section class="books-section">
-			<h2>All Books ({books.length})</h2>
+			<h2>Books read since 2025 ({books.length})</h2>
 			
 			<!-- Grid View -->
 			<div id="grid-view" class="books-view active">
@@ -155,7 +157,7 @@ const pageDescription = `A collection of ${stats.totalBooks} books I've read, to
 			
 			<!-- Shelf View -->
 			<div id="shelf-view" class="books-view">
-				<Bookshelf books={sortedBooks} />
+				<Bookshelf books={sortedBooks} maxShelfWidth={1600} />
 			</div>
 		</section>
 	</div>
@@ -213,7 +215,7 @@ const pageDescription = `A collection of ${stats.totalBooks} books I've read, to
 				// Update the books count
 				const booksCountElement = document.querySelector(".books-section h2");
 				if (booksCountElement) {
-					booksCountElement.textContent = `All Books (${filteredBooks.length})`;
+					booksCountElement.textContent = `Books read since 2025 (${filteredBooks.length})`;
 				}
 
 				// Show/hide no books message
@@ -253,7 +255,7 @@ const pageDescription = `A collection of ${stats.totalBooks} books I've read, to
 						<span class="book-pages">${book.data.pages} pages</span>
 					</div>
 					<p class="book-date">
-						Finished ${new Date(book.data.dateFinished).toLocaleDateString("en-US", {
+						Recorded on ${new Date(book.data.dateFinished).toLocaleDateString("en-US", {
 							year: "numeric",
 							month: "long",
 							day: "numeric",
@@ -268,8 +270,13 @@ const pageDescription = `A collection of ${stats.totalBooks} books I've read, to
 </BaseLayout>
 
 <style>
+	/* Override global body max-width (90ch) so the books grid can use full width */
+	:global(body) {
+		max-width: none;
+	}
+
 	.container {
-		max-width: 1200px;
+		max-width: 1600px;
 		margin: 0 auto;
 		padding: 2rem;
 	}

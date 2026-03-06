@@ -1,0 +1,48 @@
+{
+  "title": "Mastery",
+  "author": "Robert Greene",
+  "dateFinished": "2022-02-24",
+  "genre": "Unknown",
+  "pages": 318,
+  "readingYear": 2022,
+  "readingMonth": 2,
+  "isCurrentlyReading": false,
+  "goodreadsId": "13589182",
+  "rating": 0,
+  "isbn": "0670024961",
+  "isbn13": "9780670024964",
+  "enhancedGenre": "Self-Help, Personal Development",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Mastery",
+    "Skill Acquisition",
+    "Personal Growth",
+    "Historical Examples",
+    "Mentorship"
+  ],
+  "targetAudience": "Individuals seeking personal and professional development, aspiring experts in various fields",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "Outliers by Malcolm Gladwell",
+    "The 7 Habits of Highly Effective People by Stephen R. Covey",
+    "Grit by Angela Duckworth"
+  ],
+  "keyInsights": [
+    "Mastery requires dedication and practice",
+    "Learning from mentors is crucial",
+    "Embrace failure as part of the learning process"
+  ],
+  "tags": [
+    "Mastery",
+    "Self-Improvement",
+    "Skill Development",
+    "Personal Success",
+    "Robert Greene"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:32:00.090Z",
+  "localCoverPath": "/book-covers/mastery-robert-greene.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780670024964-M.jpg"
+}

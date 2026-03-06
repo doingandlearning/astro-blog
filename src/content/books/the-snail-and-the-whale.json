@@ -1,0 +1,47 @@
+{
+  "title": "The Snail and the Whale",
+  "author": "Julia Donaldson",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 32,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "1013382",
+  "rating": 5,
+  "isbn": "033398224X",
+  "isbn13": "9780333982242",
+  "enhancedGenre": "Children's Picture Book",
+  "bookCategory": "Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "Adventure",
+    "Friendship",
+    "Nature",
+    "Exploration"
+  ],
+  "targetAudience": "Children aged 3-7 and their parents",
+  "complexity": "Simple",
+  "readingTime": "15 minutes",
+  "relatedBooks": [
+    "The Gruffalo",
+    "Room on the Broom",
+    "The Very Hungry Caterpillar"
+  ],
+  "keyInsights": [
+    "The importance of friendship and teamwork",
+    "Embracing differences",
+    "The wonders of nature and exploration"
+  ],
+  "tags": [
+    "children's literature",
+    "picture book",
+    "adventure",
+    "friendship",
+    "nature"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:49:04.209Z",
+  "localCoverPath": "/book-covers/the-snail-and-the-whale-julia-donaldson.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780333982242-M.jpg"
+}

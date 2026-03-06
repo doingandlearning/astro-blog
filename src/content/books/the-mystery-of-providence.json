@@ -1,0 +1,47 @@
+{
+  "title": "The Mystery of Providence",
+  "author": "John Flavel",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 221,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "27567242",
+  "rating": 3,
+  "isbn": "085151104X",
+  "isbn13": "9780851511047",
+  "enhancedGenre": "Christian Theology, Spirituality",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Divine Providence",
+    "Faith",
+    "Theological Reflection",
+    "Spiritual Growth"
+  ],
+  "targetAudience": "Readers interested in Christian theology and spirituality",
+  "complexity": "Moderate",
+  "readingTime": "5 hours",
+  "relatedBooks": [
+    "The Sovereignty of God by A.W. Pink",
+    "The Purpose Driven Life by Rick Warren",
+    "Knowing God by J.I. Packer"
+  ],
+  "keyInsights": [
+    "Understanding God's providence in daily life",
+    "The relationship between faith and divine intervention",
+    "Encouragement for spiritual resilience"
+  ],
+  "tags": [
+    "Theology",
+    "Christianity",
+    "Spirituality",
+    "Faith",
+    "Providence"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:46:53.328Z",
+  "localCoverPath": "/book-covers/the-mystery-of-providence-john-flavel.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780851511047-M.jpg"
+}

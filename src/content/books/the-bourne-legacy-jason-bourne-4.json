@@ -1,0 +1,49 @@
+{
+  "title": "The Bourne Legacy (Jason Bourne, #4)",
+  "author": "Eric Van Lustbader",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 597,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "123543",
+  "rating": 5,
+  "isbn": "0312999526",
+  "isbn13": "9780312999520",
+  "enhancedGenre": "Thriller, Espionage Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "identity",
+    "betrayal",
+    "surveillance",
+    "government conspiracy",
+    "action"
+  ],
+  "targetAudience": "Fans of thriller and espionage novels, readers of the Jason Bourne series",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "The Bourne Identity",
+    "The Bourne Supremacy",
+    "The Bourne Ultimatum",
+    "The Bourne Betrayal"
+  ],
+  "keyInsights": [
+    "Exploration of personal identity amidst chaos",
+    "The impact of government secrecy on individual lives",
+    "The psychological effects of espionage"
+  ],
+  "tags": [
+    "thriller",
+    "espionage",
+    "action",
+    "mystery",
+    "suspense"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:53:29.556Z",
+  "localCoverPath": "/book-covers/the-bourne-legacy-jason-bourne-4-eric-van-lustbader.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780312999520-M.jpg"
+}

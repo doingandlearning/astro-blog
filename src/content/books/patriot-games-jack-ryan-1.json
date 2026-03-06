@@ -1,0 +1,50 @@
+{
+  "title": "Patriot Games (Jack Ryan, #1)",
+  "author": "Tom Clancy",
+  "dateFinished": "2022-09-14",
+  "genre": "Unknown",
+  "pages": 794,
+  "readingYear": 2022,
+  "readingMonth": 9,
+  "isCurrentlyReading": false,
+  "goodreadsId": "32682",
+  "rating": 0,
+  "isbn": "0425134350",
+  "isbn13": "9780425134351",
+  "enhancedGenre": "Political Thriller",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Terrorism",
+    "National Security",
+    "Political Intrigue",
+    "Family Loyalty",
+    "Heroism"
+  ],
+  "targetAudience": "Readers interested in espionage, military strategy, and action-packed narratives",
+  "complexity": "Moderate",
+  "readingTime": "12 hours",
+  "relatedBooks": [
+    "The Hunt for Red October",
+    "Clear and Present Danger",
+    "The Sum of All Fears",
+    "The Bourne Identity",
+    "The Spy Who Came in from the Cold"
+  ],
+  "keyInsights": [
+    "Explores the complexities of international relations",
+    "Highlights the impact of personal choices on global events",
+    "Examines the moral dilemmas faced by intelligence operatives"
+  ],
+  "tags": [
+    "Thriller",
+    "Espionage",
+    "Action",
+    "Military",
+    "Political"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:27:21.623Z",
+  "localCoverPath": "/book-covers/patriot-games-jack-ryan-1-tom-clancy.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780425134351-M.jpg"
+}

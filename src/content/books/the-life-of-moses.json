@@ -1,0 +1,47 @@
+{
+  "title": "The Life of Moses",
+  "author": "Gregory of Nyssa",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 132,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "102124",
+  "rating": 4,
+  "isbn": "0060754648",
+  "isbn13": "9780060754648",
+  "enhancedGenre": "Religious Biography",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Faith",
+    "Leadership",
+    "Spiritual Journey",
+    "Historical Context"
+  ],
+  "targetAudience": "Readers interested in religious studies, theology, and biblical history",
+  "complexity": "Moderate",
+  "readingTime": "4 hours",
+  "relatedBooks": [
+    "Moses: A Life",
+    "The Exodus: How It Happened",
+    "The Bible: A Biography"
+  ],
+  "keyInsights": [
+    "Explores the character and leadership of Moses",
+    "Discusses the significance of Moses in religious tradition",
+    "Analyzes the historical and cultural context of Moses's life"
+  ],
+  "tags": [
+    "Moses",
+    "Gregory of Nyssa",
+    "Theology",
+    "Biography",
+    "Religion"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:45:40.894Z",
+  "localCoverPath": "/book-covers/the-life-of-moses-gregory-of-nyssa.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780060754648-M.jpg"
+}

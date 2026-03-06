@@ -1,0 +1,48 @@
+{
+  "title": "Self Sufficiency Manual",
+  "author": "Alison Candlin",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 256,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "14312770",
+  "rating": 4,
+  "isbn": "1408156555",
+  "isbn13": "9781408156551",
+  "enhancedGenre": "Self-Sufficiency, Practical Skills",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "sustainability",
+    "homesteading",
+    "gardening",
+    "food preservation",
+    "DIY skills"
+  ],
+  "targetAudience": "Individuals interested in self-sufficiency and sustainable living",
+  "complexity": "Simple",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Self-Sufficient Life and How to Live It",
+    "The Complete Book of Self-Sufficiency",
+    "The Backyard Homestead"
+  ],
+  "keyInsights": [
+    "Learn essential skills for self-sufficiency",
+    "Understand the basics of gardening and food preservation",
+    "Explore DIY projects for sustainable living"
+  ],
+  "tags": [
+    "self-sufficiency",
+    "gardening",
+    "homesteading",
+    "DIY",
+    "sustainability"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:51:38.376Z",
+  "localCoverPath": "/book-covers/self-sufficiency-manual-alison-candlin.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781408156551-M.jpg"
+}

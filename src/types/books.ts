@@ -5,6 +5,8 @@ export interface Book {
   genre: string;
   pages: number;
   coverUrl: string;
+  localCoverPath?: string;
+  goodreadsId?: string;
 }
 
 export interface LLMResponse {

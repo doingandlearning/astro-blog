@@ -1,0 +1,45 @@
+{
+  "title": "Tigerman",
+  "author": "Nick Harkaway",
+  "dateFinished": "2018-10-11",
+  "genre": "Unknown",
+  "pages": 355,
+  "readingYear": 2018,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "21847844",
+  "rating": 5,
+  "enhancedGenre": "Speculative Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Identity",
+    "Heroism",
+    "Society",
+    "Isolation",
+    "Survival"
+  ],
+  "targetAudience": "Readers interested in speculative and literary fiction",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Windup Girl",
+    "The City & The City",
+    "Snow Crash"
+  ],
+  "keyInsights": [
+    "Exploration of modern heroism",
+    "Impact of societal collapse",
+    "The nature of identity in crisis"
+  ],
+  "tags": [
+    "Speculative Fiction",
+    "Literary Fiction",
+    "Adventure",
+    "Dystopia"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:42:14.839Z",
+  "localCoverPath": "/book-covers/tigerman-nick-harkaway.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/id/10185324-M.jpg"
+}

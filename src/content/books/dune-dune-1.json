@@ -1,0 +1,50 @@
+{
+  "title": "Dune (Dune #1)",
+  "author": "Frank Herbert",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 604,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "234225",
+  "rating": 3,
+  "isbn": "0340839937",
+  "isbn13": "9780340839935",
+  "enhancedGenre": "Science Fiction, Space Opera",
+  "bookCategory": "Fiction",
+  "readingLevel": "Advanced",
+  "themes": [
+    "Power and Politics",
+    "Ecology",
+    "Religion and Spirituality",
+    "Human Evolution",
+    "Colonialism"
+  ],
+  "targetAudience": "Readers interested in complex narratives and speculative fiction",
+  "complexity": "Complex",
+  "readingTime": "15 hours",
+  "relatedBooks": [
+    "Dune Messiah",
+    "Foundation",
+    "Hyperion",
+    "The Left Hand of Darkness",
+    "Snow Crash"
+  ],
+  "keyInsights": [
+    "The struggle for control over resources can lead to conflict.",
+    "Ecological themes highlight the importance of environmental stewardship.",
+    "Power dynamics shape societies and influence individual destinies."
+  ],
+  "tags": [
+    "Science Fiction",
+    "Dystopia",
+    "Epic",
+    "Classic",
+    "Space Exploration"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:53:46.062Z",
+  "localCoverPath": "/book-covers/dune-dune-1-frank-herbert.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780340839935-M.jpg"
+}

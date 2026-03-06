@@ -1,0 +1,49 @@
+{
+  "title": "The Amber Spyglass (His Dark Materials, #3)",
+  "author": "Philip Pullman",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 465,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "18122",
+  "rating": 5,
+  "isbn": "0440238153",
+  "isbn13": "9780440238157",
+  "enhancedGenre": "Fantasy, Young Adult",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Good vs. Evil",
+    "Coming of Age",
+    "Philosophy",
+    "Religion",
+    "Friendship"
+  ],
+  "targetAudience": "Young adults and adults interested in fantasy literature",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "Northern Lights (His Dark Materials, #1)",
+    "The Subtle Knife (His Dark Materials, #2)",
+    "Harry Potter and the Deathly Hallows",
+    "The Chronicles of Narnia"
+  ],
+  "keyInsights": [
+    "Exploration of moral ambiguity",
+    "Interplay between science and religion",
+    "The importance of choice and free will"
+  ],
+  "tags": [
+    "Fantasy",
+    "Adventure",
+    "Young Adult",
+    "Philosophy",
+    "Literature"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:43:11.006Z",
+  "localCoverPath": "/book-covers/the-amber-spyglass-his-dark-materials-3-philip-pullman.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780440238157-M.jpg"
+}

@@ -1,0 +1,51 @@
+{
+  "title": "Jurassic Park (Jurassic Park, #1)",
+  "author": "Michael Crichton",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 467,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "7677",
+  "rating": 5,
+  "isbn": "030734813X",
+  "isbn13": "9780307348135",
+  "enhancedGenre": "Science Fiction, Thriller",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "genetic engineering",
+    "ethics of science",
+    "human vs. nature",
+    "chaos theory",
+    "survival"
+  ],
+  "targetAudience": "Readers interested in science fiction, thrillers, and adventure",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The Lost World (Jurassic Park, #2)",
+    "Sphere",
+    "Timeline",
+    "Congo",
+    "Prey"
+  ],
+  "keyInsights": [
+    "The unpredictability of complex systems",
+    "The moral implications of scientific advancements",
+    "The consequences of playing God",
+    "Nature's resilience against human intervention"
+  ],
+  "tags": [
+    "dinosaurs",
+    "adventure",
+    "science fiction",
+    "thriller",
+    "Michael Crichton"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:53:42.222Z",
+  "localCoverPath": "/book-covers/jurassic-park-jurassic-park-1-michael-crichton.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780307348135-M.jpg"
+}

@@ -134,10 +134,18 @@ const hasFilters =
 		}
 	}
 
+	/* Tablet and up: 2 columns for wider cards */
 	@media (min-width: 600px) {
 		.book-grid {
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(2, 1fr);
 			gap: 1.5rem;
+		}
+	}
+
+	/* Wide screens: 3 columns */
+	@media (min-width: 1200px) {
+		.book-grid {
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 

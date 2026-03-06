@@ -1,0 +1,48 @@
+{
+  "title": "Mere Christianity",
+  "author": "C.S. Lewis",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 191,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "11138",
+  "rating": 5,
+  "isbn": "0684823780",
+  "isbn13": "9780684823782",
+  "enhancedGenre": "Christian Apologetics",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Faith",
+    "Morality",
+    "Christianity",
+    "Ethics",
+    "Philosophy"
+  ],
+  "targetAudience": "Individuals seeking to understand Christian beliefs and moral philosophy",
+  "complexity": "Moderate",
+  "readingTime": "4 hours",
+  "relatedBooks": [
+    "The Case for Christ by Lee Strobel",
+    "The Screwtape Letters by C.S. Lewis",
+    "Confessions by Augustine"
+  ],
+  "keyInsights": [
+    "Exploration of Christian faith and its moral implications",
+    "Arguments for the existence of God",
+    "Discussion on the nature of good and evil"
+  ],
+  "tags": [
+    "Christianity",
+    "Apologetics",
+    "Philosophy",
+    "Ethics",
+    "C.S. Lewis"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:51:46.882Z",
+  "localCoverPath": "/book-covers/mere-christianity-c.s.-lewis.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780684823782-M.jpg"
+}

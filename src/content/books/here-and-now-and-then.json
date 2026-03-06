@@ -1,0 +1,49 @@
+{
+  "title": "Here and Now and Then",
+  "author": "Mike Chen",
+  "dateFinished": "2022-04-06",
+  "genre": "Unknown",
+  "pages": 336,
+  "readingYear": 2022,
+  "readingMonth": 4,
+  "isCurrentlyReading": false,
+  "goodreadsId": "39217756",
+  "rating": 3,
+  "isbn": "0778369048",
+  "isbn13": "9780778369042",
+  "enhancedGenre": "Science Fiction, Time Travel",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Time travel",
+    "Family",
+    "Identity",
+    "Sacrifice",
+    "Belonging"
+  ],
+  "targetAudience": "Readers who enjoy speculative fiction and emotional narratives",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Time Traveler's Wife",
+    "Kindred",
+    "11/22/63",
+    "The First Fifteen Lives of Harry August"
+  ],
+  "keyInsights": [
+    "Explores the impact of time travel on personal relationships",
+    "Questions the nature of identity and belonging",
+    "Highlights the emotional weight of choices"
+  ],
+  "tags": [
+    "Science Fiction",
+    "Time Travel",
+    "Family Drama",
+    "Emotional Narrative",
+    "Speculative Fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:30:30.495Z",
+  "localCoverPath": "/book-covers/here-and-now-and-then-mike-chen.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780778369042-M.jpg"
+}

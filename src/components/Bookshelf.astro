@@ -31,7 +31,7 @@ export interface Props {
 
 const { 
 	books, 
-	maxShelfWidth = 800 // Reduced default width
+	maxShelfWidth = 1200
 } = Astro.props;
 
 // Function to organize books into shelves based on their width
@@ -49,7 +49,7 @@ function organizeIntoShelves(books: Book[], maxWidth: number) {
 		// Check if book fits on current shelf (more conservative calculation)
 		const totalRequiredWidth = currentWidth + bookWidth + bookSpacing;
 		
-		if (totalRequiredWidth <= (maxWidth - shelfPadding) && currentShelf.length < 15) { // Max 15 books per shelf
+		if (totalRequiredWidth <= (maxWidth - shelfPadding) && currentShelf.length < 35) { // Max 35 books per shelf on wide screens
 			currentShelf.push(book);
 			currentWidth = totalRequiredWidth;
 		} else {
@@ -253,6 +253,9 @@ const shelves = organizeIntoShelves(books, maxShelfWidth);
 		gap: 0;
 		flex: 1;
 		padding: 0 1rem;
+		min-width: 0;
+		overflow-x: auto;
+		overflow-y: hidden;
 	}
 
 	.bookend {

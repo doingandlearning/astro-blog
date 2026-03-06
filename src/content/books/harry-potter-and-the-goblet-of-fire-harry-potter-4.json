@@ -1,0 +1,51 @@
+{
+  "title": "Harry Potter and the Goblet of Fire (Harry Potter, #4)",
+  "author": "J.K. Rowling",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 734,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "6",
+  "rating": 4,
+  "isbn": "0439139597",
+  "isbn13": "9780439139595",
+  "enhancedGenre": "Fantasy, Adventure",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Friendship",
+    "Courage",
+    "Good vs Evil",
+    "Coming of Age",
+    "Magic"
+  ],
+  "targetAudience": "Young Adults and Middle Grade Readers",
+  "complexity": "Moderate",
+  "readingTime": "12 hours",
+  "relatedBooks": [
+    "Harry Potter and the Sorcerer's Stone",
+    "Harry Potter and the Chamber of Secrets",
+    "Harry Potter and the Prisoner of Azkaban",
+    "Percy Jackson & The Olympians: The Lightning Thief",
+    "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe"
+  ],
+  "keyInsights": [
+    "The importance of choices and consequences",
+    "The value of friendship and loyalty",
+    "The struggle between good and evil",
+    "The journey of self-discovery"
+  ],
+  "tags": [
+    "Fantasy",
+    "Magic",
+    "Adventure",
+    "Young Adult",
+    "Series"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:44:17.800Z",
+  "localCoverPath": "/book-covers/harry-potter-and-the-goblet-of-fire-harry-potter-4-j.k.-rowling.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780439139595-M.jpg"
+}

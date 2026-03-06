@@ -1,0 +1,48 @@
+{
+  "title": "The Wonderful Weekend Book",
+  "author": "Elspeth Thompson",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 352,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "4988931",
+  "rating": 4,
+  "isbn": "1848540469",
+  "isbn13": "9781848540460",
+  "enhancedGenre": "Lifestyle & Leisure",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "weekend activities",
+    "leisure",
+    "self-care",
+    "home improvement",
+    "nature"
+  ],
+  "targetAudience": "Individuals seeking to enhance their weekend experiences and leisure time",
+  "complexity": "Simple",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Art of Leisure",
+    "Weekend Projects",
+    "The Joy of Less"
+  ],
+  "keyInsights": [
+    "Encourages readers to make the most of their weekends",
+    "Offers practical tips for leisure activities",
+    "Promotes a balanced lifestyle through leisure"
+  ],
+  "tags": [
+    "weekend",
+    "lifestyle",
+    "self-help",
+    "leisure activities",
+    "home and garden"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:47:54.569Z",
+  "localCoverPath": "/book-covers/the-wonderful-weekend-book-elspeth-thompson.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781848540460-M.jpg"
+}

@@ -1,0 +1,52 @@
+{
+  "title": "Paper Towns",
+  "author": "John Green",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 305,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "6442769",
+  "rating": 4,
+  "isbn": "014241493X",
+  "isbn13": "9780142414934",
+  "enhancedGenre": "Young Adult Fiction, Coming-of-Age",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "identity",
+    "friendship",
+    "adventure",
+    "self-discovery",
+    "loss"
+  ],
+  "targetAudience": "Young adults and teens, as well as adult readers who enjoy YA fiction",
+  "complexity": "Moderate",
+  "readingTime": "5 hours",
+  "relatedBooks": [
+    "Looking for Alaska",
+    "The Fault in Our Stars",
+    "An Abundance of Katherines",
+    "Eleanor & Park",
+    "The Perks of Being a Wallflower"
+  ],
+  "keyInsights": [
+    "The importance of understanding oneself",
+    "The impact of relationships on personal growth",
+    "The journey of self-discovery can be both challenging and rewarding",
+    "Perception vs. reality in relationships"
+  ],
+  "tags": [
+    "Young Adult",
+    "Fiction",
+    "Coming-of-Age",
+    "Adventure",
+    "Friendship",
+    "Self-Discovery"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:43:43.351Z",
+  "localCoverPath": "/book-covers/paper-towns-john-green.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780142414934-M.jpg"
+}

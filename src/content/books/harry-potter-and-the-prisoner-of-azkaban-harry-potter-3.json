@@ -1,0 +1,52 @@
+{
+  "title": "Harry Potter and the Prisoner of Azkaban (Harry Potter, #3)",
+  "author": "J.K. Rowling",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 547,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "5",
+  "rating": 4,
+  "isbn": "043965548X",
+  "isbn13": "9780439655484",
+  "enhancedGenre": "Fantasy, Young Adult",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Friendship",
+    "Courage",
+    "Identity",
+    "Justice",
+    "The Past"
+  ],
+  "targetAudience": "Young adults and children aged 10 and up, as well as adult fans of fantasy literature",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "Harry Potter and the Sorcerer's Stone",
+    "Harry Potter and the Chamber of Secrets",
+    "Harry Potter and the Goblet of Fire",
+    "Percy Jackson & The Olympians: The Lightning Thief",
+    "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe"
+  ],
+  "keyInsights": [
+    "Explores the importance of friendship and loyalty",
+    "Addresses themes of fear and overcoming adversity",
+    "Highlights the complexity of human nature and choices",
+    "Introduces significant character development for Harry Potter"
+  ],
+  "tags": [
+    "Fantasy",
+    "Magic",
+    "Adventure",
+    "Young Adult",
+    "Series",
+    "Wizards"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:44:27.452Z",
+  "localCoverPath": "/book-covers/harry-potter-and-the-prisoner-of-azkaban-harry-potter-3-j.k.-rowling.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780439655484-M.jpg"
+}

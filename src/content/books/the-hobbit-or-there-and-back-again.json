@@ -1,0 +1,49 @@
+{
+  "title": "The Hobbit, or There and Back Again",
+  "author": "J.R.R. Tolkien",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 366,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "5907",
+  "rating": 4,
+  "enhancedGenre": "Fantasy Adventure",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Courage",
+    "Friendship",
+    "Adventure",
+    "Growth",
+    "Good vs Evil"
+  ],
+  "targetAudience": "Young adults and adults who enjoy fantasy literature",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The Lord of the Rings",
+    "The Silmarillion",
+    "The Chronicles of Narnia",
+    "The Golden Compass",
+    "The Wizard of Earthsea"
+  ],
+  "keyInsights": [
+    "The importance of bravery in the face of adversity",
+    "The value of friendship and loyalty",
+    "The journey of self-discovery",
+    "The clash between good and evil"
+  ],
+  "tags": [
+    "Fantasy",
+    "Adventure",
+    "Classic",
+    "Mythology",
+    "Epic"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:55:35.087Z",
+  "localCoverPath": "/book-covers/the-hobbit-or-there-and-back-again-j.r.r.-tolkien.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/id/8406766-M.jpg"
+}

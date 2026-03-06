@@ -8,26 +8,26 @@
 
 By the end of this module you will be able to:
 
-- Explain the concept of RAG: moving beyond training data by connecting LLMs to your own documents/wiki
-- Describe how RAG works at a high level: embeddings, vector databases, retrieval, and generation
-- Compare when to use RAG vs. fine-tuning vs. long-context windows
-- Relate RAG to internal knowledge bases (e.g. searching internal documentation)
+- <span class="fragment">Explain the concept of RAG: moving beyond training data by connecting LLMs to your own documents/wiki</span>
+- <span class="fragment">Describe how RAG works at a high level: embeddings, vector databases, retrieval, and generation</span>
+- <span class="fragment">Compare when to use RAG vs. fine-tuning vs. long-context windows</span>
+- <span class="fragment">Relate RAG to internal knowledge bases (e.g. searching internal documentation)</span>
 
 ---
 
 ## Bridge from Module 4
 
-**What we learned yesterday:**
+**What we learned last time:**
 
-- **How** to use AI tools effectively
-- Sidecar and integrated workflows
+- <span class="fragment">**How** to use AI tools effectively</span>
+- <span class="fragment">Sidecar and integrated workflows</span>
 
 **The problem:**
 
-- ❌ AI doesn't know your internal policies
-- ❌ AI doesn't know your codebase structure
-- ❌ AI can't access your wiki or documentation
-- ❌ You're pasting docs manually, which is slow and risky
+- <span class="fragment">❌ AI doesn't know your internal policies</span>
+- <span class="fragment">❌ AI doesn't know your codebase structure</span>
+- <span class="fragment">❌ AI can't access your wiki or documentation</span>
+- <span class="fragment">❌ You're pasting docs manually, which is slow and risky</span>
 
 **Today:** Learn how to connect AI to your own knowledge with RAG.
 
@@ -37,18 +37,18 @@ By the end of this module you will be able to:
 
 **The limitation:**
 
-- LLMs are trained on public data up to a cutoff date
-- ❌ They don't know your internal documentation
-- ❌ They don't know your proprietary codebase
-- ❌ They don't know your organization's policies
-- ❌ They can't access your wiki or knowledge base
+- <span class="fragment">LLMs are trained on public data up to a cutoff date</span>
+- <span class="fragment">❌ They don't know your internal documentation</span>
+- <span class="fragment">❌ They don't know your proprietary codebase</span>
+- <span class="fragment">❌ They don't know your organization's policies</span>
+- <span class="fragment">❌ They can't access your wiki or knowledge base</span>
 
 **The pain:**
 
-- Query: "What's our company's policy on data retention?"
-- ❌ AI gives generic answer (not your policy)
-- ❌ You have to find and paste the policy manually
-- ❌ Slow, error-prone, risky (data privacy)
+- <span class="fragment">Query: "What's our company's policy on data retention?"</span>
+- <span class="fragment">❌ AI gives generic answer (not your policy)</span>
+- <span class="fragment">❌ You have to find and paste the policy manually</span>
+- <span class="fragment">❌ Slow, error-prone, risky (data privacy)</span>
 
 ---
 
@@ -56,15 +56,17 @@ By the end of this module you will be able to:
 
 **RAG = Retrieve, Augment, Generate**
 
-- **Retrieve** relevant document chunks from your knowledge base
-- **Augment** the prompt with those chunks as context
-- **Generate** answer based on your actual documents
+- <span class="fragment">**Retrieve** relevant document chunks from your knowledge base</span>
+- <span class="fragment">**Augment** the prompt with those chunks as context</span>
+- <span class="fragment">**Generate** answer based on your actual documents</span>
+
+---
 
 **Result:**
 
-- ✅ AI can answer questions about your internal knowledge
-- ✅ No manual copy-paste needed
-- ✅ Safer, faster, more accurate
+- <span class="fragment">✅ AI can answer questions about your internal knowledge</span>
+- <span class="fragment">✅ No manual copy-paste needed</span>
+- <span class="fragment">✅ Safer, faster, more accurate</span>
 
 ---
 
@@ -72,19 +74,21 @@ By the end of this module you will be able to:
 
 **Without RAG:**
 
-- Query: "What's our data retention policy?"
-- AI response: Generic answer based on training data
-- ❌ Not your actual policy
-- ❌ May be outdated or wrong
+- <span class="fragment">Query: "What's our data retention policy?"</span>
+- <span class="fragment">AI response: Generic answer based on training data</span>
+- <span class="fragment">❌ Not your actual policy</span>
+- <span class="fragment">❌ May be outdated or wrong</span>
+
+---
 
 **With RAG:**
 
-- Query: "What's our data retention policy?"
-- **Step 1**: Retrieve relevant document chunks
-- **Step 2**: Add chunks to prompt as context
-- **Step 3**: Generate answer based on your documents
-- ✅ Answer grounded in your real policy
-- ✅ Accurate and specific
+- <span class="fragment">Query: "What's our data retention policy?"</span>
+- <span class="fragment">**Step 1**: Retrieve relevant document chunks</span>
+- <span class="fragment">**Step 2**: Add chunks to prompt as context</span>
+- <span class="fragment">**Step 3**: Generate answer based on your documents</span>
+- <span class="fragment">✅ Answer grounded in your real policy</span>
+- <span class="fragment">✅ Accurate and specific</span>
 
 ---
 
@@ -92,21 +96,25 @@ By the end of this module you will be able to:
 
 **Step 1: Document preparation**
 
-- **Chunking**: Break documents into smaller pieces
-- Why? Documents too large for context window
-- Example: Policy document → 10 chunks of ~500 words each
+- <span class="fragment">**Chunking**: Break documents into smaller pieces</span>
+- <span class="fragment">Why? Documents too large for context window</span>
+- <span class="fragment">Example: Policy document → 10 chunks of ~500 words each</span>
+
+---
 
 **Step 2: Embeddings**
 
-- Convert text chunks to numerical representations (embeddings)
-- Why? Allows similarity search
-- Example: "data retention policy" embedding is similar to "data storage rules" embedding
+- <span class="fragment">Convert text chunks to numerical representations (embeddings)</span>
+- <span class="fragment">Why? Allows similarity search</span>
+- <span class="fragment">Example: "data retention policy" embedding is similar to "data storage rules" embedding</span>
+
+---
 
 **Step 3: Vector database**
 
-- Store embeddings in a vector database
-- Why? Fast similarity search
-- Examples: Pinecone, Weaviate, Chroma, PostgreSQL with pgvector
+- <span class="fragment">Store embeddings in a vector database</span>
+- <span class="fragment">Why? Fast similarity search</span>
+- <span class="fragment">Examples: Pinecone, Weaviate, Chroma, PostgreSQL with pgvector</span>
 
 ---
 
@@ -114,11 +122,13 @@ By the end of this module you will be able to:
 
 **Step 4: Query processing**
 
-- User asks: "What's our data retention policy?"
-- **Embed query**: Convert to embedding
-- **Retrieve**: Find top 3-5 most similar chunks from vector DB
-- **Augment prompt**: Add chunks to prompt as context
-- **Generate**: LLM generates answer based on retrieved chunks
+- <span class="fragment">User asks: "What's our data retention policy?"</span>
+- <span class="fragment">**Embed query**: Convert to embedding</span>
+- <span class="fragment">**Retrieve**: Find top 3-5 most similar chunks from vector DB</span>
+- <span class="fragment">**Augment prompt**: Add chunks to prompt as context</span>
+- <span class="fragment">**Generate**: LLM generates answer based on retrieved chunks</span>
+
+---
 
 **The complete flow:**
 
@@ -130,10 +140,10 @@ Documents → Chunks → Embeddings → Vector DB → Retrieve → Augment → G
 
 **Think of RAG like a librarian:**
 
-1. You ask a question
-2. Librarian searches the catalog (retrieval)
-3. Librarian brings relevant books (chunks)
-4. Librarian reads from those books to answer (generation)
+1. <span class="fragment">You ask a question</span>
+2. <span class="fragment">Librarian searches the catalog (retrieval)</span>
+3. <span class="fragment">Librarian brings relevant books (chunks)</span>
+4. <span class="fragment">Librarian reads from those books to answer (generation)</span>
 
 **RAG does this automatically with your documents.**
 
@@ -143,24 +153,28 @@ Documents → Chunks → Embeddings → Vector DB → Retrieve → Augment → G
 
 **RAG** — use when:
 
-- ✅ You have documents that change frequently
-- ✅ You need to cite sources (which document?)
-- ✅ Documents are too large for context window
-- ✅ You want to add knowledge without retraining
+- <span class="fragment">✅ You have documents that change frequently</span>
+- <span class="fragment">✅ You need to cite sources (which document?)</span>
+- <span class="fragment">✅ Documents are too large for context window</span>
+- <span class="fragment">✅ You want to add knowledge without retraining</span>
+
+---
 
 **Fine-tuning** — use when:
 
-- ✅ You need model to learn specific style or format
-- ✅ You have large dataset of examples
-- ✅ You want model behavior to change permanently
-- ⚠️ Expensive, requires retraining for updates
+- <span class="fragment">✅ You need model to learn specific style or format</span>
+- <span class="fragment">✅ You have large dataset of examples</span>
+- <span class="fragment">✅ You want model behavior to change permanently</span>
+- <span class="fragment">⚠️ Expensive, requires retraining for updates</span>
+
+---
 
 **Long context windows** — use when:
 
-- ✅ You have a few large documents
-- ✅ Documents don't change often
-- ✅ You need full document context
-- ⚠️ Expensive, slower, limited by model's context window
+- <span class="fragment">✅ You have a few large documents</span>
+- <span class="fragment">✅ Documents don't change often</span>
+- <span class="fragment">✅ You need full document context</span>
+- <span class="fragment">⚠️ Expensive, slower, limited by model's context window</span>
 
 ---
 
@@ -180,24 +194,30 @@ Documents → Chunks → Embeddings → Vector DB → Retrieve → Augment → G
 
 **Use case 1: Internal documentation search**
 
-- Problem: "Where's the API documentation for our payment service?"
-- RAG: Search internal docs, retrieve relevant sections, answer with citations
-- ✅ Faster than manual search
-- ✅ Answers grounded in actual docs
+- <span class="fragment">Problem: "Where's the API documentation for our payment service?"</span>
+- <span class="fragment">RAG: Search internal docs, retrieve relevant sections, answer with citations</span>
+- <span class="fragment">✅ Faster than manual search</span>
+- <span class="fragment">✅ Answers grounded in actual docs</span>
+
+
+---
 
 **Use case 2: Q&A over policies**
 
-- Problem: "What's our policy on remote work?"
-- RAG: Retrieve policy document, answer based on actual policy
-- ✅ Accurate, cites source
-- ✅ No manual lookup needed
+- <span class="fragment">Problem: "What's our policy on remote work?"</span>
+- <span class="fragment">RAG: Retrieve policy document, answer based on actual policy</span>
+- <span class="fragment">✅ Accurate, cites source</span>
+- <span class="fragment">✅ No manual lookup needed</span>
+
+
+---
 
 **Use case 3: Codebase Q&A**
 
-- Problem: "How does our authentication system work?"
-- RAG: Retrieve relevant code files, explain based on actual code
-- ✅ Understands your codebase
-- ✅ Can reference specific files
+- <span class="fragment">Problem: "How does our authentication system work?"</span>
+- <span class="fragment">RAG: Retrieve relevant code files, explain based on actual code</span>
+- <span class="fragment">✅ Understands your codebase</span>
+- <span class="fragment">✅ Can reference specific files</span>
 
 ---
 
@@ -205,11 +225,11 @@ Documents → Chunks → Embeddings → Vector DB → Retrieve → Augment → G
 
 **RAG helps with:**
 
-- Internal knowledge bases
-- Governance and compliance
-- "Search then answer" workflows
-- Codebase understanding
-- Policy Q&A
+- <span class="fragment">Internal knowledge bases</span>
+- <span class="fragment">Governance and compliance</span>
+- <span class="fragment">"Search then answer" workflows</span>
+- <span class="fragment">Codebase understanding</span>
+- <span class="fragment">Policy Q&A</span>
 
 **You can use RAG-enhanced AI tools** without building RAG yourself.
 
@@ -217,11 +237,11 @@ Documents → Chunks → Embeddings → Vector DB → Retrieve → Augment → G
 
 ## Summary
 
-1. **Problem**: LLMs don't know your internal knowledge
-2. **Solution**: RAG retrieves relevant docs and adds to prompt
-3. **Architecture**: Documents → Chunks → Embeddings → Vector DB → Retrieve → Generate
-4. **When to use**: Multiple docs, frequent updates, need citations
-5. **Use cases**: Internal docs, policies, codebase Q&A
+1. <span class="fragment">**Problem**: LLMs don't know your internal knowledge</span>
+2. <span class="fragment">**Solution**: RAG retrieves relevant docs and adds to prompt</span>
+3. <span class="fragment">**Architecture**: Documents → Chunks → Embeddings → Vector DB → Retrieve → Generate</span>
+4. <span class="fragment">**When to use**: Multiple docs, frequent updates, need citations</span>
+5. <span class="fragment">**Use cases**: Internal docs, policies, codebase Q&A</span>
 
 ---
 
@@ -229,7 +249,7 @@ Documents → Chunks → Embeddings → Vector DB → Retrieve → Augment → G
 
 **What we've learned:**
 
-- **RAG** connects AI to documents
+- <span class="fragment">**RAG** connects AI to documents</span>
 
 **What's next:**
 

@@ -1,0 +1,49 @@
+{
+  "title": "Watership Down (Watership Down, #1)",
+  "author": "Richard  Adams",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 478,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "76620",
+  "rating": 3,
+  "isbn": "038039586X",
+  "isbn13": "9780380395866",
+  "enhancedGenre": "Animal Fiction, Adventure",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Survival",
+    "Leadership",
+    "Community",
+    "Nature",
+    "Freedom"
+  ],
+  "targetAudience": "Young Adults and Adults",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "The Tale of Despereaux",
+    "The Wind in the Willows",
+    "Charlotte's Web",
+    "The Animals of Farthing Wood"
+  ],
+  "keyInsights": [
+    "The importance of community and cooperation",
+    "The struggle for survival in a hostile environment",
+    "The exploration of leadership and responsibility"
+  ],
+  "tags": [
+    "Adventure",
+    "Fantasy",
+    "Animals",
+    "Classic Literature",
+    "Allegory"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:43:38.524Z",
+  "localCoverPath": "/book-covers/watership-down-watership-down-1-richard-adams.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780380395866-M.jpg"
+}

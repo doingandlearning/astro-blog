@@ -1,0 +1,48 @@
+{
+  "title": "Dracula",
+  "author": "Bram Stoker",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 488,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "17245",
+  "rating": 4,
+  "isbn": "0393970124",
+  "isbn13": "9780393970128",
+  "enhancedGenre": "Gothic Horror",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Immortality",
+    "Fear of the Unknown",
+    "Victorian Society",
+    "Good vs. Evil",
+    "Isolation"
+  ],
+  "targetAudience": "Readers interested in classic literature, horror, and Gothic fiction",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "Frankenstein by Mary Shelley",
+    "The Picture of Dorian Gray by Oscar Wilde",
+    "The Strange Case of Dr Jekyll and Mr Hyde by Robert Louis Stevenson"
+  ],
+  "keyInsights": [
+    "Explores the nature of evil and the duality of human nature",
+    "Examines societal fears and anxieties of the Victorian era",
+    "Introduces the archetype of the vampire in literature"
+  ],
+  "tags": [
+    "Gothic",
+    "Horror",
+    "Classic Literature",
+    "Vampires",
+    "19th Century"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:42:49.929Z",
+  "localCoverPath": "/book-covers/dracula-bram-stoker.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780393970128-M.jpg"
+}

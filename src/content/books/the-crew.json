@@ -1,0 +1,48 @@
+{
+  "title": "The Crew",
+  "author": "Dougie Brimson",
+  "dateFinished": "2013-04-04",
+  "genre": "Unknown",
+  "pages": 256,
+  "readingYear": 2013,
+  "readingMonth": 4,
+  "isCurrentlyReading": false,
+  "goodreadsId": "6111959",
+  "rating": 4,
+  "isbn": "0747275874",
+  "isbn13": "9780747275879",
+  "enhancedGenre": "Sports Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "friendship",
+    "loyalty",
+    "team dynamics",
+    "conflict",
+    "identity"
+  ],
+  "targetAudience": "Young adults and sports enthusiasts",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "Fever Pitch by Nick Hornby",
+    "The Art of Fielding by Chad Harbach",
+    "The Blind Side by Michael Lewis"
+  ],
+  "keyInsights": [
+    "Explores the impact of sports on personal relationships",
+    "Highlights the importance of teamwork",
+    "Addresses issues of loyalty and betrayal"
+  ],
+  "tags": [
+    "sports",
+    "fiction",
+    "teamwork",
+    "youth",
+    "friendship"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:53:18.229Z",
+  "localCoverPath": "/book-covers/the-crew-dougie-brimson.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780747275879-M.jpg"
+}

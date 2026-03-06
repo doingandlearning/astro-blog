@@ -1,0 +1,48 @@
+{
+  "title": "Deception Point",
+  "author": "Dan    Brown",
+  "dateFinished": "2022-09-14",
+  "genre": "Unknown",
+  "pages": 556,
+  "readingYear": 2022,
+  "readingMonth": 9,
+  "isCurrentlyReading": false,
+  "goodreadsId": "976",
+  "rating": 0,
+  "isbn": "0671027387",
+  "isbn13": "9780671027384",
+  "enhancedGenre": "Thriller, Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "deception",
+    "political intrigue",
+    "scientific discovery",
+    "trust and betrayal"
+  ],
+  "targetAudience": "Readers of thrillers and science fiction, fans of Dan Brown's work",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "Digital Fortress",
+    "The Da Vinci Code",
+    "Inferno",
+    "Angels & Demons"
+  ],
+  "keyInsights": [
+    "The impact of technology on society",
+    "The nature of truth and deception",
+    "The intersection of politics and science"
+  ],
+  "tags": [
+    "thriller",
+    "science fiction",
+    "Dan Brown",
+    "political intrigue",
+    "deception"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:27:25.458Z",
+  "localCoverPath": "/book-covers/deception-point-dan-brown.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780671027384-M.jpg"
+}

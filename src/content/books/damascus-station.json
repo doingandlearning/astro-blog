@@ -1,0 +1,48 @@
+{
+  "title": "Damascus Station",
+  "author": "David McCloskey",
+  "dateFinished": "2026-03-06",
+  "genre": "Unknown",
+  "pages": 432,
+  "readingYear": 2026,
+  "readingMonth": 3,
+  "isCurrentlyReading": false,
+  "goodreadsId": "56769571",
+  "rating": 0,
+  "isbn": "0393881040",
+  "isbn13": "9780393881042",
+  "enhancedGenre": "Political Thriller",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Espionage",
+    "Political Intrigue",
+    "Conflict",
+    "Identity",
+    "Morality"
+  ],
+  "targetAudience": "Readers interested in espionage and political thrillers",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "The Spy Who Came in from the Cold",
+    "The Bourne Identity",
+    "I Am Pilgrim"
+  ],
+  "keyInsights": [
+    "Explores the moral dilemmas of espionage",
+    "Highlights the complexities of international relations",
+    "Offers a deep dive into character motivations"
+  ],
+  "tags": [
+    "Thriller",
+    "Espionage",
+    "Politics",
+    "Fiction",
+    "International Relations"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:25:17.418Z",
+  "localCoverPath": "/book-covers/damascus-station-david-mccloskey.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780393881042-M.jpg"
+}

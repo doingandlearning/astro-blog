@@ -1,0 +1,50 @@
+{
+  "title": "Of Mice and Men",
+  "author": "John Steinbeck",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 107,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "890",
+  "rating": 4,
+  "isbn": "0142000671",
+  "isbn13": "9780142000670",
+  "enhancedGenre": "Literary Fiction, Social Commentary",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Friendship",
+    "Dreams and Aspirations",
+    "Isolation",
+    "The American Dream",
+    "Socioeconomic Struggles"
+  ],
+  "targetAudience": "Readers interested in classic literature and social issues",
+  "complexity": "Moderate",
+  "readingTime": "3 hours",
+  "relatedBooks": [
+    "The Grapes of Wrath",
+    "Of Mice and Men",
+    "The Great Gatsby",
+    "East of Eden",
+    "To Kill a Mockingbird"
+  ],
+  "keyInsights": [
+    "The fragility of dreams",
+    "The impact of loneliness on human behavior",
+    "The struggle for dignity in a harsh world"
+  ],
+  "tags": [
+    "Classic",
+    "American Literature",
+    "Social Issues",
+    "Friendship",
+    "Historical Context"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:43:54.325Z",
+  "localCoverPath": "/book-covers/of-mice-and-men-john-steinbeck.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780142000670-M.jpg"
+}

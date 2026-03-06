@@ -10,7 +10,10 @@ export interface OpenLibraryBook {
   title: string;
   authors?: Array<{ key: string; name: string }>;
   number_of_pages_median?: number;
+  /** Works API: array of cover IDs. Search API: use cover_i instead. */
   covers?: number[];
+  /** Search API: single cover ID (use this when present; URL is /b/id/{id}-M.jpg) */
+  cover_i?: number;
   first_sentence?: { type: string; value: string };
   publish_date?: string;
   publishers?: Array<{ key: string; name: string }>;
@@ -66,7 +69,7 @@ export class OpenLibraryService {
   async searchBooks(title: string, author: string): Promise<OpenLibraryServiceResponse> {
     try {
       const query = `${title} ${author}`.trim();
-      const searchUrl = `${this.searchUrl}?q=${encodeURIComponent(query)}&limit=10&fields=key,title,authors,number_of_pages_median,covers,first_sentence,publish_date,publishers,subjects`;
+      const searchUrl = `${this.searchUrl}?q=${encodeURIComponent(query)}&limit=10&fields=key,title,authors,number_of_pages_median,covers,cover_i,first_sentence,publish_date,publishers,subjects`;
 
       console.log(`🔍 Searching OpenLibrary for: "${query}"`);
 
@@ -123,10 +126,11 @@ export class OpenLibraryService {
   }
 
   /**
-   * Get cover image URL for a book
+   * Get cover image URL by numeric cover ID (Works or Search API).
+   * Pattern: https://covers.openlibrary.org/b/id/{id}-{size}.jpg
    */
   getCoverUrl(coverId: number, size: 'S' | 'M' | 'L' = 'M'): string {
-    return `${this.coversUrl}/${coverId}-${size}.jpg`;
+    return `${this.coversUrl}/id/${coverId}-${size}.jpg`;
   }
 
   /**
@@ -137,11 +141,12 @@ export class OpenLibraryService {
   }
 
   /**
-   * Extract cover URL from book data
+   * Extract cover URL from book data (Search API returns cover_i; Works API returns covers[]).
    */
   getCoverUrlFromBook(book: OpenLibraryBook): string | undefined {
-    if (book.covers && book.covers.length > 0) {
-      return this.getCoverUrl(book.covers[0]);
+    const coverId = book.cover_i ?? book.covers?.[0];
+    if (coverId != null) {
+      return this.getCoverUrl(coverId);
     }
     return undefined;
   }

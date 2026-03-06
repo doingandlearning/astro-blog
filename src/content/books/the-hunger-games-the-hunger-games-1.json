@@ -1,0 +1,48 @@
+{
+  "title": "The Hunger Games (The Hunger Games, #1)",
+  "author": "Suzanne Collins",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 374,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "2767052",
+  "rating": 3,
+  "isbn": "0439023483",
+  "isbn13": "9780439023481",
+  "enhancedGenre": "Dystopian Fiction, Young Adult",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Survival",
+    "Totalitarianism",
+    "Rebellion",
+    "Socioeconomic Class",
+    "Sacrifice"
+  ],
+  "targetAudience": "Young adults and readers of dystopian fiction",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "Divergent by Veronica Roth",
+    "The Maze Runner by James Dashner",
+    "The Giver by Lois Lowry"
+  ],
+  "keyInsights": [
+    "Explores the consequences of a totalitarian regime",
+    "Highlights the importance of personal agency",
+    "Examines themes of sacrifice and survival"
+  ],
+  "tags": [
+    "Dystopia",
+    "Young Adult",
+    "Adventure",
+    "Science Fiction",
+    "Feminism"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:44:09.148Z",
+  "localCoverPath": "/book-covers/the-hunger-games-the-hunger-games-1-suzanne-collins.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780439023481-M.jpg"
+}

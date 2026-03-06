@@ -1,0 +1,45 @@
+{
+  "title": "Freddy the Frog",
+  "author": "Axel Scheffler",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 10,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "7934878",
+  "rating": 4,
+  "isbn": "0230742696",
+  "isbn13": "9780230742697",
+  "enhancedGenre": "Children's Picture Book",
+  "bookCategory": "Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "Friendship",
+    "Adventure",
+    "Nature"
+  ],
+  "targetAudience": "Children aged 3-6 years",
+  "complexity": "Simple",
+  "readingTime": "10 minutes",
+  "relatedBooks": [
+    "The Gruffalo",
+    "Brown Bear, Brown Bear, What Do You See?",
+    "Chicka Chicka Boom Boom"
+  ],
+  "keyInsights": [
+    "Encourages imagination",
+    "Promotes early literacy",
+    "Teaches about nature and friendship"
+  ],
+  "tags": [
+    "children's literature",
+    "picture book",
+    "Axel Scheffler",
+    "illustrated book"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:49:11.556Z",
+  "localCoverPath": "/book-covers/freddy-the-frog-axel-scheffler.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780230742697-M.jpg"
+}

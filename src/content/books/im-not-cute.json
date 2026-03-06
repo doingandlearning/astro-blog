@@ -1,0 +1,47 @@
+{
+  "title": "I'm Not Cute!",
+  "author": "Jonathan Allen",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 24,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "6952984",
+  "rating": 5,
+  "isbn": "1905417888",
+  "isbn13": "9781905417889",
+  "enhancedGenre": "Children's Picture Book",
+  "bookCategory": "Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "Self-identity",
+    "Acceptance",
+    "Humor",
+    "Childhood"
+  ],
+  "targetAudience": "Children aged 2-5 years and their caregivers",
+  "complexity": "Simple",
+  "readingTime": "10 minutes",
+  "relatedBooks": [
+    "Don't Let the Pigeon Drive the Bus!",
+    "The Very Hungry Caterpillar",
+    "Brown Bear, Brown Bear, What Do You See?"
+  ],
+  "keyInsights": [
+    "Encourages self-acceptance",
+    "Promotes humor in self-expression",
+    "Engages young readers with playful illustrations"
+  ],
+  "tags": [
+    "children's literature",
+    "picture book",
+    "self-acceptance",
+    "humor",
+    "early childhood"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:50:16.683Z",
+  "localCoverPath": "/book-covers/im-not-cute-jonathan-allen.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781905417889-M.jpg"
+}

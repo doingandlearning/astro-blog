@@ -1,0 +1,50 @@
+{
+  "title": "Project Hail Mary",
+  "author": "Andy Weir",
+  "dateFinished": "2022-09-03",
+  "genre": "Unknown",
+  "pages": 476,
+  "readingYear": 2022,
+  "readingMonth": 9,
+  "isCurrentlyReading": false,
+  "goodreadsId": "54493401",
+  "rating": 4,
+  "isbn": "0593135202",
+  "isbn13": "9780593135204",
+  "enhancedGenre": "Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "survival",
+    "human ingenuity",
+    "interstellar travel",
+    "friendship",
+    "science and technology"
+  ],
+  "targetAudience": "Readers interested in science fiction and space exploration",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "The Martian",
+    "Artemis",
+    "The Three-Body Problem",
+    "Red Mars"
+  ],
+  "keyInsights": [
+    "The importance of problem-solving under pressure",
+    "Collaboration across species",
+    "The role of science in survival",
+    "Exploration of existential themes"
+  ],
+  "tags": [
+    "science fiction",
+    "space opera",
+    "survival",
+    "humanity",
+    "technology"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:27:57.036Z",
+  "localCoverPath": "/book-covers/project-hail-mary-andy-weir.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780593135204-M.jpg"
+}

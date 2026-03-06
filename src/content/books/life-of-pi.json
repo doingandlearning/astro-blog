@@ -1,0 +1,50 @@
+{
+  "title": "Life of Pi",
+  "author": "Yann Martel",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 460,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "4214",
+  "rating": 1,
+  "isbn": "0770430074",
+  "isbn13": "9780770430078",
+  "enhancedGenre": "Adventure Fiction, Philosophical Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Survival",
+    "Faith",
+    "Identity",
+    "Isolation",
+    "Human-Animal Relationship"
+  ],
+  "targetAudience": "Readers interested in philosophical explorations and survival narratives",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "The Alchemist",
+    "Life of Pi: A Novel",
+    "The Old Man and the Sea",
+    "The Martian"
+  ],
+  "keyInsights": [
+    "The power of faith in overcoming adversity",
+    "The complexity of storytelling",
+    "The exploration of human resilience",
+    "The relationship between humans and nature"
+  ],
+  "tags": [
+    "Survival",
+    "Philosophy",
+    "Adventure",
+    "Fiction",
+    "Spirituality"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:55:52.596Z",
+  "localCoverPath": "/book-covers/life-of-pi-yann-martel.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780770430078-M.jpg"
+}

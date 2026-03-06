@@ -8,26 +8,26 @@
 
 By the end of this module you will be able to:
 
-- Apply the "sidecar" workflow: using browser-based AI effectively alongside an IDE without native AI plugins
-- Describe the "integrated" workflow: in-IDE features (context awareness, diff views) for teams using JetBrains or VS Code
-- Compare chat interfaces vs. inline code completion: pros, cons, and when to use each
-- Choose a workflow that fits your team's tools and constraints
+- <span class="fragment">Apply the "sidecar" workflow: using browser-based AI effectively alongside an IDE without native AI plugins</span>
+- <span class="fragment">Describe the "integrated" workflow: in-IDE features (context awareness, diff views) for teams using JetBrains or VS Code</span>
+- <span class="fragment">Compare chat interfaces vs. inline code completion: pros, cons, and when to use each</span>
+- <span class="fragment">Choose a workflow that fits your team's tools and constraints</span>
 
 ---
 
 ## Bridge from Module 3
 
-**What we learned yesterday:**
+**What we learned last time:**
 
-- **What** to prompt for in Java development
-- Code generation, explanation, refactoring, testing
+- <span class="fragment">**What** to prompt for in Java development</span>
+- <span class="fragment">Code generation, explanation, refactoring, testing</span>
 
 **The problem:**
 
-- ❌ Your IDE doesn't have AI built-in
-- ❌ You're switching between browser and IDE constantly
-- ❌ You don't know when to use chat vs. inline completion
-- ❌ Your team uses different tools
+- <span class="fragment">❌ Your IDE doesn't have AI built-in</span>
+- <span class="fragment">❌ You're switching between browser and IDE constantly</span>
+- <span class="fragment">❌ You don't know when to use chat vs. inline completion</span>
+- <span class="fragment">❌ Your team uses different tools</span>
 
 **Today:** Learn **how** to use AI tools effectively in your environment.
 
@@ -37,17 +37,17 @@ By the end of this module you will be able to:
 
 **The reality:**
 
-- Teams use different IDEs: NetBeans, IntelliJ, VS Code, Eclipse
-- Some have AI plugins, some don't
-- Some have enterprise AI, some use public tools
-- ❌ No one-size-fits-all solution
+- <span class="fragment">Teams use different IDEs: NetBeans, IntelliJ, VS Code, Eclipse</span>
+- <span class="fragment">Some have AI plugins, some don't</span>
+- <span class="fragment">Some have enterprise AI, some use public tools</span>
+- <span class="fragment">❌ No one-size-fits-all solution</span>
 
 **The pain points:**
 
-- ❌ Copy-paste between browser and IDE is slow
-- ❌ Lose context when switching tools
-- ❌ Don't know which tool to use for which task
-- ❌ Inconsistent workflows across team
+- <span class="fragment">❌ Copy-paste between browser and IDE is slow</span>
+- <span class="fragment">❌ Lose context when switching tools</span>
+- <span class="fragment">❌ Don't know which tool to use for which task</span>
+- <span class="fragment">❌ Inconsistent workflows across team</span>
 
 ---
 
@@ -65,17 +65,19 @@ Both can be effective with the right approach.
 
 **What happens:**
 
-1. Open ChatGPT in browser
-2. Copy code from IDE
-3. Paste into chat
-4. Get answer
-5. Copy back to IDE
+1. <span class="fragment">Open ChatGPT in browser</span>
+2. <span class="fragment">Copy code from IDE</span>
+3. <span class="fragment">Paste into chat</span>
+4. <span class="fragment">Get answer</span>
+5. <span class="fragment">Copy back to IDE</span>
+
+---
 
 **Problems:**
 
-- ❌ Loses context (file names, project structure)
-- ❌ Generic answers that don't fit
-- ❌ Slow context switching
+- <span class="fragment">❌ Loses context (file names, project structure)</span>
+- <span class="fragment">❌ Generic answers that don't fit</span>
+- <span class="fragment">❌ Slow context switching</span>
 
 ---
 
@@ -92,9 +94,9 @@ Project structure: standard Maven layout.
 
 **Benefits:**
 
-- ✅ AI understands your stack
-- ✅ More relevant answers
-- ✅ Faster iteration
+- <span class="fragment">✅ AI understands your stack</span>
+- <span class="fragment">✅ More relevant answers</span>
+- <span class="fragment">✅ Faster iteration</span>
 
 ---
 
@@ -106,6 +108,8 @@ Project structure: standard Maven layout.
 Spring Boot 3, Java 17, JPA
 ```
 
+---
+
 **Level 2**: Add file name and purpose
 
 ```
@@ -113,12 +117,16 @@ Spring Boot 3, Java 17, JPA
 File: UserService.java — service layer for user management
 ```
 
+---
+
 **Level 3**: Include relevant dependencies
 
 ```
 Spring Boot 3, Java 17, JPA, Spring Security
 File: UserService.java — service layer
 ```
+
+---
 
 **Level 4**: Describe specific problem
 
@@ -132,17 +140,19 @@ Problem: Need to add validation for email format
 
 ## Sidecar: copy-paste best practices
 
-- Copy code with line numbers or file context
-- Paste back with review (don't blindly accept)
-- Use diff view if possible
-- Test immediately after pasting
+- <span class="fragment">Copy code with line numbers or file context</span>
+- <span class="fragment">Paste back with review (don't blindly accept)</span>
+- <span class="fragment">Use diff view if possible</span>
+- <span class="fragment">Test immediately after pasting</span>
+
+---
 
 **When sidecar works well:**
 
-- ✅ No IDE plugin available
-- ✅ Need to explore multiple solutions
-- ✅ Working with documentation or examples
-- ✅ Team uses different IDEs
+- <span class="fragment">✅ No IDE plugin available</span>
+- <span class="fragment">✅ Need to explore multiple solutions</span>
+- <span class="fragment">✅ Working with documentation or examples</span>
+- <span class="fragment">✅ Team uses different IDEs</span>
 
 ---
 
@@ -150,17 +160,19 @@ Problem: Need to add validation for email format
 
 **What integrated means:**
 
-- AI features built into IDE (JetBrains AI Assistant, GitHub Copilot, VS Code Copilot)
-- Context-aware: IDE knows your project structure
-- Inline completion: Suggestions as you type
-- Chat within IDE: No browser switching
+- <span class="fragment">AI features built into IDE (JetBrains AI Assistant, GitHub Copilot, VS Code Copilot)</span>
+- <span class="fragment">Context-aware: IDE knows your project structure</span>
+- <span class="fragment">Inline completion: Suggestions as you type</span>
+- <span class="fragment">Chat within IDE: No browser switching</span>
+
+---
 
 **Benefits:**
 
-- ✅ Project context automatically included
-- ✅ No copy-paste needed
-- ✅ Diff views for applying changes
-- ✅ Faster iteration cycle
+- <span class="fragment">✅ Project context automatically included</span>
+- <span class="fragment">✅ No copy-paste needed</span>
+- <span class="fragment">✅ Diff views for applying changes</span>
+- <span class="fragment">✅ Faster iteration cycle</span>
 
 ---
 
@@ -168,35 +180,41 @@ Problem: Need to add validation for email format
 
 **Feature 1: Inline code completion**
 
-- Shows suggestions as you type
-- Accept/reject individual suggestions
+- <span class="fragment">Shows suggestions as you type</span>
+- <span class="fragment">Accept/reject individual suggestions</span>
+
+---
 
 **Feature 2: Chat with project context**
 
-- IDE includes file structure automatically
-- Can reference specific files
+- <span class="fragment">IDE includes file structure automatically</span>
+- <span class="fragment">Can reference specific files</span>
+
+---
 
 **Feature 3: Diff views**
 
-- See proposed changes before applying
-- Review line-by-line
-- Apply selectively
+- <span class="fragment">See proposed changes before applying</span>
+- <span class="fragment">Review line-by-line</span>
+- <span class="fragment">Apply selectively</span>
 
 ---
 
 ## Integrated workflow: limitations
 
-- ⚠️ May not have access to all project files
-- ⚠️ Context window limits
-- ⚠️ May require enterprise license
-- ⚠️ Different features across IDEs
+- <span class="fragment">⚠️ May not have access to all project files</span>
+- <span class="fragment">⚠️ Context window limits</span>
+- <span class="fragment">⚠️ May require enterprise license</span>
+- <span class="fragment">⚠️ Different features across IDEs</span>
+
+---
 
 **When integrated works well:**
 
-- ✅ Team standardizes on one IDE
-- ✅ Enterprise AI available
-- ✅ Need fast, local edits
-- ✅ Working within single file or module
+- <span class="fragment">✅ Team standardizes on one IDE</span>
+- <span class="fragment">✅ Enterprise AI available</span>
+- <span class="fragment">✅ Need fast, local edits</span>
+- <span class="fragment">✅ Working within single file or module</span>
 
 ---
 
@@ -204,9 +222,9 @@ Problem: Need to add validation for email format
 
 **The confusion:**
 
-- When do I use chat?
-- When do I use inline completion?
-- Can I use both?
+- <span class="fragment">When do I use chat?</span>
+- <span class="fragment">When do I use inline completion?</span>
+- <span class="fragment">Can I use both?</span>
 
 **Answer:** Use the right tool for each task.
 
@@ -216,11 +234,11 @@ Problem: Need to add validation for email format
 
 **Use chat for:**
 
-- ✅ **Exploration**: "How do I implement X?"
-- ✅ **Multi-file tasks**: "Refactor this across 3 files"
-- ✅ **Design decisions**: "Should I use strategy or factory pattern?"
-- ✅ **Explanation**: "What does this legacy code do?"
-- ✅ **Learning**: "Explain Spring Boot dependency injection"
+- <span class="fragment">✅ **Exploration**: "How do I implement X?"</span>
+- <span class="fragment">✅ **Multi-file tasks**: "Refactor this across 3 files"</span>
+- <span class="fragment">✅ **Design decisions**: "Should I use strategy or factory pattern?"</span>
+- <span class="fragment">✅ **Explanation**: "What does this legacy code do?"</span>
+- <span class="fragment">✅ **Learning**: "Explain Spring Boot dependency injection"</span>
 
 **Chat is for exploration and design.**
 
@@ -230,10 +248,10 @@ Problem: Need to add validation for email format
 
 **Use inline for:**
 
-- ✅ **Boilerplate**: Entity classes, DTOs
-- ✅ **Simple edits**: Add validation, fix syntax
-- ✅ **Completions**: Method signatures, imports
-- ✅ **Quick fixes**: Error corrections
+- <span class="fragment">✅ **Boilerplate**: Entity classes, DTOs</span>
+- <span class="fragment">✅ **Simple edits**: Add validation, fix syntax</span>
+- <span class="fragment">✅ **Completions**: Method signatures, imports</span>
+- <span class="fragment">✅ **Quick fixes**: Error corrections</span>
 
 **Inline is for localized edits.**
 
@@ -243,18 +261,20 @@ Problem: Need to add validation for email format
 
 **Use chat when:**
 
-- Exploring solutions
-- Designing architecture
-- Multi-file refactoring
-- Explaining code
-- Learning concepts
+- <span class="fragment">Exploring solutions</span>
+- <span class="fragment">Designing architecture</span>
+- <span class="fragment">Multi-file refactoring</span>
+- <span class="fragment">Explaining code</span>
+- <span class="fragment">Learning concepts</span>
+
+---
 
 **Use inline when:**
 
-- Local edits
-- Boilerplate generation
-- Quick completions
-- Simple fixes
+- <span class="fragment">Local edits</span>
+- <span class="fragment">Boilerplate generation</span>
+- <span class="fragment">Quick completions</span>
+- <span class="fragment">Simple fixes</span>
 
 **Use both:** Chat to design, inline to implement.
 
@@ -264,25 +284,27 @@ Problem: Need to add validation for email format
 
 **The reality:**
 
-- Team members use different IDEs
-- Some have enterprise AI, some don't
-- Need consistent workflows
+- <span class="fragment">Team members use different IDEs</span>
+- <span class="fragment">Some have enterprise AI, some don't</span>
+- <span class="fragment">Need consistent workflows</span>
+
+---
 
 **Strategies:**
 
-- **Shared prompt templates**: Team maintains context headers
-- **Documentation**: Share effective prompts
-- **Pair programming**: Cross-train on different tools
-- **Policy alignment**: Ensure everyone follows data privacy rules
+- <span class="fragment">**Shared prompt templates**: Team maintains context headers</span>
+- <span class="fragment">**Documentation**: Share effective prompts</span>
+- <span class="fragment">**Pair programming**: Cross-train on different tools</span>
+- <span class="fragment">**Policy alignment**: Ensure everyone follows data privacy rules</span>
 
 ---
 
 ## Mixed environments: best practices
 
-- ✅ Standardize on prompt style, not tools
-- ✅ Share effective prompts in team wiki
-- ✅ Review code regardless of tool used
-- ✅ Test AI-generated code thoroughly
+- <span class="fragment">✅ Standardize on prompt style, not tools</span>
+- <span class="fragment">✅ Share effective prompts in team wiki</span>
+- <span class="fragment">✅ Review code regardless of tool used</span>
+- <span class="fragment">✅ Test AI-generated code thoroughly</span>
 
 **Focus on consistency in approach, not tools.**
 
@@ -290,10 +312,10 @@ Problem: Need to add validation for email format
 
 ## Summary
 
-1. **Sidecar workflow**: Browser + IDE with context headers — works in any environment
-2. **Integrated workflow**: IDE plugins with project context — faster but requires tool support
-3. **Chat vs. inline**: Chat for exploration/design, inline for localized edits
-4. **Mixed environments**: Standardize on prompt style, not tools
+1. <span class="fragment">**Sidecar workflow**: Browser + IDE with context headers — works in any environment</span>
+2. <span class="fragment">**Integrated workflow**: IDE plugins with project context — faster but requires tool support</span>
+3. <span class="fragment">**Chat vs. inline**: Chat for exploration/design, inline for localized edits</span>
+4. <span class="fragment">**Mixed environments**: Standardize on prompt style, not tools</span>
 
 ---
 
@@ -301,8 +323,8 @@ Problem: Need to add validation for email format
 
 **What we've learned:**
 
-- **How** to use AI tools effectively (sidecar or integrated)
-- **When** to use chat vs. inline completion
+- <span class="fragment">**How** to use AI tools effectively (sidecar or integrated)</span>
+- <span class="fragment">**When** to use chat vs. inline completion</span>
 
 **What's next:**
 

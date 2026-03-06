@@ -1,0 +1,49 @@
+{
+  "title": "The Two Towers (The Lord of the Rings, #2)",
+  "author": "J.R.R. Tolkien",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 322,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "15241",
+  "rating": 4,
+  "isbn": "0618346260",
+  "isbn13": "9780618346264",
+  "enhancedGenre": "High Fantasy",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Friendship",
+    "Courage",
+    "Good vs Evil",
+    "Fellowship",
+    "Sacrifice"
+  ],
+  "targetAudience": "Fans of fantasy literature, young adults, and mature readers",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The Fellowship of the Ring",
+    "The Return of the King",
+    "The Hobbit",
+    "The Chronicles of Narnia"
+  ],
+  "keyInsights": [
+    "Exploration of moral ambiguity",
+    "The importance of unity in adversity",
+    "The impact of power and corruption"
+  ],
+  "tags": [
+    "Fantasy",
+    "Adventure",
+    "Epic",
+    "Classic Literature",
+    "Mythology"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:43:50.489Z",
+  "localCoverPath": "/book-covers/the-two-towers-the-lord-of-the-rings-2-j.r.r.-tolkien.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780618346264-M.jpg"
+}

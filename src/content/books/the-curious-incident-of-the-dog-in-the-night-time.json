@@ -1,0 +1,50 @@
+{
+  "title": "The Curious Incident of the Dog in the Night-Time",
+  "author": "Mark Haddon",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 226,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "1618",
+  "rating": 4,
+  "isbn": "1400032717",
+  "isbn13": "9781400032716",
+  "enhancedGenre": "Contemporary Fiction, Mystery",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Autism Spectrum Disorder",
+    "Family Relationships",
+    "Truth and Deception",
+    "Isolation",
+    "Perception of Reality"
+  ],
+  "targetAudience": "Young Adults and Adults interested in character-driven narratives and psychological themes",
+  "complexity": "Moderate",
+  "readingTime": "4-6 hours",
+  "relatedBooks": [
+    "The Perks of Being a Wallflower",
+    "Wonder",
+    "A Man Called Ove",
+    "The Rosie Project"
+  ],
+  "keyInsights": [
+    "Understanding different perspectives",
+    "The impact of family dynamics",
+    "The importance of truth",
+    "Navigating personal challenges"
+  ],
+  "tags": [
+    "Autism",
+    "Mystery",
+    "Family",
+    "Young Adult",
+    "Contemporary"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:43:30.684Z",
+  "localCoverPath": "/book-covers/the-curious-incident-of-the-dog-in-the-night-time-mark-haddon.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781400032716-M.jpg"
+}

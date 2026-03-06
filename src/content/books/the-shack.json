@@ -1,0 +1,48 @@
+{
+  "title": "The Shack",
+  "author": "William Paul Young",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 248,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "1812457",
+  "rating": 3,
+  "isbn": "0964729237",
+  "isbn13": "9780964729230",
+  "enhancedGenre": "Spiritual Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Faith",
+    "Forgiveness",
+    "Grief",
+    "Redemption",
+    "Divine Love"
+  ],
+  "targetAudience": "Readers interested in spirituality and personal growth",
+  "complexity": "Moderate",
+  "readingTime": "4 hours",
+  "relatedBooks": [
+    "The Alchemist",
+    "The Five People You Meet in Heaven",
+    "The Purpose Driven Life"
+  ],
+  "keyInsights": [
+    "The importance of forgiveness in healing",
+    "Understanding the nature of God",
+    "The impact of personal tragedy on faith"
+  ],
+  "tags": [
+    "spirituality",
+    "fiction",
+    "personal growth",
+    "faith",
+    "forgiveness"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:56:27.704Z",
+  "localCoverPath": "/book-covers/the-shack-william-paul-young.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780964729230-M.jpg"
+}

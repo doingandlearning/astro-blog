@@ -1,6 +1,6 @@
 {
   "title": "A Fire Upon the Deep",
-  "author": "Verno Vinge",
+  "author": "Vernor Vinge",
   "dateFinished": "2025-12-01T19:24:34.650Z",
   "genre": "General",
   "pages": 0,
@@ -41,5 +41,6 @@
     "Adventure"
   ],
   "llmProcessed": true,
-  "llmProcessedAt": "2025-12-01T19:24:38.330Z"
+  "llmProcessedAt": "2025-12-01T19:24:38.330Z",
+  "localCoverPath": "/book-covers/a-fire-upon-the-deep-vernor-vinge.jpg"
 }

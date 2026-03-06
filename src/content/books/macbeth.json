@@ -1,0 +1,50 @@
+{
+  "title": "Macbeth",
+  "author": "William Shakespeare",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 249,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "8852",
+  "rating": 4,
+  "isbn": "0743477103",
+  "isbn13": "9780743477109",
+  "enhancedGenre": "Tragedy",
+  "bookCategory": "Fiction",
+  "readingLevel": "Advanced",
+  "themes": [
+    "Ambition",
+    "Power",
+    "Guilt",
+    "Fate vs. Free Will",
+    "Supernatural"
+  ],
+  "targetAudience": "Readers interested in classic literature and tragic narratives",
+  "complexity": "Complex",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "Hamlet",
+    "Othello",
+    "King Lear",
+    "The Tempest",
+    "Julius Caesar"
+  ],
+  "keyInsights": [
+    "Exploration of the corrupting power of unchecked ambition",
+    "The psychological effects of guilt and paranoia",
+    "The role of fate and prophecy in human actions"
+  ],
+  "tags": [
+    "Shakespeare",
+    "Tragedy",
+    "Classic Literature",
+    "Drama",
+    "Literary Analysis"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:43:26.471Z",
+  "localCoverPath": "/book-covers/macbeth-william-shakespeare.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780743477109-M.jpg"
+}

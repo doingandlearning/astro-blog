@@ -1,0 +1,50 @@
+{
+  "title": "Kill Decision",
+  "author": "Daniel Suarez",
+  "dateFinished": "2022-09-14",
+  "genre": "Unknown",
+  "pages": 512,
+  "readingYear": 2022,
+  "readingMonth": 9,
+  "isCurrentlyReading": false,
+  "goodreadsId": "15808659",
+  "rating": 0,
+  "isbn": "0451417704",
+  "isbn13": "9780451417701",
+  "enhancedGenre": "Techno-Thriller",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Artificial Intelligence",
+    "Military Ethics",
+    "Autonomous Weapons",
+    "Surveillance",
+    "Decision Making"
+  ],
+  "targetAudience": "Readers interested in technology, military strategy, and ethical dilemmas",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "Daemon",
+    "Influx",
+    "Ghost Fleet",
+    "Robopocalypse",
+    "The Peripheral"
+  ],
+  "keyInsights": [
+    "Explores the implications of AI in warfare",
+    "Raises ethical questions about autonomous decision-making",
+    "Highlights the potential dangers of technology in military applications"
+  ],
+  "tags": [
+    "Thriller",
+    "Science Fiction",
+    "Technology",
+    "Military",
+    "Ethics"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:27:16.342Z",
+  "localCoverPath": "/book-covers/kill-decision-daniel-suarez.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780451417701-M.jpg"
+}

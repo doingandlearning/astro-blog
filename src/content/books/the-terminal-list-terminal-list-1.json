@@ -1,0 +1,48 @@
+{
+  "title": "The Terminal List (Terminal List, #1)",
+  "author": "Jack Carr",
+  "dateFinished": "2022-04-02",
+  "genre": "Unknown",
+  "pages": 407,
+  "readingYear": 2022,
+  "readingMonth": 4,
+  "isCurrentlyReading": false,
+  "goodreadsId": "35297106",
+  "rating": 4,
+  "isbn": "1501180819",
+  "isbn13": "9781501180811",
+  "enhancedGenre": "Thriller, Military Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "revenge",
+    "betrayal",
+    "military ethics",
+    "survival",
+    "justice"
+  ],
+  "targetAudience": "Readers who enjoy action-packed thrillers and military fiction",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "American Sniper",
+    "The Kill Artist",
+    "The Reaper"
+  ],
+  "keyInsights": [
+    "Explores the psychological impact of war",
+    "Highlights themes of loyalty and betrayal",
+    "Offers a critique of military bureaucracy"
+  ],
+  "tags": [
+    "thriller",
+    "military",
+    "action",
+    "revenge",
+    "suspense"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:30:34.563Z",
+  "localCoverPath": "/book-covers/the-terminal-list-terminal-list-1-jack-carr.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781501180811-M.jpg"
+}

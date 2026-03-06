@@ -1,0 +1,48 @@
+{
+  "title": "Nexus (Nexus, #1)",
+  "author": "Ramez Naam",
+  "dateFinished": "2022-09-14",
+  "genre": "Unknown",
+  "pages": 460,
+  "readingYear": 2022,
+  "readingMonth": 9,
+  "isCurrentlyReading": false,
+  "goodreadsId": "13642710",
+  "rating": 0,
+  "isbn": "0857662937",
+  "isbn13": "9780857662934",
+  "enhancedGenre": "Science Fiction, Cyberpunk",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "technology",
+    "human enhancement",
+    "society",
+    "ethics",
+    "future dystopia"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and technology's impact on humanity",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "Neuromancer by William Gibson",
+    "Snow Crash by Neal Stephenson",
+    "Altered Carbon by Richard K. Morgan"
+  ],
+  "keyInsights": [
+    "Exploration of the implications of advanced technology",
+    "Ethical dilemmas surrounding human enhancement",
+    "The impact of connectivity on society"
+  ],
+  "tags": [
+    "science fiction",
+    "cyberpunk",
+    "technology",
+    "dystopia",
+    "human enhancement"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:27:12.274Z",
+  "localCoverPath": "/book-covers/nexus-nexus-1-ramez-naam.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780857662934-M.jpg"
+}

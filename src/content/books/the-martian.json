@@ -1,0 +1,51 @@
+{
+  "title": "The Martian",
+  "author": "Andy Weir",
+  "dateFinished": "2022-09-14",
+  "genre": "Unknown",
+  "pages": 369,
+  "readingYear": 2022,
+  "readingMonth": 9,
+  "isCurrentlyReading": false,
+  "goodreadsId": "18007564",
+  "rating": 0,
+  "isbn": "0804139024",
+  "isbn13": "9780804139021",
+  "enhancedGenre": "Science Fiction, Survival Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "isolation",
+    "human ingenuity",
+    "survival",
+    "space exploration",
+    "science and technology"
+  ],
+  "targetAudience": "Readers interested in science fiction and survival stories, as well as fans of space exploration",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "Artemis",
+    "Project Hail Mary",
+    "The Martian Chronicles",
+    "Red Mars",
+    "The Hitchhiker's Guide to the Galaxy"
+  ],
+  "keyInsights": [
+    "The importance of problem-solving under pressure",
+    "The resilience of the human spirit",
+    "The role of science in overcoming challenges",
+    "Teamwork and collaboration in crisis situations"
+  ],
+  "tags": [
+    "science fiction",
+    "survival",
+    "space",
+    "engineering",
+    "human resilience"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:27:39.810Z",
+  "localCoverPath": "/book-covers/the-martian-andy-weir.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780804139021-M.jpg"
+}

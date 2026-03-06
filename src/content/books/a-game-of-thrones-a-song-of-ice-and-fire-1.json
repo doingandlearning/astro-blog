@@ -1,0 +1,50 @@
+{
+  "title": "A Game of Thrones (A Song of Ice and Fire, #1)",
+  "author": "George R.R. Martin",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 864,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "822993",
+  "rating": 5,
+  "isbn": "000647988X",
+  "isbn13": "9780006479888",
+  "enhancedGenre": "Epic Fantasy",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Power",
+    "Betrayal",
+    "Honor",
+    "Family",
+    "War"
+  ],
+  "targetAudience": "Fans of fantasy literature and epic sagas",
+  "complexity": "Complex",
+  "readingTime": "15 hours",
+  "relatedBooks": [
+    "The Name of the Wind",
+    "The Way of Kings",
+    "The Hobbit",
+    "Mistborn: The Final Empire"
+  ],
+  "keyInsights": [
+    "Exploration of moral ambiguity",
+    "Intricate political intrigue",
+    "Diverse character perspectives",
+    "Consequences of ambition and desire"
+  ],
+  "tags": [
+    "Fantasy",
+    "Epic",
+    "Political Intrigue",
+    "Adventure",
+    "Character-Driven"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:45:06.429Z",
+  "localCoverPath": "/book-covers/a-game-of-thrones-a-song-of-ice-and-fire-1-george-r.r.-martin.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780006479888-M.jpg"
+}

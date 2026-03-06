@@ -1,0 +1,48 @@
+{
+  "title": "Ego Is the Enemy",
+  "author": "Ryan Holiday",
+  "dateFinished": "2022-02-24",
+  "genre": "Unknown",
+  "pages": 226,
+  "readingYear": 2022,
+  "readingMonth": 2,
+  "isCurrentlyReading": false,
+  "goodreadsId": "27036528",
+  "rating": 0,
+  "isbn": "1591847818",
+  "isbn13": "9781591847816",
+  "enhancedGenre": "Self-Help, Philosophy",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "ego",
+    "self-improvement",
+    "philosophy",
+    "stoicism",
+    "personal development"
+  ],
+  "targetAudience": "Individuals seeking personal growth and self-awareness",
+  "complexity": "Moderate",
+  "readingTime": "4 hours",
+  "relatedBooks": [
+    "The Obstacle Is the Way",
+    "The Subtle Art of Not Giving a F*ck",
+    "Atomic Habits"
+  ],
+  "keyInsights": [
+    "Ego can be a barrier to success",
+    "Embracing humility leads to growth",
+    "Self-awareness is crucial for personal development"
+  ],
+  "tags": [
+    "self-help",
+    "stoicism",
+    "personal growth",
+    "philosophy",
+    "motivation"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:32:03.832Z",
+  "localCoverPath": "/book-covers/ego-is-the-enemy-ryan-holiday.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781591847816-M.jpg"
+}

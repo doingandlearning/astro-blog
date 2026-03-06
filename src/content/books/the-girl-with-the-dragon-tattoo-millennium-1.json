@@ -1,0 +1,50 @@
+{
+  "title": "The Girl With the Dragon Tattoo (Millennium, #1)",
+  "author": "Stieg Larsson",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 480,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "2429135",
+  "rating": 5,
+  "isbn": "0670069019",
+  "isbn13": "9780670069019",
+  "enhancedGenre": "Crime Thriller, Mystery",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Justice",
+    "Corruption",
+    "Family Secrets",
+    "Violence",
+    "Technology"
+  ],
+  "targetAudience": "Adults and young adults who enjoy thrillers and mysteries",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "Gone Girl",
+    "The Silence of the Lambs",
+    "Big Little Lies",
+    "The Girl Who Played with Fire"
+  ],
+  "keyInsights": [
+    "Explores the impact of trauma",
+    "Critiques societal norms",
+    "Highlights the role of technology in investigation",
+    "Uncovers deep-seated corruption"
+  ],
+  "tags": [
+    "Thriller",
+    "Mystery",
+    "Crime",
+    "Suspense",
+    "Scandinavian Noir"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:55:47.351Z",
+  "localCoverPath": "/book-covers/the-girl-with-the-dragon-tattoo-millennium-1-stieg-larsson.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780670069019-M.jpg"
+}

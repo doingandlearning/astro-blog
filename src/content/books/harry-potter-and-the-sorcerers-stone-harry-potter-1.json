@@ -1,0 +1,48 @@
+{
+  "title": "Harry Potter and the Sorcerer's Stone (Harry Potter, #1)",
+  "author": "J.K. Rowling",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 309,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "3",
+  "rating": 5,
+  "isbn": "0439554934",
+  "isbn13": "9780439554930",
+  "enhancedGenre": "Fantasy, Young Adult",
+  "bookCategory": "Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "Friendship",
+    "Courage",
+    "Good vs. Evil",
+    "Coming of Age",
+    "Magic"
+  ],
+  "targetAudience": "Children and Young Adults",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "Harry Potter and the Chamber of Secrets",
+    "Percy Jackson & The Olympians: The Lightning Thief",
+    "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe"
+  ],
+  "keyInsights": [
+    "Introduction to a magical world",
+    "Importance of friendship and loyalty",
+    "The struggle between good and evil"
+  ],
+  "tags": [
+    "Fantasy",
+    "Magic",
+    "Adventure",
+    "Young Adult",
+    "Series"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:55:38.932Z",
+  "localCoverPath": "/book-covers/harry-potter-and-the-sorcerers-stone-harry-potter-1-j.k.-rowling.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780439554930-M.jpg"
+}

@@ -1,0 +1,47 @@
+{
+  "title": "How to Read a Book: The Classic Guide to Intelligent Reading",
+  "author": "Mortimer J. Adler",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 442,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "567610",
+  "rating": 5,
+  "enhancedGenre": "Self-Help, Educational",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Reading comprehension",
+    "Critical thinking",
+    "Literary analysis",
+    "Philosophy of reading"
+  ],
+  "targetAudience": "Students, educators, and anyone interested in improving their reading skills",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The Elements of Style",
+    "How to Win Friends and Influence People",
+    "The Art of Reading",
+    "Reading Like a Writer"
+  ],
+  "keyInsights": [
+    "Reading is an active process",
+    "Different types of reading require different approaches",
+    "Understanding the author's intent enhances comprehension",
+    "Reading critically improves retention and understanding"
+  ],
+  "tags": [
+    "reading",
+    "education",
+    "self-improvement",
+    "literature",
+    "critical thinking"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:46:31.945Z",
+  "localCoverPath": "/book-covers/how-to-read-a-book-the-classic-guide-to-intelligent-reading-mortimer-j.-adler.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/id/13239536-M.jpg"
+}

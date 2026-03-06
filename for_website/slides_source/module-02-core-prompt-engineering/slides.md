@@ -8,26 +8,26 @@
 
 By the end of this module you will be able to:
 
-- Write developer-focused prompts that are clear, contextual, and constrained
-- Apply zero-shot, few-shot, and chain-of-thought prompting appropriately
-- Iteratively refine prompts when output is wrong or incomplete
-- Use these techniques for technical problem-solving in chat tools
+- <span class="fragment">Write developer-focused prompts that are clear, contextual, and constrained</span>
+- <span class="fragment">Apply zero-shot, few-shot, and chain-of-thought prompting appropriately</span>
+- <span class="fragment">Iteratively refine prompts when output is wrong or incomplete</span>
+- <span class="fragment">Use these techniques for technical problem-solving in chat tools</span>
 
 ---
 
 ## Bridge from Module 1
 
-**What we learned yesterday:**
+**What we learned last time:**
 
-- **Where** to use AI (public vs. enterprise)
-- **When** to trust vs. verify
+- <span class="fragment">**Where** to use AI (public vs. enterprise)</span>
+- <span class="fragment">**When** to trust vs. verify</span>
 
 **The problem:**
 
-- ❌ You've tried asking AI for help, but the answer was too vague
-- ❌ It didn't understand your context
-- ❌ It gave you something that doesn't fit your codebase
-- ❌ You don't know how to fix it
+- <span class="fragment">❌ You've tried asking AI for help, but the answer was too vague</span>
+- <span class="fragment">❌ It didn't understand your context</span>
+- <span class="fragment">❌ It gave you something that doesn't fit your codebase</span>
+- <span class="fragment">❌ You don't know how to fix it</span>
 
 **Today:** Learn **how** to prompt effectively.
 
@@ -41,9 +41,9 @@ By the end of this module you will be able to:
 
 **Problems:**
 
-- ❌ Too vague — what kind of code?
-- ❌ No context — which version? What's the task?
-- ❌ No constraints — what style? What patterns?
+- <span class="fragment">❌ Too vague — what kind of code?</span>
+- <span class="fragment">❌ No context — which version? What's the task?</span>
+- <span class="fragment">❌ No constraints — what style? What patterns?</span>
 
 **Result:** Generic, unusable output
 
@@ -51,22 +51,28 @@ By the end of this module you will be able to:
 
 ## The developer's prompt: three Cs
 
+---
+
 **Clarity** — What do you want?
 
-- Task: generate, explain, refactor, test
-- Format: code block, inline, with comments
+- <span class="fragment">Task: generate, explain, refactor, test</span>
+- <span class="fragment">Format: code block, inline, with comments</span>
+
+---
 
 **Context** — What does the model need to know?
 
-- Stack: Spring Boot 3, Java 17, JPA
-- File: "In the UserController class"
-- Current state: "This method already exists"
+- <span class="fragment">Stack: Spring Boot 3, Java 17, JPA</span>
+- <span class="fragment">File: "In the UserController class"</span>
+- <span class="fragment">Current state: "This method already exists"</span>
+
+---
 
 **Constraints** — What are the rules?
 
-- Language: Java 17 style
-- Style: Follow Spring Boot best practices
-- Don'ts: "Don't use @Autowired"
+- <span class="fragment">Language: Java 17 style</span>
+- <span class="fragment">Style: Follow Spring Boot best practices</span>
+- <span class="fragment">Don'ts: "Don't use @Autowired"</span>
 
 ---
 
@@ -76,15 +82,18 @@ By the end of this module you will be able to:
 
 > "Write a controller"
 
+---
+
 **Example — clear:**
 
 > "Generate a Spring Boot REST controller with one GET endpoint that returns a list of users"
 
+
 **Better:**
 
-- ✅ Task: Generate
-- ✅ What: REST controller
-- ✅ Format: GET endpoint, returns list
+- <span class="fragment">✅ Task: Generate</span>
+- <span class="fragment">✅ What: REST controller</span>
+- <span class="fragment">✅ Format: GET endpoint, returns list</span>
 
 ---
 
@@ -94,15 +103,17 @@ By the end of this module you will be able to:
 
 > "Generate a controller"
 
+---
+
 **Example — with context:**
 
 > "Generate a Spring Boot 3 REST controller using Java 17. The endpoint should return ResponseEntity<User>. I'm working in the UserController class."
 
 **Better:**
 
-- ✅ Stack: Spring Boot 3, Java 17
-- ✅ File: UserController
-- ✅ Return type: ResponseEntity<User>
+- <span class="fragment">✅ Stack: Spring Boot 3, Java 17</span>
+- <span class="fragment">✅ File: UserController</span>
+- <span class="fragment">✅ Return type: ResponseEntity<User></span>
 
 ---
 
@@ -112,15 +123,17 @@ By the end of this module you will be able to:
 
 > "Generate a Spring Boot controller"
 
+---
+
 **Example — with constraints:**
 
 > "Generate a Spring Boot 3 REST controller using Java 17. Use constructor injection (not @Autowired), return ResponseEntity<User>, and include proper error handling. Don't use Optional for return types."
 
 **Better:**
 
-- ✅ Style: Constructor injection
-- ✅ Patterns: ResponseEntity, error handling
-- ✅ Don'ts: No Optional returns
+- <span class="fragment">✅ Style: Constructor injection</span>
+- <span class="fragment">✅ Patterns: ResponseEntity, error handling</span>
+- <span class="fragment">✅ Don'ts: No Optional returns</span>
 
 ---
 
@@ -130,19 +143,23 @@ By the end of this module you will be able to:
 
 Just ask, no examples.
 
+---
+
 **Example:**
 
 > "Explain what @RestController does in Spring Boot"
 
 **When to use:**
 
-- ✅ Well-known concepts
-- ✅ Quick answers
-- ✅ Standard patterns
+- <span class="fragment">✅ Well-known concepts</span>
+- <span class="fragment">✅ Quick answers</span>
+- <span class="fragment">✅ Standard patterns</span>
+
+---
 
 **Limitation:**
 
-- ❌ May not match your style or needs
+- <span class="fragment">❌ May not match your style or needs</span>
 
 ---
 
@@ -166,11 +183,13 @@ Add 1–2 examples to guide style.
 > ```
 > Now generate another one for User."
 
+---
+
 **When to use:**
 
-- ✅ When you want specific style
-- ✅ When format matters
-- ✅ One example can change everything
+- <span class="fragment">✅ When you want specific style</span>
+- <span class="fragment">✅ When format matters</span>
+- <span class="fragment">✅ One example can change everything</span>
 
 ---
 
@@ -180,15 +199,17 @@ Add 1–2 examples to guide style.
 
 Ask for step-by-step reasoning.
 
+---
+
 **Example:**
 
 > "Refactor this method. First explain what it does, then suggest improvements step by step, then show the refactored code."
 
 **When to use:**
 
-- ✅ Complex tasks
-- ✅ When accuracy matters
-- ✅ Debugging or design decisions
+- <span class="fragment">✅ Complex tasks</span>
+- <span class="fragment">✅ When accuracy matters</span>
+- <span class="fragment">✅ Debugging or design decisions</span>
 
 ---
 
@@ -210,9 +231,9 @@ Ask for step-by-step reasoning.
 
 **Problems:**
 
-- ❌ Output doesn't match your needs
-- ❌ Missing context or constraints
-- ❌ Wrong style or patterns
+- <span class="fragment">❌ Output doesn't match your needs</span>
+- <span class="fragment">❌ Missing context or constraints</span>
+- <span class="fragment">❌ Wrong style or patterns</span>
 
 **Question:** How do you fix it?
 
@@ -222,15 +243,17 @@ Ask for step-by-step reasoning.
 
 **Diagnosis:**
 
-1. **What's missing?** — Identify gaps
-2. **What's wrong?** — Spot issues
-3. **What would make this better?** — Think about improvements
+1. <span class="fragment">**What's missing?** — Identify gaps</span>
+2. <span class="fragment">**What's wrong?** — Spot issues</span>
+3. <span class="fragment">**What would make this better?** — Think about improvements</span>
+
+---
 
 **Example:**
 
-- Output uses @Autowired → Missing constraint
-- Output uses Spring Boot 2 → Missing context (we use Spring Boot 3)
-- Output doesn't match our style → Need few-shot example
+- <span class="fragment">Output uses @Autowired → Missing constraint</span>
+- <span class="fragment">Output uses Spring Boot 2 → Missing context (we use Spring Boot 3)</span>
+- <span class="fragment">Output doesn't match our style → Need few-shot example</span>
 
 ---
 
@@ -243,6 +266,8 @@ Ask for step-by-step reasoning.
 **Tighten instructions:**
 
 > "Use constructor injection, not @Autowired"
+
+---
 
 **Add examples:**
 
@@ -270,11 +295,11 @@ Prompting is iterative, not one-shot.
 
 ## Summary
 
-1. **Clarity**: Task + format
-2. **Context**: Stack + file + constraints
-3. **Constraints**: Language + style + don'ts
-4. **Techniques**: Zero-shot, few-shot, chain-of-thought
-5. **Iterative**: Refine based on output
+1. <span class="fragment">**Clarity**: Task + format</span>
+2. <span class="fragment">**Context**: Stack + file + constraints</span>
+3. <span class="fragment">**Constraints**: Language + style + don'ts</span>
+4. <span class="fragment">**Techniques**: Zero-shot, few-shot, chain-of-thought</span>
+5. <span class="fragment">**Iterative**: Refine based on output</span>
 
 ---
 
@@ -282,7 +307,7 @@ Prompting is iterative, not one-shot.
 
 **What we've learned:**
 
-- **How** to prompt effectively (3Cs, techniques, iteration)
+- <span class="fragment">**How** to prompt effectively (3Cs, techniques, iteration)</span>
 
 **What's next:**
 

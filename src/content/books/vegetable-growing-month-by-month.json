@@ -1,0 +1,47 @@
+{
+  "title": "Vegetable Growing Month by Month",
+  "author": "John   Harrison",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 256,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "3232844",
+  "rating": 3,
+  "isbn": "0716021897",
+  "isbn13": "9780716021896",
+  "enhancedGenre": "Gardening, Horticulture",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "Vegetable gardening",
+    "Seasonal planting",
+    "Sustainable agriculture",
+    "Home gardening"
+  ],
+  "targetAudience": "Home gardeners, beginners interested in vegetable cultivation",
+  "complexity": "Simple",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Vegetable Gardener's Bible",
+    "Square Foot Gardening",
+    "The Garden Primer"
+  ],
+  "keyInsights": [
+    "Monthly planting guide",
+    "Seasonal vegetable care tips",
+    "Practical gardening advice for beginners"
+  ],
+  "tags": [
+    "gardening",
+    "vegetables",
+    "horticulture",
+    "sustainable gardening",
+    "beginner gardening"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:48:46.501Z",
+  "localCoverPath": "/book-covers/vegetable-growing-month-by-month-john-harrison.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780716021896-M.jpg"
+}

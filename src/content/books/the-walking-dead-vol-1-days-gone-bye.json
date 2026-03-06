@@ -1,0 +1,46 @@
+{
+  "title": "The Walking Dead, Vol. 1: Days Gone Bye",
+  "author": "Robert Kirkman",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 144,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "138398",
+  "rating": 5,
+  "isbn": "1582406723",
+  "isbn13": "9781582406725",
+  "enhancedGenre": "Horror, Graphic Novel",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Survival",
+    "Human Nature",
+    "Society and Morality",
+    "Isolation"
+  ],
+  "targetAudience": "Fans of horror and graphic novels, mature readers",
+  "complexity": "Moderate",
+  "readingTime": "2 hours",
+  "relatedBooks": [
+    "The Walking Dead, Vol. 2: Miles Behind Us",
+    "Y: The Last Man, Vol. 1: Unmanned",
+    "Saga, Vol. 1"
+  ],
+  "keyInsights": [
+    "Explores the fragility of civilization",
+    "Examines human relationships in crisis",
+    "Highlights moral dilemmas in survival situations"
+  ],
+  "tags": [
+    "Graphic Novel",
+    "Zombie Apocalypse",
+    "Post-Apocalyptic",
+    "Comic Series"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:54:51.040Z",
+  "localCoverPath": "/book-covers/the-walking-dead-vol.-1-days-gone-bye-robert-kirkman.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781582406725-M.jpg"
+}

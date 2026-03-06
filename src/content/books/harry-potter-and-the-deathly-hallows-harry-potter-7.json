@@ -1,0 +1,49 @@
+{
+  "title": "Harry Potter and the Deathly Hallows (Harry Potter, #7)",
+  "author": "J.K. Rowling",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 607,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "820343",
+  "rating": 5,
+  "isbn": "0747591059",
+  "isbn13": "9780747591054",
+  "enhancedGenre": "Fantasy, Adventure",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Friendship",
+    "Courage",
+    "Death",
+    "Sacrifice",
+    "Good vs. Evil"
+  ],
+  "targetAudience": "Young adults and adults, fans of fantasy literature",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "Harry Potter and the Sorcerer's Stone",
+    "The Chronicles of Narnia",
+    "Percy Jackson & The Olympians: The Lightning Thief",
+    "The Hobbit"
+  ],
+  "keyInsights": [
+    "The importance of choices in shaping one's destiny",
+    "The power of love and friendship",
+    "The inevitability of death and acceptance"
+  ],
+  "tags": [
+    "Fantasy",
+    "Adventure",
+    "Young Adult",
+    "Magic",
+    "Wizards"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:46:20.439Z",
+  "localCoverPath": "/book-covers/harry-potter-and-the-deathly-hallows-harry-potter-7-j.k.-rowling.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780747591054-M.jpg"
+}

@@ -1,0 +1,51 @@
+{
+  "title": "To Kill a Mockingbird",
+  "author": "Harper Lee",
+  "dateFinished": "2014-10-02",
+  "genre": "Unknown",
+  "pages": 323,
+  "readingYear": 2014,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "2657",
+  "rating": 0,
+  "isbn": "0060935464",
+  "isbn13": "9780060935467",
+  "enhancedGenre": "Southern Gothic, Coming-of-Age",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Racial Injustice",
+    "Moral Growth",
+    "Empathy",
+    "Social Inequality",
+    "Childhood Innocence"
+  ],
+  "targetAudience": "Young Adults and Adults",
+  "complexity": "Moderate",
+  "readingTime": "6-8 hours",
+  "relatedBooks": [
+    "The Help",
+    "The Catcher in the Rye",
+    "The Great Gatsby",
+    "Beloved",
+    "The Secret Life of Bees"
+  ],
+  "keyInsights": [
+    "The importance of moral integrity",
+    "Understanding different perspectives",
+    "The impact of prejudice",
+    "The loss of innocence"
+  ],
+  "tags": [
+    "Classic Literature",
+    "American Literature",
+    "Civil Rights",
+    "Historical Fiction",
+    "Literary Fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:52:37.449Z",
+  "localCoverPath": "/book-covers/to-kill-a-mockingbird-harper-lee.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780060935467-M.jpg"
+}

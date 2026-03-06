@@ -1,0 +1,49 @@
+{
+  "title": "Dark Matter",
+  "author": "Blake Crouch",
+  "dateFinished": "2022-09-03",
+  "genre": "Unknown",
+  "pages": 342,
+  "readingYear": 2022,
+  "readingMonth": 9,
+  "isCurrentlyReading": false,
+  "goodreadsId": "27833670",
+  "rating": 0,
+  "isbn": "1101904224",
+  "isbn13": "9781101904220",
+  "enhancedGenre": "Science Fiction, Thriller",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "identity",
+    "reality",
+    "choice",
+    "multiverse",
+    "existentialism"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and psychological thrillers",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "Recursion",
+    "The Midnight Library",
+    "The Time Traveler's Wife",
+    "The First Fifteen Lives of Harry August"
+  ],
+  "keyInsights": [
+    "Explores the nature of reality and identity",
+    "Challenges the concept of choice and consequence",
+    "Engages with the idea of parallel universes"
+  ],
+  "tags": [
+    "science fiction",
+    "thriller",
+    "psychological",
+    "multiverse",
+    "existential"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:27:49.852Z",
+  "localCoverPath": "/book-covers/dark-matter-blake-crouch.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781101904220-M.jpg"
+}

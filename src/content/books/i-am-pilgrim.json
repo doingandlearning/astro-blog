@@ -1,0 +1,48 @@
+{
+  "title": "I Am Pilgrim",
+  "author": "Terry Hayes",
+  "dateFinished": "2026-03-06",
+  "genre": "Unknown",
+  "pages": 612,
+  "readingYear": 2026,
+  "readingMonth": 3,
+  "isCurrentlyReading": false,
+  "goodreadsId": "18144124",
+  "rating": 0,
+  "isbn": "1439177724",
+  "isbn13": "9781439177723",
+  "enhancedGenre": "Thriller, Mystery, Espionage",
+  "bookCategory": "Fiction",
+  "readingLevel": "Advanced",
+  "themes": [
+    "Identity",
+    "Terrorism",
+    "Redemption",
+    "Surveillance",
+    "Morality"
+  ],
+  "targetAudience": "Readers who enjoy complex thrillers and espionage narratives",
+  "complexity": "Complex",
+  "readingTime": "12 hours",
+  "relatedBooks": [
+    "The Spy Who Came in from the Cold",
+    "The Bourne Identity",
+    "The Girl with the Dragon Tattoo"
+  ],
+  "keyInsights": [
+    "Explores the nature of identity and self",
+    "Highlights the impact of terrorism on society",
+    "Questions morality in the face of national security"
+  ],
+  "tags": [
+    "Thriller",
+    "Espionage",
+    "Mystery",
+    "Terrorism",
+    "Fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:25:24.444Z",
+  "localCoverPath": "/book-covers/i-am-pilgrim-terry-hayes.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781439177723-M.jpg"
+}

@@ -1,0 +1,51 @@
+{
+  "title": "Snow Crash",
+  "author": "Neal Stephenson",
+  "dateFinished": "2022-09-14",
+  "genre": "Unknown",
+  "pages": 438,
+  "readingYear": 2022,
+  "readingMonth": 9,
+  "isCurrentlyReading": false,
+  "goodreadsId": "830",
+  "rating": 0,
+  "isbn": "0553380958",
+  "isbn13": "9780553380958",
+  "enhancedGenre": "Cyberpunk, Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Virtual Reality",
+    "Information Overload",
+    "Corporate Control",
+    "Linguistics",
+    "Cultural Commentary"
+  ],
+  "targetAudience": "Readers interested in speculative fiction, technology, and dystopian futures",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "Neuromancer",
+    "Snow Crash",
+    "Altered Carbon",
+    "Ready Player One",
+    "The Diamond Age"
+  ],
+  "keyInsights": [
+    "Explores the impact of technology on society",
+    "Critiques corporate power and control",
+    "Examines the nature of language and communication",
+    "Presents a vivid, immersive world"
+  ],
+  "tags": [
+    "Cyberpunk",
+    "Dystopian",
+    "Science Fiction",
+    "Technology",
+    "Virtual Reality"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:27:35.269Z",
+  "localCoverPath": "/book-covers/snow-crash-neal-stephenson.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780553380958-M.jpg"
+}

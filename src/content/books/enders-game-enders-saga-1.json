@@ -1,0 +1,49 @@
+{
+  "title": "Ender’s Game (Ender's Saga, #1)",
+  "author": "Orson Scott Card",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 324,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "375802",
+  "rating": 5,
+  "isbn": "0812550706",
+  "isbn13": "9780812550702",
+  "enhancedGenre": "Science Fiction, Military Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Leadership",
+    "Morality",
+    "Isolation",
+    "Coming of Age",
+    "War and Strategy"
+  ],
+  "targetAudience": "Young adults and adults interested in science fiction and military strategy",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "Dune by Frank Herbert",
+    "The Forever War by Joe Haldeman",
+    "Starship Troopers by Robert A. Heinlein"
+  ],
+  "keyInsights": [
+    "The importance of strategic thinking in leadership",
+    "The moral implications of war",
+    "The impact of isolation on personal development"
+  ],
+  "tags": [
+    "Ender's Game",
+    "Orson Scott Card",
+    "Science Fiction",
+    "Military",
+    "Young Adult",
+    "Classic"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:53:56.564Z",
+  "localCoverPath": "/book-covers/enders-game-enders-saga-1-orson-scott-card.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780812550702-M.jpg"
+}

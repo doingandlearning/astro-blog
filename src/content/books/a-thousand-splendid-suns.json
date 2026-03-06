@@ -1,0 +1,50 @@
+{
+  "title": "A Thousand Splendid Suns",
+  "author": "Khaled Hosseini",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 372,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "128029",
+  "rating": 4,
+  "isbn": "1594489505",
+  "isbn13": "9781594489501",
+  "enhancedGenre": "Historical Fiction, Literary Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Resilience",
+    "Friendship",
+    "Women’s Rights",
+    "War and Conflict",
+    "Family Dynamics"
+  ],
+  "targetAudience": "Readers interested in contemporary literature and stories about personal struggles in historical contexts",
+  "complexity": "Moderate",
+  "readingTime": "8 hours",
+  "relatedBooks": [
+    "The Kite Runner",
+    "A Fine Balance",
+    "The Book Thief",
+    "The Things They Carried"
+  ],
+  "keyInsights": [
+    "The impact of war on women’s lives",
+    "The strength of female relationships",
+    "Cultural and social issues in Afghanistan",
+    "The importance of hope and resilience"
+  ],
+  "tags": [
+    "Afghanistan",
+    "Women",
+    "War",
+    "Literature",
+    "Friendship"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:55:42.961Z",
+  "localCoverPath": "/book-covers/a-thousand-splendid-suns-khaled-hosseini.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781594489501-M.jpg"
+}

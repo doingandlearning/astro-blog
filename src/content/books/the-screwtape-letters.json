@@ -1,0 +1,50 @@
+{
+  "title": "The Screwtape Letters",
+  "author": "C.S. Lewis",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 209,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "11149",
+  "rating": 5,
+  "isbn": "0060652896",
+  "isbn13": "9780060652890",
+  "enhancedGenre": "Philosophical Fiction, Satire",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Temptation",
+    "Morality",
+    "Christianity",
+    "Human Nature",
+    "Spiritual Warfare"
+  ],
+  "targetAudience": "Readers interested in theology, philosophy, and moral dilemmas",
+  "complexity": "Moderate",
+  "readingTime": "4-6 hours",
+  "relatedBooks": [
+    "Mere Christianity",
+    "The Great Divorce",
+    "The Chronicles of Narnia",
+    "The Abolition of Man"
+  ],
+  "keyInsights": [
+    "Exploration of moral choices",
+    "Insight into the nature of evil",
+    "Satirical view on human behavior",
+    "Reflection on spiritual life"
+  ],
+  "tags": [
+    "C.S. Lewis",
+    "Christian Literature",
+    "Satire",
+    "Philosophy",
+    "Theology"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:56:32.143Z",
+  "localCoverPath": "/book-covers/the-screwtape-letters-c.s.-lewis.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780060652890-M.jpg"
+}

@@ -1,0 +1,49 @@
+{
+  "title": "Thin Air",
+  "author": "Richard K. Morgan",
+  "dateFinished": "2026-03-06",
+  "genre": "Unknown",
+  "pages": 530,
+  "readingYear": 2026,
+  "readingMonth": 3,
+  "isCurrentlyReading": false,
+  "goodreadsId": "25835917",
+  "rating": 0,
+  "isbn": "0575075147",
+  "isbn13": "9780575075146",
+  "enhancedGenre": "Science Fiction, Cyberpunk",
+  "bookCategory": "Fiction",
+  "readingLevel": "Advanced",
+  "themes": [
+    "identity",
+    "technology",
+    "morality",
+    "society",
+    "existentialism"
+  ],
+  "targetAudience": "Readers of speculative fiction and cyberpunk enthusiasts",
+  "complexity": "Complex",
+  "readingTime": "12 hours",
+  "relatedBooks": [
+    "Altered Carbon",
+    "Neuromancer",
+    "Snow Crash",
+    "The Windup Girl"
+  ],
+  "keyInsights": [
+    "Explores the implications of technology on identity",
+    "Challenges moral boundaries in a futuristic society",
+    "Examines the nature of consciousness and existence"
+  ],
+  "tags": [
+    "science fiction",
+    "cyberpunk",
+    "dystopia",
+    "identity",
+    "technology"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:25:09.844Z",
+  "localCoverPath": "/book-covers/thin-air-richard-k.-morgan.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780575075146-M.jpg"
+}

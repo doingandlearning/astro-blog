@@ -1,0 +1,48 @@
+{
+  "title": "1984",
+  "author": "George Orwell",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 328,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "5470",
+  "rating": 4,
+  "enhancedGenre": "Dystopian Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Advanced",
+  "themes": [
+    "Totalitarianism",
+    "Surveillance",
+    "Individualism vs. Collectivism",
+    "Language and Manipulation",
+    "Reality and Truth"
+  ],
+  "targetAudience": "Readers interested in political philosophy, dystopian literature, and social commentary",
+  "complexity": "Complex",
+  "readingTime": "6-8 hours",
+  "relatedBooks": [
+    "Brave New World",
+    "Fahrenheit 451",
+    "The Handmaid's Tale",
+    "Animal Farm",
+    "The Dispossessed"
+  ],
+  "keyInsights": [
+    "The dangers of totalitarianism and oppressive governments",
+    "The impact of language on thought and reality",
+    "The importance of individual freedom and privacy"
+  ],
+  "tags": [
+    "Dystopia",
+    "Political Fiction",
+    "Classic Literature",
+    "Social Critique",
+    "Philosophy"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:35:42.539Z",
+  "localCoverPath": "/book-covers/1984-george-orwell.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/id/9267242-M.jpg"
+}

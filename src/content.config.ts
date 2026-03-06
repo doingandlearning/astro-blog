@@ -93,6 +93,8 @@ const booksCollection = defineCollection({
     genre: z.string(),
     pages: z.number(),
     coverUrl: z.string().optional(),
+    localCoverPath: z.string().optional(), // e.g. /book-covers/title-author.jpg
+    goodreadsId: z.string().optional(), // Goodreads Book Id for deduplication and cover lookup
     readingYear: z.number(),
     readingMonth: z.number(),
     enhancedGenre: z.string().optional(),

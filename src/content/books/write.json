@@ -1,0 +1,46 @@
+{
+  "title": "Write",
+  "author": "The Guardian",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 157,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "15796745",
+  "rating": 3,
+  "isbn": "085265328X",
+  "isbn13": "9780852653289",
+  "enhancedGenre": "Writing and Communication",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Writing Techniques",
+    "Creative Expression",
+    "Communication Skills"
+  ],
+  "targetAudience": "Aspiring writers and individuals looking to improve their writing skills",
+  "complexity": "Moderate",
+  "readingTime": "4 hours",
+  "relatedBooks": [
+    "On Writing: A Memoir of the Craft by Stephen King",
+    "Bird by Bird: Some Instructions on Writing and Life by Anne Lamott",
+    "The Elements of Style by William Strunk Jr. and E.B. White"
+  ],
+  "keyInsights": [
+    "Writing is a skill that can be developed",
+    "Effective communication is essential in writing",
+    "Creativity can be nurtured through practice"
+  ],
+  "tags": [
+    "Writing",
+    "Communication",
+    "Non-Fiction",
+    "Self-Improvement",
+    "Literature"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:51:09.749Z",
+  "localCoverPath": "/book-covers/write-the-guardian.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780852653289-M.jpg"
+}

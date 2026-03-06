@@ -1,0 +1,48 @@
+{
+  "title": "The Adventures of Huckleberry Finn (Adventures of Tom and Huck, #2)",
+  "author": "Mark Twain",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 327,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "2956",
+  "rating": 3,
+  "isbn": "0142437174",
+  "isbn13": "9780142437179",
+  "enhancedGenre": "Coming-of-Age Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Friendship",
+    "Racism",
+    "Freedom",
+    "Morality",
+    "Adventure"
+  ],
+  "targetAudience": "Young Adults and Adults",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Adventures of Tom Sawyer",
+    "The Catcher in the Rye",
+    "To Kill a Mockingbird"
+  ],
+  "keyInsights": [
+    "Explores the moral dilemmas of society",
+    "Highlights the importance of friendship",
+    "Critiques social norms and racism"
+  ],
+  "tags": [
+    "Classic Literature",
+    "American Literature",
+    "Adventure",
+    "Social Issues",
+    "Historical Fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:43:58.279Z",
+  "localCoverPath": "/book-covers/the-adventures-of-huckleberry-finn-adventures-of-tom-and-huck-2-mark-twain.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780142437179-M.jpg"
+}

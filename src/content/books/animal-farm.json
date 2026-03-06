@@ -1,0 +1,48 @@
+{
+  "title": "Animal Farm",
+  "author": "George Orwell",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 129,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "7613",
+  "rating": 3,
+  "enhancedGenre": "Political Satire, Allegorical Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Totalitarianism",
+    "Revolution",
+    "Corruption of Ideals",
+    "Class Struggle",
+    "Power Dynamics"
+  ],
+  "targetAudience": "Readers interested in political commentary and allegorical literature",
+  "complexity": "Moderate",
+  "readingTime": "3 hours",
+  "relatedBooks": [
+    "1984",
+    "Brave New World",
+    "Fahrenheit 451",
+    "The Animal Farm: A Fairy Story"
+  ],
+  "keyInsights": [
+    "The dangers of a single-party state",
+    "How power can corrupt ideals",
+    "The cyclical nature of history",
+    "The importance of critical thinking"
+  ],
+  "tags": [
+    "Allegory",
+    "Satire",
+    "Politics",
+    "Social Commentary",
+    "Classic Literature"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:54:59.685Z",
+  "localCoverPath": "/book-covers/animal-farm-george-orwell.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/id/11261770-M.jpg"
+}

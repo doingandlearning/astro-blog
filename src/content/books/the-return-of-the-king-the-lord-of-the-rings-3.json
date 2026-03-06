@@ -1,0 +1,48 @@
+{
+  "title": "The Return of the King (The Lord of the Rings, #3)",
+  "author": "J.R.R. Tolkien",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 404,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "18512",
+  "rating": 4,
+  "enhancedGenre": "High Fantasy",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Good vs. Evil",
+    "Friendship",
+    "Courage",
+    "Sacrifice",
+    "Power and Corruption"
+  ],
+  "targetAudience": "Fans of fantasy literature, young adults, and adults",
+  "complexity": "Complex",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "The Fellowship of the Ring",
+    "The Two Towers",
+    "The Silmarillion",
+    "A Game of Thrones",
+    "The Chronicles of Narnia"
+  ],
+  "keyInsights": [
+    "The importance of hope in dark times",
+    "The strength found in unity and friendship",
+    "The consequences of power and ambition"
+  ],
+  "tags": [
+    "Fantasy",
+    "Epic",
+    "Adventure",
+    "Classic Literature",
+    "Mythology"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:43:46.865Z",
+  "localCoverPath": "/book-covers/the-return-of-the-king-the-lord-of-the-rings-3-j.r.r.-tolkien.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/id/14627564-M.jpg"
+}

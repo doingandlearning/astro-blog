@@ -1,0 +1,50 @@
+{
+  "title": "Prince Caspian (Chronicles of Narnia, #2)",
+  "author": "C.S. Lewis",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 240,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "121749",
+  "rating": 5,
+  "isbn": "000720230X",
+  "isbn13": "9780007202300",
+  "enhancedGenre": "Fantasy, Adventure",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Courage",
+    "Leadership",
+    "Friendship",
+    "Good vs. Evil",
+    "Coming of Age"
+  ],
+  "targetAudience": "Young adults and children, as well as adult fans of fantasy literature",
+  "complexity": "Moderate",
+  "readingTime": "4 hours",
+  "relatedBooks": [
+    "The Lion, the Witch and the Wardrobe",
+    "The Voyage of the Dawn Treader",
+    "The Silver Chair",
+    "The Magician's Nephew"
+  ],
+  "keyInsights": [
+    "Exploration of moral choices",
+    "The importance of belief and faith",
+    "The journey of self-discovery",
+    "The impact of legacy and heritage"
+  ],
+  "tags": [
+    "Narnia",
+    "C.S. Lewis",
+    "Fantasy",
+    "Adventure",
+    "Children's Literature"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:42:53.575Z",
+  "localCoverPath": "/book-covers/prince-caspian-chronicles-of-narnia-2-c.s.-lewis.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780007202300-M.jpg"
+}

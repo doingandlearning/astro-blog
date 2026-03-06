@@ -1,0 +1,50 @@
+{
+  "title": "Our Mutual Friend",
+  "author": "Charles Dickens",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 794,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "844708",
+  "rating": 2,
+  "isbn": "1853261947",
+  "isbn13": "9781853261947",
+  "enhancedGenre": "Victorian Literature, Social Commentary",
+  "bookCategory": "Fiction",
+  "readingLevel": "Advanced",
+  "themes": [
+    "Wealth and Poverty",
+    "Love and Relationships",
+    "Social Class",
+    "Death and Legacy",
+    "Identity"
+  ],
+  "targetAudience": "Readers interested in classic literature and social issues of the Victorian era",
+  "complexity": "Complex",
+  "readingTime": "15 hours",
+  "relatedBooks": [
+    "Great Expectations",
+    "Bleak House",
+    "David Copperfield",
+    "Middlemarch",
+    "The Mill on the Floss"
+  ],
+  "keyInsights": [
+    "Explores the impact of wealth on human relationships",
+    "Critiques the social class system of Victorian England",
+    "Highlights the importance of personal integrity and morality"
+  ],
+  "tags": [
+    "Charles Dickens",
+    "Classic Literature",
+    "Victorian Era",
+    "Social Issues",
+    "Literary Fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:47:42.277Z",
+  "localCoverPath": "/book-covers/our-mutual-friend-charles-dickens.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781853261947-M.jpg"
+}

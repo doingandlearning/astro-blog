@@ -1,0 +1,50 @@
+{
+  "title": "The Runner's Handbook",
+  "author": "Bob Glover",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 752,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "700119",
+  "rating": 3,
+  "isbn": "0140469303",
+  "isbn13": "9780140469301",
+  "enhancedGenre": "Sports & Recreation",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "Running techniques",
+    "Training programs",
+    "Health and fitness",
+    "Motivation",
+    "Endurance"
+  ],
+  "targetAudience": "Runners of all levels, fitness enthusiasts, and individuals looking to improve their running skills",
+  "complexity": "Moderate",
+  "readingTime": "12 hours",
+  "relatedBooks": [
+    "The Complete Runner's Handbook",
+    "Running for Fitness",
+    "Born to Run",
+    "The New Rules of Marathon and Half-Marathon Nutrition"
+  ],
+  "keyInsights": [
+    "Comprehensive training plans for various levels",
+    "Importance of proper nutrition and hydration",
+    "Injury prevention techniques",
+    "Mental strategies for long-distance running"
+  ],
+  "tags": [
+    "running",
+    "fitness",
+    "training",
+    "health",
+    "endurance"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:49:55.671Z",
+  "localCoverPath": "/book-covers/the-runners-handbook-bob-glover.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780140469301-M.jpg"
+}

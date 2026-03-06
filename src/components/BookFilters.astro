@@ -98,21 +98,6 @@ const authors = [...new Set(books.map((book) => book.data.author))].sort();
 			</select>
 		</div>
 
-		<!-- Currently Reading Filter -->
-		<div class="filter-group">
-			<label for="currently-reading-filter" class="checkbox-label">
-				<input
-					id="currently-reading-filter"
-					type="checkbox"
-					x-model="filters.currentlyReading"
-					@change="applyFilters()"
-					class="filter-checkbox"
-				/>
-				<span class="checkmark"></span>
-				Currently Reading Only
-			</label>
-		</div>
-
 		<!-- Page Range Filter -->
 		<div class="filter-group page-range">
 			<label for="min-pages-filter">Page Range</label>
@@ -302,7 +287,7 @@ const authors = [...new Set(books.map((book) => book.data.author))].sort();
 				);
 			},
 		};
-	}
+	};
 </script>
 
 <style>

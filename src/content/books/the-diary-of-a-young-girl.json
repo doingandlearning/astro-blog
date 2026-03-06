@@ -1,0 +1,46 @@
+{
+  "title": "The Diary of a Young Girl",
+  "author": "Anne Frank",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 283,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "48855",
+  "rating": 3,
+  "enhancedGenre": "Memoir, Historical",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Coming of Age",
+    "War and Conflict",
+    "Identity",
+    "Isolation",
+    "Hope"
+  ],
+  "targetAudience": "Young Adults and Adults interested in history and personal narratives",
+  "complexity": "Moderate",
+  "readingTime": "4-6 hours",
+  "relatedBooks": [
+    "Night by Elie Wiesel",
+    "The Book Thief by Markus Zusak",
+    "The Hiding Place by Corrie ten Boom"
+  ],
+  "keyInsights": [
+    "The resilience of the human spirit in adversity",
+    "The impact of war on personal lives",
+    "The importance of self-expression and documentation"
+  ],
+  "tags": [
+    "Anne Frank",
+    "World War II",
+    "Holocaust",
+    "Memoir",
+    "Youth"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:54:44.934Z",
+  "localCoverPath": "/book-covers/the-diary-of-a-young-girl-anne-frank.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/id/13521319-M.jpg"
+}

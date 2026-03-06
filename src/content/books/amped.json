@@ -1,0 +1,46 @@
+{
+  "title": "Amped",
+  "author": "Douglas E. Richards",
+  "dateFinished": "2023-07-24",
+  "genre": "Unknown",
+  "pages": 384,
+  "readingYear": 2023,
+  "readingMonth": 7,
+  "isCurrentlyReading": false,
+  "goodreadsId": "16176560",
+  "rating": 0,
+  "enhancedGenre": "Science Fiction, Thriller",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "technology",
+    "human enhancement",
+    "ethics",
+    "society",
+    "identity"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and technological advancements",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "Neuromancer",
+    "Altered Carbon",
+    "The Windup Girl"
+  ],
+  "keyInsights": [
+    "Explores the implications of human enhancement technologies",
+    "Raises ethical questions about the future of humanity",
+    "Examines the impact of technology on identity and society"
+  ],
+  "tags": [
+    "science fiction",
+    "technology",
+    "thriller",
+    "human enhancement",
+    "ethics"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:26:21.639Z",
+  "localCoverPath": "/book-covers/amped-douglas-e.-richards.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/id/14348537-M.jpg"
+}

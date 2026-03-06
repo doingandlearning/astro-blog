@@ -1,0 +1,50 @@
+{
+  "title": "East of Eden",
+  "author": "John Steinbeck",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 601,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "4406",
+  "rating": 5,
+  "isbn": "0142000655",
+  "isbn13": "9780142000656",
+  "enhancedGenre": "Literary Fiction, Historical Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Advanced",
+  "themes": [
+    "Good vs. Evil",
+    "Family Dynamics",
+    "Identity",
+    "Free Will",
+    "The American Dream"
+  ],
+  "targetAudience": "Readers interested in classic literature and complex narratives",
+  "complexity": "Complex",
+  "readingTime": "12 hours",
+  "relatedBooks": [
+    "The Grapes of Wrath",
+    "Of Mice and Men",
+    "The Great Gatsby",
+    "One Hundred Years of Solitude"
+  ],
+  "keyInsights": [
+    "Exploration of moral dilemmas",
+    "Interplay of fate and free will",
+    "Impact of family legacy",
+    "Reflection on human nature"
+  ],
+  "tags": [
+    "Classic",
+    "American Literature",
+    "Steinbeck",
+    "Historical",
+    "Philosophical"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:42:45.898Z",
+  "localCoverPath": "/book-covers/east-of-eden-john-steinbeck.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780142000656-M.jpg"
+}

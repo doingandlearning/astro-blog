@@ -8,28 +8,30 @@
 
 By the end of this module you will be able to:
 
-- Use AI to generate boilerplate, entities, and service layers in Spring Boot 3
-- Use AI to explain legacy code and unfamiliar codebases
-- Apply refactoring strategies with AI: modernizing code safely
-- Generate unit tests (JUnit 5/Mockito) with AI assistance
-- Evaluate AI output for correctness, style, and fit before applying
+- <span class="fragment">Use AI to generate boilerplate, entities, and service layers in Spring Boot 3</span>
+- <span class="fragment">Use AI to explain legacy code and unfamiliar codebases</span>
+- <span class="fragment">Apply refactoring strategies with AI: modernizing code safely</span>
+- <span class="fragment">Generate unit tests (JUnit 5/Mockito) with AI assistance</span>
+- <span class="fragment">Evaluate AI output for correctness, style, and fit before applying</span>
 
 ---
 
 ## Bridge from Module 2
 
-**What we learned yesterday:**
+**What we learned last time:**
 
-- **How** to prompt effectively (clarity, context, constraints)
-- Zero-shot, few-shot, chain-of-thought techniques
-- Iterative refinement
+- <span class="fragment">**How** to prompt effectively (clarity, context, constraints)</span>
+- <span class="fragment">Zero-shot, few-shot, chain-of-thought techniques</span>
+- <span class="fragment">Iterative refinement</span>
+
+---
 
 **The problem:**
 
-- ❌ You know how to prompt, but what should you ask for?
-- ❌ How do I explain legacy code I don't understand?
-- ❌ Can AI help me refactor safely?
-- ❌ How do I generate tests that actually work?
+- <span class="fragment">❌ You know how to prompt, but what should you ask for?</span>
+- <span class="fragment">❌ How do I explain legacy code I don't understand?</span>
+- <span class="fragment">❌ Can AI help me refactor safely?</span>
+- <span class="fragment">❌ How do I generate tests that actually work?</span>
 
 **Today:** Learn **what** to prompt for in Java development.
 
@@ -41,9 +43,9 @@ By the end of this module you will be able to:
 
 **Manual approach:**
 
-- ❌ Write entity, add annotations, create repository interface, write service method
-- ❌ Time-consuming: 15-20 minutes for boilerplate
-- ❌ Error-prone: Easy to miss annotations, wrong return types
+- <span class="fragment">❌ Write entity, add annotations, create repository interface, write service method</span>
+- <span class="fragment">❌ Time-consuming: 15-20 minutes for boilerplate</span>
+- <span class="fragment">❌ Error-prone: Easy to miss annotations, wrong return types</span>
 
 **Result:** Slow, repetitive, error-prone
 
@@ -53,9 +55,11 @@ By the end of this module you will be able to:
 
 **AI approach:**
 
-- ✅ Generate complete entity with proper annotations
-- ✅ Fast: 30 seconds vs. 15 minutes
-- ✅ Consistent: Follows Spring Boot patterns
+- <span class="fragment">✅ Generate complete entity with proper annotations</span>
+- <span class="fragment">✅ Fast: 30 seconds vs. 15 minutes</span>
+- <span class="fragment">✅ Consistent: Follows Spring Boot patterns</span>
+
+---
 
 **Prompt example:**
 
@@ -67,10 +71,10 @@ By the end of this module you will be able to:
 
 **Start simple:**
 
-1. Entity only
-2. Add repository interface
-3. Add service class with constructor injection
-4. Add controller with REST endpoint
+1. <span class="fragment">Entity only</span>
+2. <span class="fragment">Add repository interface</span>
+3. <span class="fragment">Add service class with constructor injection</span>
+4. <span class="fragment">Add controller with REST endpoint</span>
 
 **Build incrementally** — don't ask for everything at once.
 
@@ -88,6 +92,8 @@ private BookRepository repository;
 **Refine prompt:**
 
 > "Use constructor injection, not @Autowired"
+
+---
 
 **Improved output:**
 
@@ -120,9 +126,9 @@ public BookService(BookRepository repository) {
 
 **Problems:**
 
-- ❌ Hard to read: Old patterns, verbose syntax
-- ❌ No documentation: Why was it written this way?
-- ❌ Risk: Don't know what it does or what breaks if changed
+- <span class="fragment">❌ Hard to read: Old patterns, verbose syntax</span>
+- <span class="fragment">❌ No documentation: Why was it written this way?</span>
+- <span class="fragment">❌ Risk: Don't know what it does or what breaks if changed</span>
 
 **Result:** Fear of touching legacy code
 
@@ -136,10 +142,10 @@ public BookService(BookRepository repository) {
 
 **AI provides:**
 
-- ✅ Functional explanation
-- ✅ Historical context
-- ✅ Dependency analysis
-- ✅ Modern equivalent suggestions
+- <span class="fragment">✅ Functional explanation</span>
+- <span class="fragment">✅ Historical context</span>
+- <span class="fragment">✅ Dependency analysis</span>
+- <span class="fragment">✅ Modern equivalent suggestions</span>
 
 ---
 
@@ -163,9 +169,9 @@ public BookService(BookRepository repository) {
 
 **Problems:**
 
-- ❌ Hard to read: Nested loops, multiple null checks
-- ❌ Not modern: Java 8+ features not used
-- ❌ Error-prone: Easy to introduce bugs
+- <span class="fragment">❌ Hard to read: Nested loops, multiple null checks</span>
+- <span class="fragment">❌ Not modern: Java 8+ features not used</span>
+- <span class="fragment">❌ Error-prone: Easy to introduce bugs</span>
 
 **Result:** Code that works but is hard to maintain
 
@@ -179,9 +185,9 @@ public BookService(BookRepository repository) {
 
 **AI suggests:**
 
-- ✅ Stream-based refactor
-- ✅ More readable: Functional style
-- ✅ Modern: Uses Java 17 features
+- <span class="fragment">✅ Stream-based refactor</span>
+- <span class="fragment">✅ More readable: Functional style</span>
+- <span class="fragment">✅ Modern: Uses Java 17 features</span>
 
 ---
 
@@ -203,9 +209,9 @@ public BookService(BookRepository repository) {
 
 **Always:**
 
-- ⚠️ Run tests before and after
-- ⚠️ Review the diff carefully
-- ⚠️ Verify behavior hasn't changed
+- <span class="fragment">⚠️ Run tests before and after</span>
+- <span class="fragment">⚠️ Review the diff carefully</span>
+- <span class="fragment">⚠️ Verify behavior hasn't changed</span>
 
 **Example:** Refactor that breaks a test → fix it → tests pass
 
@@ -230,9 +236,9 @@ public BookService(BookRepository repository) {
 
 **Manual approach:**
 
-- ❌ Write test class, set up mocks, write assertions
-- ❌ Time-consuming: 10-15 minutes per test method
-- ❌ Easy to miss: Edge cases, null handling
+- <span class="fragment">❌ Write test class, set up mocks, write assertions</span>
+- <span class="fragment">❌ Time-consuming: 10-15 minutes per test method</span>
+- <span class="fragment">❌ Easy to miss: Edge cases, null handling</span>
 
 **Result:** Tests are written slowly or skipped
 
@@ -246,9 +252,9 @@ public BookService(BookRepository repository) {
 
 **AI generates:**
 
-- ✅ Complete test class
-- ✅ Includes mocks setup
-- ✅ Covers multiple scenarios
+- <span class="fragment">✅ Complete test class</span>
+- <span class="fragment">✅ Includes mocks setup</span>
+- <span class="fragment">✅ Covers multiple scenarios</span>
 
 ---
 
@@ -286,15 +292,15 @@ public BookService(BookRepository repository) {
 
 **Cover:**
 
-- ✅ Happy path
-- ✅ Edge cases (null, empty, exceptions)
-- ✅ Proper mocking (Mockito)
-- ✅ Clear assertions
+- <span class="fragment">✅ Happy path</span>
+- <span class="fragment">✅ Edge cases (null, empty, exceptions)</span>
+- <span class="fragment">✅ Proper mocking (Mockito)</span>
+- <span class="fragment">✅ Clear assertions</span>
 
 **Verify:**
 
-- ⚠️ Tests actually test the right thing
-- ⚠️ Don't trust tests without running them
+- <span class="fragment">⚠️ Tests actually test the right thing</span>
+- <span class="fragment">⚠️ Don't trust tests without running them</span>
 
 ---
 
@@ -304,9 +310,9 @@ public BookService(BookRepository repository) {
 
 **Problems:**
 
-- ❌ Wrong version: Uses Spring Boot 2 instead of 3
-- ❌ Wrong patterns: Doesn't match team style
-- ❌ Security issue: Missing validation
+- <span class="fragment">❌ Wrong version: Uses Spring Boot 2 instead of 3</span>
+- <span class="fragment">❌ Wrong patterns: Doesn't match team style</span>
+- <span class="fragment">❌ Security issue: Missing validation</span>
 
 **Result:** Code that doesn't work or introduces bugs
 
@@ -316,11 +322,11 @@ public BookService(BookRepository repository) {
 
 **Before applying AI output, check:**
 
-- ✅ **Correctness:** Does it compile? Does it work?
-- ✅ **Version:** Right Spring Boot/Java version?
-- ✅ **Style:** Matches team conventions?
-- ✅ **Security:** No obvious vulnerabilities?
-- ✅ **Tests:** Can I test this?
+- <span class="fragment">✅ **Correctness:** Does it compile? Does it work?</span>
+- <span class="fragment">✅ **Version:** Right Spring Boot/Java version?</span>
+- <span class="fragment">✅ **Style:** Matches team conventions?</span>
+- <span class="fragment">✅ **Security:** No obvious vulnerabilities?</span>
+- <span class="fragment">✅ **Tests:** Can I test this?</span>
 
 ---
 
@@ -328,24 +334,30 @@ public BookService(BookRepository repository) {
 
 **Wrong API versions:**
 
-- Spring Boot 2 vs. 3 APIs
-- Java 8 vs. Java 17 features
+- <span class="fragment">Spring Boot 2 vs. 3 APIs</span>
+- <span class="fragment">Java 8 vs. Java 17 features</span>
+
+---
 
 **Deprecated patterns:**
 
-- @Autowired vs. constructor injection
-- Old exception handling
+- <span class="fragment">@Autowired vs. constructor injection</span>
+- <span class="fragment">Old exception handling</span>
+
+---
 
 **Security issues:**
 
-- SQL injection risks
-- Missing validation
-- XSS vulnerabilities
+- <span class="fragment">SQL injection risks</span>
+- <span class="fragment">Missing validation</span>
+- <span class="fragment">XSS vulnerabilities</span>
+
+---
 
 **Performance problems:**
 
-- N+1 queries
-- Inefficient algorithms
+- <span class="fragment">N+1 queries</span>
+- <span class="fragment">Inefficient algorithms</span>
 
 ---
 
@@ -353,11 +365,11 @@ public BookService(BookRepository repository) {
 
 **Reject if:**
 
-- ❌ Wrong version or API
-- ❌ Doesn't match team style
-- ❌ Security concerns
-- ❌ Too complex or unclear
-- ❌ Better to write manually
+- <span class="fragment">❌ Wrong version or API</span>
+- <span class="fragment">❌ Doesn't match team style</span>
+- <span class="fragment">❌ Security concerns</span>
+- <span class="fragment">❌ Too complex or unclear</span>
+- <span class="fragment">❌ Better to write manually</span>
 
 **Remember:** AI assists, but you're responsible for the code.
 
@@ -365,11 +377,11 @@ public BookService(BookRepository repository) {
 
 ## Summary
 
-1. **Generation:** Boilerplate, entities, services — fast and consistent
-2. **Explanation:** Legacy code, unfamiliar patterns — understand before changing
-3. **Refactoring:** Modernize safely — always test before/after
-4. **Testing:** Generate tests — run and refine iteratively
-5. **Review:** Always evaluate before applying — correctness, version, style, security
+1. <span class="fragment">**Generation:** Boilerplate, entities, services — fast and consistent</span>
+2. <span class="fragment">**Explanation:** Legacy code, unfamiliar patterns — understand before changing</span>
+3. <span class="fragment">**Refactoring:** Modernize safely — always test before/after</span>
+4. <span class="fragment">**Testing:** Generate tests — run and refine iteratively</span>
+5. <span class="fragment">**Review:** Always evaluate before applying — correctness, version, style, security</span>
 
 ---
 
@@ -377,7 +389,7 @@ public BookService(BookRepository repository) {
 
 **What we've learned:**
 
-- **What** to prompt for in Java development (generation, explanation, refactoring, testing)
+- <span class="fragment">**What** to prompt for in Java development (generation, explanation, refactoring, testing)</span>
 
 **What's next:**
 

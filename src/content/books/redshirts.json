@@ -1,0 +1,48 @@
+{
+  "title": "Redshirts",
+  "author": "John Scalzi",
+  "dateFinished": "2022-02-22",
+  "genre": "Unknown",
+  "pages": 320,
+  "readingYear": 2022,
+  "readingMonth": 2,
+  "isCurrentlyReading": false,
+  "goodreadsId": "13055592",
+  "rating": 4,
+  "isbn": "0765316994",
+  "isbn13": "9780765316998",
+  "enhancedGenre": "Science Fiction, Satire",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "identity",
+    "fate",
+    "science fiction tropes",
+    "satire of media",
+    "heroism"
+  ],
+  "targetAudience": "Fans of science fiction and humorous literature",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Hitchhiker's Guide to the Galaxy",
+    "Galaxy Quest: The Journey Continues",
+    "Old Man's War"
+  ],
+  "keyInsights": [
+    "Explores the nature of narrative and storytelling",
+    "Critiques the conventions of science fiction",
+    "Offers a humorous take on the lives of minor characters"
+  ],
+  "tags": [
+    "science fiction",
+    "satire",
+    "humor",
+    "space opera",
+    "meta-narrative"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:32:19.324Z",
+  "localCoverPath": "/book-covers/redshirts-john-scalzi.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780765316998-M.jpg"
+}

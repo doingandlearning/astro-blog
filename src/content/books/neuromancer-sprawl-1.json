@@ -1,0 +1,48 @@
+{
+  "title": "Neuromancer (Sprawl #1)",
+  "author": "William Gibson",
+  "dateFinished": "2011-10-27",
+  "genre": "Unknown",
+  "pages": 271,
+  "readingYear": 2011,
+  "readingMonth": 10,
+  "isCurrentlyReading": false,
+  "goodreadsId": "22328",
+  "rating": 4,
+  "enhancedGenre": "Cyberpunk, Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Advanced",
+  "themes": [
+    "Artificial Intelligence",
+    "Corporate Control",
+    "Virtual Reality",
+    "Identity",
+    "Technology and Society"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and cyberpunk themes",
+  "complexity": "Complex",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "Snow Crash",
+    "Altered Carbon",
+    "The Diamond Age",
+    "Ghost in the Shell",
+    "Do Androids Dream of Electric Sheep?"
+  ],
+  "keyInsights": [
+    "Exploration of the intersection between humanity and technology",
+    "Critique of corporate power and capitalism",
+    "Visionary portrayal of a digital future"
+  ],
+  "tags": [
+    "Cyberpunk",
+    "Science Fiction",
+    "Dystopian",
+    "Classic",
+    "Speculative Fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:26:09.286Z",
+  "localCoverPath": "/book-covers/neuromancer-sprawl-1-william-gibson.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/id/283860-M.jpg"
+}

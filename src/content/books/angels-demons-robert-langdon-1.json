@@ -1,0 +1,52 @@
+{
+  "title": "Angels & Demons (Robert Langdon, #1)",
+  "author": "Dan    Brown",
+  "dateFinished": "2022-09-14",
+  "genre": "Unknown",
+  "pages": 736,
+  "readingYear": 2022,
+  "readingMonth": 9,
+  "isCurrentlyReading": false,
+  "goodreadsId": "960",
+  "rating": 0,
+  "isbn": "1416524797",
+  "isbn13": "9781416524793",
+  "enhancedGenre": "Thriller, Mystery, Adventure",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Religion",
+    "Science",
+    "Conspiracy",
+    "Good vs. Evil",
+    "Historical Mysteries"
+  ],
+  "targetAudience": "Readers who enjoy thrillers, mysteries, and adventure stories with historical and scientific elements",
+  "complexity": "Moderate",
+  "readingTime": "12 hours",
+  "relatedBooks": [
+    "The Da Vinci Code",
+    "Inferno",
+    "The Lost Symbol",
+    "Digital Fortress",
+    "Deception Point"
+  ],
+  "keyInsights": [
+    "The interplay between science and religion",
+    "The significance of historical symbols",
+    "The impact of secret societies on modern events",
+    "The importance of critical thinking in the face of conspiracy"
+  ],
+  "tags": [
+    "Thriller",
+    "Mystery",
+    "Adventure",
+    "Dan Brown",
+    "Robert Langdon",
+    "Fiction"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:27:28.432Z",
+  "localCoverPath": "/book-covers/angels--demons-robert-langdon-1-dan-brown.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781416524793-M.jpg"
+}

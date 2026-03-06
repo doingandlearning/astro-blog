@@ -1,0 +1,44 @@
+{
+  "title": "Learn Me Good",
+  "author": "John  Pearson",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 214,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "6531685",
+  "rating": 1,
+  "enhancedGenre": "Educational Humor",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Beginner",
+  "themes": [
+    "Teaching",
+    "Education",
+    "Humor",
+    "Personal Growth"
+  ],
+  "targetAudience": "Teachers, Educators, and Parents",
+  "complexity": "Simple",
+  "readingTime": "4 hours",
+  "relatedBooks": [
+    "The Teacher's Funeral by Richard Peck",
+    "Why Don't Students Like School? by Daniel T. Willingham",
+    "The First Days of School by Harry K. Wong"
+  ],
+  "keyInsights": [
+    "The importance of humor in education",
+    "Engaging students through relatable experiences",
+    "Challenges faced by new teachers"
+  ],
+  "tags": [
+    "Education",
+    "Teaching",
+    "Humor",
+    "Personal Development"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:50:31.391Z",
+  "localCoverPath": "/book-covers/learn-me-good-john-pearson.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/id/662232-M.jpg"
+}

@@ -4,26 +4,14 @@
 
 ---
 
-## Learning objectives
-
-By the end of this module you will be able to:
-
-- Explain the LLM landscape and how to choose the right model/tool for the job
-- Articulate critical distinctions between **public AI** and **enterprise** instances
-- Apply context-aware best practices for MS Copilot with internal vs. generic use
-- Describe AI capabilities and limitations: hallucinations, cut-offs, bias
-- Recognise when not to trust AI output and how to verify it
-
----
-
 ## The problem we're solving
 
 You've heard AI can help with coding, but...
 
-- ❌ Which tool should I use?
-- ❌ Is it safe to paste my code?
-- ❌ Can I trust what it tells me?
-- ❌ What if it's wrong?
+- <span class="fragment">❌ Which tool should I use?</span>
+- <span class="fragment">❌ Is it safe to paste my code?</span>
+- <span class="fragment">❌ Can I trust what it tells me?</span>
+- <span class="fragment">❌ What if it's wrong?</span>
 
 **Today**: Answer these questions so you can use AI confidently and safely.
 
@@ -33,24 +21,27 @@ You've heard AI can help with coding, but...
 
 **The confusion:**
 
-- Multiple models: GPT-4, Claude, Gemini, Llama...
-- Multiple providers: OpenAI, Anthropic, Google, Microsoft...
-- **Problem**: "Which one do I use?"
+- <span class="fragment">Multiple models: GPT-4, Claude, Gemini, Llama...</span>
+- <span class="fragment">Multiple providers: OpenAI, Anthropic, Google, Microsoft...</span>
+- <span class="fragment">**Problem**: "Which one do I use?"</span>
+
+
+---
 
 **The reality:**
 
-- No single "best" model
-- Different strengths: code vs. reasoning vs. speed vs. cost
-- **Solution**: Choose by task and policy
+- <span class="fragment">No single "best" model</span>
+- <span class="fragment">Different strengths: code vs. reasoning vs. speed vs. cost</span>
+- <span class="fragment">**Solution**: Choose by task and policy</span>
 
 ---
 
 ## The LLM landscape
 
-- Multiple **model families**: GPT-4, Claude, Gemini, Llama, etc.
-- Multiple **providers**: OpenAI, Anthropic, Google, Meta, Microsoft, open-source
-- Different **strengths**: code, reasoning, long context, speed, cost
-- Key question: **which tool for which job?**
+- <span class="fragment">Multiple **model families**: GPT-4, Claude, Gemini, Llama, etc.</span>
+- <span class="fragment">Multiple **providers**: OpenAI, Anthropic, Google, Meta, Microsoft, open-source</span>
+- <span class="fragment">Different **strengths**: code, reasoning, long context, speed, cost</span>
+- <span class="fragment">Key question: **which tool for which job?**</span>
 
 ---
 
@@ -69,10 +60,10 @@ No single “best” model — fit depends on task, data policy, and environment
 
 ## Which tool for which job?
 
-- **Daily coding**: IDE integration (Copilot, Cursor) or chat (Copilot, ChatGPT)
-- **Design / architecture**: Models with strong reasoning and long context
-- **Sensitive or internal data**: Enterprise / in-tenant instances only
-- **Experimentation**: Public chat OK for synthetic examples only
+- <span class="fragment">**Daily coding**: IDE integration (Copilot, Cursor) or chat (Copilot, ChatGPT)</span>
+- <span class="fragment">**Design / architecture**: Models with strong reasoning and long context</span>
+- <span class="fragment">**Sensitive or internal data**: Enterprise / in-tenant instances only</span>
+- <span class="fragment">**Experimentation**: Public chat OK for synthetic examples only</span>
 
 ---
 
@@ -80,15 +71,17 @@ No single “best” model — fit depends on task, data policy, and environment
 
 **Scenario**: Developer pastes internal API spec into public ChatGPT
 
-- ❌ Data may be used for training
-- ❌ Data may be retained by provider
-- ❌ Compliance risk
-- ❌ Security risk
+- <span class="fragment">❌ Data may be used for training</span>
+- <span class="fragment">❌ Data may be retained by provider</span>
+- <span class="fragment">❌ Compliance risk</span>
+- <span class="fragment">❌ Security risk</span>
+
+---
 
 **The critical distinction:**
 
-- **Public AI**: Provider policy controls data; not for proprietary/personal data
-- **Enterprise AI**: Your tenant/contract; designed for internal use
+- <span class="fragment">**Public AI**: Provider policy controls data; not for proprietary/personal data</span>
+- <span class="fragment">**Enterprise AI**: Your tenant/contract; designed for internal use</span>
 
 **What you send and where it is processed determines risk.**
 
@@ -107,37 +100,37 @@ No single “best” model — fit depends on task, data policy, and environment
 
 ## MS Copilot in context
 
-- **With internal datasets**: Use only when your organisation has approved Copilot for that data classification
-- **With generic coding**: Fine for public APIs, patterns, and synthetic examples
-- **What to avoid**: Pasting proprietary code or internal APIs into public or unapproved tools
-- When in doubt: **enterprise instance or don’t send**
+- <span class="fragment">**With internal datasets**: Use only when your organisation has approved Copilot for that data classification</span>
+- <span class="fragment">**With generic coding**: Fine for public APIs, patterns, and synthetic examples</span>
+- <span class="fragment">**What to avoid**: Pasting proprietary code or internal APIs into public or unapproved tools</span>
+- <span class="fragment">When in doubt: **enterprise instance or don’t send**</span>
 
 ---
 
 ## Capabilities and limitations
 
-- **Hallucinations**: Plausible but wrong answers; models don’t “know” they’re wrong
-- **Knowledge cut-offs**: Training data has a date; no live knowledge after that
-- **Bias**: Reflecting biases in training data or prompts
-- **No guarantee**: Output is probabilistic, not certified
+- <span class="fragment">**Hallucinations**: Plausible but wrong answers; models don’t “know” they’re wrong</span>
+- <span class="fragment">**Knowledge cut-offs**: Training data has a date; no live knowledge after that</span>
+- <span class="fragment">**Bias**: Reflecting biases in training data or prompts</span>
+- <span class="fragment">**No guarantee**: Output is probabilistic, not certified</span>
 
 ---
 
 ## Hallucinations, cut-offs, and bias
 
-- **Hallucination**: Invented APIs, wrong library versions, fake citations
-- **Cut-off**: “What’s new in Spring Boot 3.2?” may be incomplete or wrong
-- **Bias**: Stereotypes in descriptions or uneven treatment of options
-- **Mitigation**: Verify critical facts; use enterprise + internal docs where it matters
+- <span class="fragment">**Hallucination**: Invented APIs, wrong library versions, fake citations</span>
+- <span class="fragment">**Cut-off**: “What’s new in Spring Boot 3.2?” may be incomplete or wrong</span>
+- <span class="fragment">**Bias**: Stereotypes in descriptions or uneven treatment of options</span>
+- <span class="fragment">**Mitigation**: Verify critical facts; use enterprise + internal docs where it matters</span>
 
 ---
 
 ## Trust but verify
 
-- **Do trust** (with verification): Boilerplate, common patterns, explanations of public docs
-- **Verify always**: API signatures, versions, security-sensitive code, compliance
-- **Don’t trust blindly**: Numbers, dates, “it said so” for internal or proprietary context
-- **Escalate**: When output affects production, security, or legal/compliance
+- <span class="fragment">**Do trust** (with verification): Boilerplate, common patterns, explanations of public docs</span>
+- <span class="fragment">**Verify always**: API signatures, versions, security-sensitive code, compliance</span>
+- <span class="fragment">**Don’t trust blindly**: Numbers, dates, “it said so” for internal or proprietary context</span>
+- <span class="fragment">**Escalate**: When output affects production, security, or legal/compliance</span>
 
 ---
 
@@ -154,10 +147,10 @@ No single “best” model — fit depends on task, data policy, and environment
 
 ## Summary
 
-1. **Landscape**: Many models and providers — choose by task and policy.
-2. **Privacy**: Public vs. enterprise is non-negotiable; keep internal data in-house.
-3. **Limitations**: Hallucinations, cut-offs, bias — verify critical output.
-4. **Practice**: Trust but verify; know when to rely and when to escalate.
+1. <span class="fragment">**Landscape**: Many models and providers — choose by task and policy.</span>
+2. <span class="fragment">**Privacy**: Public vs. enterprise is non-negotiable; keep internal data in-house.</span>
+3. <span class="fragment">**Limitations**: Hallucinations, cut-offs, bias — verify critical output.</span>
+4. <span class="fragment">**Practice**: Trust but verify; know when to rely and when to escalate.</span>
 
 ---
 
@@ -165,12 +158,12 @@ No single “best” model — fit depends on task, data policy, and environment
 
 **What we've learned:**
 
-- **Where** to use AI (public vs. enterprise)
-- **When** to trust vs. verify
+- <span class="fragment">**Where** to use AI (public vs. enterprise)</span>
+- <span class="fragment">**When** to trust vs. verify</span>
 
 **What's next:**
 
-**Module 2**: Core prompt engineering — **how** to prompt effectively (clarity, context, constraints, iterative refinement).
+- <span class="fragment">**Module 2**: Core prompt engineering — **how** to prompt effectively (clarity, context, constraints, iterative refinement).</span>
 
 The safety principles from Module 1 apply throughout the course.
 

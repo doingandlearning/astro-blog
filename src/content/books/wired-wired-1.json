@@ -1,0 +1,48 @@
+{
+  "title": "Wired (Wired, #1)",
+  "author": "Douglas E. Richards",
+  "dateFinished": "2023-07-24",
+  "genre": "Unknown",
+  "pages": 358,
+  "readingYear": 2023,
+  "readingMonth": 7,
+  "isCurrentlyReading": false,
+  "goodreadsId": "40881542",
+  "rating": 0,
+  "isbn": "0982618484",
+  "isbn13": "9780982618486",
+  "enhancedGenre": "Science Fiction, Thriller",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Technology",
+    "Human Evolution",
+    "Ethics of Science",
+    "Surveillance",
+    "Artificial Intelligence"
+  ],
+  "targetAudience": "Readers interested in speculative fiction and technological thrillers",
+  "complexity": "Moderate",
+  "readingTime": "7 hours",
+  "relatedBooks": [
+    "Neuromancer by William Gibson",
+    "The Peripheral by William Gibson",
+    "Snow Crash by Neal Stephenson"
+  ],
+  "keyInsights": [
+    "Exploration of the impact of technology on humanity",
+    "Moral dilemmas posed by scientific advancements",
+    "The potential consequences of artificial intelligence"
+  ],
+  "tags": [
+    "Science Fiction",
+    "Thriller",
+    "Technology",
+    "Artificial Intelligence",
+    "Ethics"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:26:24.944Z",
+  "localCoverPath": "/book-covers/wired-wired-1-douglas-e.-richards.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780982618486-M.jpg"
+}

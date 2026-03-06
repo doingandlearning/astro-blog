@@ -1,0 +1,51 @@
+{
+  "title": "Harry Potter and the Order of the Phoenix (Harry Potter, #5)",
+  "author": "J.K. Rowling",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 766,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "444327",
+  "rating": 5,
+  "isbn": "0747551006",
+  "isbn13": "9780747551003",
+  "enhancedGenre": "Fantasy, Young Adult",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Friendship",
+    "Courage",
+    "Authority and Rebellion",
+    "Loss and Grief",
+    "Coming of Age"
+  ],
+  "targetAudience": "Young adults and fans of fantasy literature",
+  "complexity": "Moderate",
+  "readingTime": "12 hours",
+  "relatedBooks": [
+    "Harry Potter and the Philosopher's Stone",
+    "Harry Potter and the Chamber of Secrets",
+    "Harry Potter and the Prisoner of Azkaban",
+    "Harry Potter and the Goblet of Fire",
+    "Harry Potter and the Half-Blood Prince"
+  ],
+  "keyInsights": [
+    "Explores the importance of friendship and loyalty",
+    "Addresses themes of resistance against oppressive authority",
+    "Highlights the struggles of adolescence and personal growth"
+  ],
+  "tags": [
+    "Fantasy",
+    "Magic",
+    "Wizards",
+    "Adventure",
+    "Young Adult",
+    "Series"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:44:42.608Z",
+  "localCoverPath": "/book-covers/harry-potter-and-the-order-of-the-phoenix-harry-potter-5-j.k.-rowling.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780747551003-M.jpg"
+}

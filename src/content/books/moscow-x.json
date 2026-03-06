@@ -1,0 +1,48 @@
+{
+  "title": "Moscow X",
+  "author": "David McCloskey",
+  "dateFinished": "2026-03-06",
+  "genre": "Unknown",
+  "pages": 454,
+  "localCoverPath": "/book-covers/moscow-x-david-mccloskey.png",
+  "readingYear": 2026,
+  "readingMonth": 3,
+  "isCurrentlyReading": false,
+  "goodreadsId": "77265038",
+  "rating": 0,
+  "isbn": "1324050756",
+  "isbn13": "9781324050759",
+  "enhancedGenre": "Thriller, Political Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "espionage",
+    "political intrigue",
+    "international relations",
+    "morality in warfare"
+  ],
+  "targetAudience": "Readers interested in political thrillers and espionage narratives",
+  "complexity": "Moderate",
+  "readingTime": "10 hours",
+  "relatedBooks": [
+    "The Spy Who Came in from the Cold",
+    "I Am Pilgrim",
+    "The Silent Patient"
+  ],
+  "keyInsights": [
+    "Explores the complexities of loyalty and betrayal",
+    "Highlights the impact of political decisions on personal lives",
+    "Examines the moral dilemmas faced by intelligence operatives"
+  ],
+  "tags": [
+    "thriller",
+    "politics",
+    "espionage",
+    "fiction",
+    "international relations"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:24:23.251Z",
+  "localCoverPath": "/book-covers/moscow-x-david-mccloskey.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781324050759-M.jpg"
+}

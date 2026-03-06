@@ -23,7 +23,9 @@
     "cleanup-data": "tsx src/scripts/cleanupTestData.ts cleanup",
     "cleanup-full": "tsx src/scripts/cleanupTestData.ts full",
     "download-covers": "tsx src/scripts/downloadCoverImages.ts",
-    "export-harwell-slides": "tsx src/scripts/exportHarwellSlidesPdf.ts"
+    "export-harwell-slides": "tsx src/scripts/exportHarwellSlidesPdf.ts",
+    "sync-books": "tsx src/scripts/syncGoodreadsCsv.ts",
+    "fill-covers": "tsx src/scripts/fillMissingCovers.ts"
   },
   "dependencies": {
     "@astro-community/astro-embed-bluesky": "^0.1.3",

@@ -99,6 +99,13 @@ async function main() {
       await page.waitForSelector(".reveal .slides section", { timeout: 10000 }).catch(() => {});
       await new Promise((r) => setTimeout(r, 1500));
 
+      // One PDF page per slide; show all fragments at once (no animation / separate pages per fragment)
+      await page.evaluate(() => {
+        const w = window as Window & { Reveal?: { configure: (c: object) => void } };
+        if (w.Reveal) w.Reveal.configure({ pdfSeparateFragments: false });
+      });
+      await new Promise((r) => setTimeout(r, 500));
+
       await page.pdf({
         path: pdfPath,
         width: "1280px",

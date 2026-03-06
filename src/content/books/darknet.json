@@ -1,0 +1,47 @@
+{
+  "title": "Darknet",
+  "author": "Matthew Mather",
+  "dateFinished": "2022-06-12",
+  "genre": "Unknown",
+  "pages": 346,
+  "readingYear": 2022,
+  "readingMonth": 6,
+  "isCurrentlyReading": false,
+  "goodreadsId": "36463554",
+  "rating": 3,
+  "enhancedGenre": "Cyberpunk Thriller",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "technology",
+    "society",
+    "privacy",
+    "crime",
+    "surveillance"
+  ],
+  "targetAudience": "Readers interested in technology, thrillers, and speculative fiction",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "Neuromancer",
+    "Snow Crash",
+    "Ready Player One",
+    "The Circle"
+  ],
+  "keyInsights": [
+    "Exploration of the dark side of technology",
+    "Impact of digital privacy on society",
+    "The intersection of crime and technology"
+  ],
+  "tags": [
+    "cyberpunk",
+    "thriller",
+    "technology",
+    "privacy",
+    "crime"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:29:54.575Z",
+  "localCoverPath": "/book-covers/darknet-matthew-mather.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/id/10415251-M.jpg"
+}

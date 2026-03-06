@@ -1,0 +1,47 @@
+{
+  "title": "Learning Revolution",
+  "author": "Gordon Dryden",
+  "dateFinished": "2015-11-30",
+  "genre": "Unknown",
+  "pages": 544,
+  "readingYear": 2015,
+  "readingMonth": 11,
+  "isCurrentlyReading": false,
+  "goodreadsId": "1013806",
+  "rating": 1,
+  "isbn": "185539085X",
+  "isbn13": "9781855390850",
+  "enhancedGenre": "Educational Theory and Practice",
+  "bookCategory": "Non-Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Lifelong Learning",
+    "Educational Reform",
+    "Teaching Methods",
+    "Learning Technologies"
+  ],
+  "targetAudience": "Educators, Administrators, Lifelong Learners",
+  "complexity": "Moderate",
+  "readingTime": "12 hours",
+  "relatedBooks": [
+    "The Learning Revolution by Gordon Dryden",
+    "The Element by Ken Robinson",
+    "Mindset by Carol S. Dweck"
+  ],
+  "keyInsights": [
+    "Importance of adapting to new learning technologies",
+    "Strategies for effective teaching",
+    "The role of motivation in learning"
+  ],
+  "tags": [
+    "Education",
+    "Learning",
+    "Teaching",
+    "Innovation",
+    "Personal Development"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:28:12.837Z",
+  "localCoverPath": "/book-covers/learning-revolution-gordon-dryden.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9781855390850-M.jpg"
+}

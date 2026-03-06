@@ -1,0 +1,49 @@
+{
+  "title": "American Spy",
+  "author": "Lauren Wilkinson",
+  "dateFinished": "2023-02-11",
+  "genre": "Unknown",
+  "pages": 292,
+  "readingYear": 2023,
+  "readingMonth": 2,
+  "isCurrentlyReading": false,
+  "goodreadsId": "40274582",
+  "rating": 4,
+  "isbn": "0812998952",
+  "isbn13": "9780812998955",
+  "enhancedGenre": "Historical Fiction, Espionage",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Identity",
+    "Race",
+    "Espionage",
+    "Feminism",
+    "Cold War"
+  ],
+  "targetAudience": "Readers interested in historical fiction and espionage narratives, particularly those exploring race and gender dynamics.",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "The Spy Who Came in from the Cold",
+    "The Night Manager",
+    "The Other Woman",
+    "The Alice Network"
+  ],
+  "keyInsights": [
+    "Explores the intersection of race and espionage",
+    "Highlights the role of women in intelligence",
+    "Reflects on personal and political identity during the Cold War"
+  ],
+  "tags": [
+    "Espionage",
+    "Historical Fiction",
+    "Race",
+    "Women in History",
+    "Cold War"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:26:32.319Z",
+  "localCoverPath": "/book-covers/american-spy-lauren-wilkinson.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780812998955-M.jpg"
+}

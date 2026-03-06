@@ -1,0 +1,50 @@
+{
+  "title": "Little Brother (Little Brother, #1)",
+  "author": "Cory Doctorow",
+  "dateFinished": "2022-03-05",
+  "genre": "Unknown",
+  "pages": 382,
+  "readingYear": 2022,
+  "readingMonth": 3,
+  "isCurrentlyReading": false,
+  "goodreadsId": "954674",
+  "rating": 5,
+  "isbn": "0765319853",
+  "isbn13": "9780765319852",
+  "enhancedGenre": "Young Adult Science Fiction",
+  "bookCategory": "Fiction",
+  "readingLevel": "Intermediate",
+  "themes": [
+    "Surveillance",
+    "Civil Liberties",
+    "Technology",
+    "Rebellion",
+    "Youth Activism"
+  ],
+  "targetAudience": "Young adults and readers interested in technology and social issues",
+  "complexity": "Moderate",
+  "readingTime": "6 hours",
+  "relatedBooks": [
+    "Little Brother: The Graphic Novel",
+    "Homeland",
+    "1984",
+    "The Hunger Games",
+    "Feed"
+  ],
+  "keyInsights": [
+    "The impact of technology on privacy",
+    "The importance of civil rights",
+    "Youth empowerment in the face of authority"
+  ],
+  "tags": [
+    "Dystopian",
+    "Cyberpunk",
+    "Activism",
+    "Teen Fiction",
+    "Social Commentary"
+  ],
+  "llmProcessed": true,
+  "llmProcessedAt": "2026-03-06T13:31:11.139Z",
+  "localCoverPath": "/book-covers/little-brother-little-brother-1-cory-doctorow.jpg",
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/9780765319852-M.jpg"
+}
