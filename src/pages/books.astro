@@ -14,12 +14,34 @@ const allBooks = await getCollection("books");
 const sinceDate = new Date("2025-01-01");
 const books = allBooks.filter((book) => new Date(book.data.dateFinished) >= sinceDate);
 
-// Sort books by date finished (most recent first)
-const sortedBooks = books.sort(
-	(a, b) =>
-		new Date(b.data.dateFinished).getTime() -
-		new Date(a.data.dateFinished).getTime(),
-);
+/** Extract series key from title for grouping e.g. "(Expeditionary Force, #1)" -> "Expeditionary Force"; "(Convergence #1)" -> "Convergence" */
+function getSeriesKey(title: string): string {
+	const match = title.match(/\(([^)]+)\)\s*$/);
+	if (!match) return title;
+	const inner = match[1].replace(/,?\s*#\d+(?:\.\d+)?\s*$/, "").trim();
+	return inner || match[1];
+}
+
+/** Parse series position from title e.g. "(Series, #3)" -> 3, "(Series, #2.5)" -> 2.5; no match -> Infinity */
+function getSeriesOrder(title: string): number {
+	const match = title.match(/#(\d+(?:\.\d+)?)\s*\)?\s*$/);
+	return match ? parseFloat(match[1]) : Infinity;
+}
+
+// Sort by date (newest first), then by series key (so same series stay together), then by series # within series, then title
+const sortedBooks = books.sort((a, b) => {
+	const dateA = new Date(a.data.dateFinished).getTime();
+	const dateB = new Date(b.data.dateFinished).getTime();
+	if (dateB !== dateA) return dateB - dateA;
+	const keyA = getSeriesKey(a.data.title ?? "");
+	const keyB = getSeriesKey(b.data.title ?? "");
+	const keyCmp = keyA.localeCompare(keyB);
+	if (keyCmp !== 0) return keyCmp;
+	const orderA = getSeriesOrder(a.data.title ?? "");
+	const orderB = getSeriesOrder(b.data.title ?? "");
+	if (orderA !== orderB) return orderA - orderB;
+	return (a.data.title ?? "").localeCompare(b.data.title ?? "");
+});
 
 // Convert collection entries to BookWithEnhancedData format
 const booksData: BookWithEnhancedData[] = books.map((book) => ({
