@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scale practice</title>
+  <style>
+    :root {
+      --bg: #1a1714;
+      --surface: #242019;
+      --border: #3d362e;
+      --text: #f2ebe3;
+      --muted: #9a8f82;
+      --accent: #c9a227;
+      --accent-dim: #8a7020;
+      --font: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      background: radial-gradient(ellipse 120% 80% at 50% -20%, #2e281f, var(--bg));
+      color: var(--text);
+      font-family: var(--font-ui);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    main {
+      max-width: 36rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+    h1 {
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: 1.75rem;
+      letter-spacing: 0.02em;
+      margin: 0 0 0.25rem;
+    }
+    .sub {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    select {
+      width: 100%;
+      padding: 0.55rem 0.65rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font: inherit;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    @media (max-width: 520px) {
+      .row { grid-template-columns: 1fr; }
+    }
+    fieldset {
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+    legend {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .chips label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin: 0;
+      padding: 0.35rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      font-size: 0.8rem;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--text);
+      cursor: pointer;
+      user-select: none;
+    }
+    .chips input { accent-color: var(--accent); }
+    .chips label:has(input:checked) {
+      border-color: var(--accent-dim);
+      background: rgba(201, 162, 39, 0.12);
+    }
+    .prompt {
+      font-family: var(--font);
+      font-size: 1.35rem;
+      line-height: 1.35;
+      margin: 0 0 0.5rem;
+    }
+    .detail {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0 0 1rem;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 1rem;
+    }
+    .tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.45rem;
+      border-radius: 4px;
+      background: var(--bg);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    button {
+      font: inherit;
+      cursor: pointer;
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--accent-dim);
+      background: linear-gradient(180deg, #d4af37 0%, var(--accent) 100%);
+      color: #1a1508;
+      font-weight: 600;
+    }
+    button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    .empty {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    footer {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Scale practice</h1>
+    <p class="sub">Random prompts from your syllabus. Defaults: ABRSM piano, grade 3.</p>
+
+    <div class="panel">
+      <div class="row">
+        <div>
+          <label for="instrument">Instrument</label>
+          <select id="instrument" aria-label="Instrument"></select>
+        </div>
+        <div>
+          <label for="grade">Grade</label>
+          <select id="grade" aria-label="Grade"></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <fieldset>
+        <legend>Include</legend>
+        <div class="chips" id="filters"></div>
+      </fieldset>
+    </div>
+
+    <div class="panel" id="card">
+      <p class="prompt" id="prompt">Choose filters and tap Next.</p>
+      <p class="detail" id="detail"></p>
+      <div class="tags" id="tags" hidden></div>
+      <div class="actions">
+        <button type="button" id="next">Next random</button>
+      </div>
+    </div>
+
+    <footer>
+      Syllabus data lives in <code>SYLLABUS</code> in this file — extend <code>piano</code> / other instruments and grades there.
+      Cross-check with your <a href="https://www.abrsm.org/" rel="noopener noreferrer">ABRSM</a> book. Woodwind articulation (e.g. slurred vs tongued) and octave spans follow the instrument syllabus.
+    </footer>
+  </main>
+
+  <script>
+    /**
+     * Syllabus: instrument id -> grade number -> { title, items[] }
+     * Each item: { id, title, detail, categories[], hands?: "together"|"right"|"left", motion? }
+     * categories used for filters: major-scale, minor-scale, contrary, chromatic, arpeggio, dominant-7th, diminished-7th
+     */
+    const SYLLABUS = {
+      piano: {
+        1: {
+          title: "Piano — Grade 1 (sample)",
+          items: [
+            { id: "p1-c-maj-rh", title: "C major scale · right hand", detail: "1 octave", categories: ["major-scale"], hands: "right" },
+            { id: "p1-c-maj-lh", title: "C major scale · left hand", detail: "1 octave", categories: ["major-scale"], hands: "left" },
+            { id: "p1-g-maj-rh", title: "G major scale · right hand", detail: "1 octave", categories: ["major-scale"], hands: "right" },
+            { id: "p1-g-maj-lh", title: "G major scale · left hand", detail: "1 octave", categories: ["major-scale"], hands: "left" },
+            { id: "p1-f-maj-rh", title: "F major scale · right hand", detail: "1 octave", categories: ["major-scale"], hands: "right" },
+            { id: "p1-f-maj-lh", title: "F major scale · left hand", detail: "1 octave", categories: ["major-scale"], hands: "left" },
+          ],
+        },
+        2: {
+          title: "Piano — Grade 2 (sample)",
+          items: [
+            { id: "p2-d-maj", title: "D major scale", detail: "Hands together · 1 octave", categories: ["major-scale"], hands: "together" },
+            { id: "p2-bb-maj-rh", title: "B♭ major scale · right hand", detail: "1 octave", categories: ["major-scale"], hands: "right" },
+            { id: "p2-bb-maj-lh", title: "B♭ major scale · left hand", detail: "1 octave", categories: ["major-scale"], hands: "left" },
+            { id: "p2-a-min", title: "A minor scale", detail: "Hands together · 1 octave", categories: ["minor-scale"], hands: "together" },
+          ],
+        },
+        3: {
+          title: "Piano — Grade 3 (ABRSM-style set)",
+          items: [
+            { id: "p3-d-maj", title: "D major scale", detail: "Hands together · 2 octaves · similar motion", categories: ["major-scale"], hands: "together" },
+            { id: "p3-a-maj", title: "A major scale", detail: "Hands together · 2 octaves · similar motion", categories: ["major-scale"], hands: "together" },
+            { id: "p3-eb-maj-rh", title: "E♭ major scale · right hand", detail: "2 octaves", categories: ["major-scale"], hands: "right" },
+            { id: "p3-eb-maj-lh", title: "E♭ major scale · left hand", detail: "2 octaves", categories: ["major-scale"], hands: "left" },
+            { id: "p3-bb-maj-rh", title: "B♭ major scale · right hand", detail: "2 octaves", categories: ["major-scale"], hands: "right" },
+            { id: "p3-bb-maj-lh", title: "B♭ major scale · left hand", detail: "2 octaves", categories: ["major-scale"], hands: "left" },
+            { id: "p3-e-min", title: "E minor scale", detail: "Hands together · 2 octaves", categories: ["minor-scale"], hands: "together" },
+            { id: "p3-g-min", title: "G minor scale", detail: "Hands together · 2 octaves", categories: ["minor-scale"], hands: "together" },
+            { id: "p3-b-min-rh", title: "B minor scale · right hand", detail: "2 octaves", categories: ["minor-scale"], hands: "right" },
+            { id: "p3-b-min-lh", title: "B minor scale · left hand", detail: "2 octaves", categories: ["minor-scale"], hands: "left" },
+            { id: "p3-c-min-rh", title: "C minor scale · right hand", detail: "2 octaves", categories: ["minor-scale"], hands: "right" },
+            { id: "p3-c-min-lh", title: "C minor scale · left hand", detail: "2 octaves", categories: ["minor-scale"], hands: "left" },
+            { id: "p3-e-maj-contrary", title: "E major — contrary motion", detail: "Hands together · 2 octaves · both thumbs on E", categories: ["contrary", "major-scale"], hands: "together", motion: "contrary" },
+            { id: "p3-chr-d", title: "Chromatic scale", detail: "Starting on D · hands together · 1 octave · similar motion", categories: ["chromatic"], hands: "together" },
+            { id: "p3-d-maj-arp", title: "D major arpeggio", detail: "Hands together · 2 octaves", categories: ["arpeggio"], hands: "together" },
+            { id: "p3-a-maj-arp", title: "A major arpeggio", detail: "Hands together · 2 octaves", categories: ["arpeggio"], hands: "together" },
+            { id: "p3-bb-maj-arp-rh", title: "B♭ major arpeggio · right hand", detail: "2 octaves", categories: ["arpeggio"], hands: "right" },
+            { id: "p3-bb-maj-arp-lh", title: "B♭ major arpeggio · left hand", detail: "2 octaves", categories: ["arpeggio"], hands: "left" },
+            { id: "p3-eb-maj-arp-rh", title: "E♭ major arpeggio · right hand", detail: "2 octaves", categories: ["arpeggio"], hands: "right" },
+            { id: "p3-eb-maj-arp-lh", title: "E♭ major arpeggio · left hand", detail: "2 octaves", categories: ["arpeggio"], hands: "left" },
+            { id: "p3-e-min-arp", title: "E minor arpeggio", detail: "Hands together · 2 octaves", categories: ["arpeggio"], hands: "together" },
+            { id: "p3-g-min-arp", title: "G minor arpeggio", detail: "Hands together · 2 octaves", categories: ["arpeggio"], hands: "together" },
+            { id: "p3-b-min-arp-rh", title: "B minor arpeggio · right hand", detail: "2 octaves", categories: ["arpeggio"], hands: "right" },
+            { id: "p3-b-min-arp-lh", title: "B minor arpeggio · left hand", detail: "2 octaves", categories: ["arpeggio"], hands: "left" },
+            { id: "p3-c-min-arp-rh", title: "C minor arpeggio · right hand", detail: "2 octaves", categories: ["arpeggio"], hands: "right" },
+            { id: "p3-c-min-arp-lh", title: "C minor arpeggio · left hand", detail: "2 octaves", categories: ["arpeggio"], hands: "left" },
+          ],
+        },
+        4: { title: "Piano — Grade 4 (add items in SYLLABUS)", items: [] },
+        5: { title: "Piano — Grade 5 (add items in SYLLABUS)", items: [] },
+      },
+      cello: {
+        2: {
+          title: "Cello — Grade 2 (ABRSM-style set)",
+          items: [
+            { id: "c2-g-maj", title: "G major scale", detail: "2 octaves · confirm bowing in scales book", categories: ["major-scale"] },
+            { id: "c2-d-maj", title: "D major scale", detail: "2 octaves · confirm bowing in scales book", categories: ["major-scale"] },
+            { id: "c2-c-maj", title: "C major scale", detail: "1 octave · confirm bowing in scales book", categories: ["major-scale"] },
+            { id: "c2-f-maj", title: "F major scale", detail: "1 octave · confirm bowing in scales book", categories: ["major-scale"] },
+            { id: "c2-bb-maj", title: "B♭ major scale", detail: "1 octave · confirm bowing in scales book", categories: ["major-scale"] },
+            { id: "c2-a-maj", title: "A major scale", detail: "1 octave · confirm bowing in scales book", categories: ["major-scale"] },
+            { id: "c2-g-min", title: "G minor scale", detail: "2 octaves · confirm bowing in scales book", categories: ["minor-scale"] },
+            { id: "c2-d-min", title: "D minor scale", detail: "2 octaves · confirm bowing in scales book", categories: ["minor-scale"] },
+            { id: "c2-g-maj-arp", title: "G major arpeggio", detail: "2 octaves · confirm bowing in scales book", categories: ["arpeggio"] },
+            { id: "c2-d-maj-arp", title: "D major arpeggio", detail: "2 octaves · confirm bowing in scales book", categories: ["arpeggio"] },
+            { id: "c2-c-maj-arp", title: "C major arpeggio", detail: "1 octave · confirm bowing in scales book", categories: ["arpeggio"] },
+            { id: "c2-f-maj-arp", title: "F major arpeggio", detail: "1 octave · confirm bowing in scales book", categories: ["arpeggio"] },
+            { id: "c2-bb-maj-arp", title: "B♭ major arpeggio", detail: "1 octave · confirm bowing in scales book", categories: ["arpeggio"] },
+            { id: "c2-a-maj-arp", title: "A major arpeggio", detail: "1 octave · confirm bowing in scales book", categories: ["arpeggio"] },
+            { id: "c2-g-min-arp", title: "G minor arpeggio", detail: "2 octaves · confirm bowing in scales book", categories: ["arpeggio"] },
+            { id: "c2-d-min-arp", title: "D minor arpeggio", detail: "2 octaves · confirm bowing in scales book", categories: ["arpeggio"] },
+          ],
+        },
+      },
+      flute: {
+        5: {
+          title: "Flute — Grade 5 (ABRSM-style set, 2022 woodwind spec)",
+          items: [
+            { id: "fl5-c-maj", title: "C major scale", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["major-scale"] },
+            { id: "fl5-d-maj", title: "D major scale", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["major-scale"] },
+            { id: "fl5-e-maj", title: "E major scale", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["major-scale"] },
+            { id: "fl5-ab-maj", title: "A♭ major scale", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["major-scale"] },
+            { id: "fl5-a-maj", title: "A major scale", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["major-scale"] },
+            { id: "fl5-c-min", title: "C minor scale", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["minor-scale"] },
+            { id: "fl5-e-min", title: "E minor scale", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["minor-scale"] },
+            { id: "fl5-f-min", title: "F minor scale", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["minor-scale"] },
+            { id: "fl5-fs-min", title: "F♯ minor scale", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["minor-scale"] },
+            { id: "fl5-a-min", title: "A minor scale", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["minor-scale"] },
+            { id: "fl5-c-maj-arp", title: "C major arpeggio", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["arpeggio"] },
+            { id: "fl5-d-maj-arp", title: "D major arpeggio", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["arpeggio"] },
+            { id: "fl5-e-maj-arp", title: "E major arpeggio", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["arpeggio"] },
+            { id: "fl5-ab-maj-arp", title: "A♭ major arpeggio", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["arpeggio"] },
+            { id: "fl5-a-maj-arp", title: "A major arpeggio", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["arpeggio"] },
+            { id: "fl5-c-min-arp", title: "C minor arpeggio", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["arpeggio"] },
+            { id: "fl5-e-min-arp", title: "E minor arpeggio", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["arpeggio"] },
+            { id: "fl5-f-min-arp", title: "F minor arpeggio", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["arpeggio"] },
+            { id: "fl5-fs-min-arp", title: "F♯ minor arpeggio", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["arpeggio"] },
+            { id: "fl5-a-min-arp", title: "A minor arpeggio", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["arpeggio"] },
+            { id: "fl5-chr-cs", title: "Chromatic scale starting on C♯", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["chromatic"] },
+            { id: "fl5-chr-f", title: "Chromatic scale starting on F", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["chromatic"] },
+            { id: "fl5-dom7-a", title: "Dominant 7th in the key of A", detail: "2 octaves · resolve to tonic · tongued or slurred", categories: ["dominant-7th"] },
+            { id: "fl5-dom7-bb", title: "Dominant 7th in the key of B♭", detail: "2 octaves · resolve to tonic · tongued or slurred", categories: ["dominant-7th"] },
+            { id: "fl5-dim7-eb", title: "Diminished 7th starting on E♭", detail: "2 octaves · tongued or slurred (examiner may specify)", categories: ["diminished-7th"] },
+          ],
+        },
+      },
+      violin: {
+        3: {
+          title: "Violin — Grade 3 (template)",
+          items: [
+            { id: "v3-g-maj", title: "G major scale", detail: "1 octave · verify bowing & range in your syllabus", categories: ["major-scale"] },
+            { id: "v3-d-maj", title: "D major scale", detail: "1 octave · template entry", categories: ["major-scale"] },
+            { id: "v3-a-maj", title: "A major scale", detail: "1 octave · template entry", categories: ["major-scale"] },
+          ],
+        },
+      },
+    };
+
+    const FILTER_DEFS = [
+      { id: "major-scale", label: "Major scales" },
+      { id: "minor-scale", label: "Minor scales" },
+      { id: "contrary", label: "Contrary motion" },
+      { id: "chromatic", label: "Chromatic" },
+      { id: "arpeggio", label: "Arpeggios" },
+      { id: "dominant-7th", label: "Dominant 7th" },
+      { id: "diminished-7th", label: "Diminished 7th" },
+    ];
+
+    const STORAGE_KEY = "scale-practice-v1";
+
+    const instrumentEl = document.getElementById("instrument");
+    const gradeEl = document.getElementById("grade");
+    const filtersEl = document.getElementById("filters");
+    const promptEl = document.getElementById("prompt");
+    const detailEl = document.getElementById("detail");
+    const tagsEl = document.getElementById("tags");
+    const nextBtn = document.getElementById("next");
+
+    let pool = [];
+    let lastId = null;
+
+    function loadState() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+      } catch {
+        return {};
+      }
+    }
+
+    function saveState(partial) {
+      const cur = loadState();
+      Object.assign(cur, partial);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(cur));
+    }
+
+    function instrumentIds() {
+      return Object.keys(SYLLABUS).sort();
+    }
+
+    function gradesFor(instrumentId) {
+      const g = SYLLABUS[instrumentId];
+      if (!g) return [];
+      return Object.keys(g)
+        .map(Number)
+        .sort((a, b) => a - b);
+    }
+
+    function populateInstruments() {
+      instrumentEl.innerHTML = "";
+      for (const id of instrumentIds()) {
+        const opt = document.createElement("option");
+        opt.value = id;
+        opt.textContent = id.charAt(0).toUpperCase() + id.slice(1);
+        instrumentEl.appendChild(opt);
+      }
+    }
+
+    function populateGrades() {
+      const ins = instrumentEl.value;
+      gradeEl.innerHTML = "";
+      for (const g of gradesFor(ins)) {
+        const opt = document.createElement("option");
+        opt.value = String(g);
+        opt.textContent = `Grade ${g}`;
+        gradeEl.appendChild(opt);
+      }
+    }
+
+    function buildFilters() {
+      filtersEl.innerHTML = "";
+      const st = loadState();
+      const saved = st.filters || {};
+      for (const f of FILTER_DEFS) {
+        const wrap = document.createElement("label");
+        const cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.value = f.id;
+        cb.checked = saved[f.id] !== false;
+        wrap.appendChild(cb);
+        wrap.appendChild(document.createTextNode(f.label));
+        filtersEl.appendChild(wrap);
+      }
+    }
+
+    function activeCategories() {
+      const boxes = filtersEl.querySelectorAll('input[type="checkbox"]');
+      const set = new Set();
+      for (const b of boxes) {
+        if (b.checked) set.add(b.value);
+      }
+      return set;
+    }
+
+    function currentPack() {
+      const ins = instrumentEl.value;
+      const gr = Number(gradeEl.value, 10);
+      return SYLLABUS[ins]?.[gr] || { title: "", items: [] };
+    }
+
+    function rebuildPool(resetLast) {
+      const pack = currentPack();
+      const cats = activeCategories();
+      pool = pack.items.filter((item) =>
+        item.categories.some((c) => cats.has(c))
+      );
+      if (resetLast !== false) lastId = null;
+    }
+
+    function tagLabel(cat) {
+      const m = FILTER_DEFS.find((f) => f.id === cat);
+      return m ? m.label : cat;
+    }
+
+    function showItem(item, emptyReason) {
+      if (!item) {
+        promptEl.textContent =
+          emptyReason === "no-data"
+            ? "No syllabus entries for this grade yet."
+            : "Nothing matches these filters.";
+        detailEl.textContent = packSubtitle();
+        tagsEl.hidden = true;
+        tagsEl.innerHTML = "";
+        nextBtn.disabled = true;
+        return;
+      }
+      promptEl.textContent = item.title;
+      detailEl.textContent = item.detail || "";
+      tagsEl.innerHTML = "";
+      for (const c of item.categories) {
+        const span = document.createElement("span");
+        span.className = "tag";
+        span.textContent = tagLabel(c);
+        tagsEl.appendChild(span);
+      }
+      tagsEl.hidden = false;
+      nextBtn.disabled = pool.length === 0;
+    }
+
+    function packSubtitle() {
+      const p = currentPack();
+      return p.title || "";
+    }
+
+    function pickNext() {
+      if (pool.length === 0) {
+        const pack = currentPack();
+        showItem(null, pack.items.length === 0 ? "no-data" : "filters");
+        return;
+      }
+      if (pool.length === 1) {
+        lastId = pool[0].id;
+        showItem(pool[0]);
+        return;
+      }
+      let choice;
+      let guard = 0;
+      do {
+        choice = pool[Math.floor(Math.random() * pool.length)];
+        guard++;
+      } while (choice.id === lastId && guard < 12);
+      lastId = choice.id;
+      showItem(choice);
+    }
+
+    function applySavedSelection() {
+      const st = loadState();
+      if (st.instrument && SYLLABUS[st.instrument]) instrumentEl.value = st.instrument;
+      populateGrades();
+      const grades = gradesFor(instrumentEl.value);
+      if (st.grade != null && grades.includes(Number(st.grade))) {
+        gradeEl.value = String(st.grade);
+      } else if (!st.grade && grades.includes(3)) {
+        gradeEl.value = "3";
+      }
+    }
+
+    function persistFilters() {
+      const boxes = filtersEl.querySelectorAll('input[type="checkbox"]');
+      const filters = {};
+      for (const b of boxes) filters[b.value] = b.checked;
+      saveState({ filters });
+    }
+
+    populateInstruments();
+    buildFilters();
+    applySavedSelection();
+    rebuildPool();
+    promptEl.textContent = "Tap “Next random” for a prompt.";
+    detailEl.textContent = currentPack().title;
+    nextBtn.disabled = pool.length === 0;
+
+    instrumentEl.addEventListener("change", () => {
+      saveState({ instrument: instrumentEl.value });
+      populateGrades();
+      rebuildPool();
+      detailEl.textContent = currentPack().title;
+      nextBtn.disabled = pool.length === 0;
+      promptEl.textContent = "Tap “Next random” for a prompt.";
+      if (pool.length) pickNext();
+      else showItem(null, currentPack().items.length === 0 ? "no-data" : "filters");
+    });
+
+    gradeEl.addEventListener("change", () => {
+      saveState({ grade: Number(gradeEl.value, 10) });
+      rebuildPool();
+      detailEl.textContent = currentPack().title;
+      nextBtn.disabled = pool.length === 0;
+      promptEl.textContent = "Tap “Next random” for a prompt.";
+      if (pool.length) pickNext();
+      else showItem(null, currentPack().items.length === 0 ? "no-data" : "filters");
+    });
+
+    filtersEl.addEventListener("change", () => {
+      persistFilters();
+      rebuildPool();
+      nextBtn.disabled = pool.length === 0;
+      if (pool.length) pickNext();
+      else showItem(null, currentPack().items.length === 0 ? "no-data" : "filters");
+    });
+
+    nextBtn.addEventListener("click", () => {
+      pickNext();
+    });
+  </script>
+</body>
+</html>
