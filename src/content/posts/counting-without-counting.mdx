@@ -1,0 +1,141 @@
+---
+title: "Counting Without Counting: Combinatorics in JavaScript"
+date: "2026-03-31T14:18"
+tags: ["javascript", "combinatorics", "puzzles"]
+description: "Working through classic counting problems using JavaScript — no maths degree required"
+draft: true
+---
+
+import CodeEditor from "../../components/CodeEditor.tsx";
+import Spoiler from "../../components/Spoiler.astro";
+
+How many ways can you arrange the letters in the word "CAT"? 
+
+<Spoiler placeholder="Hover for answer...">
+3 - CAT, TAC, ACT
+</Spoiler>
+
+But what about "TRIANGLE"? Or a deck of 52 cards?
+
+At some point counting by hand takes too long. Let's build up the tools to count
+*without* counting.
+
+## Factorials: the foundation
+
+The number of ways to arrange *n* distinct items is *n!* (n factorial).
+For "CAT" that's 3 × 2 × 1 = 6.
+
+```js
+function factorial(n) {
+  return n <= 1 ? 1 : n * factorial(n - 1);
+}
+
+console.log(factorial(3))   // 6   — arrangements of CAT
+console.log(factorial(8))   // 40320 — arrangements of TRIANGLE
+console.log(factorial(1000))  // a very large number indeed
+```
+
+<CodeEditor client:load initialCode={`function factorial(n) {
+  return n <= 1 ? 1 : n * factorial(n - 1);
+}
+
+console.log(factorial(3))
+console.log(factorial(8))
+console.log(factorial(1000))`} />
+
+That last one overflows a regular number. JavaScript's `BigInt` can handle huge factorials, but you can't mix regular numbers and `BigInt` types. You need to convert everything to `BigInt`:
+
+Try:
+
+```js
+function factorialBig(n) {
+  n = BigInt(n);
+  return n <= 1n ? 1n : n * factorialBig(n - 1n);
+}
+
+console.log(factorialBig(1000)) // giant number, no overflow!
+```
+
+
+## Permutations: choosing an ordered subset
+
+Suppose you want to pick *k* items from *n*, and the order matters.
+
+
+For example, giving out gold, silver, and bronze medals to 3 out of 10 athletes. You don't just want to know *which* 3 are chosen, but *who gets which medal*. In this case, you don't arrange all 10 athletes (that's 10!), only 3 spots matter. So you multiply the number of choices: 10 options for gold, then 9 left for silver, then 8 left for bronze, for a total of 10 × 9 × 8 = 720 possibilities.
+
+
+![Diagram of a medal podium with 10 athletes and 3 medals](/public/images/permutations_medal_podium.svg)
+
+This scenario is known as a "permutation". The number of ways to choose and arrange k items from n distinct options. Mathematically, it's written as P(n, k).
+
+```js
+const P = (n, k) => factorial(n) / factorial(n - k)
+
+console.log(P(10, 3))  // 720 — medal podium from 10 athletes
+console.log(P(52, 5))  // ordered 5-card hands from a deck
+```
+
+<CodeEditor client:load initialCode={`const factorial = n => n <= 1 ? 1 : n * factorial(n - 1)
+const P = (n, k) => factorial(n) / factorial(n - k)
+
+console.log(P(10, 3))
+console.log(P(52, 5))`} />
+
+## Combinations: order doesn't matter
+
+Some scenarios don't care about the order of the items you select.
+
+For example, in poker, a hand of `A, K, Q, J, 10` is identical no matter which order you get the cards.
+
+![Diagram of a poker hand with 5 cards](/public/images/combinations_poker_hand.svg)
+
+To find the number of unique combinations, we start by counting all ordered possibilities (permutations), then divide by the number of ways to arrange the chosen cards among themselves (since that order isn't important to us). This leaves us with the count of truly distinct groups, known as C(n, k), or "n choose k": the number of ways to choose k items from n, ignoring order.
+
+<CodeEditor client:load initialCode={`const factorial = n => n <= 1 ? 1 : n * factorial(n - 1)
+const P = (n, k) => factorial(n) / factorial(n - k)
+const C = (n, k) => P(n, k) / factorial(k)
+
+console.log(C(52, 5))
+console.log(C(10, 3))
+
+// How many ways to pick a starting 5 from a squad of 15?
+console.log(C(15, 5))`} />
+
+## Sanity-checking with actual generation
+
+The best way to verify a counting formula is to *generate* all the things
+and count them. If C(4, 2) = 6, we should be able to list 6 pairs.
+
+```js
+const combinations = (arr, k) => {
+  if (k === 0) return [[]]
+  if (arr.length === 0) return []
+  const [first, ...rest] = arr
+  const withFirst = combinations(rest, k - 1).map(c => [first, ...c])
+  const withoutFirst = combinations(rest, k)
+  return [...withFirst, ...withoutFirst]
+}
+
+const pairs = combinations(['A','B','C','D'], 2)
+console.log(pairs.length)  // should be 6
+console.log(pairs)
+```
+
+<CodeEditor client:load initialCode={`const combinations = (arr, k) => {
+  if (k === 0) return [[]]
+  if (arr.length === 0) return []
+  const [first, ...rest] = arr
+  const withFirst = combinations(rest, k - 1).map(c => [first, ...c])
+  const withoutFirst = combinations(rest, k)
+  return [...withFirst, ...withoutFirst]
+}
+
+const pairs = combinations(['A','B','C','D'], 2)
+console.log(pairs.length)
+console.log(pairs)`} />
+
+Now you can answer questions like: given a 5-card hand, how many contain
+exactly one ace? Generate all hands, filter, count. The formula and the
+generator should always agree that tension is where the interesting
+bugs hide.

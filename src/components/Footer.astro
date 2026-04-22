@@ -12,13 +12,11 @@ const { showSocials = true } = Astro.props;
     justify-content: space-between;
     list-style-type: none;
     background: var(--site-green);
-    left: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    max-width: 100vw;
-    position: relative;
-    right: 50%;
-    width: 100vw;
+    /* Full-bleed without triggering horizontal overflow from viewport scrollbars */
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    max-width: none;
+    width: auto;
     padding-left: 10px;
     padding-right: 10px;
     color: white;

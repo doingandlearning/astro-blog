@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pandas [ ] — What Goes Inside the Brackets?</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0f14;
+    --surface: #16181f;
+    --surface2: #1e2029;
+    --border: #2a2d3a;
+    --accent: #f5a623;
+    --accent2: #4ec9b0;
+    --accent3: #c586c0;
+    --accent4: #9cdcfe;
+    --danger: #f44747;
+    --text: #e8eaf0;
+    --text-dim: #7b8099;
+    --code-bg: #12131a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── hero ── */
+  .hero {
+    padding: 80px 40px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '[ ]';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 140px;
+    font-weight: 600;
+    color: var(--accent);
+    opacity: 0.06;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .hero-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+
+  h1 span { color: var(--accent); }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text-dim);
+    max-width: 560px;
+    line-height: 1.6;
+  }
+
+  /* ── nav pills ── */
+  .nav-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 0 40px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .pill {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 7px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .pill:hover, .pill.active {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+  }
+
+  /* ── sections ── */
+  .section {
+    max-width: 900px;
+    margin: 0 auto 80px;
+    padding: 0 40px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    background: rgba(245,166,35,0.1);
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  h2 {
+    font-size: 26px;
+    font-weight: 700;
+  }
+
+  .section-desc {
+    font-size: 15px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-bottom: 28px;
+    max-width: 640px;
+  }
+
+  /* ── code block ── */
+  .code-block {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .code-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .copy-btn {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-dim);
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 3px 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .copy-btn.copied { border-color: var(--accent2); color: var(--accent2); }
+
+  pre {
+    padding: 20px 20px;
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13.5px;
+    line-height: 1.75;
+  }
+
+  .kw   { color: #569cd6; }
+  .str  { color: #ce9178; }
+  .cmt  { color: #5a6175; font-style: italic; }
+  .fn   { color: #dcdcaa; }
+  .num  { color: #b5cea8; }
+  .var  { color: var(--accent4); }
+  .op   { color: var(--accent3); }
+  .brk  { color: var(--accent); font-weight: 600; }
+  .out  { color: var(--accent2); }
+
+  /* ── diagram ── */
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+
+  .diagram-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+  }
+
+  /* ── dataframe table ── */
+  .df-wrap {
+    overflow-x: auto;
+  }
+
+  table.df {
+    border-collapse: collapse;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    width: auto;
+  }
+
+  table.df th {
+    background: var(--surface2);
+    color: var(--accent);
+    font-weight: 600;
+    padding: 8px 16px;
+    text-align: left;
+    border: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  table.df th.idx { color: var(--text-dim); }
+
+  table.df td {
+    padding: 7px 16px;
+    border: 1px solid var(--border);
+    color: var(--text);
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+
+  table.df tr.highlighted td { background: rgba(245,166,35,0.12); }
+  table.df tr.highlighted td.match { background: rgba(245,166,35,0.28); color: var(--accent); font-weight: 600; }
+  table.df td.col-highlight { background: rgba(78,201,176,0.12); color: var(--accent2); }
+  table.df td.col-highlight2 { background: rgba(197,134,192,0.12); color: var(--accent3); }
+
+  table.df td:first-child { color: var(--text-dim); background: var(--surface2) !important; }
+
+  /* ── interactive widget ── */
+  .widget {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+
+  .widget-header {
+    padding: 14px 20px;
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .widget-body { padding: 24px; }
+
+  .radio-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .radio-option {
+    position: relative;
+  }
+
+  .radio-option input { display: none; }
+
+  .radio-option label {
+    display: block;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: all 0.15s;
+    user-select: none;
+  }
+
+  .radio-option input:checked + label {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(245,166,35,0.08);
+  }
+
+  .widget-result {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    min-height: 56px;
+    transition: all 0.2s;
+  }
+
+  .result-line { margin-bottom: 4px; }
+
+  /* ── callout ── */
+  .callout {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: rgba(245,166,35,0.07);
+    border: 1px solid rgba(245,166,35,0.25);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-dim);
+  }
+
+  .callout.tip { 
+    background: rgba(78,201,176,0.07);
+    border-color: rgba(78,201,176,0.25);
+    border-left-color: var(--accent2);
+  }
+
+  .callout.warn {
+    background: rgba(244,71,71,0.07);
+    border-color: rgba(244,71,71,0.25);
+    border-left-color: var(--danger);
+  }
+
+  .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+  /* ── bracket anatomy diagram ── */
+  .anatomy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    flex-wrap: wrap;
+    padding: 20px 0;
+  }
+
+  .anat-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .anat-code { font-weight: 600; }
+  .anat-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  .anat-line {
+    width: 1px;
+    height: 20px;
+    background: var(--border);
+  }
+
+  /* ── summary map ── */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+  }
+
+  .summary-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px;
+    transition: border-color 0.2s;
+  }
+
+  .summary-card:hover { border-color: var(--accent); }
+
+  .sc-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .sc-what {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .sc-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent4);
+    background: var(--code-bg);
+    border-radius: 4px;
+    padding: 4px 8px;
+    display: inline-block;
+  }
+
+  /* ── footer ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 40px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-dim);
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── scroll reveal ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (max-width: 600px) {
+    .hero, .nav-pills, .section { padding-left: 20px; padding-right: 20px; }
+    pre { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<div class="hero reveal">
+  <p class="hero-label">pandas reference · bracket indexing</p>
+  <h1>What goes inside<br>the <span>[ ]</span> ?</h1>
+  <p class="hero-sub">Square brackets do a surprising amount of work in pandas. This guide walks through every major use, with live interactive examples.</p>
+</div>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<div class="nav-pills reveal">
+  <a class="pill active" href="#single-col">Single column</a>
+  <a class="pill" href="#multi-col">Multiple columns</a>
+  <a class="pill" href="#filter">Filter / boolean</a>
+  <a class="pill" href="#rows">Row slices</a>
+  <a class="pill" href="#new-col">New columns</a>
+  <a class="pill" href="#combine">Combining</a>
+  <a class="pill" href="#summary">Summary</a>
+</div>
+
+<!-- ═══════════════════ SECTION 0: ANATOMY ═══════════════════ -->
+<div class="section reveal">
+  <div class="diagram">
+    <div class="diagram-title">Anatomy of df[ ]</div>
+    <div class="anatomy">
+      <div class="anat-part">
+        <span class="anat-code" style="color:var(--accent4)">df</span>
+        <div class="anat-line"></div>
+        <span class="anat-label">DataFrame</span>
+      </div>
+      <div class="anat-part" style="margin: 0 2px">
+        <span class="anat-code" style="color:var(--accent); font-size:28px">[</span>
+      </div>
+      <div class="anat-part">
+        <span class="anat-code" style="color:var(--accent3)">  ?  </span>
+        <div class="anat-line"></div>
+        <span class="anat-label">what goes here?</span>
+      </div>
+      <div class="anat-part" style="margin: 0 2px">
+        <span class="anat-code" style="color:var(--accent); font-size:28px">]</span>
+      </div>
+    </div>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-dim); padding-top:8px;">
+      <span style="color:var(--accent)">• "col_name"</span>
+      <span>•</span>
+      <span style="color:var(--accent2)">• ["col_a","col_b"]</span>
+      <span>•</span>
+      <span style="color:var(--accent3)">• boolean Series</span>
+      <span>•</span>
+      <span style="color:var(--accent4)">• slice 0:5</span>
+      <span>•</span>
+      <span style="color:#dcdcaa">• "new_col" =</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION 1: SINGLE COLUMN ═══════════════════ -->
+<div class="section reveal" id="single-col">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2>Single column — returns a Series</h2>
+  </div>
+  <p class="section-desc">Pass a string inside the brackets. You get back a <strong>Series</strong> — a single column with an index. Think of it as a labelled list.</p>
+
+  <div class="code-block">
+    <div class="code-header">
+      <span class="code-label">python</span>
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+    </div>
+    <pre><span class="var">df</span><span class="brk">[</span><span class="str">"experiment"</span><span class="brk">]</span>
+
+<span class="cmt"># returns a Series:</span>
+<span class="out">0       CMS
+1      ATLAS
+2      LHCb
+3     ALICE
+Name: experiment, dtype: object</span></pre>
+  </div>
+
+  <div class="diagram">
+    <div class="diagram-title">What you get back</div>
+    <div class="df-wrap">
+      <table class="df">
+        <thead>
+          <tr><th class="idx">idx</th><th>experiment</th><th>energy_tev</th><th>run_year</th><th>num_files</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>0</td><td class="col-highlight">CMS</td><td>13.6</td><td>2023</td><td>1421</td></tr>
+          <tr><td>1</td><td class="col-highlight">ATLAS</td><td>13.6</td><td>2023</td><td>2104</td></tr>
+          <tr><td>2</td><td class="col-highlight">LHCb</td><td>13.6</td><td>2022</td><td>389</td></tr>
+          <tr><td>3</td><td class="col-highlight">ALICE</td><td>5.36</td><td>2023</td><td>91</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px; color:var(--accent2); margin-top:12px; font-family:'JetBrains Mono',monospace;">df["experiment"] → only the highlighted column, as a Series</p>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💡</span>
+    <div>You can also write <code style="font-family:'JetBrains Mono',monospace; color:var(--accent4)">df.experiment</code> using dot notation — but only if the column name has no spaces or special characters, and does not clash with a pandas method name. The bracket form always works.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION 2: MULTIPLE COLUMNS ═══════════════════ -->
+<div class="section reveal" id="multi-col">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2>Multiple columns — returns a DataFrame</h2>
+  </div>
+  <p class="section-desc">Pass a <strong>list of strings</strong>. You get back a DataFrame — note the double brackets: the outer pair belongs to pandas, the inner pair creates the list.</p>
+
+  <div class="code-block">
+    <div class="code-header">
+      <span class="code-label">python</span>
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+    </div>
+    <pre><span class="var">df</span><span class="brk">[[</span><span class="str">"experiment"</span>, <span class="str">"energy_tev"</span><span class="brk">]]</span>
+
+<span class="cmt"># outer [ ] = bracket indexing
+# inner [ ] = Python list</span></pre>
+  </div>
+
+  <div class="diagram">
+    <div class="diagram-title">Selecting two columns</div>
+    <div class="df-wrap">
+      <table class="df">
+        <thead>
+          <tr><th class="idx">idx</th><th>experiment</th><th>energy_tev</th><th style="opacity:0.3">run_year</th><th style="opacity:0.3">num_files</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>0</td><td class="col-highlight">CMS</td><td class="col-highlight2">13.6</td><td style="opacity:0.3">2023</td><td style="opacity:0.3">1421</td></tr>
+          <tr><td>1</td><td class="col-highlight">ATLAS</td><td class="col-highlight2">13.6</td><td style="opacity:0.3">2023</td><td style="opacity:0.3">2104</td></tr>
+          <tr><td>2</td><td class="col-highlight">LHCb</td><td class="col-highlight2">13.6</td><td style="opacity:0.3">2022</td><td style="opacity:0.3">389</td></tr>
+          <tr><td>3</td><td class="col-highlight">ALICE</td><td class="col-highlight2">5.36</td><td style="opacity:0.3">2023</td><td style="opacity:0.3">91</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px; color:var(--accent2); margin-top:12px; font-family:'JetBrains Mono',monospace;">df[["experiment","energy_tev"]] → two-column DataFrame</p>
+  </div>
+
+  <!-- INTERACTIVE: column selector -->
+  <div class="widget">
+    <div class="widget-header">⚡ interactive — pick your columns</div>
+    <div class="widget-body">
+      <p style="font-size:13px; color:var(--text-dim); margin-bottom:16px;">Select which columns to keep. Watch the code update.</p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px;">
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;font-family:'JetBrains Mono',monospace;">
+          <input type="checkbox" id="cb-exp" checked onchange="updateColSelector()"> experiment
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;font-family:'JetBrains Mono',monospace;">
+          <input type="checkbox" id="cb-en" onchange="updateColSelector()"> energy_tev
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;font-family:'JetBrains Mono',monospace;">
+          <input type="checkbox" id="cb-yr" onchange="updateColSelector()"> run_year
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;font-family:'JetBrains Mono',monospace;">
+          <input type="checkbox" id="cb-nf" onchange="updateColSelector()"> num_files
+        </label>
+      </div>
+      <div class="widget-result" id="col-result"></div>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <span class="callout-icon">⚠️</span>
+    <div>A very common mistake: <code style="font-family:'JetBrains Mono',monospace; color:var(--danger)">df["experiment", "energy_tev"]</code> — this passes a <em>tuple</em>, not a list, and raises a <code style="font-family:'JetBrains Mono',monospace;">KeyError</code>. You need the inner list: <code style="font-family:'JetBrains Mono',monospace; color:var(--accent)">df[["experiment", "energy_tev"]]</code>.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION 3: FILTER ═══════════════════ -->
+<div class="section reveal" id="filter">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2>Boolean filter — returns matching rows</h2>
+  </div>
+  <p class="section-desc">Pass a boolean Series — a column of <code style="font-family:'JetBrains Mono',monospace; color:var(--accent)">True</code>/<code style="font-family:'JetBrains Mono',monospace; color:var(--accent)">False</code> values. Pandas returns only the rows where the value is <code style="font-family:'JetBrains Mono',monospace; color:var(--accent2)">True</code>. The Series is almost always built from a comparison on the DataFrame itself.</p>
+
+  <div class="code-block">
+    <div class="code-header">
+      <span class="code-label">python</span>
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+    </div>
+    <pre><span class="cmt"># step 1: build the boolean Series</span>
+<span class="var">mask</span> = <span class="var">df</span><span class="brk">[</span><span class="str">"num_files"</span><span class="brk">]</span> <span class="op">&gt;</span> <span class="num">400</span>
+
+<span class="cmt"># step 2: use it to filter</span>
+<span class="var">df</span><span class="brk">[</span><span class="var">mask</span><span class="brk">]</span>
+
+<span class="cmt"># or in one line:</span>
+<span class="var">df</span><span class="brk">[</span><span class="var">df</span><span class="brk">[</span><span class="str">"num_files"</span><span class="brk">]</span> <span class="op">&gt;</span> <span class="num">400</span><span class="brk">]</span></pre>
+  </div>
+
+  <div class="diagram">
+    <div class="diagram-title">How the mask works row by row</div>
+    <div class="df-wrap">
+      <table class="df">
+        <thead>
+          <tr><th class="idx">idx</th><th>experiment</th><th>num_files</th><th style="color:var(--accent3)">mask (>400)</th><th style="color:var(--accent2)">in result?</th></tr>
+        </thead>
+        <tbody>
+          <tr class="highlighted"><td>0</td><td>CMS</td><td class="match">1421</td><td style="color:var(--accent2)">True</td><td style="color:var(--accent2)">✓ kept</td></tr>
+          <tr class="highlighted"><td>1</td><td>ATLAS</td><td class="match">2104</td><td style="color:var(--accent2)">True</td><td style="color:var(--accent2)">✓ kept</td></tr>
+          <tr><td>2</td><td>LHCb</td><td>389</td><td style="color:var(--text-dim)">False</td><td style="color:var(--text-dim)">✗ dropped</td></tr>
+          <tr><td>3</td><td>ALICE</td><td>91</td><td style="color:var(--text-dim)">False</td><td style="color:var(--text-dim)">✗ dropped</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE: filter builder -->
+  <div class="widget">
+    <div class="widget-header">⚡ interactive — build a filter</div>
+    <div class="widget-body">
+      <p style="font-size:13px; color:var(--text-dim); margin-bottom:16px;">Choose a column, operator, and value. See the matching rows.</p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:20px;">
+        <select id="filter-col" onchange="updateFilter()" style="background:var(--code-bg);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:13px;">
+          <option value="num_files">num_files</option>
+          <option value="energy_tev">energy_tev</option>
+          <option value="run_year">run_year</option>
+        </select>
+        <select id="filter-op" onchange="updateFilter()" style="background:var(--code-bg);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:13px;">
+          <option value=">">&gt;</option>
+          <option value=">=">&gt;=</option>
+          <option value="<">&lt;</option>
+          <option value="<=">&lt;=</option>
+          <option value="==">==</option>
+        </select>
+        <input id="filter-val" type="number" value="400" oninput="updateFilter()" style="background:var(--code-bg);border:1px solid var(--border);color:var(--accent);padding:8px 12px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:13px;width:100px;">
+      </div>
+      <div class="widget-result" id="filter-result"></div>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-header">
+      <span class="code-label">combining conditions</span>
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+    </div>
+    <pre><span class="cmt"># AND — both must be true — use &amp;</span>
+<span class="var">df</span><span class="brk">[</span>(<span class="var">df</span><span class="brk">[</span><span class="str">"num_files"</span><span class="brk">]</span> <span class="op">&gt;</span> <span class="num">400</span>) <span class="op">&amp;</span> (<span class="var">df</span><span class="brk">[</span><span class="str">"energy_tev"</span><span class="brk">]</span> <span class="op">==</span> <span class="num">13.6</span>)<span class="brk">]</span>
+
+<span class="cmt"># OR — either must be true — use |</span>
+<span class="var">df</span><span class="brk">[</span>(<span class="var">df</span><span class="brk">[</span><span class="str">"energy_tev"</span><span class="brk">]</span> <span class="op">==</span> <span class="num">13.6</span>) <span class="op">|</span> (<span class="var">df</span><span class="brk">[</span><span class="str">"num_files"</span><span class="brk">]</span> <span class="op">&lt;</span> <span class="num">100</span>)<span class="brk">]</span>
+
+<span class="cmt"># NOT — invert a condition — use ~</span>
+<span class="var">df</span><span class="brk">[</span><span class="op">~</span>(<span class="var">df</span><span class="brk">[</span><span class="str">"experiment"</span><span class="brk">]</span> <span class="op">==</span> <span class="str">"ALICE"</span>)<span class="brk">]</span></pre>
+  </div>
+
+  <div class="callout warn">
+    <span class="callout-icon">⚠️</span>
+    <div>Use <code style="font-family:'JetBrains Mono',monospace; color:var(--accent)">&amp;</code> and <code style="font-family:'JetBrains Mono',monospace; color:var(--accent)">|</code>, not <code style="font-family:'JetBrains Mono',monospace; color:var(--danger)">and</code> and <code style="font-family:'JetBrains Mono',monospace; color:var(--danger)">or</code>. Python's <code style="font-family:'JetBrains Mono',monospace;">and</code>/<code style="font-family:'JetBrains Mono',monospace;">or</code> operate on single values; <code style="font-family:'JetBrains Mono',monospace; color:var(--accent)">&amp;</code>/<code style="font-family:'JetBrains Mono',monospace; color:var(--accent)">|</code> operate element-wise across a whole Series. Also wrap each condition in parentheses — operator precedence will bite you without them.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION 4: ROW SLICES ═══════════════════ -->
+<div class="section reveal" id="rows">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2>Row slices — works like a list</h2>
+  </div>
+  <p class="section-desc">Pass a Python slice to get rows by position. This is the one case where pandas behaves like a plain Python list. You almost always want <code style="font-family:'JetBrains Mono',monospace; color:var(--accent4)">.iloc[]</code> or <code style="font-family:'JetBrains Mono',monospace; color:var(--accent4)">.loc[]</code> for serious row access, but the slice shortcut is useful for quick inspection.</p>
+
+  <div class="code-block">
+    <div class="code-header">
+      <span class="code-label">python</span>
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+    </div>
+    <pre><span class="var">df</span><span class="brk">[</span><span class="num">0</span>:<span class="num">3</span><span class="brk">]</span>      <span class="cmt"># rows 0, 1, 2 — stop index is exclusive</span>
+<span class="var">df</span><span class="brk">[</span>:<span class="num">5</span><span class="brk">]</span>       <span class="cmt"># first 5 rows — same as df.head(5)</span>
+<span class="var">df</span><span class="brk">[</span>-<span class="num">3</span>:<span class="brk">]</span>      <span class="cmt"># last 3 rows</span>
+<span class="var">df</span><span class="brk">[</span>::<span class="num">2</span><span class="brk">]</span>      <span class="cmt"># every other row (step=2)</span></pre>
+  </div>
+
+  <div class="callout tip">
+    <span class="callout-icon">✅</span>
+    <div>For anything beyond quick inspection, prefer <code style="font-family:'JetBrains Mono',monospace; color:var(--accent4)">df.iloc[0:3]</code> (position-based) or <code style="font-family:'JetBrains Mono',monospace; color:var(--accent4)">df.loc[0:2]</code> (label-based). They are explicit and behave predictably when the index is not a clean 0, 1, 2 sequence.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION 5: NEW COLUMNS ═══════════════════ -->
+<div class="section reveal" id="new-col">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2>Assigning new columns</h2>
+  </div>
+  <p class="section-desc">Use bracket assignment to create or overwrite a column. The right-hand side can be a scalar, a list, or — most usefully — an expression over existing columns.</p>
+
+  <div class="code-block">
+    <div class="code-header">
+      <span class="code-label">python</span>
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+    </div>
+    <pre><span class="cmt"># scalar — same value in every row</span>
+<span class="var">df</span><span class="brk">[</span><span class="str">"accelerator"</span><span class="brk">]</span> = <span class="str">"LHC"</span>
+
+<span class="cmt"># expression over an existing column</span>
+<span class="var">df</span><span class="brk">[</span><span class="str">"energy_gev"</span><span class="brk">]</span> = <span class="var">df</span><span class="brk">[</span><span class="str">"energy_tev"</span><span class="brk">]</span> * <span class="num">1000</span>
+
+<span class="cmt"># boolean flag</span>
+<span class="var">df</span><span class="brk">[</span><span class="str">"high_volume"</span><span class="brk">]</span> = <span class="var">df</span><span class="brk">[</span><span class="str">"num_files"</span><span class="brk">]</span> <span class="op">&gt;</span> <span class="num">500</span>
+
+<span class="cmt"># overwrite an existing column</span>
+<span class="var">df</span><span class="brk">[</span><span class="str">"num_files"</span><span class="brk">]</span> = <span class="var">df</span><span class="brk">[</span><span class="str">"num_files"</span><span class="brk">]</span>.<span class="fn">fillna</span>(<span class="num">0</span>)</pre>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💡</span>
+    <div>Assignment modifies the DataFrame in place — there is no return value. If you want to leave the original untouched, work on a copy: <code style="font-family:'JetBrains Mono',monospace; color:var(--accent4)">df2 = df.copy()</code> before assigning.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION 6: COMBINING ═══════════════════ -->
+<div class="section reveal" id="combine">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2>Combining techniques</h2>
+  </div>
+  <p class="section-desc">The real power comes from chaining these together. Filter rows, then select columns. Select columns, then filter. Assign a new column, then filter on it.</p>
+
+  <div class="code-block">
+    <div class="code-header">
+      <span class="code-label">filter rows → select columns</span>
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+    </div>
+    <pre><span class="cmt"># get experiment names for high-volume runs only</span>
+<span class="var">df</span><span class="brk">[</span><span class="var">df</span><span class="brk">[</span><span class="str">"num_files"</span><span class="brk">]</span> <span class="op">&gt;</span> <span class="num">400</span><span class="brk">]</span><span class="brk">[[</span><span class="str">"experiment"</span>, <span class="str">"num_files"</span><span class="brk">]]</span></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-header">
+      <span class="code-label">new column → filter on it</span>
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+    </div>
+    <pre><span class="cmt"># add a flag, then filter on it</span>
+<span class="var">df</span><span class="brk">[</span><span class="str">"high_volume"</span><span class="brk">]</span> = <span class="var">df</span><span class="brk">[</span><span class="str">"num_files"</span><span class="brk">]</span> <span class="op">&gt;</span> <span class="num">500</span>
+<span class="var">df</span><span class="brk">[</span><span class="var">df</span><span class="brk">[</span><span class="str">"high_volume"</span><span class="brk">]</span><span class="brk">]</span></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-header">
+      <span class="code-label">multiple conditions + column selection</span>
+      <button class="copy-btn" onclick="copyCode(this)">copy</button>
+    </div>
+    <pre><span class="var">df</span><span class="brk">[</span>
+  (<span class="var">df</span><span class="brk">[</span><span class="str">"energy_tev"</span><span class="brk">]</span> <span class="op">==</span> <span class="num">13.6</span>) <span class="op">&amp;</span>
+  (<span class="var">df</span><span class="brk">[</span><span class="str">"num_files"</span><span class="brk">]</span> <span class="op">&gt;</span> <span class="num">100</span>)
+<span class="brk">]</span><span class="brk">[[</span><span class="str">"experiment"</span>, <span class="str">"run_year"</span>, <span class="str">"num_files"</span><span class="brk">]]</span></pre>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION 7: SUMMARY ═══════════════════ -->
+<div class="section reveal" id="summary">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <h2>Quick reference</h2>
+  </div>
+
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="sc-title">Single column → Series</div>
+      <div class="sc-what">One string inside the brackets</div>
+      <div class="sc-code">df["col"]</div>
+    </div>
+    <div class="summary-card">
+      <div class="sc-title">Multiple columns → DataFrame</div>
+      <div class="sc-what">A list of strings — double brackets</div>
+      <div class="sc-code">df[["a", "b"]]</div>
+    </div>
+    <div class="summary-card">
+      <div class="sc-title">Filter rows → DataFrame</div>
+      <div class="sc-what">A boolean Series — rows where True are kept</div>
+      <div class="sc-code">df[df["col"] > 10]</div>
+    </div>
+    <div class="summary-card">
+      <div class="sc-title">Row slice → DataFrame</div>
+      <div class="sc-what">Python slice syntax — positional</div>
+      <div class="sc-code">df[0:5]</div>
+    </div>
+    <div class="summary-card">
+      <div class="sc-title">New / overwrite column</div>
+      <div class="sc-what">Assignment — modifies in place</div>
+      <div class="sc-code">df["new"] = expr</div>
+    </div>
+    <div class="summary-card">
+      <div class="sc-title">Combining</div>
+      <div class="sc-what">Filter then select columns</div>
+      <div class="sc-code">df[mask][["a","b"]]</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 28px;">
+    <div class="callout tip">
+      <span class="callout-icon">🔬</span>
+      <div>When you need row <em>and</em> column selection simultaneously, use <code style="font-family:'JetBrains Mono',monospace; color:var(--accent4)">.loc[row_condition, column_list]</code> — it is more explicit and handles edge cases better than chaining two bracket operations.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  pandas bracket indexing — intro python course reference
+</footer>
+
+<script>
+// ── data ──
+const DATA = [
+  { experiment:"CMS",   energy_tev:13.6, run_year:2023, num_files:1421 },
+  { experiment:"ATLAS", energy_tev:13.6, run_year:2023, num_files:2104 },
+  { experiment:"LHCb",  energy_tev:13.6, run_year:2022, num_files:389  },
+  { experiment:"ALICE", energy_tev:5.36, run_year:2023, num_files:91   },
+];
+
+// ── column selector widget ──
+function updateColSelector() {
+  const cols = [];
+  if (document.getElementById('cb-exp').checked) cols.push('experiment');
+  if (document.getElementById('cb-en').checked)  cols.push('energy_tev');
+  if (document.getElementById('cb-yr').checked)  cols.push('run_year');
+  if (document.getElementById('cb-nf').checked)  cols.push('num_files');
+
+  const el = document.getElementById('col-result');
+
+  if (cols.length === 0) {
+    el.innerHTML = '<span style="color:var(--danger)">Select at least one column</span>';
+    return;
+  }
+
+  const codeStr = cols.length === 1
+    ? `<span style="color:var(--accent4)">df</span><span style="color:var(--accent)">[</span><span style="color:#ce9178">"${cols[0]}"</span><span style="color:var(--accent)">]</span>  <span style="color:#5a6175">→  Series</span>`
+    : `<span style="color:var(--accent4)">df</span><span style="color:var(--accent)">[[</span>${cols.map(c=>`<span style="color:#ce9178">"${c}"</span>`).join(', ')}<span style="color:var(--accent)">]]</span>  <span style="color:#5a6175">→  DataFrame</span>`;
+
+  el.innerHTML = codeStr;
+}
+updateColSelector();
+
+// ── filter widget ──
+function updateFilter() {
+  const col = document.getElementById('filter-col').value;
+  const op  = document.getElementById('filter-op').value;
+  const val = parseFloat(document.getElementById('filter-val').value);
+
+  const el = document.getElementById('filter-result');
+
+  if (isNaN(val)) {
+    el.innerHTML = '<span style="color:var(--text-dim)">Enter a number to filter</span>';
+    return;
+  }
+
+  const matches = DATA.filter(row => {
+    switch(op) {
+      case '>':  return row[col] > val;
+      case '>=': return row[col] >= val;
+      case '<':  return row[col] < val;
+      case '<=': return row[col] <= val;
+      case '==': return row[col] == val;
+    }
+  });
+
+  const code = `<span style="color:var(--accent4)">df</span><span style="color:var(--accent)">[</span><span style="color:var(--accent4)">df</span><span style="color:var(--accent)">[</span><span style="color:#ce9178">"${col}"</span><span style="color:var(--accent)">]</span> <span style="color:var(--accent3)">${op}</span> <span style="color:#b5cea8">${val}</span><span style="color:var(--accent)">]</span>`;
+
+  if (matches.length === 0) {
+    el.innerHTML = code + `\n<span style="color:var(--text-dim)">→  0 rows matched</span>`;
+    return;
+  }
+
+  const rows = matches.map(r =>
+    `  <span style="color:var(--accent2)">${r.experiment}</span>  <span style="color:var(--text-dim)">${col}=${r[col]}</span>`
+  ).join('\n');
+
+  el.innerHTML = code + `\n<span style="color:var(--text-dim)">→  ${matches.length} row${matches.length>1?'s':''} matched:</span>\n` + rows;
+}
+updateFilter();
+
+// ── copy buttons ──
+function copyCode(btn) {
+  const pre = btn.closest('.code-block').querySelector('pre');
+  navigator.clipboard.writeText(pre.innerText).then(() => {
+    btn.textContent = 'copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'copy'; btn.classList.remove('copied'); }, 1800);
+  });
+}
+
+// ── scroll reveal ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── smooth scroll for nav ──
+document.querySelectorAll('.pill[href^="#"]').forEach(pill => {
+  pill.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    const target = document.querySelector(pill.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
