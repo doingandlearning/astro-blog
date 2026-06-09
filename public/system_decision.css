@@ -1,0 +1,297 @@
+/* =============================================================
+   TTRPG PICKER — style.css
+   Parchment / classic book aesthetic.
+   Edit freely and re-run:
+
+   pandoc ttrpg-picker.md \
+     --template template.html \
+     --css style.css \
+     --embed-resources --standalone \
+     --pdf-engine=weasyprint \
+     -o ttrpg-picker.pdf
+
+   Or print-to-PDF via browser:
+   pandoc ttrpg-picker.md \
+     --template template.html \
+     --css style.css \
+     --embed-resources --standalone \
+     -o ttrpg-picker.html
+   Then open in Chrome and File → Print → Save as PDF.
+   =============================================================
+
+   QUICK REFERENCE — things you'll most likely want to change:
+   --body-font        Main text font
+   --heading-font     Heading font (small caps titles)
+   --page-bg          Page/parchment background colour
+   --text             Main text colour
+   --text-dim         Muted label colour
+   --rule-colour      Horizontal rule and border colour
+   --drop-cap-colour  Drop cap initial letter colour
+   --base-size        Base font size (scales everything)
+   ============================================================= */
+
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+  /* Fonts */
+  --body-font:    Georgia, 'Times New Roman', serif;
+  --heading-font: Georgia, 'Times New Roman', serif;
+  --meta-font:    'Arial', Helvetica, sans-serif;
+
+  /* Parchment palette */
+  --page-bg:      #f4ede0;   /* warm cream parchment */
+  --text:         #1a1008;   /* near-black ink        */
+  --text-dim:     #5a4a38;   /* mid-brown muted text  */
+  --text-light:   #7a6a58;   /* lighter muted         */
+  --rule-colour:  #8b6f4e;   /* brown rule/border     */
+  --surface:      #ede3d0;   /* slightly darker cream for inset blocks */
+  --surface-2:    #e4d8c0;   /* table header fill     */
+  --drop-cap-colour: #6b3a1f; /* deep brown drop cap  */
+
+  /* Typography scale */
+  --base-size: 11pt;
+  --scale-sm:  0.82em;
+  --scale-md:  1em;
+  --scale-lg:  1.2em;
+  --scale-xl:  1.75em;
+  --scale-2xl: 2.6em;
+
+  /* Spacing */
+  --gap-sm:  5px;
+  --gap-md:  12px;
+  --gap-lg:  24px;
+  --gap-xl:  40px;
+
+  /* Layout */
+  --max-width:   760px;
+  --col-gap:     24px;
+}
+
+/* ── Reset & base ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+  size: A4;
+  margin: 20mm 18mm 20mm 18mm;
+}
+
+html {
+  font-size: var(--base-size);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  font-family: var(--body-font);
+  color: var(--text);
+  background: var(--page-bg);
+  line-height: 1.6;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--gap-lg);
+  /* Two-column layout matching the screenshot */
+  columns: 2;
+  column-gap: var(--col-gap);
+  column-rule: 1px solid var(--rule-colour);
+  column-fill: auto;
+}
+
+/* ── Page header — spans full width ────────────────────────── */
+header {
+  column-span: all;
+  text-align: center;
+  padding-bottom: var(--gap-md);
+  border-bottom: 2px solid var(--rule-colour);
+  margin-bottom: var(--gap-lg);
+}
+
+.eyebrow {
+  font-family: var(--meta-font);
+  font-size: var(--scale-sm);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: var(--gap-sm);
+}
+
+header h1 {
+  font-family: var(--heading-font);
+  font-size: var(--scale-2xl);
+  font-variant: small-caps;
+  font-weight: bold;
+  line-height: 1.1;
+  color: var(--text);
+  border: none;
+  padding: 0;
+  margin: 0;
+  columns: unset;
+  column-span: all;
+}
+
+/* ── Horizontal rules — span both columns ───────────────────── */
+hr {
+  column-span: all;
+  border: none;
+  border-top: 1px solid var(--rule-colour);
+  margin: var(--gap-lg) 0;
+}
+
+/* ── H1 — game titles ───────────────────────────────────────── */
+h1 {
+  font-family: var(--heading-font);
+  font-size: var(--scale-xl);
+  font-variant: small-caps;
+  font-weight: bold;
+  line-height: 1.15;
+  color: var(--text);
+  margin-top: var(--gap-lg);
+  margin-bottom: var(--gap-sm);
+  padding-bottom: 3px;
+  border-bottom: 1.5px solid var(--rule-colour);
+  break-after: avoid;
+}
+
+/* ── H2 — section labels ────────────────────────────────────── */
+h2 {
+  font-family: var(--heading-font);
+  font-size: var(--scale-lg);
+  font-variant: small-caps;
+  font-weight: bold;
+  color: var(--text);
+  margin-top: var(--gap-lg);
+  margin-bottom: var(--gap-sm);
+  break-after: avoid;
+}
+
+/* ── Metadata block (Publisher / System / Tone lines) ───────── */
+h1 + p {
+  font-family: var(--meta-font);
+  font-size: var(--scale-sm);
+  color: var(--text-dim);
+  line-height: 1.85;
+  margin-bottom: var(--gap-md);
+}
+
+h1 + p strong {
+  color: var(--text);
+  font-weight: bold;
+}
+
+/* ── Drop cap on first paragraph after metadata ─────────────── */
+/* Targets the second paragraph after each h1 (the intro paragraph) */
+h1 + p + p::first-letter {
+  font-family: var(--heading-font);
+  font-size: 3.4em;
+  font-weight: bold;
+  color: var(--drop-cap-colour);
+  float: left;
+  line-height: 0.78;
+  margin-right: 4px;
+  margin-top: 4px;
+  padding: 0;
+}
+
+/* ── Body paragraphs ────────────────────────────────────────── */
+p {
+  margin-bottom: var(--gap-md);
+  text-align: justify;
+  hyphens: auto;
+  font-size: var(--scale-md);
+}
+
+/* ── Lists ──────────────────────────────────────────────────── */
+ul {
+  list-style: disc;
+  margin: 0 0 var(--gap-md) 1.2em;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 4px;
+  font-size: var(--scale-md);
+  text-align: left;
+}
+
+/* ── Blockquote — "Pick This If" ────────────────────────────── */
+blockquote {
+  border-left: 3px solid var(--rule-colour);
+  margin: var(--gap-md) 0 var(--gap-lg) 0;
+  padding: var(--gap-sm) var(--gap-md);
+  background: var(--surface);
+}
+
+blockquote p {
+  margin: 0;
+  font-style: italic;
+  color: var(--text-dim);
+  text-align: left;
+}
+
+/* ── Comparison table — span full width ─────────────────────── */
+table {
+  column-span: all;
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--gap-md) 0 var(--gap-lg);
+  font-size: 0.88em;
+  border: 1px solid var(--rule-colour);
+}
+
+thead tr {
+  background: var(--surface-2);
+}
+
+thead th {
+  font-family: var(--meta-font);
+  font-size: 0.82em;
+  font-weight: bold;
+  padding: 8px 10px;
+  text-align: left;
+  color: var(--text);
+  border-bottom: 1.5px solid var(--rule-colour);
+  border-right: 1px solid var(--rule-colour);
+}
+
+thead th:last-child { border-right: none; }
+
+tbody tr { background: var(--page-bg); }
+tbody tr:nth-child(even) { background: var(--surface); }
+
+tbody td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--surface-2);
+  border-right: 1px solid var(--surface-2);
+  color: var(--text);
+  vertical-align: top;
+}
+
+tbody td:first-child {
+  font-family: var(--meta-font);
+  font-size: 0.8em;
+  font-weight: bold;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+tbody td:last-child { border-right: none; }
+tbody tr:last-child td { border-bottom: none; }
+
+/* ── Footer ─────────────────────────────────────────────────── */
+footer {
+  column-span: all;
+  margin-top: var(--gap-xl);
+  padding-top: var(--gap-md);
+  border-top: 1px solid var(--rule-colour);
+  text-align: center;
+  font-family: var(--meta-font);
+  font-size: var(--scale-sm);
+  color: var(--text-light);
+  letter-spacing: 0.1em;
+}
+
+/* ── Print overrides ────────────────────────────────────────── */
+@media print {
+  body { padding: 0; }
+  h1, h2 { break-after: avoid; page-break-after: avoid; }
+  table  { break-inside: avoid; page-break-inside: avoid; }
+  blockquote { break-inside: avoid; }
+}

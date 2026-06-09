@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Which Sci-Fi TTRPG?</title>
+  <style type="text/css">
+
+:root {
+
+--body-font: Georgia, 'Times New Roman', serif;
+--heading-font: Georgia, 'Times New Roman', serif;
+--meta-font: 'Arial', Helvetica, sans-serif;
+
+--page-bg: #f0e6cc; 
+--text: #1a1008; 
+--text-dim: #5a4a38; 
+--text-light: #7a6a58; 
+--rule-colour: #8b6f4e; 
+--surface: #e8dbc4; 
+--surface-2: #dfd0b0; 
+--drop-cap-colour: #6b3a1f; 
+
+--base-size: 11pt;
+--scale-sm: 0.82em;
+--scale-md: 1em;
+--scale-lg: 1.2em;
+--scale-xl: 1.75em;
+--scale-2xl: 2.6em;
+
+--gap-sm: 5px;
+--gap-md: 12px;
+--gap-lg: 24px;
+--gap-xl: 40px;
+
+--max-width: 760px;
+--col-gap: 24px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+@page {
+size: A4;
+margin: 20mm 18mm 20mm 18mm;
+}
+
+svg.noise-filter { position: absolute; width: 0; height: 0; }
+html {
+font-size: var(--base-size);
+-webkit-print-color-adjust: exact;
+print-color-adjust: exact;
+
+background:
+radial-gradient(ellipse at center,
+transparent 55%,
+rgba(80, 40, 10, 0.18) 100%
+),
+
+radial-gradient(ellipse 70% 50% at 20% 30%,
+rgba(160, 100, 30, 0.07) 0%,
+transparent 70%
+),
+radial-gradient(ellipse 50% 60% at 80% 70%,
+rgba(120, 70, 20, 0.06) 0%,
+transparent 70%
+),
+radial-gradient(ellipse 40% 40% at 60% 20%,
+rgba(180, 130, 60, 0.05) 0%,
+transparent 60%
+),
+
+#f0e6cc;
+min-height: 100vh;
+}
+body {
+font-family: var(--body-font);
+color: var(--text);
+
+background:
+
+url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E"),
+
+repeating-linear-gradient(
+180deg,
+transparent,
+transparent 3px,
+rgba(140, 90, 30, 0.012) 3px,
+rgba(140, 90, 30, 0.012) 4px
+),
+transparent;
+line-height: 1.6;
+max-width: var(--max-width);
+margin: 0 auto;
+padding: var(--gap-lg);
+
+columns: 2;
+column-gap: var(--col-gap);
+column-rule: 1px solid var(--rule-colour);
+column-fill: auto;
+position: relative;
+}
+
+header {
+column-span: all;
+text-align: center;
+padding-bottom: var(--gap-md);
+border-bottom: 2px solid var(--rule-colour);
+margin-bottom: var(--gap-lg);
+}
+.eyebrow {
+font-family: var(--meta-font);
+font-size: var(--scale-sm);
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(--text-dim);
+margin-bottom: var(--gap-sm);
+}
+header h1 {
+font-family: var(--heading-font);
+font-size: var(--scale-2xl);
+font-variant: small-caps;
+font-weight: bold;
+line-height: 1.1;
+color: var(--text);
+border: none;
+padding: 0;
+margin: 0;
+columns: unset;
+column-span: all;
+}
+
+hr {
+column-span: all;
+border: none;
+border-top: 1px solid var(--rule-colour);
+margin: var(--gap-lg) 0;
+}
+
+h1 {
+font-family: var(--heading-font);
+font-size: var(--scale-xl);
+font-variant: small-caps;
+font-weight: bold;
+line-height: 1.15;
+color: var(--text);
+margin-top: var(--gap-lg);
+margin-bottom: var(--gap-sm);
+padding-bottom: 3px;
+border-bottom: 1.5px solid var(--rule-colour);
+break-after: avoid;
+}
+
+h2 {
+font-family: var(--heading-font);
+font-size: var(--scale-lg);
+font-variant: small-caps;
+font-weight: bold;
+color: var(--text);
+margin-top: var(--gap-lg);
+margin-bottom: var(--gap-sm);
+break-after: avoid;
+}
+
+h1 + p {
+font-family: var(--meta-font);
+font-size: var(--scale-sm);
+color: var(--text-dim);
+line-height: 1.85;
+margin-bottom: var(--gap-md);
+}
+h1 + p strong {
+color: var(--text);
+font-weight: bold;
+}
+
+
+h1 + p + p::first-letter {
+font-family: var(--heading-font);
+font-size: 3.4em;
+font-weight: bold;
+color: var(--drop-cap-colour);
+float: left;
+line-height: 0.78;
+margin-right: 4px;
+margin-top: 4px;
+padding: 0;
+}
+
+p {
+margin-bottom: var(--gap-md);
+text-align: justify;
+hyphens: auto;
+font-size: var(--scale-md);
+}
+
+ul {
+list-style: disc;
+margin: 0 0 var(--gap-md) 1.2em;
+padding: 0;
+}
+ul li {
+margin-bottom: 4px;
+font-size: var(--scale-md);
+text-align: left;
+}
+
+blockquote {
+border-left: 3px solid var(--rule-colour);
+margin: var(--gap-md) 0 var(--gap-lg) 0;
+padding: var(--gap-sm) var(--gap-md);
+background: var(--surface);
+}
+blockquote p {
+margin: 0;
+font-style: italic;
+color: var(--text-dim);
+text-align: left;
+}
+
+table {
+column-span: all;
+width: 100%;
+border-collapse: collapse;
+margin: var(--gap-md) 0 var(--gap-lg);
+font-size: 0.88em;
+border: 1px solid var(--rule-colour);
+}
+thead tr {
+background: var(--surface-2);
+}
+thead th {
+font-family: var(--meta-font);
+font-size: 0.82em;
+font-weight: bold;
+padding: 8px 10px;
+text-align: left;
+color: var(--text);
+border-bottom: 1.5px solid var(--rule-colour);
+border-right: 1px solid var(--rule-colour);
+}
+thead th:last-child { border-right: none; }
+tbody tr { background: var(--page-bg); }
+tbody tr:nth-child(even) { background: var(--surface); }
+tbody td {
+padding: 7px 10px;
+border-bottom: 1px solid var(--surface-2);
+border-right: 1px solid var(--surface-2);
+color: var(--text);
+vertical-align: top;
+}
+tbody td:first-child {
+font-family: var(--meta-font);
+font-size: 0.8em;
+font-weight: bold;
+color: var(--text-dim);
+white-space: nowrap;
+}
+tbody td:last-child { border-right: none; }
+tbody tr:last-child td { border-bottom: none; }
+
+footer {
+column-span: all;
+margin-top: var(--gap-xl);
+padding-top: var(--gap-md);
+border-top: 1px solid var(--rule-colour);
+text-align: center;
+font-family: var(--meta-font);
+font-size: var(--scale-sm);
+color: var(--text-light);
+letter-spacing: 0.1em;
+}
+
+@media print {
+body { padding: 0; }
+h1, h2 { break-after: avoid; page-break-after: avoid; }
+table { break-inside: avoid; page-break-inside: avoid; }
+blockquote { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+  <header>
+    <p class="eyebrow">Session Zero — Game Selection</p>
+    <h1>Which Sci-Fi TTRPG?</h1>
+  </header>
+  <main>
+    <p>Three games. One table. Read the profiles, check the comparison
+    at the end, and make a call.</p>
+    <p>All three suit experienced 5e players. None require months of
+    prep to get started. One-shots are recommended to begin with — each
+    game has enough material to fill a solid evening without committing
+    to a campaign.</p>
+    <hr />
+    <h1 id="dark-matter">Dark Matter</h1>
+    <p><strong>Publisher:</strong> Mage Hand Press<br />
+    <strong>System:</strong> D&amp;D 5e (fully compatible)<br />
+    <strong>Tone:</strong> Space opera — flexible<br />
+    <p>D&amp;D 5e reimagined on a galactic scale. If you know how to
+    play D&amp;D, you already know how to play this. Everything familiar
+    is still here — just set in deep space, with laser rifles, power
+    armour, void jumps, and alien horrors.</p>
+    <h2 id="the-setting">The Setting</h2>
+    <p>You are in “the Verse” — a Milky Way where ancient beings called
+    Maws serve as jump gates and dark matter engines shrink ships down
+    to travel through a deadly Void dimension. Magic and technology
+    coexist. Empires span star systems. Earth exists, but it sits in a
+    Dead Magic Zone.</p>
+    <p>Draws inspiration from Star Wars, The Expanse, Hitchhiker’s Guide
+    to the Galaxy, and Doom. If your group has watched Guardians of the
+    Galaxy, Firefly, or Farscape and wanted to play in that universe,
+    this is the closest fit.</p>
+    <h2 id="whats-good">What’s Good</h2>
+    <ul>
+    <li>Zero system relearning — pure 5e under the hood</li>
+    <li>Flexible tone works for different moods: pulpy adventure, cosmic
+    horror, political intrigue</li>
+    <li>Skills adapted for sci-fi contexts: Piloting, Data,
+    Technology</li>
+    <li>Active development — updated edition recently released</li>
+    </ul>
+    <h2 id="worth-knowing">Worth Knowing</h2>
+    <ul>
+    <li>More space fantasy than hard sci-fi — magic and tech coexist,
+    which not everyone enjoys</li>
+    <li>Can feel like D&amp;D with a coat of paint rather than something
+    genuinely different</li>
+    <li>Tone flexibility is a strength, but it means the game lacks a
+    strong default atmosphere</li>
+    </ul>
+    <h2 id="pick-this-if">Pick This If…</h2>
+    <blockquote>
+    <p>You want to jump straight in without learning a new system. Dark
+    Matter is the path of least resistance — familiar rules, new
+    universe. Good for a group that’s uncertain about trying something
+    different.</p>
+    </blockquote>
+    <hr />
+    <h1 id="death-in-space">Death in Space</h1>
+    <p><strong>Publisher:</strong> Stockholm Kartell / Free League<br />
+    <strong>System:</strong> OSR d20 (familiar core roll, simpler than
+    5e)<br />
+    <strong>Tone:</strong> Grim survival horror<br />
+    <p>The solar system is dying. Resources are running out. Strange
+    cosmic forces corrupt the weak. You are scavengers, salvagers, and
+    survivors clinging to existence in a crumbling industrial hellscape.
+    Nothing is safe. Nothing lasts.</p>
+    <h2 id="the-setting-1">The Setting</h2>
+    <p>The Tenebrous Systems — a corner of space where a dying sun casts
+    everything in twilight. No Earth. No hope of rescue. Factions fight
+    over scraps. Ancient alien technology is dangerous and poorly
+    understood. Void corruption warps those who push too hard.</p>
+    <p>Think <em>Alien</em> crossed with <em>Dark Souls</em> crossed
+    with <em>Fallout</em>. Deep-space survival with body horror
+    undertones and industrial decay everywhere you look.</p>
+    <h2 id="whats-good-1">What’s Good</h2>
+    <ul>
+    <li>Distinctive aesthetic — nothing else on this list looks or feels
+    like this</li>
+    <li>Void corruption system generates drama automatically from failed
+    rolls — the dice create tension without the GM having to manufacture
+    it</li>
+    <li>d20 base means the core roll is immediately familiar</li>
+    <li>Short character creation — playing in 15 minutes</li>
+    </ul>
+    <h2 id="worth-knowing-1">Worth Knowing</h2>
+    <ul>
+    <li>Rules are intentionally sparse — the GM fills gaps with
+    improvisation</li>
+    <li>Characters start weak and stay fragile — very different from 5e
+    heroics</li>
+    <li>Darker tone may not suit every group’s mood for every
+    session</li>
+    </ul>
+    <h2 id="pick-this-if-1">Pick This If…</h2>
+    <blockquote>
+    <p>You want something that feels genuinely different from D&amp;D.
+    The dying solar system aesthetic is unlike anything else on this
+    list. Characters are fragile, decisions matter, and the void
+    corruption system creates drama without you needing to force it.</p>
+    </blockquote>
+    <hr />
+    <h1 id="cyberpunk-red">Cyberpunk Red</h1>
+    <p><strong>Publisher:</strong> R. Talsorian Games<br />
+    <strong>System:</strong> Custom d10 — roll 1d10 + skill + stat vs a
+    difficulty value<br />
+    <strong>Tone:</strong> Gritty street-level cyberpunk noir<br />
+    <p>Night City, 2045. The Fourth Corporate War has ended and left the
+    city in ruins. Corporations still run everything. The streets are
+    full of edgerunners, fixers, and the desperate. You take jobs, take
+    risks, and try to survive in a world that chews people up and spits
+    them out.</p>
+    <h2 id="the-setting-2">The Setting</h2>
+    <p>Night City is the same city as Cyberpunk 2077 — just earlier,
+    darker, and more broken. Before the neon rebuild. The “Time of the
+    Red” is a period of recovery and power struggles, where the old
+    megacorps are weakened but not gone, and the streets belong to
+    whoever is tough enough to hold them.</p>
+    <p>Direct line to <em>Altered Carbon</em>, <em>Neuromancer</em>, and
+    <em>Blade Runner</em>. If your group has played Cyberpunk 2077 or
+    watched Cyberpunk: Edgerunners on Netflix, they already know this
+    world intimately which is a significant advantage at the table.</p>
+    <h2 id="whats-good-2">What’s Good</h2>
+    <ul>
+    <li>Best-written core rulebook of any game on this list — genuinely
+    easy to learn from</li>
+    <li>Free Easy Mode starter set on DriveThruRPG with pregen
+    characters and a pre-written gig — ready to run with minimal
+    prep</li>
+    <li>Official companion app handles most of the number-crunching at
+    the table</li>
+    <li>Rich, detailed setting with decades of lore to draw on if you
+    want it</li>
+    </ul>
+    <h2 id="worth-knowing-2">Worth Knowing</h2>
+    <ul>
+    <li>More to learn than Death in Space or Dark Matter — rewards a few
+    hours of reading first</li>
+    <li>Combat is deadly and tactical — different feel from 5e’s heroic
+    action economy</li>
+    <li>The full core book is large; the free starter set is the smarter
+    entry point</li>
+    <li>Night City is a specific, detailed setting — less flexible than
+    Dark Matter’s tone dial</li>
+    </ul>
+    <h2 id="pick-this-if-2">Pick This If…</h2>
+    <blockquote>
+    <p>You want the full cyberpunk experience with proper setting depth
+    and GM support. The free starter kit means you can run a one-shot
+    with minimal prep, and if the group enjoys it there’s a rich system
+    and setting to grow into.</p>
+    </blockquote>
+    <hr />
+    <h1 id="side-by-side">Side by Side</h1>
+    <table>
+    <colgroup>
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    </colgroup>
+    <thead>
+    <tr class="header">
+    <th></th>
+    <th>Dark Matter</th>
+    <th>Death in Space</th>
+    <th>Cyberpunk Red</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td><strong>System</strong></td>
+    <td>D&amp;D 5e</td>
+    <td>d20 OSR-lite</td>
+    <td>Custom d10</td>
+    </tr>
+    <tr class="even">
+    <td><strong>Learning curve</strong></td>
+    <td>Minimal</td>
+    <td>Low–Medium</td>
+    <td>Low–Medium</td>
+    </tr>
+    <tr class="odd">
+    <td><strong>One-shot ready</strong></td>
+    <td>Yes</td>
+    <td>Yes (starter included)</td>
+    <td>Yes (free starter kit)</td>
+    </tr>
+    <tr class="even">
+    <td><strong>Tone</strong></td>
+    <td>Space opera / flexible</td>
+    <td>Grim survival horror</td>
+    <td>Cyberpunk noir</td>
+    </tr>
+    <tr class="odd">
+    <td><strong>Characters</strong></td>
+    <td>Heroic, durable</td>
+    <td>Fragile, corrupted</td>
+    <td>Gritty, street-level</td>
+    </tr>
+    <tr class="even">
+    <td><strong>Best for</strong></td>
+    <td>Groups wanting comfort</td>
+    <td>Groups wanting atmosphere</td>
+    <td>Groups wanting edge</td>
+    </tr>
+    </tbody>
+    </table>
+    <hr />
+  </main>
+  <footer>
+    <p>Session Zero  ·  2026</p>
+  </footer>
+</body>
+</html>
