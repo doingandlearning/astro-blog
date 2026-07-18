@@ -33,57 +33,106 @@
 /* ── Variables ─────────────────────────────────────────────── */
 :root {
   /* Fonts */
-  --body-font:    Georgia, 'Times New Roman', serif;
+  --body-font: Georgia, 'Times New Roman', serif;
   --heading-font: Georgia, 'Times New Roman', serif;
-  --meta-font:    'Arial', Helvetica, sans-serif;
+  --meta-font: 'Arial', Helvetica, sans-serif;
 
   /* Parchment palette */
-  --page-bg:      #f4ede0;   /* warm cream parchment */
-  --text:         #1a1008;   /* near-black ink        */
-  --text-dim:     #5a4a38;   /* mid-brown muted text  */
-  --text-light:   #7a6a58;   /* lighter muted         */
-  --rule-colour:  #8b6f4e;   /* brown rule/border     */
-  --surface:      #ede3d0;   /* slightly darker cream for inset blocks */
-  --surface-2:    #e4d8c0;   /* table header fill     */
-  --drop-cap-colour: #6b3a1f; /* deep brown drop cap  */
+  --page-bg: #f0e6cc;
+  /* warm cream parchment */
+  --text: #1a1008;
+  /* near-black ink        */
+  --text-dim: #5a4a38;
+  /* mid-brown muted text  */
+  --text-light: #7a6a58;
+  /* lighter muted         */
+  --rule-colour: #8b6f4e;
+  /* brown rule/border     */
+  --surface: #e8dbc4;
+  /* slightly darker cream for inset blocks */
+  --surface-2: #dfd0b0;
+  /* table header fill     */
+  --drop-cap-colour: #6b3a1f;
+  /* deep brown drop cap  */
 
   /* Typography scale */
   --base-size: 11pt;
-  --scale-sm:  0.82em;
-  --scale-md:  1em;
-  --scale-lg:  1.2em;
-  --scale-xl:  1.75em;
+  --scale-sm: 0.82em;
+  --scale-md: 1em;
+  --scale-lg: 1.2em;
+  --scale-xl: 1.75em;
   --scale-2xl: 2.6em;
 
   /* Spacing */
-  --gap-sm:  5px;
-  --gap-md:  12px;
-  --gap-lg:  24px;
-  --gap-xl:  40px;
+  --gap-sm: 5px;
+  --gap-md: 12px;
+  --gap-lg: 24px;
+  --gap-xl: 40px;
 
   /* Layout */
-  --max-width:   760px;
-  --col-gap:     24px;
+  --max-width: 760px;
+  --col-gap: 24px;
 }
 
 /* ── Reset & base ───────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 @page {
   size: A4;
   margin: 20mm 18mm 20mm 18mm;
 }
 
+/* SVG noise filter — generates grain/texture entirely in CSS */
+svg.noise-filter {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
 html {
   font-size: var(--base-size);
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
+  /* Vignette — darkens edges like aged paper */
+  background:
+    radial-gradient(ellipse at center,
+      transparent 55%,
+      rgba(80, 40, 10, 0.18) 100%),
+    /* Uneven staining — subtle warm blotches */
+    radial-gradient(ellipse 70% 50% at 20% 30%,
+      rgba(160, 100, 30, 0.07) 0%,
+      transparent 70%),
+    radial-gradient(ellipse 50% 60% at 80% 70%,
+      rgba(120, 70, 20, 0.06) 0%,
+      transparent 70%),
+    radial-gradient(ellipse 40% 40% at 60% 20%,
+      rgba(180, 130, 60, 0.05) 0%,
+      transparent 60%),
+    /* Base parchment colour */
+    #f0e6cc;
+  min-height: 100vh;
 }
 
 body {
   font-family: var(--body-font);
   color: var(--text);
-  background: var(--page-bg);
+  /* Layered background: noise grain over a slightly mottled base */
+  background:
+    /* Fine grain via SVG noise data URI */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E"),
+    /* Horizontal streaks — simulates paper grain direction */
+    repeating-linear-gradient(180deg,
+      transparent,
+      transparent 3px,
+      rgba(140, 90, 30, 0.012) 3px,
+      rgba(140, 90, 30, 0.012) 4px),
+    transparent;
   line-height: 1.6;
   max-width: var(--max-width);
   margin: 0 auto;
@@ -93,6 +142,7 @@ body {
   column-gap: var(--col-gap);
   column-rule: 1px solid var(--rule-colour);
   column-fill: auto;
+  position: relative;
 }
 
 /* ── Page header — spans full width ────────────────────────── */
@@ -163,7 +213,7 @@ h2 {
 }
 
 /* ── Metadata block (Publisher / System / Tone lines) ───────── */
-h1 + p {
+h1+p {
   font-family: var(--meta-font);
   font-size: var(--scale-sm);
   color: var(--text-dim);
@@ -171,14 +221,14 @@ h1 + p {
   margin-bottom: var(--gap-md);
 }
 
-h1 + p strong {
+h1+p strong {
   color: var(--text);
   font-weight: bold;
 }
 
 /* ── Drop cap on first paragraph after metadata ─────────────── */
 /* Targets the second paragraph after each h1 (the intro paragraph) */
-h1 + p + p::first-letter {
+h1+p+p::first-letter {
   font-family: var(--heading-font);
   font-size: 3.4em;
   font-weight: bold;
@@ -251,10 +301,17 @@ thead th {
   border-right: 1px solid var(--rule-colour);
 }
 
-thead th:last-child { border-right: none; }
+thead th:last-child {
+  border-right: none;
+}
 
-tbody tr { background: var(--page-bg); }
-tbody tr:nth-child(even) { background: var(--surface); }
+tbody tr {
+  background: var(--page-bg);
+}
+
+tbody tr:nth-child(even) {
+  background: var(--surface);
+}
 
 tbody td {
   padding: 7px 10px;
@@ -272,8 +329,13 @@ tbody td:first-child {
   white-space: nowrap;
 }
 
-tbody td:last-child { border-right: none; }
-tbody tr:last-child td { border-bottom: none; }
+tbody td:last-child {
+  border-right: none;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
 
 /* ── Footer ─────────────────────────────────────────────────── */
 footer {
@@ -290,8 +352,22 @@ footer {
 
 /* ── Print overrides ────────────────────────────────────────── */
 @media print {
-  body { padding: 0; }
-  h1, h2 { break-after: avoid; page-break-after: avoid; }
-  table  { break-inside: avoid; page-break-inside: avoid; }
-  blockquote { break-inside: avoid; }
+  body {
+    padding: 0;
+  }
+
+  h1,
+  h2 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  table {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  blockquote {
+    break-inside: avoid;
+  }
 }
