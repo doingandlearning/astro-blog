@@ -1,6 +1,6 @@
 ---
 title: "My Favourite YouTube Creators"
-date: "2025-07-18"
+date: "2026-07-18"
 tags: [youtube]
 updateDate: ""
 description: "I watch a lot of YouTube but what do I actually enjoy"
