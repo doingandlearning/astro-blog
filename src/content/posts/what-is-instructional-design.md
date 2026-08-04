@@ -1,5 +1,5 @@
 ---
-title: "Thinking about instructional design"
+title: "How I create a course"
 date: "2026-08-03T13:00Z"
 tags: []
 updateDate: ""
