@@ -9,7 +9,7 @@ draft: false
 
 I'm not very good at taking time off. Even when I'm not working, I end up working. Part of that is being self-employed - the pressure always seems to be there - but another part is just poor discipline on my part.
 
-This week, my son and I are home with the dog while my wife and other offspring are in Manchester for a music camp. Here's what we did:
+This week, my son and I are home with the dog while my wife and our younger offspring are in Manchester for a music camp. Here's what we did:
 
 - Walked the dog
 - Took the van to get photographed to estimate for some repairs on body work damage
@@ -28,7 +28,7 @@ In the bits of in between time, I've been watching Supernatural. Currently in Se
 
 Think we're all finding it weird being in the house on our own - the dog keeps looking for the missing team mates. The 13 year old just went for a run around the block as he has too much energy and now it's time for bed.
 
-There wasn't much space for work which was nice. It's pretty great getting to hang out one on one with my son. We've talked custom PC builds and tech geekier for the most part.
+There wasn't much space for work which was nice. It's pretty great getting to hang out one on one with my son. We've talked custom PC builds and tech geekery for the most part.
 
 At the end of the Bourne Identity he wondered how there could be 4 more movies. These are some of my favourite movies and I was remembering how the second one starts. 
 
