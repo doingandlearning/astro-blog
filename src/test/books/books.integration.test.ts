@@ -4,6 +4,8 @@ import { BookPerformanceManager } from '../../utils/bookPerformance';
 import { errorMonitor, withErrorHandling, withPerformanceMonitoring } from '../../utils/errorHandling';
 import type { BookWithEnhancedData } from '../../types/books';
 
+const currentYear = new Date().getFullYear();
+
 // Mock book data for testing
 const mockBooks: BookWithEnhancedData[] = [
   {
@@ -13,7 +15,7 @@ const mockBooks: BookWithEnhancedData[] = [
     genre: "Technical",
     pages: 352,
     coverUrl: "https://example.com/pragmatic.jpg",
-    readingYear: 2024,
+    readingYear: currentYear,
     readingMonth: 1,
     isCurrentlyReading: false,
     bookCategory: "Technical",
@@ -35,7 +37,7 @@ const mockBooks: BookWithEnhancedData[] = [
     genre: "Fiction",
     pages: 328,
     coverUrl: "https://example.com/1984.jpg",
-    readingYear: 2024,
+    readingYear: currentYear,
     readingMonth: 2,
     isCurrentlyReading: false,
     bookCategory: "Fiction",
@@ -57,7 +59,7 @@ const mockBooks: BookWithEnhancedData[] = [
     genre: "Self-Help",
     pages: 320,
     coverUrl: "https://example.com/atomic-habits.jpg",
-    readingYear: 2024,
+    readingYear: currentYear,
     readingMonth: 3,
     isCurrentlyReading: false,
     bookCategory: "Non-Fiction",
@@ -117,7 +119,7 @@ describe('Book Reading Feature Integration Tests', () => {
 
       // Reading patterns
       expect(stats.readingTimeline).toEqual({
-        2024: 3
+        [currentYear]: 3
       });
 
       expect(stats.monthlyReadingPattern).toEqual({

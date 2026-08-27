@@ -45,7 +45,7 @@ const liveCourses = await getCollection("livecourses", ({ data }) => {
       liveCourses.map((course) => {
         return (
           <li>
-            <a href={`/courses/${course.slug}`}>
+            <a href={`/courses/${course.id}`}>
               {course.data.title} ({course.data.duration})
             </a>
           </li>

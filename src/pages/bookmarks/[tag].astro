@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
   const uniqueTags = [...new Set(bookmarks.map((post) => post.tags).flat())];
 
-  return uniqueTags.map((tag) => {
+  return uniqueTags.filter((tag) => tag !== "teaching").map((tag) => {
     const filteredBookmarks = bookmarks.filter((post) =>
       post.tags.includes(tag)
     );

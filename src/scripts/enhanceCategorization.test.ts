@@ -3,11 +3,18 @@ import { enhanceBookCategorization, processSpecificBook, getProcessingStatus } f
 import { readFile, writeFile, readdir } from 'fs/promises';
 
 // Mock fs/promises
-vi.mock('fs/promises', () => ({
-  readFile: vi.fn(),
-  writeFile: vi.fn(),
-  readdir: vi.fn(),
-}));
+vi.mock('fs/promises', () => {
+  const readFile = vi.fn();
+  const writeFile = vi.fn();
+  const readdir = vi.fn();
+
+  return {
+    readFile,
+    writeFile,
+    readdir,
+    default: { readFile, writeFile, readdir },
+  };
+});
 
 // Mock the LLM config
 vi.mock('../config/llm', () => ({

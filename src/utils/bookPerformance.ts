@@ -146,7 +146,11 @@ export class BookPerformanceManager {
     // Check cache first
     if (this.searchCache.has(cacheKey)) {
       this.performanceMetrics.cacheHitRate++;
-      return this.searchCache.get(cacheKey)!;
+      const cachedResult = this.searchCache.get(cacheKey)!;
+      return {
+        ...cachedResult,
+        searchTime: performance.now() - startTime,
+      };
     }
 
     const queryLower = query.toLowerCase();
@@ -355,7 +359,10 @@ export class BookPerformanceManager {
         
         let comparison = 0;
         
-        if (typeof aValue === 'string' && typeof bValue === 'string') {
+        if (field === 'readingLevel' && typeof aValue === 'string' && typeof bValue === 'string') {
+          const readingLevels = ['Beginner', 'Intermediate', 'Advanced'];
+          comparison = readingLevels.indexOf(aValue) - readingLevels.indexOf(bValue);
+        } else if (typeof aValue === 'string' && typeof bValue === 'string') {
           comparison = aValue.localeCompare(bValue);
         } else if (typeof aValue === 'number' && typeof bValue === 'number') {
           comparison = aValue - bValue;

@@ -1,3 +1,5 @@
+import { getCollection } from "astro:content";
+
 /**
  * Utility to map YouTube videos to corresponding blog posts
  */
@@ -45,9 +47,8 @@ export function generateBlogTitle(videoTitle: string): string {
 export async function checkBlogPostExists(slug: string): Promise<boolean> {
   try {
     // Use Astro's content collection API to check if a post exists
-    const { getCollection } = await import('astro:content');
     const posts = await getCollection('posts');
-    return posts.some(post => post.slug === slug);
+    return posts.some(post => post.id === slug);
   } catch {
     return false;
   }

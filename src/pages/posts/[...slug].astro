@@ -1,11 +1,11 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("posts");
-  return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
+  return blogEntries.filter((entry) => entry.id !== "teaching").map((entry) => ({
+    params: { slug: entry.id },
     props: { entry },
   }));
 }
@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 
 const webmentiondata = await getCollection("webmentions", (mention) => {
-  return mention.id.startsWith("posts--") && mention.id.endsWith(entry.slug);
+  return mention.id.startsWith("posts--") && mention.id.endsWith(entry.id);
 });
 
 let webmentions: unknown[] = [];
@@ -22,12 +22,12 @@ if (webmentiondata.length > 0) {
   webmentions = webmentiondata[0].data;
 }
 
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <MarkdownPostLayout
   frontmatter={entry.data}
-  slug={entry.slug}
+  slug={entry.id}
   webmentions={webmentions}
 >
   <Content />

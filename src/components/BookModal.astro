@@ -5,9 +5,9 @@ export interface Props {
 }
 ---
 
-<div id="book-modal" class="modal-overlay" onclick="closeBookModal(event)">
-	<div class="modal-content" onclick="event.stopPropagation()">
-		<button class="close-button" onclick="closeBookModal(null)">&times;</button>
+<div id="book-modal" class="modal-overlay">
+	<div class="modal-content">
+		<button id="close-book-modal" class="close-button">&times;</button>
 		
 		<div class="modal-body">
 			<div class="book-cover-section">
@@ -149,11 +149,7 @@ export interface Props {
 		document.body.style.overflow = 'hidden';
 	}
 
-	function closeBookModal(event: any) {
-		if (event && event.target !== event.currentTarget && !event.target?.classList?.contains('close-button')) {
-			return;
-		}
-		
+	function closeBookModal() {
 		const modal = document.getElementById('book-modal');
 		if (modal) {
 			modal.style.display = 'none';
@@ -161,10 +157,20 @@ export interface Props {
 		document.body.style.overflow = 'auto';
 	}
 
+	document.getElementById('book-modal')?.addEventListener('click', (event) => {
+		if (event.target === event.currentTarget) {
+			closeBookModal();
+		}
+	});
+	document.getElementById('book-modal')?.querySelector('.modal-content')?.addEventListener('click', (event) => {
+		event.stopPropagation();
+	});
+	document.getElementById('close-book-modal')?.addEventListener('click', closeBookModal);
+
 	// Close modal on escape key
 	document.addEventListener('keydown', (e) => {
 		if (e.key === 'Escape') {
-			closeBookModal(null);
+			closeBookModal();
 		}
 	});
 

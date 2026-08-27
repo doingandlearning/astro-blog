@@ -40,7 +40,7 @@ const postsToDisplay = [...filteredPosts, ...randomPosts];
   {
     postsToDisplay.map((post) => (
       <li class="next-post-item">
-        <a href={`/posts/${post.slug}`} aria-label={post.data.title}>
+        <a href={`/posts/${post.id}`} aria-label={post.data.title}>
           <img
             src={getMetaImage(post.data.title)}
             width="300"

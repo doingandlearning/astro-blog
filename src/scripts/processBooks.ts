@@ -432,14 +432,6 @@ export function validateAndCleanBookData(book: BookWithEnhancedData): {
 }
 
 /**
- * Add a warning to the processing result
- */
-function addWarning(result: ProcessingResult, message: string): void {
-  result.warnings.push(message);
-  result.stats.warningRows++;
-}
-
-/**
  * Enhanced error handling for CSV processing
  */
 export function handleCSVProcessingError(error: unknown, context: string): string {

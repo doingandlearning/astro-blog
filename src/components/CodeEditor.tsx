@@ -89,7 +89,7 @@ export default function CodeEditor({ initialCode = "" }: CodeEditorProps) {
 				};
 
 				// Evaluate the code
-				const result = eval(code);
+				const result = new Function(code)();
 
 				// Restore original console methods
 				console.log = originalLog;

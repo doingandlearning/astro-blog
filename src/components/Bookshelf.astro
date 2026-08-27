@@ -102,7 +102,7 @@ const shelves = organizeIntoShelves(books, maxShelfWidth);
 
 <BookModal />
 
-<script define:vars={{ books }}>
+<script is:inline define:vars={{ books }}>
 	// Store book data globally for modal access
 	if (!window.bookshelfData) {
 		window.bookshelfData = {};

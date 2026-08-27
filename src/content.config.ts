@@ -1,140 +1,81 @@
-// Import utilities from `astro:content`
-import { z, defineCollection } from "astro:content";
-// Define a `type` and `schema` for each collection
+import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
+import type { Loader } from "astro/loaders";
+import { z } from "astro/zod";
+import { readdir, readFile } from "node:fs/promises";
+import { join } from "node:path";
+
+function jsonArrayLoader(directory: string): Loader {
+  return {
+    name: `local-json-array:${directory}`,
+    async load({ store }) {
+      store.clear();
+      const files = (await readdir(directory)).filter((file) => file.endsWith(".json"));
+
+      for (const file of files) {
+        const filePath = join(directory, file);
+        const data = JSON.parse(await readFile(filePath, "utf-8"));
+        store.set({
+          id: file.replace(/\.json$/, ""),
+          data: data as Record<string, unknown>,
+          filePath,
+        });
+      }
+    },
+  };
+}
+
 const postsCollection = defineCollection({
-  type: "content",
+  loader: glob({ base: "./src/content/posts", pattern: "**/*.{md,mdx}" }),
   schema: z.object({
-    title: z.string(),
-    date: z.string(),
-    updateDate: z.string().optional(),
-    description: z.string().optional(),
-    image: z
-      .object({
-        url: z.string(),
-        alt: z.string(),
-      })
-      .optional(),
-    imageUrl: z.string().optional(),
-    imageAlt: z.string().optional(),
-    youtubeId: z.string().optional(),
-    tags: z.array(z.string()),
-    draft: z.boolean().optional(),
+    title: z.string(), date: z.string(), updateDate: z.string().optional(),
+    description: z.string().optional(), image: z.object({ url: z.string(), alt: z.string() }).optional(),
+    imageUrl: z.string().optional(), imageAlt: z.string().optional(), youtubeId: z.string().optional(),
+    tags: z.array(z.string()), draft: z.boolean().optional(),
   }),
 });
 
 const prerecordedCollection = defineCollection({
-  type: "content",
-  schema: z.object({
-    title: z.string(),
-    link: z.string(),
-    cta: z.string(),
-    image: z.object({
-      sourceUrl: z.string(),
-      altText: z.string(),
-    }),
-    order: z.number(),
-  }),
+  loader: glob({ base: "./src/content/prerecorded", pattern: "**/*.{md,mdx}" }),
+  schema: z.object({ title: z.string(), link: z.string(), cta: z.string(), image: z.object({ sourceUrl: z.string(), altText: z.string() }), order: z.number() }),
 });
 
 const liveCourses = defineCollection({
-  type: "content",
-  schema: z.object({
-    title: z.string(),
-    order: z.number(),
-    duration: z.string(),
-    description: z.string(),
-    draft: z.boolean().optional(),
-  }),
+  loader: glob({ base: "./src/content/livecourses", pattern: "**/*.{md,mdx}" }),
+  schema: z.object({ title: z.string(), order: z.number(), duration: z.string(), description: z.string(), draft: z.boolean().optional() }),
 });
 
 const webmentions = defineCollection({
-  type: "data",
-  schema: z.array(
-    z.object({
-      author: z.object({
-        name: z.string(),
-        photo: z.string(),
-        url: z.string(),
-      }),
-      ["wm-property"]: z.string(),
-      url: z.string(),
-      content: z
-        .object({
-          html: z.string().optional(),
-          text: z.string(),
-        })
-        .optional(),
-      "wm-received": z.string(),
-    })
-  ),
+  loader: jsonArrayLoader("./src/content/webmentions"),
+  schema: z.array(z.object({
+    author: z.object({ name: z.string(), photo: z.string(), url: z.string() }),
+    ["wm-property"]: z.string(), url: z.string(),
+    content: z.object({ html: z.string().optional(), text: z.string() }).optional(),
+    "wm-received": z.string(),
+  })),
 });
 
-// define bookmarks collection
 const bookmarksCollection = defineCollection({
-  type: "data",
-  schema: z.array(
-    z.object({
-      title: z.string(),
-      url: z.string(),
-      description: z.string(),
-      tags: z.array(z.string()),
-      date: z.string(),
-    })
-  ),
+  loader: jsonArrayLoader("./src/content/bookmarks"),
+  schema: z.array(z.object({ title: z.string(), url: z.string(), description: z.string(), tags: z.array(z.string()), date: z.string() })),
 });
 
-// define books collection
 const booksCollection = defineCollection({
-  type: "data",
+  loader: glob({ base: "./src/content/books", pattern: "**/*.json" }),
   schema: z.object({
-    title: z.string(),
-    author: z.string(),
-    dateFinished: z.string(), // ISO date string
-    genre: z.string(),
-    pages: z.number(),
-    coverUrl: z.string().optional(),
-    localCoverPath: z.string().optional(), // e.g. /book-covers/title-author.jpg
-    goodreadsId: z.string().optional(), // Goodreads Book Id for deduplication and cover lookup
-    readingYear: z.number(),
-    readingMonth: z.number(),
-    enhancedGenre: z.string().optional(),
-    isCurrentlyReading: z.boolean().optional(),
-    // LLM-enhanced categorization fields
-    llmProcessed: z.boolean().optional(), // Track if LLM has processed this book
-    llmProcessedAt: z.string().optional(), // ISO timestamp of when LLM processed
-    bookCategory: z.string().optional(), // Broader category (e.g., "Fiction", "Non-Fiction", "Technical")
-    readingLevel: z.string().optional(), // "Beginner", "Intermediate", "Advanced"
-    themes: z.array(z.string()).optional(), // Array of themes/topics
-    targetAudience: z.string().optional(), // "General", "Developers", "Students", etc.
-    complexity: z.string().optional(), // "Simple", "Moderate", "Complex"
-    readingTime: z.string().optional(), // Estimated reading time
-    relatedBooks: z.array(z.string()).optional(), // Array of related book titles
-    keyInsights: z.array(z.string()).optional(), // Key takeaways or insights
-    tags: z.array(z.string()).optional(), // Additional tags for grouping
+    title: z.string(), author: z.string(), dateFinished: z.string(), genre: z.string(), pages: z.number(),
+    coverUrl: z.string().optional(), localCoverPath: z.string().optional(), goodreadsId: z.string().optional(),
+    readingYear: z.number(), readingMonth: z.number(), enhancedGenre: z.string().optional(), isCurrentlyReading: z.boolean().optional(),
+    llmProcessed: z.boolean().optional(), llmProcessedAt: z.string().optional(), bookCategory: z.string().optional(),
+    readingLevel: z.string().optional(), themes: z.array(z.string()).optional(), targetAudience: z.string().optional(),
+    complexity: z.string().optional(), readingTime: z.string().optional(), relatedBooks: z.array(z.string()).optional(),
+    keyInsights: z.array(z.string()).optional(), tags: z.array(z.string()).optional(),
   }),
 });
 
-// define testimonials collection
 const testimonialsCollection = defineCollection({
-  type: "data",
-  schema: z.array(
-    z.object({
-      course_name: z.string(),
-      date: z.string(),
-      feedback: z.string(),
-      source_file: z.string(),
-      row_index: z.number(),
-    })
-  ),
+  loader: jsonArrayLoader("./src/content/testimonials"),
+  schema: z.array(z.object({ course_name: z.string(), date: z.string(), feedback: z.string(), source_file: z.string(), row_index: z.number() })),
 });
 
-// Export a single `collections` object to register your collection(s)
-export const collections = {
-  posts: postsCollection,
-  prerecorded: prerecordedCollection,
-  livecourses: liveCourses,
-  bookmarks: bookmarksCollection,
-  webmentions: webmentions,
-  books: booksCollection,
-  testimonials: testimonialsCollection,
-};
+export const collections = { posts: postsCollection, prerecorded: prerecordedCollection, livecourses: liveCourses, bookmarks: bookmarksCollection, webmentions, books: booksCollection, testimonials: testimonialsCollection };

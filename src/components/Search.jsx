@@ -51,7 +51,7 @@ export default function Search({ posts }) {
 							results.map(post => (
 								<SearchBlogPost
 									title={post.data.title}
-									url={`/posts/${post.slug}`}
+									url={`/posts/${post.id}`}
 									description={post.data.description}
 									date={post.data.date}
 									tags={post.data.tags}
