@@ -1,0 +1,120 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// Add new resources here — each one becomes a card in its subject's grid.
+// Fill in the real `href` once a resource is ready; until then it's fine
+// to leave a placeholder like "#".
+const subjects = [
+  {
+    name: "French",
+    resources: [
+      {
+        title: "Vocab Practice",
+        description: "Practice and revision app for French.",
+        href: "https://claude.ai/code/artifact/750e614f-6cab-4c55-8b87-619b7110e773",
+      },
+    ],
+  },
+  {
+    name: "English",
+    resources: [
+      {
+        title: "Homonym Pracice",
+        description: "Practice and revision app for English.",
+        href: "https://claude.ai/code/artifact/2a31d94d-c896-402e-8435-ae80ffe0af7c",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout pageTitle="Emerald's Revision Resources" showSocials={false}>
+  <div class="centered">
+    <h1 transition:animate="slide">Emerald's Revision Resources</h1>
+  </div>
+  <div class="description-text">
+    <p>A collection of revision resources and mini-apps.</p>
+  </div>
+
+  {
+    subjects.map((subject) => (
+      <section class="subject-section">
+        <h2>{subject.name}</h2>
+        <div class="resource-grid">
+          {subject.resources.map((resource) => (
+            <a class="resource-card" href={resource.href}>
+              <div class="resource-title">{resource.title}</div>
+              {resource.description && (
+                <div class="resource-description">{resource.description}</div>
+              )}
+            </a>
+          ))}
+        </div>
+      </section>
+    ))
+  }
+</BaseLayout>
+
+<style>
+  .centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .description-text p {
+    line-height: 1.4;
+    margin: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .subject-section {
+    max-width: 800px;
+    margin: 0 auto 2.5rem auto;
+    padding: 0 1rem;
+  }
+
+  .subject-section h2 {
+    color: var(--site-green);
+    margin-bottom: 1rem;
+  }
+
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .resource-card {
+    display: block;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      border-color 0.2s ease,
+      transform 0.1s ease;
+  }
+
+  .resource-card:hover {
+    border-color: var(--site-green);
+    transform: translateY(-2px);
+  }
+
+  .resource-title {
+    font-weight: bold;
+    color: var(--site-green);
+    margin-bottom: 0.35rem;
+  }
+
+  .resource-description {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+  }
+</style>
