@@ -1,0 +1,856 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  pageTitle="Spelling Practice"
+  pageDescription="Practise spelling with Look, Cover, Write, Check, Smart Practice and Quiz modes."
+  showSocials={false}
+>
+  <div class="spelling-app" id="spellingApp">
+    <div class="wrap">
+      <header>
+        <h1 id="appTitle">📝 Spelling Practice</h1>
+        <div class="stats">
+          <div class="stat">🔥 <span id="streakStat">0</span></div>
+          <div class="stat">⭐ <span id="pointsStat">0</span></div>
+        </div>
+      </header>
+
+      <!-- HOME SCREEN -->
+      <section id="screen-home">
+        <div class="card">
+          <h2 id="homeGreeting">Ready to practise?</h2>
+          <p class="lead" id="wordCountLine">You have words ready to practise.</p>
+          <div class="mode-grid">
+            <button class="mode-btn" data-mode="lcwc">
+              <div class="mode-emoji">👀</div>
+              <div>
+                <div class="mode-title">Look, Cover, Write, Check</div>
+                <div class="mode-desc">See the word, hide it, write it from memory, then check.</div>
+              </div>
+            </button>
+            <button class="mode-btn" data-mode="smart">
+              <div class="mode-emoji">🧠</div>
+              <div>
+                <div class="mode-title">Smart Practice</div>
+                <div class="mode-desc">Tricky words come back more often. Easy ones fade away.</div>
+              </div>
+            </button>
+            <button class="mode-btn" data-mode="quiz">
+              <div class="mode-emoji">🎯</div>
+              <div>
+                <div class="mode-title">Quiz</div>
+                <div class="mode-desc">A quick timed-flash test with a score at the end.</div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Themes</h2>
+          <p class="lead">Unlock new looks by earning stars.</p>
+          <div class="themes" id="themeRow"></div>
+        </div>
+      </section>
+
+      <!-- PRACTICE SCREEN (used by all three modes) -->
+      <section id="screen-practice" class="hidden">
+        <div class="progress"><div id="progressBar" style="width:0%"></div></div>
+        <div class="card">
+          <div class="word-stage">
+            <div id="wordDisplay" class="word-display"></div>
+            <div id="hintLine" class="hint"></div>
+            <div id="countdownLine" class="countdown"></div>
+          </div>
+
+          <div id="answerArea" class="hidden">
+            <input
+              type="text"
+              id="answerInput"
+              autocomplete="off"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+              inputmode="text"
+              placeholder="Type the word…"
+            />
+            <div style="height:12px"></div>
+            <button class="primary" id="checkBtn">Check</button>
+          </div>
+
+          <div id="feedbackArea" class="hidden">
+            <div id="resultBanner" class="result-banner"></div>
+            <div id="diffLine" class="diff"></div>
+            <div id="correctWordLine" class="correct-word"></div>
+            <div style="height:16px"></div>
+            <button class="primary" id="nextBtn">Continue</button>
+          </div>
+        </div>
+        <button class="ghost" id="quitBtn">End session</button>
+      </section>
+
+      <!-- SUMMARY SCREEN -->
+      <section id="screen-summary" class="hidden">
+        <div class="card" style="text-align:center">
+          <div id="summaryEmoji" style="font-size:2.4rem">🎉</div>
+          <h2 id="summaryTitle">Nice work!</h2>
+          <div class="summary-grid">
+            <div class="summary-tile"><div class="num" id="sumCorrect">0</div><div class="lbl">Correct</div></div>
+            <div class="summary-tile"><div class="num" id="sumTotal">0</div><div class="lbl">Words practised</div></div>
+            <div class="summary-tile"><div class="num" id="sumPoints">0</div><div class="lbl">Stars earned</div></div>
+            <div class="summary-tile"><div class="num" id="sumStreak">0</div><div class="lbl">Day streak</div></div>
+          </div>
+          <button class="primary" id="homeBtn">Back to home</button>
+        </div>
+      </section>
+
+      <div class="footer-link"><a href="#" id="resetLink">Reset my progress</a></div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* ============================================================
+     THEMES — unlocked with points as the child practises.
+     Add more by copying a block and giving it a new data-theme name,
+     then adding {name, cost} to the THEMES array in the script below.
+     ============================================================ */
+  .spelling-app {
+    --bg: #f4f1ea;
+    --card: #ffffff;
+    --ink: #2b2b33;
+    --muted: #7a7a85;
+    --accent: #6c63ff;
+    --accent-ink: #ffffff;
+    --good: #2fa66a;
+    --bad: #e0555a;
+    --line: #e6e3da;
+    --shadow: 0 10px 30px rgba(43, 43, 51, 0.1);
+    --radius: 20px;
+  }
+  .spelling-app[data-theme="ocean"] {
+    --bg: #eaf6f6;
+    --card: #ffffff;
+    --ink: #12343b;
+    --muted: #5c8a90;
+    --accent: #1aa7a0;
+    --accent-ink: #ffffff;
+    --good: #2fa66a;
+    --bad: #e0555a;
+    --line: #d7ecec;
+  }
+  .spelling-app[data-theme="sunset"] {
+    --bg: #fff1e6;
+    --card: #ffffff;
+    --ink: #402a1f;
+    --muted: #9c7a63;
+    --accent: #ff7a45;
+    --accent-ink: #ffffff;
+    --good: #2fa66a;
+    --bad: #e0555a;
+    --line: #ffe3cc;
+  }
+  .spelling-app[data-theme="galaxy"] {
+    --bg: #151327;
+    --card: #201d3b;
+    --ink: #f1f0ff;
+    --muted: #a49fd6;
+    --accent: #a06bff;
+    --accent-ink: #150e2b;
+    --good: #4fd18b;
+    --bad: #ff6b78;
+    --line: #332e5c;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .spelling-app * {
+    box-sizing: border-box;
+  }
+  .spelling-app {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.3s, color 0.3s;
+  }
+  .spelling-app .wrap {
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 16px 16px 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .spelling-app header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 2px 18px;
+  }
+  .spelling-app header h1 {
+    font-size: 1.25rem;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .spelling-app .stats {
+    display: flex;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    align-items: center;
+  }
+  .spelling-app .stat {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 6px 10px;
+    border-radius: 999px;
+    box-shadow: var(--shadow);
+    white-space: nowrap;
+  }
+
+  .spelling-app .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px 20px;
+    margin-bottom: 14px;
+    border: 1px solid var(--line);
+  }
+
+  .spelling-app h2 {
+    font-size: 1.05rem;
+    margin: 0 0 12px;
+  }
+  .spelling-app p.lead {
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .spelling-app .mode-grid {
+    display: grid;
+    gap: 12px;
+  }
+  .spelling-app .mode-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    font: inherit;
+    color: inherit;
+  }
+  .spelling-app .mode-btn:active {
+    transform: scale(0.98);
+  }
+  .spelling-app .mode-emoji {
+    font-size: 1.8rem;
+    width: 44px;
+    text-align: center;
+    flex: none;
+  }
+  .spelling-app .mode-title {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .spelling-app .mode-desc {
+    color: var(--muted);
+    font-size: 0.82rem;
+    margin-top: 2px;
+  }
+  .spelling-app .mode-btn:disabled {
+    opacity: 0.45;
+  }
+
+  .spelling-app button.primary {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border: none;
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+  }
+  .spelling-app button.primary:active {
+    transform: scale(0.98);
+  }
+  .spelling-app button.ghost {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+  .spelling-app .progress {
+    height: 6px;
+    background: var(--line);
+    border-radius: 99px;
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .spelling-app .progress > div {
+    height: 100%;
+    background: var(--accent);
+    transition: width 0.25s;
+  }
+
+  .spelling-app .word-stage {
+    text-align: center;
+    padding: 26px 10px 10px;
+  }
+  .spelling-app .word-display {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    word-break: break-word;
+  }
+  .spelling-app .hint {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-top: 10px;
+    min-height: 1.3em;
+  }
+  .spelling-app .countdown {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 14px;
+  }
+
+  .spelling-app input[type="text"] {
+    width: 100%;
+    font-size: 1.4rem;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 2px solid var(--line);
+    background: var(--bg);
+    color: var(--ink);
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .spelling-app input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .spelling-app .diff {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin: 14px 0 4px;
+  }
+  .spelling-app .diff .ok {
+    color: var(--good);
+  }
+  .spelling-app .diff .no {
+    color: var(--bad);
+    text-decoration: underline;
+    text-decoration-color: var(--bad);
+  }
+  .spelling-app .correct-word {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+  .spelling-app .result-banner {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .spelling-app .result-banner.good {
+    color: var(--good);
+  }
+  .spelling-app .result-banner.bad {
+    color: var(--bad);
+  }
+
+  .spelling-app .row {
+    display: flex;
+    gap: 10px;
+  }
+  .spelling-app .row > * {
+    flex: 1;
+  }
+
+  .spelling-app .summary-num {
+    font-size: 2.4rem;
+    font-weight: 800;
+  }
+  .spelling-app .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 16px 0;
+  }
+  .spelling-app .summary-tile {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px;
+    text-align: center;
+  }
+  .spelling-app .summary-tile .num {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  .spelling-app .summary-tile .lbl {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .spelling-app .themes {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .spelling-app .theme-swatch {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    border: 2px solid var(--line);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    position: relative;
+  }
+  .spelling-app .theme-swatch.active {
+    border-color: var(--accent);
+  }
+  .spelling-app .theme-swatch.locked {
+    opacity: 0.4;
+    cursor: default;
+  }
+  .spelling-app .lock-badge {
+    position: absolute;
+    bottom: -6px;
+    right: -6px;
+    background: var(--card);
+    border-radius: 99px;
+    font-size: 0.65rem;
+    padding: 1px 4px;
+    border: 1px solid var(--line);
+  }
+
+  .spelling-app .burst {
+    position: fixed;
+    pointer-events: none;
+    font-size: 1.6rem;
+    opacity: 0;
+    z-index: 50;
+    animation: spelling-burst 0.8s ease-out forwards;
+  }
+  @keyframes spelling-burst {
+    0% {
+      opacity: 1;
+      transform: translateY(0) scale(0.6);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-70px) scale(1.3);
+    }
+  }
+
+  .spelling-app .footer-link {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .spelling-app .footer-link a {
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-decoration: none;
+  }
+
+  .spelling-app .hidden {
+    display: none !important;
+  }
+</style>
+
+<script is:inline>
+  /* ================================================================
+     WORD LIST — edit this to add new words.
+     Each word can just be a string, e.g. "necessary",
+     or an object with an optional "hint" — a short sentence with the
+     word left out — shown briefly alongside it during practice:
+       { word: "necessary", hint: "It's ___ to wear a seatbelt." }
+     Hints are optional but make Quiz mode much fairer, since there's
+     no audio to say the word out loud.
+     ================================================================ */
+  const WORDS = [
+    "because", "beautiful", "definitely", "separate", "necessary",
+    "friend", "believe", "receive", "which", "though",
+    "through", "thought", "enough", "different", "favourite",
+	  "surprise", "usually", "probably", "actually", "immediately",
+	  "binary", "wonderful", "question", "social", "third"
+  ];
+
+  /* Unlockable colour themes. "cost" is the total stars needed. */
+  const THEMES = [
+    { name: "default", label: "Classic", swatch: "🟪", cost: 0 },
+    { name: "ocean",   label: "Ocean",   swatch: "🌊", cost: 40 },
+    { name: "sunset",  label: "Sunset",  swatch: "🌅", cost: 100 },
+    { name: "galaxy",  label: "Galaxy",  swatch: "🌌", cost: 200 }
+  ];
+
+  const SESSION_SIZE = 10;         // words per Look-Cover-Write-Check / Quiz session
+  const SMART_SESSION_SIZE = 15;   // max words per Smart Practice session
+  const STORAGE_KEY = "spellingPracticeApp:v1";
+
+  /* ---------- normalise word list into {word, hint} objects ---------- */
+  const WORD_BANK = WORDS.map(w => typeof w === "string" ? { word: w, hint: "" } : w);
+
+  /* ---------- persisted state ---------- */
+  function defaultState(){
+    return {
+      points: 0,
+      streak: 0,
+      lastPracticeDay: null,   // "YYYY-MM-DD"
+      theme: "default",
+      unlocked: ["default"],
+      sr: {}                   // word -> { box, next (timestamp), seenCount }
+    };
+  }
+  let state = loadState();
+
+  function loadState(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return defaultState();
+      const parsed = JSON.parse(raw);
+      return Object.assign(defaultState(), parsed);
+    }catch(e){ return defaultState(); }
+  }
+  function saveState(){
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }catch(e){}
+  }
+
+  function todayStr(){
+    const d = new Date();
+    return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+  }
+  function daysBetween(a,b){
+    return Math.round((new Date(b) - new Date(a)) / 86400000);
+  }
+  function bumpStreak(){
+    const today = todayStr();
+    if(state.lastPracticeDay === today) return; // already counted today
+    if(state.lastPracticeDay){
+      const gap = daysBetween(state.lastPracticeDay, today);
+      state.streak = (gap === 1) ? state.streak + 1 : 1;
+    } else {
+      state.streak = 1;
+    }
+    state.lastPracticeDay = today;
+  }
+
+  /* ---------- spaced repetition helpers ---------- */
+  const BOX_INTERVAL_DAYS = [0, 1, 2, 4, 7, 14]; // days until next review, by box level
+  const BOX_FLASH_MS      = [3200, 2400, 1800, 1400, 1100, 900]; // shorter flash = they know it better
+
+  function srRecord(word){
+    if(!state.sr[word]) state.sr[word] = { box:0, next:0, seenCount:0 };
+    return state.sr[word];
+  }
+  function srDueWords(){
+    const now = Date.now();
+    const due = WORD_BANK.filter(w => srRecord(w.word).next <= now);
+    // prioritise words never seen, then most overdue
+    due.sort((a,b) => srRecord(a.word).next - srRecord(b.word).next);
+    return due.slice(0, SMART_SESSION_SIZE);
+  }
+  function srUpdate(word, wasCorrect){
+    const rec = srRecord(word);
+    rec.seenCount++;
+    if(wasCorrect){
+      rec.box = Math.min(rec.box + 1, BOX_INTERVAL_DAYS.length - 1);
+    } else {
+      rec.box = 0;
+    }
+    const days = BOX_INTERVAL_DAYS[rec.box];
+    rec.next = Date.now() + days * 86400000;
+  }
+
+  /* ---------- session state (not persisted) ---------- */
+  let session = null; // { mode, queue: [{word,hint}], index, correctCount, pointsEarned }
+
+  /* ---------- DOM refs ---------- */
+  const el = id => document.getElementById(id);
+  const appRoot = el("spellingApp");
+  const screens = {
+    home: el("screen-home"),
+    practice: el("screen-practice"),
+    summary: el("screen-summary")
+  };
+
+  function showScreen(name){
+    Object.values(screens).forEach(s => s.classList.add("hidden"));
+    screens[name].classList.remove("hidden");
+  }
+
+  function refreshHeader(){
+    el("streakStat").textContent = state.streak;
+    el("pointsStat").textContent = state.points;
+    appRoot.setAttribute("data-theme", state.theme === "default" ? "" : state.theme);
+  }
+
+  function refreshHome(){
+    el("wordCountLine").textContent =
+      `You have ${WORD_BANK.length} word${WORD_BANK.length===1?"":"s"} in your list.`;
+    const smartDue = srDueWords().length;
+    const smartBtn = document.querySelector('[data-mode="smart"]');
+    smartBtn.querySelector(".mode-desc").textContent =
+      smartDue > 0
+        ? `${smartDue} word${smartDue===1?"":"s"} due for review right now.`
+        : "All caught up — check back later!";
+    renderThemes();
+  }
+
+  function renderThemes(){
+    const row = el("themeRow");
+    row.innerHTML = "";
+    THEMES.forEach(t => {
+      const unlocked = state.unlocked.includes(t.name) || state.points >= t.cost;
+      if(unlocked && !state.unlocked.includes(t.name)) state.unlocked.push(t.name);
+      const btn = document.createElement("div");
+      btn.className = "theme-swatch" + (state.theme===t.name ? " active":"") + (unlocked ? "" : " locked");
+      btn.textContent = t.swatch;
+      btn.title = unlocked ? t.label : `${t.label} — unlocks at ${t.cost} stars`;
+      if(!unlocked){
+        const badge = document.createElement("div");
+        badge.className = "lock-badge";
+        badge.textContent = "🔒";
+        btn.appendChild(badge);
+      }
+      btn.addEventListener("click", () => {
+        if(!unlocked) return;
+        state.theme = t.name;
+        saveState();
+        refreshHeader();
+        renderThemes();
+      });
+      row.appendChild(btn);
+    });
+    saveState();
+  }
+
+  /* ---------- confetti-ish burst on correct answers ---------- */
+  function celebrate(x, y){
+    const icons = ["✨","⭐","🎉","👍","💫"];
+    for(let i=0;i<4;i++){
+      const s = document.createElement("div");
+      s.className = "burst";
+      s.textContent = icons[Math.floor(Math.random()*icons.length)];
+      s.style.left = (x + (Math.random()*60-30)) + "px";
+      s.style.top = (y + (Math.random()*20-10)) + "px";
+      document.body.appendChild(s);
+      setTimeout(()=>s.remove(), 850);
+    }
+  }
+
+  /* ---------- shuffle ---------- */
+  function shuffle(arr){
+    const a = arr.slice();
+    for(let i=a.length-1;i>0;i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [a[i],a[j]] = [a[j],a[i]];
+    }
+    return a;
+  }
+
+  /* ---------- starting a session ---------- */
+  function startSession(mode){
+    let queue;
+    if(mode === "smart"){
+      queue = srDueWords();
+      if(queue.length === 0){
+        queue = shuffle(WORD_BANK).slice(0, Math.min(SMART_SESSION_SIZE, WORD_BANK.length));
+      }
+    } else {
+      queue = shuffle(WORD_BANK).slice(0, Math.min(SESSION_SIZE, WORD_BANK.length));
+    }
+    session = { mode, queue, index:0, correctCount:0, pointsEarned:0 };
+    showScreen("practice");
+    runStep();
+  }
+
+  function currentItem(){ return session.queue[session.index]; }
+
+  function updateProgress(){
+    const pct = Math.round((session.index / session.queue.length) * 100);
+    el("progressBar").style.width = pct + "%";
+  }
+
+  /* ---------- running one word ---------- */
+  function runStep(){
+    updateProgress();
+    el("answerArea").classList.add("hidden");
+    el("feedbackArea").classList.add("hidden");
+    el("answerInput").value = "";
+    const item = currentItem();
+    const wordEl = el("wordDisplay");
+    const hintEl = el("hintLine");
+    const countdownEl = el("countdownLine");
+    hintEl.textContent = item.hint || "";
+
+    let flashMs;
+    if(session.mode === "smart"){
+      const box = srRecord(item.word).box;
+      flashMs = BOX_FLASH_MS[box];
+    } else if(session.mode === "quiz"){
+      flashMs = 1400;
+    } else {
+      flashMs = 3500; // Look, Cover, Write, Check — a bit longer to actually study it
+    }
+
+    wordEl.textContent = item.word;
+    countdownEl.textContent = "Look carefully…";
+
+    const startedAt = Date.now();
+    const timer = setInterval(() => {
+      const left = Math.max(0, flashMs - (Date.now()-startedAt));
+      countdownEl.textContent = "Hiding in " + (Math.ceil(left/1000)) + "s…";
+      if(left <= 0) clearInterval(timer);
+    }, 200);
+
+    setTimeout(() => {
+      clearInterval(timer);
+      wordEl.textContent = "✏️";
+      countdownEl.textContent = "Now write it from memory";
+      el("answerArea").classList.remove("hidden");
+      el("answerInput").focus();
+    }, flashMs);
+  }
+
+  function buildDiff(correct, typed){
+    const len = Math.max(correct.length, typed.length);
+    let html = "";
+    for(let i=0;i<len;i++){
+      const c = typed[i] || "";
+      const ok = c.toLowerCase() === (correct[i]||"").toLowerCase() && c !== "";
+      html += `<span class="${ok?'ok':'no'}">${c ? escapeHtml(c) : "_"}</span>`;
+    }
+    return html;
+  }
+  function escapeHtml(s){
+    return s.replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+  }
+
+  function checkAnswer(){
+    const item = currentItem();
+    const typed = el("answerInput").value.trim();
+    const correct = typed.toLowerCase() === item.word.toLowerCase();
+
+    el("answerArea").classList.add("hidden");
+    el("feedbackArea").classList.remove("hidden");
+
+    const banner = el("resultBanner");
+    banner.textContent = correct ? "Correct! 🎉" : "Not quite";
+    banner.className = "result-banner " + (correct ? "good" : "bad");
+
+    el("diffLine").innerHTML = buildDiff(item.word, typed);
+    el("correctWordLine").textContent = correct ? "" : "Correct spelling: " + item.word;
+
+    if(correct){
+      session.correctCount++;
+      const gained = 5;
+      session.pointsEarned += gained;
+      const rect = el("checkBtn").getBoundingClientRect ? el("resultBanner").getBoundingClientRect() : {left:200,top:200};
+      celebrate(rect.left+40, rect.top);
+    }
+
+    if(session.mode === "smart"){
+      srUpdate(item.word, correct);
+    }
+  }
+
+  function nextStep(){
+    session.index++;
+    if(session.index >= session.queue.length){
+      finishSession();
+    } else {
+      runStep();
+    }
+  }
+
+  function finishSession(){
+    state.points += session.pointsEarned;
+    bumpStreak();
+    saveState();
+
+    el("sumCorrect").textContent = session.correctCount;
+    el("sumTotal").textContent = session.queue.length;
+    el("sumPoints").textContent = session.pointsEarned;
+    el("sumStreak").textContent = state.streak;
+
+    const ratio = session.correctCount / session.queue.length;
+    el("summaryEmoji").textContent = ratio === 1 ? "🏆" : ratio >= 0.7 ? "🎉" : "💪";
+    el("summaryTitle").textContent = ratio === 1 ? "Perfect score!" : ratio >= 0.7 ? "Nice work!" : "Good effort — keep going!";
+
+    showScreen("summary");
+    refreshHeader();
+  }
+
+  function quitSession(){
+    if(session && session.index > 0){
+      // count progress so far but stop early
+      state.points += session.pointsEarned;
+      bumpStreak();
+      saveState();
+    }
+    session = null;
+    showScreen("home");
+    refreshHeader();
+    refreshHome();
+  }
+
+  /* ---------- wire up events ---------- */
+  document.querySelectorAll(".mode-btn").forEach(btn => {
+    btn.addEventListener("click", () => startSession(btn.dataset.mode));
+  });
+  el("checkBtn").addEventListener("click", checkAnswer);
+  el("answerInput").addEventListener("keydown", e => {
+    if(e.key === "Enter"){ e.preventDefault(); checkAnswer(); }
+  });
+  el("nextBtn").addEventListener("click", nextStep);
+  el("quitBtn").addEventListener("click", quitSession);
+  el("homeBtn").addEventListener("click", () => {
+    showScreen("home");
+    refreshHome();
+  });
+  el("resetLink").addEventListener("click", (e) => {
+    e.preventDefault();
+    if(confirm("Reset all progress, stars and streaks? This can't be undone.")){
+      state = defaultState();
+      saveState();
+      refreshHeader();
+      refreshHome();
+    }
+  });
+
+  /* ---------- boot ---------- */
+  refreshHeader();
+  refreshHome();
+  showScreen("home");
+</script>
