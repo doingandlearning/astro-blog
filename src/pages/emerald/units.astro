@@ -1,0 +1,760 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  pageTitle="Metric Units"
+  pageDescription="Build an intuition for converting between mm, cm, m and km, ml and litres, and grams and kilograms."
+  showSocials={false}
+>
+  <div class="units-app" id="unitsApp">
+    <div class="wrap">
+      <header>
+        <h1>📏 Metric Units</h1>
+        <div class="stats">
+          <div class="stat">🔥 <span id="streakStat">0</span></div>
+          <div class="stat">⭐ <span id="bestStat">0</span></div>
+        </div>
+      </header>
+
+      <!-- HOME -->
+      <section id="screen-home">
+        <div class="card">
+          <h2>Pick what to work on</h2>
+          <div class="chips" id="categoryRow"></div>
+          <div class="mode-grid">
+            <button class="mode-btn" data-mode="learn">
+              <div class="mode-emoji">🔍</div>
+              <div>
+                <div class="mode-title">Explore</div>
+                <div class="mode-desc">Type a number and watch it change in every unit.</div>
+              </div>
+            </button>
+            <button class="mode-btn" data-mode="practice">
+              <div class="mode-emoji">🎯</div>
+              <div>
+                <div class="mode-title">Practice</div>
+                <div class="mode-desc">Guess bigger or smaller first, then work out the answer.</div>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <h2>The big idea</h2>
+          <p class="lead">
+            Each step on the ladder is just ×10, ×100 or ×1000. Going to a
+            <strong>smaller unit</strong> means you need <strong>more</strong> of them, so the number
+            gets <strong>bigger</strong>. Going to a <strong>bigger unit</strong> means you need
+            <strong>fewer</strong>, so the number gets <strong>smaller</strong>.
+          </p>
+        </div>
+      </section>
+
+      <!-- EXPLORE -->
+      <section id="screen-learn" class="hidden">
+        <div class="card">
+          <h2 id="learnTitle">Explore</h2>
+          <div class="ladder" id="ladder"></div>
+          <div class="row">
+            <input type="text" id="learnValue" inputmode="decimal" autocomplete="off" value="1.5" aria-label="Value" />
+            <select id="learnUnit" aria-label="Unit"></select>
+          </div>
+          <div class="results" id="learnResults"></div>
+          <p class="lead" id="learnExplain"></p>
+        </div>
+        <button class="ghost" id="learnBack">Back</button>
+      </section>
+
+      <!-- PRACTICE -->
+      <section id="screen-practice" class="hidden">
+        <div class="progress"><div id="progressBar" style="width: 0%"></div></div>
+        <div class="card">
+          <div class="question" id="questionText"></div>
+
+          <div id="guessArea">
+            <p class="lead center">First, think: will the number get bigger or smaller?</p>
+            <div class="two-col">
+              <button class="choice" data-guess="bigger">⬆️ Bigger</button>
+              <button class="choice" data-guess="smaller">⬇️ Smaller</button>
+            </div>
+          </div>
+
+          <div id="answerArea" class="hidden">
+            <div id="guessFeedback" class="guess-feedback"></div>
+            <div class="row">
+              <input type="text" id="answerInput" inputmode="decimal" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Your answer" />
+              <span class="unit-label" id="answerUnit"></span>
+            </div>
+            <div style="height: 12px"></div>
+            <button class="primary" id="checkBtn">Check</button>
+          </div>
+
+          <div id="feedbackArea" class="hidden">
+            <div id="resultBanner" class="result-banner"></div>
+            <div id="explainLine" class="explain"></div>
+            <div style="height: 16px"></div>
+            <button class="primary" id="nextBtn">Continue</button>
+          </div>
+        </div>
+        <button class="ghost" id="quitBtn">End session</button>
+      </section>
+
+      <!-- SUMMARY -->
+      <section id="screen-summary" class="hidden">
+        <div class="card" style="text-align: center">
+          <div id="summaryEmoji" style="font-size: 2.4rem">🎉</div>
+          <h2 id="summaryTitle">Nice work!</h2>
+          <div class="summary-grid">
+            <div class="summary-tile"><div class="num" id="sumCorrect">0</div><div class="lbl">Correct</div></div>
+            <div class="summary-tile"><div class="num" id="sumGuess">0</div><div class="lbl">Good guesses</div></div>
+          </div>
+          <div id="sumTricky" class="lead"></div>
+          <button class="primary" id="againBtn">Go again</button>
+          <div style="height: 10px"></div>
+          <button class="ghost" id="homeBtn">Back to home</button>
+        </div>
+      </section>
+
+      <div class="footer-link"><a href="#" id="resetLink">Reset my progress</a></div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .units-app {
+    --bg: #eef6f1;
+    --card: #ffffff;
+    --ink: #1f2d27;
+    --muted: #668077;
+    --accent: #1f9d6b;
+    --accent-ink: #ffffff;
+    --good: #2fa66a;
+    --bad: #e0555a;
+    --line: #d9eadf;
+    --shadow: 0 10px 30px rgba(31, 45, 39, 0.1);
+    --radius: 20px;
+  }
+  .units-app * {
+    box-sizing: border-box;
+  }
+  .units-app {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .units-app .wrap {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 16px 16px 40px;
+  }
+  .units-app .hidden {
+    display: none !important;
+  }
+  .units-app header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 2px 18px;
+  }
+  .units-app header h1 {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+  .units-app .stats {
+    display: flex;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .units-app .stat {
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 6px 10px;
+    border-radius: 999px;
+    box-shadow: var(--shadow);
+    white-space: nowrap;
+  }
+  .units-app .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px 20px;
+    margin-bottom: 14px;
+    border: 1px solid var(--line);
+  }
+  .units-app h2 {
+    font-size: 1.05rem;
+    margin: 0 0 12px;
+  }
+  .units-app p.lead {
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .units-app p.center {
+    text-align: center;
+  }
+
+  .units-app .chips {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .units-app .chip {
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  .units-app .chip.active {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border-color: var(--accent);
+  }
+
+  .units-app .mode-grid {
+    display: grid;
+    gap: 12px;
+  }
+  .units-app .mode-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    font: inherit;
+    color: inherit;
+  }
+  .units-app .mode-btn:active {
+    transform: scale(0.98);
+  }
+  .units-app .mode-emoji {
+    font-size: 1.8rem;
+    width: 44px;
+    text-align: center;
+    flex: none;
+  }
+  .units-app .mode-title {
+    font-weight: 600;
+  }
+  .units-app .mode-desc {
+    color: var(--muted);
+    font-size: 0.82rem;
+    margin-top: 2px;
+  }
+
+  .units-app button.primary {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border: none;
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+  }
+  .units-app button.primary:active {
+    transform: scale(0.98);
+  }
+  .units-app button.ghost {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+  .units-app .row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .units-app input[type="text"],
+  .units-app select {
+    font: inherit;
+    font-size: 1.15rem;
+    padding: 12px 14px;
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    background: var(--card);
+    color: var(--ink);
+    min-width: 0;
+  }
+  .units-app input[type="text"] {
+    flex: 1;
+    width: 100%;
+  }
+  .units-app input[type="text"]:focus,
+  .units-app select:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .units-app .unit-label {
+    font-size: 1.15rem;
+    font-weight: 600;
+    min-width: 2.5rem;
+  }
+
+  /* ladder */
+  .units-app .ladder {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 18px;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .units-app .ladder .unit {
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+  }
+  .units-app .ladder .step {
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .units-app .results {
+    display: grid;
+    gap: 8px;
+    margin: 18px 0 14px;
+  }
+  .units-app .result {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    font-size: 1.05rem;
+  }
+  .units-app .result.current {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border-color: var(--accent);
+  }
+  .units-app .result .name {
+    opacity: 0.75;
+    font-size: 0.85rem;
+  }
+
+  /* practice */
+  .units-app .progress {
+    height: 6px;
+    background: var(--line);
+    border-radius: 99px;
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .units-app .progress > div {
+    height: 100%;
+    background: var(--accent);
+    transition: width 0.25s;
+  }
+  .units-app .question {
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: 700;
+    padding: 18px 0 20px;
+    line-height: 1.3;
+  }
+  .units-app .question .arrow {
+    color: var(--accent);
+  }
+  .units-app .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .units-app .choice {
+    font: inherit;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 16px;
+    border-radius: 14px;
+    border: 2px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .units-app .choice:active {
+    transform: scale(0.97);
+  }
+  .units-app .guess-feedback {
+    text-align: center;
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+  .units-app .result-banner {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .units-app .result-banner.good {
+    color: var(--good);
+  }
+  .units-app .result-banner.bad {
+    color: var(--bad);
+  }
+  .units-app .explain {
+    background: var(--bg);
+    border-radius: 14px;
+    padding: 14px;
+    line-height: 1.55;
+    font-size: 0.95rem;
+  }
+  .units-app .explain .big {
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .units-app .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 16px 0;
+  }
+  .units-app .summary-tile {
+    background: var(--bg);
+    border-radius: 14px;
+    padding: 14px;
+  }
+  .units-app .summary-tile .num {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+  .units-app .summary-tile .lbl {
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+  .units-app .footer-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8rem;
+  }
+  .units-app .footer-link a {
+    color: var(--muted);
+  }
+</style>
+
+<script is:inline>
+  /* ================================================================
+     UNITS — "exp" is the power of ten relative to the base unit
+     (m, l, g). To add a unit, add it to a category's list.
+     Keep each list ordered biggest → smallest.
+     ================================================================ */
+  const CATEGORIES = {
+    length: {
+      label: "Length", emoji: "📏", base: "m",
+      units: [
+        { id: "km", name: "kilometres", exp: 3 },
+        { id: "m", name: "metres", exp: 0 },
+        { id: "cm", name: "centimetres", exp: -2 },
+        { id: "mm", name: "millimetres", exp: -3 },
+      ],
+    },
+    capacity: {
+      label: "Capacity", emoji: "🧪", base: "l",
+      units: [
+        { id: "l", name: "litres", exp: 0 },
+        { id: "cl", name: "centilitres", exp: -2 },
+        { id: "ml", name: "millilitres", exp: -3 },
+      ],
+    },
+    weight: {
+      label: "Weight", emoji: "⚖️", base: "g",
+      units: [
+        { id: "kg", name: "kilograms", exp: 3 },
+        { id: "g", name: "grams", exp: 0 },
+        { id: "mg", name: "milligrams", exp: -3 },
+      ],
+    },
+  };
+
+  const SESSION_SIZE = 10;
+  const STORAGE_KEY = "metricUnitsApp:v1";
+  const START_VALUES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 20, 25, 50, 75, 100, 250, 500, 1000, 0.5, 1.5, 2.5, 3.5, 0.25, 0.75, 4.2, 7.5, 0.1, 0.2];
+
+  /* ---------- state ---------- */
+  function defaultState() {
+    return { streak: 0, lastDay: null, best: 0, category: "length", tricky: {} };
+  }
+  function loadState() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) return Object.assign(defaultState(), JSON.parse(raw));
+    } catch (e) {}
+    return defaultState();
+  }
+  function saveState() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+  }
+  let state = loadState();
+
+  const $ = (id) => document.getElementById(id);
+  const show = (name) => {
+    ["home", "learn", "practice", "summary"].forEach((s) => $("screen-" + s).classList.toggle("hidden", s !== name));
+    window.scrollTo(0, 0);
+  };
+  const catUnits = () => CATEGORIES[state.category].units;
+  const unitById = (id) => catUnits().find((u) => u.id === id);
+
+  /* ---------- number helpers ---------- */
+  function convert(value, from, to) {
+    // multiply by an exact power of ten, then trim float noise
+    return parseFloat((value * Math.pow(10, from.exp - to.exp)).toFixed(9));
+  }
+  function fmt(n) {
+    return n.toLocaleString("en-GB", { maximumFractionDigits: 6 });
+  }
+  function parseInput(s) {
+    const cleaned = String(s).trim().replace(/,/g, "").replace(/\s+/g, "");
+    if (cleaned === "" || isNaN(Number(cleaned))) return NaN;
+    return Number(cleaned);
+  }
+  function factorWords(diff) {
+    const f = Math.pow(10, Math.abs(diff));
+    return fmt(f);
+  }
+  function placesWords(diff) {
+    const n = Math.abs(diff);
+    return n + " place" + (n === 1 ? "" : "s");
+  }
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+  /* ---------- home ---------- */
+  function renderCategories() {
+    const row = $("categoryRow");
+    row.innerHTML = "";
+    Object.keys(CATEGORIES).forEach((key) => {
+      const b = document.createElement("button");
+      b.className = "chip" + (key === state.category ? " active" : "");
+      b.textContent = CATEGORIES[key].emoji + " " + CATEGORIES[key].label;
+      b.onclick = () => { state.category = key; saveState(); renderCategories(); };
+      row.appendChild(b);
+    });
+  }
+  function renderStats() {
+    $("streakStat").textContent = state.streak;
+    $("bestStat").textContent = state.best;
+  }
+  function touchStreak() {
+    const today = new Date().toISOString().slice(0, 10);
+    if (state.lastDay === today) return;
+    const y = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+    state.streak = state.lastDay === y ? state.streak + 1 : 1;
+    state.lastDay = today;
+  }
+
+  /* ---------- explore ---------- */
+  function renderLadder() {
+    const units = catUnits();
+    const el = $("ladder");
+    el.innerHTML = "";
+    units.forEach((u, i) => {
+      if (i > 0) {
+        const diff = units[i - 1].exp - u.exp;
+        const s = document.createElement("div");
+        s.className = "step";
+        s.innerHTML = "↓ ×" + factorWords(diff) + "<br>↑ ÷" + factorWords(diff);
+        el.appendChild(s);
+      }
+      const d = document.createElement("div");
+      d.className = "unit";
+      d.textContent = u.id;
+      el.appendChild(d);
+    });
+  }
+  function startLearn() {
+    const units = catUnits();
+    $("learnTitle").textContent = CATEGORIES[state.category].emoji + " " + CATEGORIES[state.category].label;
+    const sel = $("learnUnit");
+    sel.innerHTML = "";
+    units.forEach((u) => {
+      const o = document.createElement("option");
+      o.value = u.id;
+      o.textContent = u.id;
+      sel.appendChild(o);
+    });
+    sel.value = units[Math.min(1, units.length - 1)].id;
+    $("learnValue").value = "1.5";
+    renderLadder();
+    renderLearn();
+    show("learn");
+  }
+  function renderLearn() {
+    const from = unitById($("learnUnit").value);
+    const v = parseInput($("learnValue").value);
+    const box = $("learnResults");
+    box.innerHTML = "";
+    if (isNaN(v)) { $("learnExplain").textContent = "Type a number to begin."; return; }
+    catUnits().forEach((u) => {
+      const r = document.createElement("div");
+      r.className = "result" + (u === from ? " current" : "");
+      r.innerHTML = "<span>" + fmt(convert(v, from, u)) + " " + u.id + "</span><span class='name'>" + u.name + "</span>";
+      box.appendChild(r);
+    });
+    $("learnExplain").textContent =
+      "Tip: going from " + from.id + " to a smaller unit makes the number bigger. Going to a bigger unit makes it smaller.";
+  }
+
+  /* ---------- practice ---------- */
+  let session = null;
+
+  function makeQuestion() {
+    const units = catUnits();
+    for (let tries = 0; tries < 200; tries++) {
+      const from = pick(units);
+      const to = pick(units);
+      if (from === to) continue;
+      const value = pick(START_VALUES);
+      const answer = convert(value, from, to);
+      if (answer < 0.001 || answer > 100000) continue;
+      if (Math.abs(answer * 1000 - Math.round(answer * 1000)) > 1e-6) continue; // max 3 dp
+      const key = from.id + ">" + to.id;
+      // tricky pairs are twice as likely to be kept
+      if ((state.tricky[key] || 0) <= 0 && Math.random() < 0.3) continue;
+      return { from, to, value, answer, key };
+    }
+    const from = units[0], to = units[1];
+    return { from, to, value: 1, answer: convert(1, from, to), key: from.id + ">" + to.id };
+  }
+
+  function startPractice() {
+    touchStreak();
+    saveState();
+    renderStats();
+    session = { n: 0, correct: 0, goodGuess: 0, missed: {}, q: null, guessed: null };
+    show("practice");
+    nextQuestion();
+  }
+
+  function nextQuestion() {
+    if (session.n >= SESSION_SIZE) return endSession();
+    const q = makeQuestion();
+    session.q = q;
+    session.guessed = null;
+    $("progressBar").style.width = (session.n / SESSION_SIZE) * 100 + "%";
+    $("questionText").innerHTML = fmt(q.value) + " " + q.from.id + " <span class='arrow'>→</span> ? " + q.to.id;
+    $("guessArea").classList.remove("hidden");
+    $("answerArea").classList.add("hidden");
+    $("feedbackArea").classList.add("hidden");
+    $("answerInput").value = "";
+  }
+
+  function guess(g) {
+    const q = session.q;
+    const right = q.answer > q.value ? "bigger" : "smaller";
+    session.guessed = g === right;
+    if (session.guessed) session.goodGuess++;
+    $("guessFeedback").textContent = session.guessed
+      ? "✅ Good thinking — the number gets " + right + "."
+      : "🤔 Not quite — " + q.to.id + " is a " + (right === "bigger" ? "smaller" : "bigger") + " unit than " + q.from.id +
+        ", so the number gets " + right + ".";
+    $("answerUnit").textContent = q.to.id;
+    $("guessArea").classList.add("hidden");
+    $("answerArea").classList.remove("hidden");
+    $("answerInput").focus();
+  }
+
+  function explain(q) {
+    const diff = q.from.exp - q.to.exp;
+    const dir = diff > 0 ? "left" : "right";
+    const op = diff > 0 ? "×" : "÷";
+    const why = diff > 0
+      ? "1 " + q.from.id + " = " + factorWords(diff) + " " + q.to.id + ", so there are more " + q.to.id + "."
+      : "1 " + q.to.id + " = " + factorWords(diff) + " " + q.from.id + ", so there are fewer " + q.to.id + ".";
+    return why + "<br><span class='big'>" + fmt(q.value) + " " + q.from.id + " " + op + " " + factorWords(diff) + " = " +
+      fmt(q.answer) + " " + q.to.id + "</span><br>Every digit moves " + placesWords(diff) + " to the " + dir +
+      (diff > 0 ? ", into bigger place values." : ", into smaller place values.");
+  }
+
+  function check() {
+    const q = session.q;
+    const v = parseInput($("answerInput").value);
+    if (isNaN(v)) { $("answerInput").focus(); return; }
+    const ok = Math.abs(v - q.answer) < 1e-9;
+    session.n++;
+    if (ok) {
+      session.correct++;
+      if (state.tricky[q.key] > 0) state.tricky[q.key]--;
+    } else {
+      state.tricky[q.key] = (state.tricky[q.key] || 0) + 1;
+      session.missed[q.key] = (session.missed[q.key] || 0) + 1;
+    }
+    saveState();
+    const banner = $("resultBanner");
+    banner.className = "result-banner " + (ok ? "good" : "bad");
+    banner.textContent = ok ? "🎉 Correct!" : "Not quite — you said " + fmt(v) + " " + q.to.id;
+    $("explainLine").innerHTML = explain(q);
+    $("answerArea").classList.add("hidden");
+    $("feedbackArea").classList.remove("hidden");
+    $("progressBar").style.width = (session.n / SESSION_SIZE) * 100 + "%";
+    $("nextBtn").focus();
+  }
+
+  function endSession() {
+    state.best = Math.max(state.best, session.correct);
+    saveState();
+    renderStats();
+    $("sumCorrect").textContent = session.correct + " / " + SESSION_SIZE;
+    $("sumGuess").textContent = session.goodGuess + " / " + SESSION_SIZE;
+    $("summaryEmoji").textContent = session.correct >= 9 ? "🏆" : session.correct >= 6 ? "🎉" : "💪";
+    $("summaryTitle").textContent = session.correct >= 9 ? "Brilliant!" : session.correct >= 6 ? "Nice work!" : "Keep going!";
+    const missed = Object.keys(session.missed);
+    $("sumTricky").textContent = missed.length
+      ? "Tricky ones to revisit: " + missed.map((k) => k.replace(">", " → ")).join(", ")
+      : "No mistakes this time!";
+    show("summary");
+  }
+
+  /* ---------- events ---------- */
+  document.querySelectorAll(".mode-btn").forEach((b) => {
+    b.onclick = () => (b.dataset.mode === "learn" ? startLearn() : startPractice());
+  });
+  document.querySelectorAll(".choice").forEach((b) => (b.onclick = () => guess(b.dataset.guess)));
+  $("learnValue").oninput = renderLearn;
+  $("learnUnit").onchange = renderLearn;
+  $("learnBack").onclick = () => show("home");
+  $("checkBtn").onclick = check;
+  $("answerInput").onkeydown = (e) => { if (e.key === "Enter") check(); };
+  $("nextBtn").onclick = nextQuestion;
+  $("quitBtn").onclick = () => show("home");
+  $("againBtn").onclick = startPractice;
+  $("homeBtn").onclick = () => show("home");
+  $("resetLink").onclick = (e) => {
+    e.preventDefault();
+    if (confirm("Reset all your progress?")) {
+      state = defaultState();
+      saveState();
+      renderStats();
+      renderCategories();
+    }
+  };
+
+  renderCategories();
+  renderStats();
+</script>
