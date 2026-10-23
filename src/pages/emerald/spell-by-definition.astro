@@ -1,0 +1,448 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  pageTitle="Spell by Definition"
+  pageDescription="Read the definition, spell the word, then check your spelling."
+  showSocials={false}
+>
+  <div class="defspell-app" id="defspellApp">
+    <div class="wrap">
+      <header>
+        <h1>🧩 Spell by Definition</h1>
+        <div class="stats">
+          <div class="stat">✅ <span id="scoreStat">0</span></div>
+        </div>
+      </header>
+
+      <!-- START SCREEN -->
+      <section id="screen-start">
+        <div class="card">
+          <h2>Feelings words</h2>
+          <p class="lead" id="startLine"></p>
+          <p class="lead">
+            You'll see what a word means. Spell the word, then check it.
+          </p>
+          <button class="primary" id="startBtn">Start</button>
+        </div>
+      </section>
+
+      <!-- QUESTION SCREEN -->
+      <section id="screen-question" class="hidden">
+        <div class="progress"><div id="progressBar" style="width:0%"></div></div>
+        <div class="card">
+          <div class="def-stage">
+            <div class="def-label">What word means…</div>
+            <div id="definition" class="definition"></div>
+            <div id="lengthHint" class="hint"></div>
+          </div>
+
+          <div id="answerArea">
+            <input
+              type="text"
+              id="answerInput"
+              autocomplete="off"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+              inputmode="text"
+              placeholder="Spell the word…"
+            />
+            <div style="height:12px"></div>
+            <button class="primary" id="checkBtn">Check</button>
+          </div>
+
+          <div id="feedbackArea" class="hidden">
+            <div id="resultBanner" class="result-banner"></div>
+            <div id="diffLine" class="diff"></div>
+            <div id="correctWordLine" class="correct-word"></div>
+            <div style="height:16px"></div>
+            <button class="primary" id="nextBtn">Continue</button>
+          </div>
+        </div>
+        <button class="ghost" id="quitBtn">End session</button>
+      </section>
+
+      <!-- SUMMARY SCREEN -->
+      <section id="screen-summary" class="hidden">
+        <div class="card" style="text-align:center">
+          <div id="summaryEmoji" style="font-size:2.4rem">🎉</div>
+          <h2 id="summaryTitle">Nice work!</h2>
+          <p class="lead" id="summaryLine"></p>
+          <div id="missedBox" class="missed hidden">
+            <div class="missed-title">Words to practise</div>
+            <ul id="missedList"></ul>
+          </div>
+          <div class="stack">
+            <button class="primary hidden" id="retryBtn">Practise missed words</button>
+            <button class="primary" id="againBtn">Go again</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .defspell-app {
+    --bg: #f4f1ea;
+    --card: #ffffff;
+    --ink: #2b2b33;
+    --muted: #7a7a85;
+    --accent: #6c63ff;
+    --accent-ink: #ffffff;
+    --good: #2fa66a;
+    --bad: #e0555a;
+    --line: #e6e3da;
+    --shadow: 0 10px 30px rgba(43, 43, 51, 0.1);
+    --radius: 20px;
+  }
+
+  .defspell-app * {
+    box-sizing: border-box;
+  }
+  .defspell-app {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .defspell-app .wrap {
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 16px 16px 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .defspell-app header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 2px 18px;
+  }
+  .defspell-app header h1 {
+    font-size: 1.25rem;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .defspell-app .stats {
+    display: flex;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .defspell-app .stat {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 6px 10px;
+    border-radius: 999px;
+    box-shadow: var(--shadow);
+    white-space: nowrap;
+  }
+
+  .defspell-app .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px 20px;
+    margin-bottom: 14px;
+    border: 1px solid var(--line);
+  }
+  .defspell-app h2 {
+    font-size: 1.05rem;
+    margin: 0 0 12px;
+  }
+  .defspell-app p.lead {
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .defspell-app button.primary {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border: none;
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+  }
+  .defspell-app button.primary:active {
+    transform: scale(0.98);
+  }
+  .defspell-app button.ghost {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  .defspell-app .stack {
+    display: grid;
+    gap: 10px;
+  }
+
+  .defspell-app .progress {
+    height: 6px;
+    background: var(--line);
+    border-radius: 99px;
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .defspell-app .progress > div {
+    height: 100%;
+    background: var(--accent);
+    transition: width 0.25s;
+  }
+
+  .defspell-app .def-stage {
+    text-align: center;
+    padding: 10px 6px 20px;
+  }
+  .defspell-app .def-label {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+  }
+  .defspell-app .definition {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  .defspell-app .hint {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-top: 12px;
+    letter-spacing: 0.15em;
+  }
+
+  .defspell-app input[type="text"] {
+    width: 100%;
+    font-size: 1.4rem;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 2px solid var(--line);
+    background: var(--bg);
+    color: var(--ink);
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .defspell-app input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .defspell-app .result-banner {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .defspell-app .result-banner.good {
+    color: var(--good);
+  }
+  .defspell-app .result-banner.bad {
+    color: var(--bad);
+  }
+  .defspell-app .diff {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin: 14px 0 4px;
+  }
+  .defspell-app .diff .ok {
+    color: var(--good);
+  }
+  .defspell-app .diff .no {
+    color: var(--bad);
+    text-decoration: underline;
+  }
+  .defspell-app .correct-word {
+    font-size: 1.1rem;
+    margin-top: 6px;
+  }
+  .defspell-app .correct-word strong {
+    color: var(--good);
+    letter-spacing: 0.03em;
+  }
+
+  .defspell-app .missed {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 12px 14px;
+    margin: 0 0 16px;
+    text-align: left;
+  }
+  .defspell-app .missed-title {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .defspell-app .missed ul {
+    margin: 0;
+    padding-left: 1.2em;
+  }
+
+  .defspell-app .hidden {
+    display: none !important;
+  }
+</style>
+
+<script is:inline>
+  /* ================================================================
+     WORD LIST — edit this to add new words.
+     Each entry has the word to spell and its definition.
+     ================================================================ */
+  const WORDS = [
+    { word: "excited",      def: "very happy and eager about something" },
+    { word: "nervous",      def: "worried or slightly afraid" },
+    { word: "embarrassed",  def: "feeling ashamed or awkward" },
+    { word: "disappointed", def: "unhappy because something was not as good as hoped" },
+    { word: "proud",        def: "pleased about something you or someone else has achieved" },
+    { word: "worried",      def: "feeling anxious about a problem" },
+    { word: "surprised",    def: "feeling something unexpected has happened" },
+    { word: "relieved",     def: "pleased because a worry or difficulty has ended" }
+  ];
+
+  const el = id => document.getElementById(id);
+  const screens = {
+    start: el("screen-start"),
+    question: el("screen-question"),
+    summary: el("screen-summary")
+  };
+
+  let session = null; // { queue, index, correct, missed: [] }
+
+  function showScreen(name){
+    Object.values(screens).forEach(s => s.classList.add("hidden"));
+    screens[name].classList.remove("hidden");
+  }
+
+  function shuffle(arr){
+    const a = arr.slice();
+    for(let i = a.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function escapeHtml(s){
+    return s.replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+  }
+
+  function capitalise(s){
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
+
+  function startSession(words){
+    session = { queue: shuffle(words), index: 0, correct: 0, missed: [] };
+    el("scoreStat").textContent = 0;
+    showScreen("question");
+    runStep();
+  }
+
+  function currentItem(){ return session.queue[session.index]; }
+
+  function runStep(){
+    const item = currentItem();
+    el("progressBar").style.width = Math.round((session.index / session.queue.length) * 100) + "%";
+    el("definition").textContent = capitalise(item.def);
+    el("lengthHint").textContent = "_ ".repeat(item.word.length).trim();
+    el("answerInput").value = "";
+    el("answerArea").classList.remove("hidden");
+    el("feedbackArea").classList.add("hidden");
+    el("answerInput").focus();
+  }
+
+  function buildDiff(correct, typed){
+    const len = Math.max(correct.length, typed.length);
+    let html = "";
+    for(let i = 0; i < len; i++){
+      const c = typed[i] || "";
+      const ok = c !== "" && c.toLowerCase() === (correct[i] || "").toLowerCase();
+      html += `<span class="${ok ? "ok" : "no"}">${c ? escapeHtml(c) : "_"}</span>`;
+    }
+    return html;
+  }
+
+  function checkAnswer(){
+    const item = currentItem();
+    const typed = el("answerInput").value.trim();
+    if(!typed) return;
+    const correct = typed.toLowerCase() === item.word;
+
+    el("answerArea").classList.add("hidden");
+    el("feedbackArea").classList.remove("hidden");
+
+    const banner = el("resultBanner");
+    banner.textContent = correct ? "Correct! 🎉" : "Not quite";
+    banner.className = "result-banner " + (correct ? "good" : "bad");
+
+    el("diffLine").innerHTML = correct ? "" : buildDiff(item.word, typed);
+    el("correctWordLine").innerHTML =
+      (correct ? "You spelled " : "The correct spelling is ") + `<strong>${item.word}</strong>`;
+
+    if(correct){
+      session.correct++;
+      el("scoreStat").textContent = session.correct;
+    } else {
+      session.missed.push(item);
+    }
+    el("nextBtn").focus();
+  }
+
+  function nextStep(){
+    session.index++;
+    if(session.index >= session.queue.length){
+      finishSession();
+    } else {
+      runStep();
+    }
+  }
+
+  function finishSession(){
+    const total = session.queue.length;
+    const ratio = session.correct / total;
+    el("summaryEmoji").textContent = ratio === 1 ? "🏆" : ratio >= 0.7 ? "🎉" : "💪";
+    el("summaryTitle").textContent =
+      ratio === 1 ? "Perfect score!" : ratio >= 0.7 ? "Nice work!" : "Good effort — keep going!";
+    el("summaryLine").textContent = `You spelled ${session.correct} out of ${total} correctly.`;
+
+    const missed = session.missed;
+    el("missedBox").classList.toggle("hidden", missed.length === 0);
+    el("retryBtn").classList.toggle("hidden", missed.length === 0);
+    el("missedList").innerHTML = missed.map(m => `<li>${m.word}</li>`).join("");
+    showScreen("summary");
+  }
+
+  el("startLine").textContent = `${WORDS.length} words to spell.`;
+  el("startBtn").addEventListener("click", () => startSession(WORDS));
+  el("againBtn").addEventListener("click", () => startSession(WORDS));
+  el("retryBtn").addEventListener("click", () => startSession(session.missed));
+  el("checkBtn").addEventListener("click", checkAnswer);
+  el("answerInput").addEventListener("keydown", e => {
+    if(e.key === "Enter"){ e.preventDefault(); checkAnswer(); }
+  });
+  el("nextBtn").addEventListener("click", nextStep);
+  el("quitBtn").addEventListener("click", () => {
+    session = null;
+    showScreen("start");
+  });
+</script>
