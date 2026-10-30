@@ -9,9 +9,11 @@ interface Props {
   pageDescription?: string;
   /** When false, hides the "Connect with me on socials" block in the footer. Default true. */
   showSocials?: boolean;
+  /** When true, asks search engines not to index the page. Default false. */
+  noindex?: boolean;
 }
 
-const { pageTitle, pageDescription, showSocials = true } = Astro.props;
+const { pageTitle, pageDescription, showSocials = true, noindex = false } = Astro.props;
 ---
 
 <html lang="en">
@@ -20,6 +22,7 @@ const { pageTitle, pageDescription, showSocials = true } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link
       rel="webmention"

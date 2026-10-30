@@ -17,7 +17,7 @@ export default defineConfig({
     }),
     customToc({ template: (toc) => `<nav class="toc">${toc}</nav>` }),
     mdx(),
-    sitemap(),
+    sitemap({ filter: (page) => !page.includes("/courses/csob") }),
   ],
   output: "static",
   adapter: netlify(),

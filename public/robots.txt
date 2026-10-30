@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /courses/csob
 
 Sitemap: https://kevincunningham.co.uk/sitemap-index.xml

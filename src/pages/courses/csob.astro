@@ -1,0 +1,83 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const base = "/courses/csob";
+const days = [
+  {
+    day: "Day 1",
+    title: "Foundations of Agentic Logic",
+    slides: `${base}/slides/day-1-foundations-of-agentic-logic.pdf`,
+    worksheets: [
+      ["autonomy-spectrum-memory-tiers-worksheet", "Autonomy spectrum and memory tiers worksheet"],
+      ["case-study-1-mortgage-pre-screening-assistant", "Case study 1: the mortgage pre-screening assistant"],
+      ["case-study-2-compliance-policy-copilot", "Case study 2: the compliance-policy Q&A copilot"],
+      ["terminology-glossary", "Terminology glossary"],
+    ],
+  },
+  {
+    day: "Day 2",
+    title: "Architectural Patterns and Protocols",
+    slides: `${base}/slides/day-2-architectural-patterns-and-protocols.pdf`,
+    worksheets: [
+      ["architecture-review-worksheet", "Architecture review worksheet"],
+    ],
+  },
+  {
+    day: "Day 3",
+    title: "Distributed Systems and Reliability",
+    slides: `${base}/slides/day-3-distributed-systems-and-reliability.pdf`,
+    worksheets: [
+      ["tabletop-incident-sequence", "Tabletop worksheet: controls for a customer-facing agent"],
+      ["agent-configuration-record-template", "Agent configuration record template"],
+    ],
+  },
+  {
+    day: "Day 4",
+    title: "Governance, Evaluation and Ops",
+    slides: `${base}/slides/day-4-governance-evaluation-and-ops.pdf`,
+    worksheets: [
+      ["governance-review-worksheet", "Governance review worksheet"],
+      ["control-ownership-matrix", "Control ownership matrix"],
+    ],
+  },
+];
+---
+
+<BaseLayout
+  pageTitle="Enterprise Agentic Systems: Foundations (course materials)"
+  pageDescription="Slides and worksheets for delegates on the Enterprise Agentic Systems: Foundations course."
+  showSocials={false}
+  noindex={true}
+>
+  <article class="course-page">
+    <header>
+      <h1>Enterprise Agentic Systems: Foundations</h1>
+      <p class="course-tagline">Course materials for delegates</p>
+    </header>
+
+    <section class="downloads-section" id="materials">
+      <h2>Course materials</h2>
+      <p>
+        Slides and worksheets are grouped by day. Everything is a PDF, so you
+        can read it on any device or print the worksheets for the workshop
+        sessions.
+      </p>
+
+      {days.map((d) => (
+        <>
+          <h3>{d.day}: {d.title}</h3>
+          <ul class="downloads-list">
+            <li>
+              <a href={d.slides} download><strong>Slides</strong></a>
+            </li>
+            {d.worksheets.map(([file, label]) => (
+              <li>
+                <a href={`${base}/worksheets/${file}.pdf`} download>{label}</a>
+              </li>
+            ))}
+          </ul>
+        </>
+      ))}
+    </section>
+  </article>
+</BaseLayout>
