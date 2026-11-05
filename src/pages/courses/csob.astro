@@ -40,14 +40,37 @@ const days = [
       ["agent-configuration-record-template", "Agent configuration record template"],
       ["day3-where-this-lives", "Where this lives in the real world: tools, standards and questions to ask"],
     ],
+    extras: [
+      ["code/day3-demos.zip", "Demo source code (all five demos, zipped)"],
+      ["code/day3-exhibits.zip", "Day 3 exhibits: retry, config diff, output schema, tool policy, trigger (code, zipped)"],
+    ],
   },
   {
     day: "Day 4",
     title: "Governance, Evaluation and Ops",
     slides: `${base}/slides/day-4-governance-evaluation-and-ops.pdf`,
     worksheets: [
-      ["governance-review-worksheet", "Governance review worksheet"],
-      ["control-ownership-matrix", "Control ownership matrix"],
+      ["fifteen-incidents-days-2-to-4", "All fifteen real incidents from Days 2 to 4 in one PDF"],
+      ["day4/00-incident-cards-day4", "Incident cards: five more real incidents (Day 4)"],
+      ["day4/01-Q-which-rule-does-this-touch", "01 Q: Which rule does this touch? (sheet)"],
+      ["day4/01-Q-the-four-cards", "01 Q: The four cards (Samsung, Italy, Air Canada, postmark-mcp)"],
+      ["day4/01-Q-rules-reference", "01 Q: The rules banks already work under (reference)"],
+      ["day4/02-D-follow-the-data", "02 D: Follow one customer's data"],
+      ["day4/03-C-which-risk-class", "03 C: Which risk class?"],
+      ["day4/04-B-case-eleven-days-without-a-cap", "04 B: Case card, eleven days without a cap"],
+      ["day4/04-B-the-bill-arrived", "04 B: The bill arrived (ledger and budget rule)"],
+      ["day4/05-T-tag-it-and-route-it", "05 T: Tag it and route it"],
+      ["day4/06-W-the-wall-against-the-matrix", "06 W: The wall against the matrix (A3)"],
+      ["day4/07-N-what-would-you-have-seen-at-0200", "07 N: What would you have seen at 02:00?"],
+      ["day4/08-F-fail-on-purpose", "08 F: Fail on purpose"],
+      ["day4/09-S-score-the-guardrail", "09 S: Score the guardrail"],
+      ["day4/09-S-count-then-turn-the-dial", "09 S: Count, then turn the dial"],
+      ["day4/10-G-case-amazon-q-developer", "10 G: Case card, Amazon Q Developer"],
+      ["day4/11-R-review-board-pack-and-decision-sheet", "11 R: Review board pack and committee decision sheet (A3 and A4)"],
+      ["day4/12-A-case-deloitte-australia", "12 A: Case card, Deloitte Australia"],
+      ["day4/12-A-the-review-that-came-back-clean", "12 A: The review that came back clean"],
+      ["day4/13-M-six-vendor-questions-and-the-match", "13 M: Six vendor questions and the match"],
+      ["day4/14-O-take-away-where-this-lives", "14 O: Where this lives in the real world (take-away)"],
     ],
   },
 ];
@@ -68,9 +91,9 @@ const days = [
     <section class="downloads-section" id="materials">
       <h2>Course materials</h2>
       <p>
-        Slides and worksheets are grouped by day. Everything is a PDF, so you
-        can read it on any device or print the worksheets for the workshop
-        sessions.
+        Slides and worksheets are grouped by day. Most files are PDFs, so you
+        can read them on any device or print the worksheets for the workshop
+        sessions. A couple of items are zipped source code instead.
       </p>
 
       {days.map((d) => (
@@ -83,6 +106,11 @@ const days = [
             {d.worksheets.map(([file, label]) => (
               <li>
                 <a href={`${base}/worksheets/${file}.pdf`} download>{label}</a>
+              </li>
+            ))}
+            {(d.extras ?? []).map(([file, label]) => (
+              <li>
+                <a href={`${base}/${file}`} download>{label}</a>
               </li>
             ))}
           </ul>
