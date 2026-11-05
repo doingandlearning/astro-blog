@@ -2,6 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const base = "/courses/csob";
+const feedbackUrl =
+  "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=e_W03kuia0Of7lReNqN5xj8zt_gN5ypBgnaPclXpL19UQ1ZQNThEUzFWSlhKT0xHVERWS1I4VjE1RC4u";
 const days = [
   {
     day: "Day 1",
@@ -87,6 +89,17 @@ const days = [
       <h1>Enterprise Agentic Systems: Foundations</h1>
       <p class="course-tagline">Course materials for delegates</p>
     </header>
+
+    <section class="downloads-section" id="feedback">
+      <h2>Your feedback</h2>
+      <p>
+        Please take a few minutes to tell Framework Training and me what worked
+        and what didn't. It is a short Microsoft form.
+      </p>
+      <p>
+        <a href={feedbackUrl} target="_blank" rel="noopener noreferrer"><strong>Open the feedback form</strong></a>
+      </p>
+    </section>
 
     <section class="downloads-section" id="materials">
       <h2>Course materials</h2>
