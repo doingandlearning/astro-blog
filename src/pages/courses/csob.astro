@@ -122,6 +122,18 @@ const days = [
         sessions. A couple of items are zipped source code instead.
       </p>
 
+      <h3>Download everything</h3>
+      <ul class="downloads-list">
+        <li>
+          <a href={`${base}/csob-course-materials.zip`} download><strong>All slides and handouts (zip)</strong></a>
+          : the slides for all four days, every worksheet and card pack, and the tooling guide, as PDFs.
+        </li>
+        <li>
+          <a href={`${base}/csob-course-code.zip`} download><strong>All code shown on the course (zip)</strong></a>
+          : the five demos, the Day 1 vocabulary app and the Day 3 and Day 4 exhibits. The demos that call a model need your own API key (see each README).
+        </li>
+      </ul>
+
       {days.map((d) => (
         <>
           <h3>{d.day}: {d.title}</h3>
