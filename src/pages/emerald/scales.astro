@@ -1,0 +1,265 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { instruments, scaleCards } from "../../data/scales";
+---
+
+<BaseLayout
+  pageTitle="Scales and Arpeggios"
+  pageDescription="Flashcards for scales, arpeggios and sevenths for cello, piano and flute."
+  showSocials={false}
+>
+  <div class="scales-app" id="scalesApp">
+    <div class="wrap">
+      <header>
+        <h1>Scales and Arpeggios</h1>
+        <div class="stats"><div class="stat"><span id="knownStat">0</span> known</div></div>
+      </header>
+
+      <div class="card">
+        <div class="chips" id="instrumentRow" aria-label="Instrument"></div>
+        <div class="chips small" id="groupRow" aria-label="Type"></div>
+        <div class="toggles">
+          <label><input type="checkbox" id="hideKnown" /> Hide the ones I know</label>
+          <label><input type="checkbox" id="shuffle" /> Shuffle</label>
+        </div>
+      </div>
+
+      <div class="counter" id="counter"></div>
+      <div class="progress"><div id="progressBar" style="width: 0%"></div></div>
+
+      <button class="flashcard" id="flashcard" aria-live="polite">
+        <div class="tag" id="cardTag"></div>
+        <div class="front" id="cardFront"></div>
+        <dl class="back hidden" id="cardBack"></dl>
+        <div class="hint" id="cardHint">Tap the card to see what is asked for</div>
+      </button>
+
+      <div class="actions">
+        <button class="ghost" id="prevBtn">Back</button>
+        <button class="again" id="againBtn">Again</button>
+        <button class="got" id="gotBtn">Got it</button>
+        <button class="ghost" id="nextBtn">Next</button>
+      </div>
+      <div class="footer-row">
+        <button class="link" id="resetBtn">Reset progress for this instrument</button>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  .scales-app {
+    --bg: #eef6f1;
+    --card: #ffffff;
+    --ink: #1f2d27;
+    --muted: #668077;
+    --accent: #1f9d6b;
+    --accent-ink: #ffffff;
+    --bad: #e0555a;
+    --line: #d9eadf;
+    --shadow: 0 10px 30px rgba(31, 45, 39, 0.1);
+    --radius: 20px;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .scales-app * { box-sizing: border-box; }
+  .scales-app .wrap { max-width: 520px; margin: 0 auto; padding: 16px 16px 40px; }
+  .scales-app .hidden { display: none !important; }
+  .scales-app header { display: flex; align-items: center; justify-content: space-between; padding: 6px 2px 18px; }
+  .scales-app header h1 { font-size: 1.25rem; margin: 0; }
+  .scales-app .stat { background: var(--card); border-radius: 999px; padding: 6px 12px; font-weight: 600; box-shadow: var(--shadow); font-size: 0.9rem; }
+  .scales-app .card { background: var(--card); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); margin-bottom: 14px; }
+  .scales-app .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .scales-app .chip { border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 8px 14px; font-size: 0.95rem; cursor: pointer; }
+  .scales-app .chips.small .chip { padding: 5px 11px; font-size: 0.85rem; }
+  .scales-app .chip.active { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .scales-app .toggles { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.9rem; color: var(--muted); }
+  .scales-app .toggles label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+  .scales-app .counter { text-align: center; color: var(--muted); font-size: 0.9rem; margin-bottom: 6px; }
+  .scales-app .progress { height: 6px; background: var(--line); border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
+  .scales-app .progress div { height: 100%; background: var(--accent); transition: width 0.25s ease; }
+  .scales-app .flashcard { width: 100%; min-height: 260px; background: var(--card); border: 2px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px 20px; cursor: pointer; text-align: center; color: var(--ink); font: inherit; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 14px; transition: border-color 0.2s ease, transform 0.15s ease; }
+  .scales-app .flashcard:hover { border-color: var(--accent); }
+  .scales-app .flashcard.flipped { background: #f7fcf9; }
+  .scales-app .flashcard.known { border-color: var(--accent); }
+  .scales-app .tag { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  .scales-app .front { font-size: 1.7rem; font-weight: 700; line-height: 1.25; }
+  .scales-app .back { margin: 0; width: 100%; text-align: left; display: grid; gap: 10px; }
+  .scales-app .back .row { display: grid; grid-template-columns: 110px 1fr; gap: 10px; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+  .scales-app .back dt { color: var(--muted); font-size: 0.85rem; }
+  .scales-app .back dd { margin: 0; font-weight: 600; }
+  .scales-app .hint { font-size: 0.85rem; color: var(--muted); }
+  .scales-app .actions { display: grid; grid-template-columns: 1fr 1.2fr 1.2fr 1fr; gap: 8px; margin-top: 14px; }
+  .scales-app .actions button { border-radius: 14px; padding: 12px 8px; font-size: 1rem; font-weight: 600; cursor: pointer; border: 2px solid var(--line); background: #fff; color: var(--ink); }
+  .scales-app .actions .got { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .scales-app .actions .again { border-color: var(--bad); color: var(--bad); }
+  .scales-app .actions button:disabled { opacity: 0.4; cursor: default; }
+  .scales-app .footer-row { text-align: center; margin-top: 18px; }
+  .scales-app .link { background: none; border: none; color: var(--muted); text-decoration: underline; cursor: pointer; font-size: 0.85rem; }
+  .scales-app .empty { font-size: 1.1rem; font-weight: 600; line-height: 1.4; }
+</style>
+
+<script is:inline define:vars={{ instruments, scaleCards }}>
+  (function () {
+    var KEY = "emerald-scales-v1";
+    var saved = { instrument: instruments[0].id, hideKnown: false, shuffle: false, known: {} };
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (raw) {
+        var parsed = JSON.parse(raw);
+        saved = Object.assign(saved, parsed);
+      }
+    } catch (e) {}
+    if (!instruments.some(function (i) { return i.id === saved.instrument; })) {
+      saved.instrument = instruments[0].id;
+    }
+
+    var group = "All";
+    var deck = [];
+    var index = 0;
+    var flipped = false;
+
+    var $ = function (id) { return document.getElementById(id); };
+    var el = {
+      instrumentRow: $("instrumentRow"), groupRow: $("groupRow"),
+      hideKnown: $("hideKnown"), shuffle: $("shuffle"),
+      counter: $("counter"), progressBar: $("progressBar"), knownStat: $("knownStat"),
+      card: $("flashcard"), tag: $("cardTag"), front: $("cardFront"), back: $("cardBack"), hint: $("cardHint"),
+      prev: $("prevBtn"), next: $("nextBtn"), got: $("gotBtn"), again: $("againBtn"), reset: $("resetBtn"),
+    };
+
+    function save() {
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+    }
+
+    function shuffled(list) {
+      var a = list.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+
+    function instrumentCards() {
+      return scaleCards.filter(function (c) { return c.instrument === saved.instrument; });
+    }
+
+    function makeChip(label, active, onClick) {
+      var b = document.createElement("button");
+      b.className = "chip" + (active ? " active" : "");
+      b.textContent = label;
+      b.addEventListener("click", onClick);
+      return b;
+    }
+
+    function renderChips() {
+      el.instrumentRow.textContent = "";
+      instruments.forEach(function (i) {
+        el.instrumentRow.appendChild(makeChip(i.label, i.id === saved.instrument, function () {
+          saved.instrument = i.id; group = "All"; save(); rebuild(true);
+        }));
+      });
+      el.groupRow.textContent = "";
+      var groups = ["All"];
+      instrumentCards().forEach(function (c) { if (groups.indexOf(c.group) === -1) groups.push(c.group); });
+      groups.forEach(function (g) {
+        el.groupRow.appendChild(makeChip(g, g === group, function () {
+          group = g; rebuild(true);
+        }));
+      });
+    }
+
+    function rebuild(resetIndex) {
+      var cards = instrumentCards().filter(function (c) { return group === "All" || c.group === group; });
+      if (saved.hideKnown) cards = cards.filter(function (c) { return !saved.known[c.id]; });
+      deck = saved.shuffle ? shuffled(cards) : cards;
+      if (resetIndex || index >= deck.length) index = 0;
+      flipped = false;
+      renderChips();
+      el.hideKnown.checked = saved.hideKnown;
+      el.shuffle.checked = saved.shuffle;
+      render();
+    }
+
+    function render() {
+      var all = instrumentCards();
+      var knownCount = all.filter(function (c) { return saved.known[c.id]; }).length;
+      el.knownStat.textContent = knownCount + "/" + all.length;
+      el.progressBar.style.width = (all.length ? (knownCount / all.length) * 100 : 0) + "%";
+
+      el.back.textContent = "";
+      if (!deck.length) {
+        el.counter.textContent = "";
+        el.tag.textContent = "";
+        el.front.className = "front empty";
+        el.front.textContent = saved.hideKnown
+          ? "You know every card here. Untick “Hide the ones I know” to revise them again."
+          : "No cards here.";
+        el.back.classList.add("hidden");
+        el.hint.textContent = "";
+        el.card.classList.remove("flipped", "known");
+        el.prev.disabled = el.next.disabled = el.got.disabled = el.again.disabled = true;
+        return;
+      }
+      el.prev.disabled = el.next.disabled = el.got.disabled = el.again.disabled = false;
+      var card = deck[index];
+      el.counter.textContent = "Card " + (index + 1) + " of " + deck.length;
+      el.tag.textContent = card.group;
+      el.front.className = "front";
+      el.front.textContent = card.title;
+      card.details.forEach(function (d) {
+        var row = document.createElement("div");
+        row.className = "row";
+        var dt = document.createElement("dt"); dt.textContent = d.label;
+        var dd = document.createElement("dd"); dd.textContent = d.value;
+        row.appendChild(dt); row.appendChild(dd);
+        el.back.appendChild(row);
+      });
+      el.card.classList.toggle("flipped", flipped);
+      el.card.classList.toggle("known", !!saved.known[card.id]);
+      el.back.classList.toggle("hidden", !flipped);
+      el.front.classList.toggle("hidden", flipped);
+      el.hint.textContent = flipped ? "Tap the card to turn it back" : "Tap the card to see what is asked for";
+    }
+
+    function go(delta) {
+      if (!deck.length) return;
+      index = (index + delta + deck.length) % deck.length;
+      flipped = false;
+      render();
+    }
+
+    function mark(isKnown) {
+      if (!deck.length) return;
+      var id = deck[index].id;
+      if (isKnown) saved.known[id] = true; else delete saved.known[id];
+      save();
+      if (saved.hideKnown && isKnown) { rebuild(false); return; }
+      go(1);
+    }
+
+    el.card.addEventListener("click", function () { if (deck.length) { flipped = !flipped; render(); } });
+    el.prev.addEventListener("click", function () { go(-1); });
+    el.next.addEventListener("click", function () { go(1); });
+    el.got.addEventListener("click", function () { mark(true); });
+    el.again.addEventListener("click", function () { mark(false); });
+    el.hideKnown.addEventListener("change", function () { saved.hideKnown = el.hideKnown.checked; save(); rebuild(true); });
+    el.shuffle.addEventListener("change", function () { saved.shuffle = el.shuffle.checked; save(); rebuild(true); });
+    el.reset.addEventListener("click", function () {
+      if (!window.confirm("Clear everything marked as known for this instrument?")) return;
+      instrumentCards().forEach(function (c) { delete saved.known[c.id]; });
+      save(); rebuild(true);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.target && /INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
+      if (e.key === "ArrowRight") go(1);
+      else if (e.key === "ArrowLeft") go(-1);
+    });
+
+    rebuild(true);
+  })();
+</script>
