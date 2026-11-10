@@ -31,6 +31,7 @@ const labs2 = [
   ["lab-2-8-package-your-skills", "Lab 2.8: Package your skills"],
 ];
 const handouts2 = [
+  ["build-a-skill-worksheet.pdf", "Worksheet: build a skill with your team (PDF)"],
   ["skill-template.docx", "Skill template (Word)"],
   ["workflow-card.pdf", "Workflow card (PDF)"],
 ];
@@ -72,7 +73,7 @@ const samples2 = [
         </li>
         <li>
           <a href={`${base}/chatgpt-day-2-materials.zip`} download><strong>All Day 2 materials (zip)</strong></a>
-          : the eight labs, the skill template, the workflow card and five sample files.
+          : the eight labs, the skill-building worksheet, the skill template, the workflow card and five sample files.
         </li>
       </ul>
 
@@ -119,6 +120,28 @@ const samples2 = [
         {samples2.map(([file, label]) => (
           <li><a href={`${d2}/samples/${file}`} download>{label}</a></li>
         ))}
+      </ul>
+      <h3>Inspiration: published skills</h3>
+      <p>
+        Three public collections of skills for construction and tendering work.
+        They are written for developer tools such as Claude Code, so read them
+        for ideas and structure rather than installing them. They are written by
+        other people and I have not tested them. Read any skill carefully before
+        you use it, and keep anything confidential out of it.
+      </p>
+      <ul class="downloads-list">
+        <li>
+          <a href="https://github.com/dgcruzing/construction-office-skills" target="_blank" rel="noopener noreferrer">Construction office skills</a>
+          : meeting minutes and actions, RFI drafter, daily site diary, variation and extension of time draft, non-conformance reports, tender comparison matrix.
+        </li>
+        <li>
+          <a href="https://github.com/dleerdefi/claude-code-construction" target="_blank" rel="noopener noreferrer">Claude Code construction skills</a>
+          : bid tabulator and evaluator, submittal log, schedule extractor, subcontract writer.
+        </li>
+        <li>
+          <a href="https://github.com/peterbamuhigire/proposal-skills" target="_blank" rel="noopener noreferrer">Proposal skills</a>
+          : tender and expression of interest writing, including methodology, work plan and evaluator storytelling. No licence is stated, so use it for inspiration only.
+        </li>
       </ul>
     </section>
   </article>
