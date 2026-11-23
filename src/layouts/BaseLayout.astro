@@ -57,9 +57,22 @@ const { pageTitle, pageDescription, showSocials = true, noindex = false } = Astr
     <title>{pageTitle}</title>
     <script
       is:inline
+      async
       id="plausible-script"
-      data-domain="kevincunningham.co.uk"
-      src="https://plausible.io/js/plausible.outbound-links.js"></script>
+      src="https://plausible.io/js/pa-7DQ2GpxFqVI1NDvDiy65u.js"></script>
+    <script is:inline>
+      window.plausible =
+        window.plausible ||
+        function () {
+          (plausible.q = plausible.q || []).push(arguments);
+        };
+      plausible.init =
+        plausible.init ||
+        function (i) {
+          plausible.o = i || {};
+        };
+      plausible.init({ outboundLinks: true });
+    </script>
     <script>
       import Alpine from "alpinejs";
       (window as any).Alpine = Alpine;
